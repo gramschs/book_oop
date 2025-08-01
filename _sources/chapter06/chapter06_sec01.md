@@ -1,174 +1,364 @@
 ---
 jupytext:
-  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.8
+    jupytext_version: 1.14.5
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: turtle
   language: python
   name: python3
 ---
 
-# 6.1 Funktionen selbst schreiben
+# 6.1 Listen erstellen und verwenden
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-Eine Funktion in Python ist eine Zusammenfassung von Anweisungen, die dazu
-dienen, eine bestimmte Teilaufgabe zu lösen. Dabei arbeitet die Funktion in
-ihrer allgemeinsten Form nach dem EVA-Prinzip: Eingabe, Verarbeitung, Ausgabe.
-Die Funktion übernimmt Objekte als Eingabe, verarbeitet diese und liefert
-Objekte als Ergebnis zurück. Wie die Funktion dabei im Inneren genau
-funktioniert (Verarbeitung), ist für den Anwender zunächst unwichtig.
+Bisher haben wir drei verschiedene Datentypen kennengelernt:
 
-Beispielsweise gibt es im Modul `numpy` die Funktion `sqrt()`. Wir übergeben der
-Funktion eine Zahl (Eingabe), z.B. `sqrt(5)`. Die Funktion liefert dann als
-Ergebnis $\sqrt{5}$​ zurück. Welches Verfahren zur Berechnung der Wurzel
-verwendet wurde, müssen wir als Anwender nicht wissen.
+* Integer (ganze Zahlen),
+* Float (Fließkommazahlen) und
+* String (Zeichenketten).
 
-Insbesondere muss die Teilaufgabe, die die Funktion löst, nichts mit Mathematik
-zu tun haben. Eine Funktion in der Informatik unterscheidet sich von einer
-mathematischen Funktion, auch wenn oft mathematische Funktionen als Beispiel
-verwendet werden. Ein Beispiel für eine nicht-mathematische Funktion haben Sie
-mit `input()` bereits kennengelernt. Die Funktion nimmt einen Text entgegen, z.B.
-die Frage "Wie groß sind Sie?". Dann wird dieser Text verarbeitet, in diesem
-Fall auf dem Bildschirm angezeigt und die Antwort eingelesen. Die Antwort kann
-dann in einer Variablen gespeichert werden.
+Damit können wir einzelne Objekte der realen Welt gut abbilden. Mit einem String
+können wir den Namen einer Person erfassen, mit einem Integer das Alter der
+Person und mit einem Float die Körpergröße der Person gemessen in Meter. Was uns
+aber bisher fehlt ist, eine Sammlung von Namen oder eine Sammlung von
+Körpergrößen verwalten zu können. Daher werden wir uns in diesem Jupyter
+Notebook mit Listen beschäftigen.
 
 ## Lernziele
 
 ```{admonition} Lernziele
 :class: goals
-* Sie kennen die Fachbegriffe 
-  * **Aufruf** einer Funktion,
-  * **Argumente** einer Funktion und
-  * **Rückgabewert** einer Funktion.
-* Sie können eine einfache Funktion selbst implementieren und aufrufen.
+* Sie wissen, dass **Container** Datentypen sind, die andere Objekte als Sammlung verwalten.
+* Sie können eine **Liste** erzeugen.
+* Sie wissen, was der Fachbegriff **Index** bedeutet.
+* Sie können lesend und schreibend auf die Elemente einer Liste zugreifen, beherrschen also
+    * **Lesezugriff** und 
+    * **Schreibzugriff**.
+* Sie können mit dem Plus-Operator + Listen **verketten**.
+* Sie können Elemente aus einer Liste löschen:
+    * Löschung per Index: Funktion **del**
+    * Löschung nach Wert: Methode **remove**
 ```
 
-## Die Benutzung von Funktionen (oder der Aufruf von Funktionen)
++++
 
-Der Aufruf einer Funktion hat folgende Syntax:
+## Container für Sammlungen
 
-```python
-rueckgabewert = funktion( argument1, argument2, ... )
-```
+In der Mathematik gibt es den Begriff des Vektors. Einen Vektor kann man als
+eine Sammlung von Zahlen interpretieren. Dabei müssen Vektoren nicht immer eine
+geometrische Interpretation haben. Beispielsweise steht der Vektor
 
-Eine Funktion wird benutzt, indem man den Namen der Funktion und dann in runden
-Klammern ihre **Argumente** hinschreibt. In der Informatik wird das als
-**Aufruf** einer Funktion bezeichnet. Welche Argumente für eine Funktion
-verwendet werden dürfen, hängt von der Implementierung der Funktion ab.
+(116, 144, 199)
 
-Beispielsweise kann als Argument für die `len()`-Funktion ein String übergeben
-werden oder eine Liste.
+für ein sehr schönes Blau, wenn die drei Komponenten als die Intensität der
+Farbanteile Rot - Grün - Blau interpretiert werden. Diese Art Farben zu
+beschreiben, wird RGB-Wert genannt (siehe auch [Wikipedia →
+RGB-Farbraum](https://de.wikipedia.org/wiki/RGB-Farbraum)). Die Internetseite
+[https://www.color-hex.com](https://www.color-hex.com/) ermöglicht es, die
+RGB-Werte verschiedener Farbtöne zu ermitteln.
+
+Wir könnten aber auch eine Namensliste mit den Mitgliedern einer WG führen
+wollen, z.B. [“Alice”, “Bob”, “Charlie”]. Damit verlassen wir die mathematische
+Welt der Zahlen und damit des Vektors. Aber auch für diese Anwendungsszenarien
+wäre es schön, Daten gemeinsam zu sammeln und zu verwalten.
+
+Der Fachbegriff für Datentypen, die dafür gedacht sind, Daten als Sammlung zu
+verwalten, ist **Container**. In Python gibt es verschiedene Container:
+
+* Listen: list
+* Tupel: tuple
+* Dictionaries: dict
+* Mengen: set
+
+Wir behandeln in diesem Abschnitt die Listen.
+
++++
+
+## Listen erzeugen mit []
+
+Eine Liste wird in Python durch eckige Klammern [  ] erzeugt.
+
+Betrachten wir ein Beispiel. Hier wird eine Liste mit den Elementen 1, 2, 3, 4,
+5 erzeugt und dann anschließend in der Variablen `liste_beispiel` gespeichert.
+Mit der Funktion `print()` lassen wir den Inhalt der Liste ausgeben.
 
 ```{code-cell} ipython3
-len('Hallo')
+liste_beispiel = [1, 2, 3, 4, 5]
+print(liste_beispiel)
 ```
 
-```{code-cell} ipython3
-len([1,2,3,4,8,2])
-```
+Probieren Sie in der nächsten Mini-Übung selbst aus, wie eine Liste erzeugt
+wird.
 
-In der Regel geben Funktionen wieder Ergebnisse zurück. Diese werden
-**Rückgabewert** genannt. Beispielsweise können die Rückgabewert einer Variable
-zugewiesen werden, um mit dem Ergebnis weiter zu arbeiten.
-
-```{code-cell} ipython3
-laenge1 = len('Hallo')
-laenge2 = len(['Apfel', 'Banane', 'Erdbeere'])
-
-if laenge1 < laenge2:
-    print('Das Wort Hallo enthält weniger Buchstaben als Früchte im Obstsalat.')
-else:
-    print('Das Wort Hallo enthält mehr Buchstaben als Einträge in der Liste.')
-```
-
-## Definition von einfachen Funktionen
-
-Einfache Funktionen werden mit dem Schlüsselwort `def` gefolgt vom
-Funktionsnamen definiert. In Python verwendet man für Funktionsnamen
-üblicherweise Kleinbuchstaben und Unterstriche zur Trennung von Wörtern. Die
-Code-Anweisungen der Funktion werden eingerückt.
-
-```python
-def meine_funktion():
-    anweisung01
-    anweisung02
-     ...
-
-```
-
-Erstes Beispiel:
-
-Die folgende Funktion hat weder Eingabe noch Rückgabe, sondern führt einfach
-eine Aktion aus.
-
-```{code-cell} ipython3
-def gruesse_ausrichten():
-    print('Ich grüße Sie!')
-```
-
-Nachdem die Funktion `gruesse_ausrichten()` so implementiert wurde, können wir
-sie im Folgenden direkt verwenden.
-
-```{code-cell} ipython3
-gruesse_ausrichten()
-```
-
-Und natürlich kann man sie in Programmverzweigungen und Schleifen einbauen.
-
-```{code-cell} ipython3
-for i in range(7):
-    gruesse_ausrichten()
-```
++++
 
 ```{admonition} Mini-Übung
 :class: miniexercise
-Schreiben Sie eine Funktion, die mit Turtle ein Rechteck zeichnet. Testen Sie
-Ihre Funktion auch.
+Erzeugen Sie eine Liste mit Ihrem Vornamen, Ihrem Nachnamen und Ihrer Körpergröße in m. Welche Datentypen brauchen Sie für diese drei Objekte? Lassen Sie Ihre Liste auch ausgeben.
 ```
 
 ```{code-cell} ipython3
-# Geben Sie nach diesem Kommentar Ihren Code ein:
-
+# Hier Ihr Code
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-import ColabTurtlePlus.Turtle as turtle
-turtle.clearscreen()
-
-def zeichne_rechteck():
-    rechteck = turtle.Turtle()
-    for i in range(2):
-        rechteck.forward(100)
-        rechteck.left(90)
-        rechteck.forward(50)
-        rechteck.left(90)
-        
-zeichne_rechteck()
+person = ['Alice', 'Musterfrau', 1.61]
+print(person)
 ```
+Vor- und Nachname werden durch Strings repräsentiert, die Körpergröße als Float.
 ````
 
-Das folgende Video zeigt Ihnen nochmal, wie in Python Funktionen definiert
-werden.
+Im folgenden Video können Sie sich die Erzeugung von Listen nochmal ansehen.
 
-```{dropdown} Video "Funktionen" von Programmieren Starten
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LQCfN5HS9xI"
+```{dropdown} Video "Python Tutorial - Listen" von Programmieren starten
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ihF8bZoauBs"
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ```
 
+## Elemente aus einer Liste herausholen: Zugriff
+
+Jede Liste hat einen Index. Man kann sich eine Liste wie eine Straße mit einer
+Sammlung von Häusern vorstellen. Um ein Haus in der Straße zu finden, hat es
+eine Hausnummer. Und das ist in der Informatik der **Index**, also die Position
+in der Liste, an der ein Element zu finden ist.
+
+In jeder Programmiersprache gibt es Container mit einem Index, wobei der Index
+in der Regel durch Integer repräsentiert wird. Allerdings gibt es Unterschiede,
+bei welcher Zahl die Nummerierung beginnt. **Python fängt mit der Null an.**
+Dann können wir mit dem Index sozusagen nachsehen, welches Element an dieser
+Index-Position gespeichert ist. Das nennt man in der Informatik **Lesezugriff**.
+Oder wir können das Element an einer bestimmten Index-Position gegen ein neues
+Element austauschen. Das nennt man dann **Schreibzugriff**.
+
+Um auf ein Element einer Liste zugreifen zu können (egal ob lesend oder
+schreibend), verwenden wir eckige Klammern und den Index. Der Lesezugriff für
+das erste Element sieht biepielsweise so aus:
+
+```{code-cell} ipython3
+# Erzeugung einer Liste
+meine_liste = ['rot', 'grün', 'blau', 'gelb', 'weiß', 'schwarz']
+
+# Lesezugriff mit Position 1, also Index 0
+erstes_objekt = meine_liste[0]
+print(erstes_objekt)
+```
+
+In der nächsten Mini-Übung wird der Lesezugriff genutzt, um ein Element in einer
+neuen Variable zu speichern.
+
++++
+
+```{admonition} Mini-Übung
+:class: miniexercise
+Speichern Sie das 4. Element der Liste `meine_liste = ['rot', 'grün', 'blau', 'gelb', 'weiß', 'schwarz']` in der Variable `vier` ab und lassen Sie es ausgeben.
+```
+
+```{code-cell} ipython3
+# Hier Ihr Code
+```
+
+````{admonition} Lösung
+:class: miniexercise, toggle
+```python
+meine_liste = ['rot', 'grün', 'blau', 'gelb', 'weiß', 'schwarz']
+
+vier = meine_liste[3]
+print(vier)
+```
+````
+
++++
+
+Der Schreibzugriff erfolgt ebenfalls mit eckigen Klammern und dem Index.
+
+Im folgenden Code sehen Sie, wie in der Liste die Farbe weiß durch lila ersetzt wird.
+
+```{code-cell} ipython3
+# Erzeugung Liste
+meine_liste = ['rot', 'grün', 'blau', 'gelb', 'weiß', 'schwarz']
+
+# Schreibzugriff
+meine_liste[4] = 'lila'
+print(meine_liste)
+```
+
+Der Zugriff auf Listen wird auch in dem folgenden Video erklärt.
+
+```{dropdown} Video "Python Tutorial - Zugriff auf Listen" von Programmieren starten
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_XzWPXvya2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+
+## Liste + Liste = verkettete Liste
+
+Auch wenn es im ersten Moment verrückt erscheint, Python kann Listen addieren.
+Am besten schauen wir uns ein Beispiel an:
+
+```{code-cell} ipython3
+liste_de = ['rot', 'grün', 'blau']
+liste_en = ['red', 'green', 'blue']
+
+# Verkettung zweier Listen durch +
+liste_de_en = liste_de + liste_en
+print(liste_de_en)
+```
+
+Das Aneinanderhängen von Elementen zweier Container nennen wir in der Informatik
+**Verkettung**. Oft wird auch der englische Begriff **Concatenation** verwendet.
+
+In der folgenden Mini-Übung können Sie die Verkettung ausprobieren.
+
++++
+
+````{admonition} Mini-Übung
+:class: miniexercise
+Erzeugen Sie eine Liste mit den Monaten März, April und Mai und speichern Sie
+diese Liste in der Variable `fruehling`. Erzeugen Sie anschließend die Listen
+`sommer`, `herbst` und `winter` mit den jeweils passenden Monaten. Verketten Sie
+die vier Listen und speichern Sie in der Variable `jahr` ab. Lassen Sie zuletzt das 
+Jahr anzeigen.
+
+Welchen Index hat Ihr Geburtsmonat in der Liste `jahr`?
+````
+
+```{code-cell} ipython3
+# Hier Ihr Code
+```
+
+````{admonition} Lösung
+:class: miniexercise, toggle
+```python
+# Listen mit Monaten
+fruehling = ['März', 'April', 'Mai']
+sommer = ['Juni', 'Juli', 'August']
+herbst = ['September', 'Oktober', 'November']
+winter = ['Dezember', 'Januar', 'Februar']
+
+# Jahr
+jahr = fruehling + sommer + herbst + winter
+print(jahr)
+```
+Der März hat den Index 0, der April den Index 1 usw.. Der letzte Monat ist der
+Februar, der den Index 11 hat.
+````
+
++++
+
+## Wie lang ist eine Liste?
+
+Manchmal möchte man wissen, wie viele Elemente in einer Liste enthalten sind.
+Dafür gibt es in Python die eingebaute Funktion `len()` – kurz für length, also
+Länge.
+
+```{code-cell} ipython3
+farben = ['rot', 'grün', 'blau']
+anzahl_farben = len(farben)
+print(anzahl_farben)
+```
+
+In diesem Beispiel enthält die Liste `farben` drei Elemente, daher gibt
+`len(farben)` den Wert 3 zurück.
+
+Diese Funktion ist besonders nützlich, wenn man mit Listen arbeitet, deren Länge
+sich verändert, zum Beispiel, wenn Einträge hinzugefügt oder gelöscht werden.
+
+```{admonition} Mini-Übung
+:class: miniexercise
+Erzeugen Sie eine Liste mit Ihren drei Lieblingsgerichten. Verwenden Sie
+`len()`, um die Länge der Liste zu bestimmen, und geben Sie sie aus.
+```
+
+```{code-cell} ipython
+# Hier Ihr Code.
+```
+
+````{admonition} Lösung
+:class: miniexercise, toggle
+```python
+gerichte = ['Pizza', 'Lasagne', 'Sushi']
+print(len(gerichte))
+```
+````
+
+## Elemente löschen mit del und remove
+
+Die Verkettung der Listen führt dazu, dass die Listen länger werden. Die
+Umkehrung davon fehlt noch, das Kürzen von Listen. Wie so oft in Python gibt es
+mehrere Möglichkeiten, ein Element aus einer Liste zu entfernen, also zu
+löschen. Die Anweisung `del` löscht das Element an einer bestimmten Position.
+Zuerst kommt die Anweisung, dann das Listenelement mit Index:
+
+```{code-cell} ipython3
+meine_liste = ['Null', 'Eins', 'Zwei', 'Drei', 'Vier', 'Fünf']
+print('Vor dem Löschen: ')
+print(meine_liste)
+
+del meine_liste[2]
+print('Nach dem Löschen')
+print(meine_liste)
+```
+
+Wie Sie sehen ist das dritte Element in der Liste gelöscht worden, da die
+Nummerierung des Index bei 0 startet.
+
++++
+
+Vielleicht möchte man aber gar nicht ein Element an einer bestimmten Position
+löschen, sondern einen bestimmten Eintrag. Das folgende Beispiel implementiert
+eine Einkaufsliste in Python. Sobald ein Lebensmittel gekauft ist, soll es von
+der Liste gestrichen werden.
+
+```{code-cell} ipython3
+einkaufsliste = ['Milch', 'Kaffee', 'Brötchen', 'Marmelade']
+
+print('Einkaufsliste: ')
+print(einkaufsliste)
+
+einkaufsliste.remove('Brötchen')
+print('Nach dem Einkauf in der Bäckerei: ')
+print(einkaufsliste)
+
+einkaufsliste.remove('Milch')
+einkaufsliste.remove('Kaffee')
+einkaufsliste.remove('Marmelade')
+print('Nach dem Einkauf im Supermarkt: ')
+print(einkaufsliste)
+```
+
+Die Vorgehensweise, um das Element `Milch` zu löschen, ist diesmal komplett
+anders. Diesmal hängen wir an die Variable `einkaufsliste` einen Punkt und dann
+den Namen des Kommandos `remove()`. Wieso das?
+
+Das Kommando `del` ist so wichtig und universell, dass es mit allen Containern
+funktioniert. Daher ist dieser Befehl als eine sogenannte **Funktion** im
+Python-Kern implementiert. Das Kommando `remove()` bezieht sich jedoch nur auf
+die Liste. Daher ist dieser Befehl als eine sogenannte **Methode**
+implementiert. Eine Methode ist eine Funktion, die zu einem Datentyp dazugehört.
+
+In späteren Kapiteln werden wir selbst Funktionen und Methoden
+(Objektorientierung) implementieren und auf die Unterschiede detaillierter
+eingehen. Im Moment begnügen wir uns mit der Tatsache, dass es Funktionen wie
+
+* input()
+* print()
+* del()
+
+gibt und Methoden, die mit einem Punkt an das Objekt angehängt werden wie z.B.
+`.remove()`.
+
 ## Zusammenfassung und Ausblick
 
-In diesem Kapitel haben wir einfache Funktionen in Python kennengelernt. Mit dem
-Schlüsselwort `def` können wir Anweisungen bündeln und über einen Funktionsnamen
-wiederholt aufrufen. Im nächsten Kapitel erweitern wir unsere Funktionen um
-Parameter und Rückgabewerte, wodurch sie flexibler und vielseitiger einsetzbar
-werden.
+In diesem Kapitel haben wir gelernt, wie man mit Listen mehrere Werte in Python
+strukturiert speichern kann. Wir wissen nun, wie Listen erstellt, gelesen,
+verändert, verkettet und verkürzt werden. Außerdem kennen wir mit `len()` eine
+einfache Möglichkeit, die Länge einer Liste zu bestimmen. Diese Konzepte bilden
+die Grundlage für viele weiterführende Themen wie Schleifen und Interaktionen,
+die in späteren Kapiteln behandelt werden.

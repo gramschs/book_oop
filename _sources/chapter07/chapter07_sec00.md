@@ -1,4 +1,4 @@
-# 7. Digitale Logik, Schleifen mit Bedingung, Dictionaries
+# 7. Fortgeschrittene Datenstrukturen und Fehlerbehandlung
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

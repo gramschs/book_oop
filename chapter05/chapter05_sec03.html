@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+    <title>5.3 Funktionen in der Praxis &#8212; Python für Studierende der Ingenieurwissenschaften</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -65,7 +65,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Übungen" href="chapter05_sec04.html" />
-    <link rel="prev" title="5.2 Programmverzweigungen: if" href="chapter05_sec02.html" />
+    <link rel="prev" title="5.2 Parameter und Rückgabewerte" href="chapter05_sec02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,99 +171,108 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen Programmierung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Grundlagen und erste Schritte</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec01.html">1.1 Hardware und Software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec02.html">1.2 Programmieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Installation und Start von Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Jupyter Notebooks und Python als Taschenrechner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Eingabe, Verarbeitung und Ausgabe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Taschenrechner und Ausgabe (print)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen und Variablen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Eingabe (input) und Zuweisungsoperator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Daten speichern und verarbeiten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Variablen und Zuweisungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Benutzereingaben</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Listen und Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Listen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Das Modul NumPy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Das Modul Turtle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Entscheidungen treffen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Wahrheitswerte und Vergleiche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Einfache Verzweigungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Mehrfachverzweigungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Zählschleifen (for), Strings und Zufallszahlen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Zufallszahlen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Wiederholungen automatisieren</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen mit range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Verschachtelte Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Schleifen mit Bedingungen (while)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter05_sec00.html">5. Programmverzweigung (if - elif - else)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="chapter05_sec01.html">5.1 Vergleiche und der boolesche Datentyp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter05_sec02.html">5.2 Programmverzweigungen: if</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter05_sec00.html">5. Code strukturieren mit Funktionen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chapter05_sec01.html">5.1 Funktionen definieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter05_sec02.html">5.2 Parameter und Rückgabewerte</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3 Funktionen in der Praxis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter05_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Funktionen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Funktionen selbst schreiben</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Funktionen mit Parameter und Rückgabe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Lokale und globale Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Datensammlungen verwalten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Listen erstellen und verwenden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Listen und Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Strings als Zeichenketten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Digitale Logik, Schleifen mit Bedingung, Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Digitale Logik: und, oder, nicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Schleifen mit Bedingung (while)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Fortgeschrittene Datenstrukturen und Fehlerbehandlung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Zufallszahlen und Simulationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Fehlerbehandlung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. Objektorientierte Programmierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Was sind Objekte?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Attribute und Methoden*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 OOP in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Automatisierungstechnik</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Einführung MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Numerisches Rechnen mit MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 Programmieren in MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Einführung MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Numerisches Rechnen mit MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Programmieren in MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Simulink Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Simulink-Bibliothek</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Simulink Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Simulink-Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übung</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Pandas anstatt Excel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Series und DataFrame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Arbeiten mit Tabellendaten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Statistik mit Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übungen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Einführung in Data Science mit Pandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Series und DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Arbeiten mit Tabellendaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 Statistik mit Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Kontinuierliche Daten visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Diskrete Daten und Häufigkeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 DataFrames visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec05.html">Übungen</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Theorie Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Lineare Regression mit polyfit und polyval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">12.3 Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Liniendiagramm und Streudiagramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Balkendiagramm und Histogramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">11.3 DataFrames visualisieren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Was ist maschinelles Lernen?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Überwachtes, unüberwachtes und verstärkendes Lernen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Lineare Regressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Multiple lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec03.html">13.3 Polynomiale Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter14/chapter14_sec00.html">14. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec01.html">14.1 Was ist ein Entscheidungsbaum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec02.html">14.2 Entscheidungsbäume trainieren und visualisieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec03.html">14.3 Entscheidungsbäume in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
@@ -482,7 +491,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else</h1>
+    <h1>5.3 Funktionen in der Praxis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -493,8 +502,9 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmverzweigungen-mit-zwei-zweigen-if-else">Programmverzweigungen mit zwei Zweigen: if – else</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmverzweigungen-mit-vielen-zweigen-if-elif-else">Programmverzweigungen mit vielen Zweigen: if – elif – else</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variablen">Lokale Variablen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-aus-funktionen-zuruckgeben">Werte aus Funktionen zurückgeben</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globale-variablen">Globale Variablen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
             </nav>
@@ -507,342 +517,180 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="programmverzweigungen-mit-mehreren-zweigen-if-elif-else">
-<h1>5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else<a class="headerlink" href="#programmverzweigungen-mit-mehreren-zweigen-if-elif-else" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="funktionen-in-der-praxis">
+<h1>5.3 Funktionen in der Praxis<a class="headerlink" href="#funktionen-in-der-praxis" title="Link to this heading">#</a></h1>
 <div class="warning admonition">
 <p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
 <p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
 </div>
-<p>In unserem Alltag kommen häufig Entscheidungen zwischen zwei Möglichkeiten vor.
-Wenn ich an eine T-Kreuzung komme, muss ich mich entscheiden: links oder rechts?
-Betrete ich ein Gebäude, entscheide ich zwischen Treppe und Fahrstuhl. Mein
-Alter entscheidet darüber, ob ich etwas darf oder nicht darf. Für diese Wahl
-zwischen zwei Möglichkeiten gibt es Programmverzweigungen mit zwei Weigen. Und
-auch bei Programmverzweigungen mit zwei Zweigen hört es noch nicht auf, denn
-vielleicht kommt man ja an eine Viererkreuzung. Daher behandeln wir in diesem
-Kapitel Programmverzweigungen mit mehreren Zweigen.</p>
+<p>In Python gibt es zwei Arten von Variablen: lokale und globale Variablen. Der
+Unterschied zwischen beiden liegt in ihrem Geltungsbereich (auch “Scope”
+genannt), also wo im Programm sie verwendet werden können. Vor allem bei der
+Definition von Funktionen ist die Nichtbeachtung des Unterschieds eine häufige
+Fehlerquelle, weshalb wir in diesem Kapitel den Unterschied beleuchten.</p>
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <div class="goals admonition">
 <p class="admonition-title">Lernziele</p>
 <ul class="simple">
-<li><p>Sie können Programmverzweigungen mit zwei Zweigen mittels <strong>if - else</strong>
-implementieren.</p></li>
-<li><p>Sie können mehrteilige Programmverzweigungen mit <strong>if - elif - else</strong>
-implementieren.</p></li>
+<li><p>Sie kennen den Unterschied zwischen <strong>lokalen</strong> und <strong>globalen</strong> Variablen.</p></li>
+<li><p>Sie können erklären, warum die Trennung von lokalen und globalen Variablen
+wichtig ist.</p></li>
+<li><p>Sie wissen, wie Sie Werte aus Funktionen an das Hauptprogramm zurückgeben
+können.</p></li>
 </ul>
 </div>
 </section>
-<section id="programmverzweigungen-mit-zwei-zweigen-if-else">
-<h2>Programmverzweigungen mit zwei Zweigen: if – else<a class="headerlink" href="#programmverzweigungen-mit-zwei-zweigen-if-else" title="Link to this heading">#</a></h2>
-<p>Wir erweitern die Syntax mit dem if-Block um ein neues Element, nämlich den
-sogenannten <strong>else-Block</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">bedingung</span><span class="p">:</span>
-    <span class="n">anweisungsblock</span> <span class="mi">1</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">anweisungsblock</span> <span class="mi">2</span>
-</pre></div>
-</div>
-<p>Wichtig ist, dass die Anweisungen, die nur bedingt ausgeführt werden sollen,
-eingerückt sind!</p>
-<p>Falls die Bedingung erfüllt ist, wird der 1. Anweisungsblock ausgeführt,
-ansonsten der 2. Anweisungsblock. Danach führt der Python-Interpreter alles nach
-dem if-else-Konstrukt aus, d.h. der Interpreter macht mit dem normalen
-Programmablauf weiter.</p>
-<p>Hier erneut ein Beispiel mit dem Alter.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Wie alt sind Sie? &#39;</span><span class="p">))</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sie sind volljährig, Sie dürfen Alkohol kaufen.&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sie sind noch nicht volljährig und dürfen daher keinen Alkohol kaufen.&#39;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Jetzt haben wir aber genug über den Alkoholkauf geredet...&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Wir vertiefen die zweifache Verzweigung mit einer Mini-Übung.</p>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Schreiben Sie ein Skript, das nach der aktuellen Temperatur fragt. Wenn die
-aktuelle Temperatur kleiner gleich 3 ˚C ist, dann lassen Sie ausgeben:
-“Vorsicht, es besteht Glatteisgefahr!” und ansonsten “Kein Grund zur Sorge.”</p>
-</div>
+<section id="lokale-variablen">
+<h2>Lokale Variablen<a class="headerlink" href="#lokale-variablen" title="Link to this heading">#</a></h2>
+<p>Schauen Sie sich bitte folgende Funktionsimplementierung an. Was macht die
+Funktion?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
-<span class="n">temperatur</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Welche Temperatur haben wir aktuell?&#39;</span><span class="p">))</span>
+<p>Probieren wir es aus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">17</span>
 
-<span class="c1"># Verarbeitung und Ausgabe</span>
-<span class="k">if</span> <span class="n">temperatur</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vorsicht, es besteht Glatteisgefahr!&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kein Grund zur Sorge.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Vor der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<span class="n">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nach der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vor der Anwendung der Funktion ist x = 17.
+Nach der Anwendung der Funktion ist x = 17.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Überraschung! Der Wert von <code class="docutils literal notranslate"><span class="pre">x</span></code> hat sich nicht verändert, obwohl die Funktion
+offensichtlich <code class="docutils literal notranslate"><span class="pre">x</span></code> um 1 erhöhen sollte. Um besser zu verstehen, was passiert,
+schauen wir in die Funktion “hinein”, indem wir einige <code class="docutils literal notranslate"><span class="pre">print</span></code>-Anweisungen
+hinzufügen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Im Inneren der Funktion vor der Erhöhung ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Im Inneren der Funktion nach der Erhöhung ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jetzt probieren wir nochmal aus, die Funktion auf <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">17</span></code> anzuwenden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">17</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Vor der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<span class="n">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nach der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vor der Anwendung der Funktion ist x = 17.
+Im Inneren der Funktion vor der Erhöhung ist x = 17.
+Im Inneren der Funktion nach der Erhöhung ist x = 18.
+Nach der Anwendung der Funktion ist x = 17.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Was ist passiert? Die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> in der Funktion ist eine <strong>lokale Variable</strong>.
+Lokale Variablen sind Variablen, die innerhalb einer Funktion definiert werden.
+Ihr Geltungsbereich ist auf die Funktion beschränkt, in der sie definiert
+wurden. Das bedeutet, dass sie innerhalb der Funktion verwendet werden können,
+aber außerhalb der Funktion nicht sichtbar oder zugänglich sind.</p>
+<div class="warning admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Wenn Sie eine Funktion aufrufen und ihr einen Wert übergeben, wird dieser Wert
+in eine neue, lokale Variable kopiert. Änderungen an dieser lokalen Variable
+wirken sich nicht auf Variablen außerhalb der Funktion aus, auch wenn diese
+denselben Namen haben.</p>
+</div>
+<p>Es ist Absicht, dass Python strikt darauf achtet, lokale Variablen auf ihren Geltungsbereich zu beschränken. Die Entwickler einer Funktion können vorab nicht wissen, wie alle anderen Variablen im Hauptprogramm heißen. Daher müssen alle Variablen in der Funktion lokal bleiben, um nicht unabsichtlich Variablen, die zufälligerweise den gleichen Namen tragen, zu überschreiben.</p>
 </section>
-<section id="programmverzweigungen-mit-vielen-zweigen-if-elif-else">
-<h2>Programmverzweigungen mit vielen Zweigen: if – elif – else<a class="headerlink" href="#programmverzweigungen-mit-vielen-zweigen-if-elif-else" title="Link to this heading">#</a></h2>
-<p>Eins, zwei, drei – viele … häufig müssen mehr als zwei Fälle unterschieden
-werden. In einer Mini-Übung haben wir beispielsweise überprüft, ob eine Zahl
-negativ oder positiv oder Null ist. Ein Beispiel aus dem Alltag ist der Kauf
-einer Fahrkarte für den ÖPNV. Meist wird beim Ticketpreis unterschieden, ob die
-Person jünger als 6 ist (keine Fahrkarte notwendig), zwischen 6 und 14 ist
-(Schülerfahrkarte) oder älter als 14 (Erwachsenenfahrkarte). Da es jetzt drei
-Altersklassen gibt, können wir kein if-else-Konstrukt benutzen, denn nur weil
-die Person beispielsweise nicht jünger als 6 ist wissen wir noch lange nicht, ob
-die Person eine Schülerfahrkarte oder eine Erwachsenenfahrkarte braucht.</p>
-<p>Beachten Sie die Wahl der Vergleichsoperatoren: Bei <code class="docutils literal notranslate"><span class="pre">alter</span> <span class="pre">&lt;=</span> <span class="pre">14</span></code> ist eine
-Person mit genau 14 Jahren noch in der Kategorie ‘Schülerfahrkarte’. Bei <code class="docutils literal notranslate"><span class="pre">alter</span> <span class="pre">&lt;</span> <span class="pre">15</span></code> wäre dies ebenso der Fall. Überlegen Sie bei der Implementierung genau, ob
-Randwerte in- oder exklusiv behandelt werden sollen.</p>
-<p>Probieren wir es einfach:</p>
+<section id="werte-aus-funktionen-zuruckgeben">
+<h2>Werte aus Funktionen zurückgeben<a class="headerlink" href="#werte-aus-funktionen-zuruckgeben" title="Link to this heading">#</a></h2>
+<p>Möchte man erreichen, dass eine Funktion den Wert einer Variable ändert, kann man dies über die Rückgabe und explizite Zuweisung erreichen. Dann ist aber jedem Programmierer und jeder Programmiererin, die diese Funktion benutzt, explizit klar, dass damit der Wert der Variablen geändert wird.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;keine Fahrkarte notwendig&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&lt;=</span> <span class="mi">14</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Schülerfahrkarte&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;</span> <span class="mi">14</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Erwachsenenfahrkarte&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># modifizierte Funktion mit Rückgabe</span>
+<span class="k">def</span> <span class="nf">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># Test</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">17</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Vor der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nach der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Schülerfahrkarte
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vor der Anwendung der Funktion ist x = 17.
+Nach der Anwendung der Funktion ist x = 18.
 </pre></div>
 </div>
 </div>
 </div>
-<p>Sieht zunächst einmal gut aus. Für ein Alter von 8 Jahren wird tatsächlich
-Schülerfahrkarte ausgegeben. Wenn wir jetzt aber das Alter auf 5 Jahre setzen,
-so bekommen wir zwei Ausgaben:</p>
+<p>Jetzt funktioniert es! Durch die Rückgabe des veränderten Wertes und die
+Zuweisung an die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> im Hauptprogramm wird der Wert tatsächlich
+geändert.</p>
+</section>
+<section id="globale-variablen">
+<h2>Globale Variablen<a class="headerlink" href="#globale-variablen" title="Link to this heading">#</a></h2>
+<p>Globale Variablen sind Variablen, die außerhalb von Funktionen definiert werden. Ihr Geltungsbereich erstreckt sich über das gesamte Programm, was bedeutet, dass sie sowohl innerhalb als auch außerhalb von Funktionen verwendet werden können.
+In Python ist die Verwendung einer globalen Variable innerhalb einer Funktion standardmäßig nur lesend möglich. Um auch einen Schreibzugriff zu erlauben, gibt es die Möglichkeit, eine Variable mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">global</span></code> innerhalb der Funktion zu deklarieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;keine Fahrkarte notwendig&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&lt;=</span> <span class="mi">14</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Schülerfahrkarte&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;</span> <span class="mi">14</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Erwachsenenfahrkarte&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Globale Variable</span>
+
+<span class="k">def</span> <span class="nf">aendere_global</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">x</span>  <span class="c1"># Deklaration, dass wir die globale Variable x verwenden wollen</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Vor der Funktion: x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">aendere_global</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nach der Funktion: x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>keine Fahrkarte notwendig
-Schülerfahrkarte
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vor der Funktion: x = 10
+Nach der Funktion: x = 15
 </pre></div>
 </div>
 </div>
 </div>
-<p>Wir erhalten die Ausgabe <code class="docutils literal notranslate"><span class="pre">&quot;keine</span> <span class="pre">Fahrkarte</span> <span class="pre">notwendig&quot;</span></code>, weil die Bedingung des
-ersten if-Konstrukts erfüllt ist (<code class="docutils literal notranslate"><span class="pre">alter</span> <span class="pre">&lt;</span> <span class="pre">6</span></code>). Danach wird aber auch noch die
-Ausgabe <code class="docutils literal notranslate"><span class="pre">&quot;Schülerfahrkarte&quot;</span></code> angezeigt, weil auch die Bedingung des zweiten
-if-Konstrukts (<code class="docutils literal notranslate"><span class="pre">alter</span> <span class="pre">&lt;=</span> <span class="pre">14</span></code>) erfüllt ist. Diese Variante eignet sich also nicht
-zur Unterscheidung dreier Bedingungen.</p>
-<p>Probieren wir es mit einem zusätzlichen if-else-Konstrukt für die Unterscheidung
-der Kinder.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;keine Fahrkarte notwendig&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Schülerfahrkarte&#39;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;</span> <span class="mi">14</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Erwachsenenfahrkarte&#39;</span><span class="p">)</span>
-</pre></div>
+<div class="warning admonition">
+<p class="admonition-title">Warnung</p>
+<p>Die Verwendung von globalen Variablen wird in der professionellen Programmierung
+oft vermieden, da sie zu schwer nachvollziehbaren Programmabläufen führen kann.
+Wenn mehrere Funktionen dieselbe globale Variable verändern, ist es schwierig zu
+verfolgen, wann und wie Variablen verändert werden. Dies führt zu Programmen,
+die fehleranfällig und schwer zu warten sind.</p>
+<p>Verwenden Sie stattdessen Parameter und Rückgabewerte, um Daten zwischen
+Funktionen und dem Hauptprogramm zu übertragen. Dies macht Ihren Code klarer,
+nachvollziehbarer und weniger fehleranfällig.</p>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>keine Fahrkarte notwendig
-</pre></div>
-</div>
-</div>
-</div>
-<p>Jetzt sind aber Erwachsene problematisch:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="o">=</span> <span class="mi">27</span>
-
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;keine Fahrkarte notwendig&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Schülerfahrkarte&#39;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;</span> <span class="mi">14</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Erwachsenenfahrkarte&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Schülerfahrkarte
-Erwachsenenfahrkarte
-</pre></div>
-</div>
-</div>
-</div>
-<p>Der Programmcode funktioniert nur korrekt, wenn wir in den else-Zweig noch
-zusätzlich zwischen “jünger als 14” und “älter als 14” unterscheiden.</p>
-<p>Führen Sie die folgende Code-Zelle mehrfach aus. Ändern Sie dabei das Alter.
-Probieren Sie beispielsweise 5, 8, 11, 16, 21 und Ihr Alter aus.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="o">=</span> <span class="mi">27</span>
-
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;keine Fahrkarte notwendig&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">alter</span> <span class="o">&lt;=</span> <span class="mi">14</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Schülerfahrkarte&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Erwachsenenfahrkarte&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erwachsenenfahrkarte
-</pre></div>
-</div>
-</div>
-</div>
-<p>Um den obigen Code besser zu verstehen, zeichen wir den Ablauf schematisch:</p>
-<img alt="../_images/part02_fahrkarte.png" id="part02-fahrkarte" src="../_images/part02_fahrkarte.png" />
-<p>Es wäre schöner, wenn es für solche Mehrfachverzweigungen etwas
-übersichtlicheren Code gäbe. Und in der Tat, den gibt es. Man könnte sozusagen
-den Start des else-Konstruktes mit dem nachfolgenden if-Konstrukt verschmelzen.
-<code class="docutils literal notranslate"><span class="pre">elif</span></code> ist eine Kurzform für <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> und ermöglicht es, mehrere Bedingungen
-nacheinander zu prüfen, ohne die Einrückungstiefe zu erhöhen. Das Ergebnis davon
-ist die if-elif-else-Syntax. Allgemein sieht das <strong>if-elif-else-Konstrukt</strong> so
-aus:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">bedingung</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">anweisungsblock</span> <span class="mi">1</span>
-<span class="k">elif</span> <span class="n">bedingung</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="n">anweisungsblock</span> <span class="mi">2</span>
-<span class="k">elif</span> <span class="n">bedingung</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="n">anweisungsblock</span> <span class="mi">3</span>   
-<span class="o">...</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">anweisungsblock</span> <span class="n">n</span>
-</pre></div>
-</div>
-<p>Wichtig: Bei einem if-elif-else-Konstrukt werden die Bedingungen der Reihe nach
-geprüft. Sobald eine Bedingung erfüllt ist, wird der zugehörige Anweisungsblock
-ausgeführt und alle nachfolgenden Bedingungen werden ignoriert. Daher ist die
-Reihenfolge der Bedingungen entscheidend für die korrekte Funktionsweise des
-Programms.</p>
-<p>Hier die besser lesbare Version der Unterscheidung von Zahlen in negative
-Zahlen, 0 und positive Zahlen aus der Mini-Übung:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">17</span>
-<span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a ist Null.&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a ist negativ.&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a ist positiv.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a ist positiv.
-</pre></div>
-</div>
-</div>
-</div>
-<p>Hier die besser lesbare Version des Fahrkartenautomaten:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="o">=</span> <span class="mi">27</span>
-
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;keine Fahrkarte notwendig&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">alter</span> <span class="o">&lt;=</span> <span class="mi">14</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Schülerfahrkarte&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Erwachsenenfahrkarte&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erwachsenenfahrkarte
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Sie finden den aktuellen Bußgeldkatalog für Geschwindigkeitsüberschreitungen mit
-dem PKW im Internet auf der Seite:
-<a class="reference external" href="https://www.bussgeldkatalog.org/geschwindigkeitsueberschreitung/">https://www.bussgeldkatalog.org/geschwindigkeitsueberschreitung/</a> Schreiben Sie
-ein Skript, dass abhängig von der Geschwindigkeitsüberschreitung ausgibt,
-welche Strafe in Euro verhängt wird. Die Tabelle für das Jahr 2022 lautet wie
-folgt:</p>
-<img alt="../_images/part02_bussgeldkatalog.png" id="part02-bussgeldkatalog" src="../_images/part02_bussgeldkatalog.png" />
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
-<span class="n">verstoss</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Wieviel zu schnell ist die Person gefahren? &#39;</span><span class="p">))</span>
-
-<span class="c1"># Verarbeitung und Ausgabe</span>
-<span class="k">if</span> <span class="n">verstoss</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;20 EUR&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">verstoss</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">:</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;40 EUR&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">verstoss</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;60 EUR&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">verstoss</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;100 EUR&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">verstoss</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;150 EUR&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">verstoss</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;200 EUR&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">verstoss</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;320 EUR&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">verstoss</span> <span class="o">&lt;=</span> <span class="mi">60</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;480 EUR&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">verstoss</span> <span class="o">&lt;=</span> <span class="mi">70</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;600 EUR&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;700 EUR&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>Wenn Sie das Thema elif/else vertiefen wollen, können Sie sich das folgende
-Video ansehen.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video “elif und else” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f3YdEdYSNdk"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-</details></section>
+<p>Um den Unterschied zwischen lokalen und globalen Variablen zu verdeutlichen, können wir uns den Geltungsbereich wie “Blasen” oder “Räume” vorstellen.</p>
+<img alt="../_images/variable-scope.svg" id="variable-scope-svg" src="../_images/variable-scope.svg" /></section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
-<p>In diesem Kapitel haben wir gelernt, wie man mit if, elif und else in Python
-Programmverzweigungen mit zwei oder mehr Entscheidungszweigen umsetzt, um
-unterschiedliche Fälle gezielt abzufragen und übersichtlich zu strukturieren. Im
-nächsten Kapitel werden wir die Strukturierung des Code in kleinere Einheiten
-erlernen (Funktionen).</p>
+<p>In diesem Kapitel haben wir den Untrrschied zwischen globalen und lokalen
+Variablen gelernt. Im nächsten Kapitel widmen wir uns dem Thema digitale Logik.</p>
 </section>
 </section>
 
@@ -882,7 +730,7 @@ erlernen (Funktionen).</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">5.2 Programmverzweigungen: if</p>
+        <p class="prev-next-title">5.2 Parameter und Rückgabewerte</p>
       </div>
     </a>
     <a class="right-next"
@@ -912,8 +760,9 @@ erlernen (Funktionen).</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmverzweigungen-mit-zwei-zweigen-if-else">Programmverzweigungen mit zwei Zweigen: if – else</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmverzweigungen-mit-vielen-zweigen-if-elif-else">Programmverzweigungen mit vielen Zweigen: if – elif – else</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variablen">Lokale Variablen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-aus-funktionen-zuruckgeben">Werte aus Funktionen zurückgeben</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globale-variablen">Globale Variablen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
   </nav></div>

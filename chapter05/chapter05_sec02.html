@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.2 Programmverzweigungen: if &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+    <title>5.2 Parameter und Rückgabewerte &#8212; Python für Studierende der Ingenieurwissenschaften</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -64,8 +64,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter05/chapter05_sec02';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else" href="chapter05_sec03.html" />
-    <link rel="prev" title="5.1 Vergleiche und der boolesche Datentyp" href="chapter05_sec01.html" />
+    <link rel="next" title="5.3 Funktionen in der Praxis" href="chapter05_sec03.html" />
+    <link rel="prev" title="5.1 Funktionen definieren" href="chapter05_sec01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,99 +171,108 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen Programmierung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Grundlagen und erste Schritte</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec01.html">1.1 Hardware und Software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec02.html">1.2 Programmieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Installation und Start von Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Jupyter Notebooks und Python als Taschenrechner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Eingabe, Verarbeitung und Ausgabe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Taschenrechner und Ausgabe (print)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen und Variablen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Eingabe (input) und Zuweisungsoperator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Daten speichern und verarbeiten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Variablen und Zuweisungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Benutzereingaben</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Listen und Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Listen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Das Modul NumPy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Das Modul Turtle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Entscheidungen treffen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Wahrheitswerte und Vergleiche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Einfache Verzweigungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Mehrfachverzweigungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Zählschleifen (for), Strings und Zufallszahlen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Zufallszahlen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Wiederholungen automatisieren</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen mit range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Verschachtelte Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Schleifen mit Bedingungen (while)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter05_sec00.html">5. Programmverzweigung (if - elif - else)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="chapter05_sec01.html">5.1 Vergleiche und der boolesche Datentyp</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.2 Programmverzweigungen: if</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter05_sec03.html">5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter05_sec00.html">5. Code strukturieren mit Funktionen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chapter05_sec01.html">5.1 Funktionen definieren</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.2 Parameter und Rückgabewerte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter05_sec03.html">5.3 Funktionen in der Praxis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter05_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Funktionen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Funktionen selbst schreiben</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Funktionen mit Parameter und Rückgabe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Lokale und globale Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Datensammlungen verwalten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Listen erstellen und verwenden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Listen und Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Strings als Zeichenketten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Digitale Logik, Schleifen mit Bedingung, Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Digitale Logik: und, oder, nicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Schleifen mit Bedingung (while)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Fortgeschrittene Datenstrukturen und Fehlerbehandlung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Zufallszahlen und Simulationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Fehlerbehandlung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. Objektorientierte Programmierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Was sind Objekte?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Attribute und Methoden*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 OOP in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Automatisierungstechnik</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Einführung MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Numerisches Rechnen mit MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 Programmieren in MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Einführung MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Numerisches Rechnen mit MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Programmieren in MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Simulink Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Simulink-Bibliothek</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Simulink Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Simulink-Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übung</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Pandas anstatt Excel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Series und DataFrame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Arbeiten mit Tabellendaten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Statistik mit Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übungen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Einführung in Data Science mit Pandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Series und DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Arbeiten mit Tabellendaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 Statistik mit Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Kontinuierliche Daten visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Diskrete Daten und Häufigkeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 DataFrames visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec05.html">Übungen</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Theorie Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Lineare Regression mit polyfit und polyval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">12.3 Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Liniendiagramm und Streudiagramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Balkendiagramm und Histogramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">11.3 DataFrames visualisieren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Was ist maschinelles Lernen?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Überwachtes, unüberwachtes und verstärkendes Lernen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Lineare Regressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Multiple lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec03.html">13.3 Polynomiale Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter14/chapter14_sec00.html">14. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec01.html">14.1 Was ist ein Entscheidungsbaum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec02.html">14.2 Entscheidungsbäume trainieren und visualisieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec03.html">14.3 Entscheidungsbäume in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
@@ -482,7 +491,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>5.2 Programmverzweigungen: if</h1>
+    <h1>5.2 Parameter und Rückgabewerte</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -493,9 +502,8 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-der-if-verzweigung">Syntax der if-Verzweigung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-modulo-operator">Der modulo-Operator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typische-fehlerquellen-bei-if-anweisungen">Typische Fehlerquellen bei if-Anweisungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-von-funktionen-mit-parametern">Definition von Funktionen mit Parametern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-mit-parametern-und-ruckgabewerten">Funktionen mit Parametern und Rückgabewerten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
             </nav>
@@ -508,80 +516,116 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="programmverzweigungen-if">
-<h1>5.2 Programmverzweigungen: if<a class="headerlink" href="#programmverzweigungen-if" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="parameter-und-ruckgabewerte">
+<h1>5.2 Parameter und Rückgabewerte<a class="headerlink" href="#parameter-und-ruckgabewerte" title="Link to this heading">#</a></h1>
 <div class="warning admonition">
 <p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
 <p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
 </div>
-<p>Im letzten Kapitel haben wir gelernt, wie ein Vergleich in Python durchgeführt
-wird und mit welchem Datentyp das Ergebnis eines solchen Vergleichs gespeichert
-wird. In diesem Kapitel geht es nun darum, dass ein Python-Programm auf das
-Ergebnis eines Vergleichs reagiert, indem Code-Abschnitte nur dann ausgeführt
-werden, wenn eine Bedingung erfüllt ist.</p>
+<p>Vorgefertigte Funktionen haben wir schon mit Argument und Rückgabewert
+aufgerufen. In diesem Kapitel geht es darum, selbst eine Funktion zu
+implementieren, die Argumente entgegennimmt, diese verarbeitet und dann
+Rückgabewerte liefert.</p>
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <div class="goals admonition">
-<p class="admonition-title">Lernziele</p>
+<p class="admonition-title">Lernziel</p>
 <ul class="simple">
-<li><p>Sie können mit <strong>if</strong> eine Programmverzweigung implementieren.</p></li>
-<li><p>Sie kennen den <strong>modulo</strong>-Operator <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p></li>
+<li><p>Sie können eine Funktion mit Parametern und Rückgabewerten selbst
+implementieren.</p></li>
+<li><p>Sie können zwischen Parametern und Argumenten einer Funktion unterscheiden.</p></li>
 </ul>
 </div>
 </section>
-<section id="syntax-der-if-verzweigung">
-<h2>Syntax der if-Verzweigung<a class="headerlink" href="#syntax-der-if-verzweigung" title="Link to this heading">#</a></h2>
-<p>Bei einer Programmverzweigung wird Code abhängig von einer Bedingung ausgeführt.
-Im einfachsten Fall liegt ein if-Block vor. Die Syntax lautet wie folgt:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">bedingung</span><span class="p">:</span>
-    <span class="n">anweisung</span> <span class="mi">1</span> <span class="c1"># gehört zum if-Block</span>
-    <span class="n">anweisung</span> <span class="mi">2</span> <span class="c1"># gehört zum if-Block</span>
-<span class="n">anweisung</span> <span class="mi">3</span> <span class="c1"># gehört NICHT zum if-Block, wird immer ausgeführt</span>
+<section id="definition-von-funktionen-mit-parametern">
+<h2>Definition von Funktionen mit Parametern<a class="headerlink" href="#definition-von-funktionen-mit-parametern" title="Link to this heading">#</a></h2>
+<p>Meistens haben Funktionen Argumente, um Eingaben entgegennehmen und verarbeiten
+zu können. Das Argument wird bei der Implementierung der Funktion mit einer
+Variablen eingeführt.</p>
+<p>Die allgemeine Syntax zur Definition einer eigenen Funktion mit Parametern sieht
+wie folgt aus:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">meine_funktion</span><span class="p">(</span><span class="n">para1</span><span class="p">,</span> <span class="n">para2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">paran</span><span class="p">):</span>
+    <span class="n">anweisung01</span>
+    <span class="n">anweisung02</span>
+     <span class="o">...</span>
 </pre></div>
 </div>
-<p>Ist die Bedingung erfüllt, also “True”, so wird der eingerückte Anweisungsblock
-ausgeführt. Ist die Bedingung <em>nicht</em> erfüllt, wird dieser übersprungen. Damit
-ist gemeint, dass der Python-Interpreter nach dem Ende des if-Blocks
-weitermacht, falls die Bedingung nicht erfüllt ist (= False).</p>
-<p>Das Ende eines if-Blocks wird in Python durch die Einrückung bestimmt. Alle
-Anweisungen, die mit der gleichen Einrückung nach dem Doppelpunkt folgen,
-gehören zum if-Block. Sobald eine Zeile mit geringerer Einrückung (oder ohne
-Einrückung) erscheint, erkennt Python, dass der if-Block abgeschlossen ist.
-Diese Anweisungen werden dann unabhängig vom Ergebnis der if-Bedingung
-ausgeführt.</p>
-<p>Wir betrachten nun ein Beispiel:</p>
+<p>Funktionen werden mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">def</span></code> gefolgt vom Funktionsnamen und
+einer Aufzählung von Parametern in Klammern definiert. Die Code-Anweisungen der
+Funktion werden eingerückt.</p>
+<p>Als Beispiel betrachten wir erneut die Funktion, die Grüße ausrichtet. Doch
+jetzt erweitern wir die Funktion. Die modifizierte Variante soll konkret eine
+Person grüßen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sie dürfen Alkohol kaufen.&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bananen dürfen Sie immer kaufen, egal wie alt Sie sind ...&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gruesse_ausrichten_mit_parameter</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Ich grüße </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Aufruf einer Funktion ohne passende Argumente führt nun zu einer
+Fehlermeldung. Entfernen Sie in der nächsten Code-Zelle das Kommentarzeichen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gruesse_ausrichten_mit_parameter()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Daher müssen wir die modifizierte Funktion nun mit einem Argument aufrufen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gruesse_ausrichten_mit_parameter</span><span class="p">(</span><span class="s1">&#39;Anna&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sie dürfen Alkohol kaufen.
-Bananen dürfen Sie immer kaufen, egal wie alt Sie sind ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich grüße Anna!
 </pre></div>
 </div>
 </div>
 </div>
-<p>Da die Person volljährig ist (<code class="docutils literal notranslate"><span class="pre">alter</span> <span class="pre">=</span> <span class="pre">20</span></code>), ist der Vergleich <code class="docutils literal notranslate"><span class="pre">alter</span> <span class="pre">&gt;=</span> <span class="pre">18</span></code>
-wahr, die Bedingung also erfüllt. Daher wird der Anweisungsblock, der nur aus
-einer einzigen Anweisung besteht, ausgeführt. Der Python-Interpreter gibt den
-String <code class="docutils literal notranslate"><span class="pre">Sie</span> <span class="pre">dürfen</span> <span class="pre">Alkohol</span> <span class="pre">kaufen.</span></code> aus und macht dann mit dem normalen Programm
-weiter. In unserem Beispiel mit dem Alkoholkauf ist die Zeile <code class="docutils literal notranslate"><span class="pre">print('Bananen</span> <span class="pre">dürfen</span> <span class="pre">Sie</span> <span class="pre">immer</span> <span class="pre">kaufen...')</span></code> nicht eingerückt und wird daher unabhängig vom
-Alter immer ausgeführt.</p>
-<p>Dieser Code könnte beispielsweise mit einer Benutzerabfrage kombiniert werden:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Wie alt sind Sie?&#39;</span><span class="p">))</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sie dürfen Alkohol kaufen.&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bananen dürfen Sie immer kaufen, egal wie alt Sie sind...&#39;</span><span class="p">)</span>
+<p>Hinweis: Bei Funktionen unterscheiden wir zwischen einem <strong>Parameter</strong> einer
+Funktion und einem <strong>Argument</strong>. Die formalen Parameter sind die Variablennamen
+in der Funktionsdefinition (z.B. <code class="docutils literal notranslate"><span class="pre">name</span></code> in <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">gruesse_ausrichten_mit_parameter(name):</span></code>). Sie dienen als Platzhalter für die
+Werte, die beim Funktionsaufruf übergeben werden. Die aktuellen Argumente sind
+dagegen die konkreten Werte, die beim Aufruf der Funktion übergeben werden (z.B.
+<code class="docutils literal notranslate"><span class="pre">'Anna'</span></code> in <code class="docutils literal notranslate"><span class="pre">gruesse_ausrichten_mit_parameter('Anna')</span></code>). Der formale Parameter
+<code class="docutils literal notranslate"><span class="pre">name</span></code> nimmt also beim Funktionsaufruf den Wert des Arguments <code class="docutils literal notranslate"><span class="pre">'Anna'</span></code> an und
+steht innerhalb der Funktion als Variable zur Verfügung.</p>
+<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">gruesse_ausrichten_mit_parameter()</span></code> hat aber keinen Rückgabewert.
+Das können wir wie folgt testen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">gruesse_ausrichten_mit_parameter</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich grüße Alice!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NoneType
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> ist vom Typ <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>. Das bedeutet, dass in der Variablen <code class="docutils literal notranslate"><span class="pre">x</span></code> der
+spezielle Python-Wert <code class="docutils literal notranslate"><span class="pre">None</span></code> gespeichert ist. <code class="docutils literal notranslate"><span class="pre">None</span></code> ist ein eigener Datentyp in
+Python und repräsentiert die Abwesenheit eines Wertes oder ein ‘nichts’.
+Funktionen, die keinen expliziten Rückgabewert mit <code class="docutils literal notranslate"><span class="pre">return</span></code> angeben, geben
+automatisch <code class="docutils literal notranslate"><span class="pre">None</span></code> zurück.</p>
+<p>Sind Funktionen ohne Rückgabewert sinnvoll? Ja, denn so können Python-Programme
+vereinfacht werden. Sollte in einem Programm ein Block von Anweisungen mehrmals
+ausgeführt werden, lohnt es sich, diesen in eine Funktion auszulagern, um diese
+einfach aufrufen zu können.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Schreiben Sie ein Skript, das einen Benutzer oder eine Benutzerin nach der aktuellen Temperatur fragt. Wenn die Temperatur kleiner gleich 10 ˚C ist, soll ausgegeben werden: “Heute ist es aber kalt!”</p>
+<p>Schreiben Sie eine Funktion, die mit Turtle ein Rechteck zeichnet. Die beiden
+Seitenlängen des Rechtecks sollen als Argumente der Funktion übergeben werden.
+Testen Sie Ihre Funktion auch.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -592,116 +636,137 @@ Alter immer ausgeführt.</p>
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
-<span class="n">temperatur</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Welche Temperatur haben wir aktuell?&#39;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ColabTurtlePlus.Turtle</span> <span class="k">as</span> <span class="nn">turtle</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">clearscreen</span><span class="p">()</span>
 
-<span class="c1"># Verarbeitung und Ausgabe</span>
-<span class="k">if</span> <span class="n">temperatur</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Heute ist es aber kalt!&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">zeichne_rechteck</span><span class="p">(</span><span class="n">seite1</span><span class="p">,</span> <span class="n">seite2</span><span class="p">):</span>
+    <span class="n">rechteck</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">rechteck</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">seite1</span><span class="p">)</span>
+        <span class="n">rechteck</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">rechteck</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">seite2</span><span class="p">)</span>
+        <span class="n">rechteck</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+        
+<span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">zeichne_rechteck</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>Nach dieser kurzen Mini-Übung kommt in der nächsten Mini-Übung eine etwas
-längere Aufgabenstellung.</p>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Schreiben Sie ein Skript, das eine Benutzerin oder einen Benutzer nach einer Zahl fragt.
-Wenn die Zahl kleiner als 0 ist, soll ausgegeben werden: “Die Zahl ist negativ.”
-Wenn die Zahl genau gleich 0 ist, soll ausgegeben werden: “Die Zahl ist Null.”
-Wenn die Zahl größer als 0 ist, soll ausgegeben werden: “Die Zahl ist positiv.”</p>
-<p>Wie viele if-Blöcke brauchen Sie für die Umsetzung dieser Mini-Übung?</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
-<span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Geben Sie bitte eine Zahl ein: &#39;</span><span class="p">))</span>
-
-<span class="c1"># Verarbeitung und Ausgabe</span>
-<span class="k">if</span> <span class="n">zahl</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Zahl ist negativ.&#39;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">zahl</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Zahl ist Null.&#39;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">zahl</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Zahl ist positiv.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Der Code erfordert drei if-Blöcke. In einem späteren Kapitel werden wir lernen,
-diese Aufgabe eleganter mit elif / else zu programmieren.</p>
-</div>
+<p>Das folgende Video fasst Funktionen mit Parametern in Python zusammen.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video “if-Anweisung” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/b6KzYbM-Hvg"
+<span class="sd-summary-text">Video “Funktionen mit Parametern” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/af9ORp1Pty0"
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 </details></section>
-<section id="der-modulo-operator">
-<h2>Der modulo-Operator<a class="headerlink" href="#der-modulo-operator" title="Link to this heading">#</a></h2>
-<p>Ein nützlicher Operator für Verzweigungen ist der modulo-Operator <code class="docutils literal notranslate"><span class="pre">%</span></code>. Dieser
-berechnet den Rest einer Division und wird häufig verwendet, um festzustellen,
-ob eine Zahl durch eine andere teilbar ist oder um zyklische Muster zu erzeugen.</p>
+<section id="funktionen-mit-parametern-und-ruckgabewerten">
+<h2>Funktionen mit Parametern und Rückgabewerten<a class="headerlink" href="#funktionen-mit-parametern-und-ruckgabewerten" title="Link to this heading">#</a></h2>
+<p>In der Regel jedoch haben Funktionen einen Rückgabewert. Die allgemeine Syntax
+zur Definition einer eigenen Funktion mit Parametern und Rückgabewert sieht wie
+folgt aus:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">meine_funktion</span><span class="p">(</span><span class="n">para1</span><span class="p">,</span> <span class="n">para2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">paran</span><span class="p">):</span>
+    <span class="n">anweisung01</span>
+    <span class="n">anweisung02</span>
+     <span class="o">...</span>
+
+    <span class="k">return</span> <span class="n">rueckgabewert1</span><span class="p">,</span> <span class="n">rueckgabewert2</span><span class="p">,</span> <span class="o">...</span>  
+</pre></div>
+</div>
+<p>An der Definitionszeile ändert sich nichts. Zuerst wird das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">def</span></code>
+verwendet, dann folgt der Funktionsname und zuletzt werden die Parameter in
+Klammern aufgelistet. Der Rückgabewert der Funktion wird dann durch das
+Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code> im Inneren der Funktion, also im eingerückten Teil
+definiert. Die Funktion kann einen oder mehrere Rückgabewerte zurückliefern. Bei
+mehreren Rückgabewerten werden diese einfach durch Komma getrennt.</p>
+<p>Für Experten:  Bei mehreren Rückgabewerten erzeugt Python intern ein sogenanntes
+Tupel, das all diese Werte enthält. Daher kann man das Ergebnis einer solchen
+Funktion auch direkt einer einzelnen Variablen zuweisen und erhält dann ein
+Tupel, oder man kann die Werte durch Kommas getrennt mehreren Variablen zuweisen
+(Unpacking).</p>
+<p>Schauen wir uns ein Beispiel an. Die folgende Funktion nimmt einen Parameter
+entgegen und gibt einen Rückgabewert zurück.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Beispiele für den modulo-Operator</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Ergebnis: 1 (Rest bei Division 10 durch 3)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">8</span> <span class="o">%</span> <span class="mi">4</span><span class="p">)</span>   <span class="c1"># Ergebnis: 0 (Rest bei Division 8 durch 4)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">berechne_quadratzahl</span><span class="p">(</span><span class="n">zahl</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">zahl</span> <span class="o">*</span> <span class="n">zahl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jetzt können wir die Funktion ausprobieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">berechne_quadratzahl</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> mal </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> ist </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 mal 1 ist 1
+2 mal 2 ist 4
+3 mal 3 ist 9
+4 mal 4 ist 16
+5 mal 5 ist 25
+6 mal 6 ist 36
+7 mal 7 ist 49
+8 mal 8 ist 64
+9 mal 9 ist 81
+10 mal 10 ist 100
 </pre></div>
 </div>
 </div>
 </div>
-<p>Der modulo-Operator ist besonders nützlich, um zu prüfen, ob eine Zahl gerade
-oder ungerade ist:</p>
+<p>Als nächstes kommt ein Beispiel mit zwei Rückgabewerten. Nicht nur die
+Quadratzahl, sondern auch die Kubikzahl soll berechnet werden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zahl</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="k">if</span> <span class="n">zahl</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Die Zahl </span><span class="si">{</span><span class="n">zahl</span><span class="si">}</span><span class="s2"> ist gerade.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">berechne_quadrat_kubik</span><span class="p">(</span><span class="n">zahl</span><span class="p">):</span>
+    <span class="n">quadrat</span> <span class="o">=</span> <span class="n">zahl</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">kubik</span> <span class="o">=</span> <span class="n">zahl</span><span class="o">**</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">quadrat</span><span class="p">,</span> <span class="n">kubik</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Er wird auch häufig eingesetzt, um zu überprüfen, ob ein Wert ein Vielfaches
-eines anderen ist. Zum Beispiel kann man prüfen, ob eine fortlaufende Zahl ein
-Vielfaches von 10 ist:</p>
+<p>Und erneut testen wir die Funktion.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Die Zahl </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> ist ein Vielfaches von 10.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">x_hoch_2</span><span class="p">,</span> <span class="n">x_hoch_3</span> <span class="o">=</span> <span class="n">berechne_quadrat_kubik</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">, x^2 = </span><span class="si">{</span><span class="n">x_hoch_2</span><span class="si">}</span><span class="s1">, x^3 = </span><span class="si">{</span><span class="n">x_hoch_3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Zahl 10 ist ein Vielfaches von 10.
-Die Zahl 20 ist ein Vielfaches von 10.
-Die Zahl 30 ist ein Vielfaches von 10.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 1, x^2 = 1, x^3 = 1
+x = 2, x^2 = 4, x^3 = 8
+x = 3, x^2 = 9, x^3 = 27
+x = 4, x^2 = 16, x^3 = 64
+x = 5, x^2 = 25, x^3 = 125
 </pre></div>
 </div>
 </div>
 </div>
-<p>Dieses Konzept werden wir später bei Schleifen wiedersehen, wenn wir
-beispielsweise nur jeden n-ten Wert verarbeiten oder anzeigen möchten.</p>
+<p>Wenn eine Funktion mehrere Werte zurückgibt, haben wir verschiedene
+Möglichkeiten, diese zu verarbeiten. Meist weisen wir jedem Rückgabewert eine
+eigene Variable zu, wie in <code class="docutils literal notranslate"><span class="pre">x_hoch_2,</span> <span class="pre">x_hoch_3</span> <span class="pre">=</span> <span class="pre">berechne_quadrat_kubik(x)</span></code>. Man
+muss jedoch nicht immer alle Rückgabewerte verwenden. Benötigt man zum Beispiel
+nur den ersten Rückgabewert, kann man schreiben: <code class="docutils literal notranslate"><span class="pre">x_hoch_2,</span> <span class="pre">_</span> <span class="pre">=</span> <span class="pre">berechne_quadrat_kubik(x)</span></code>. Der Unterstrich <code class="docutils literal notranslate"><span class="pre">_</span></code> ist eine Konvention in Python,
+die signalisiert, dass dieser Wert ignoriert wird.</p>
+<p>Alternativ kann man auch alle Rückgabewerte als Tupel einer einzelnen Variable
+zuweisen: <code class="docutils literal notranslate"><span class="pre">ergebnis</span> <span class="pre">=</span> <span class="pre">berechne_quadrat_kubik(x)</span></code>. Dann greift man über den Index
+auf die einzelnen Werte zu: <code class="docutils literal notranslate"><span class="pre">ergebnis[0]</span></code> für das Quadrat und <code class="docutils literal notranslate"><span class="pre">ergebnis[1]</span></code> für
+den Kubikwert.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Schreiben Sie ein Programm, das die Zahlen von 1 bis 30 durchläuft und nur jede
-dritte Zahl ausgibt. Verwenden Sie den Modulo-Operator, um zu prüfen, ob eine
-Zahl durch 3 teilbar ist.</p>
+<p>Schreiben Sie ein Programm, das mit Turtle ein Rechteck zeichnet, wobei die
+beiden Seitenlängen als Argumente der Funktion übergeben werden. Die Funktion
+soll den Umfang des Rechtecks und den Flächeninhalt zurückgeben. Lassen Sie
+anschließend Umfang und Flächeninhalt ausgeben.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -712,73 +777,49 @@ Zahl durch 3 teilbar ist.</p>
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ausgabe jeder dritten Zahl von 1 bis 30</span>
-<span class="k">for</span> <span class="n">zahl</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">zahl</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">zahl</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="typische-fehlerquellen-bei-if-anweisungen">
-<h2>Typische Fehlerquellen bei if-Anweisungen<a class="headerlink" href="#typische-fehlerquellen-bei-if-anweisungen" title="Link to this heading">#</a></h2>
-<p>Bei der Implementierung von if-Anweisungen in Python gibt es einige häufige
-Fallstricke, die besonders Anfängern begegnen:</p>
-<p><strong>Vergessener Doppelpunkt:</strong> Nach der Bedingung muss immer ein Doppelpunkt
-stehen.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Falsch</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;=</span> <span class="mi">18</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sie sind volljährig.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ColabTurtlePlus.Turtle</span> <span class="k">as</span> <span class="nn">turtle</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">clearscreen</span><span class="p">()</span>
 
-<span class="c1"># Richtig</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sie sind volljährig.&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">zeichne_rechteck</span><span class="p">(</span><span class="n">seite1</span><span class="p">,</span> <span class="n">seite2</span><span class="p">):</span>
+    <span class="c1"># Zeichnung des Rechecks</span>
+    <span class="n">rechteck</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">rechteck</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">seite1</span><span class="p">)</span>
+        <span class="n">rechteck</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">rechteck</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">seite2</span><span class="p">)</span>
+        <span class="n">rechteck</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+        
+    <span class="c1"># Berechnung Umfang und Flächeninhalt</span>
+    <span class="n">umfang</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">seite1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">seite2</span>
+    <span class="n">flaeche</span> <span class="o">=</span> <span class="n">seite1</span> <span class="o">*</span> <span class="n">seite2</span>
+    
+    <span class="c1"># Rückgabe</span>
+    <span class="k">return</span> <span class="n">umfang</span><span class="p">,</span> <span class="n">flaeche</span>
+    
+<span class="c1"># Test der Funktion      </span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">U</span><span class="p">,</span><span class="n">A</span> <span class="o">=</span> <span class="n">zeichne_rechteck</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Der Umfang ist </span><span class="si">{</span><span class="n">U</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Längeneinheiten, der Flächeninhalt des Rechtecks ist </span><span class="si">{</span><span class="n">A</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Flächeneinheiten.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Falsche Einrückung:</strong> Python verwendet Einrückungen, um Codeblöcke zu
-definieren. Alle Anweisungen, die zum if-Block gehören, müssen gleich eingerückt
-sein.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Falsch</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sie sind volljährig.&quot;</span><span class="p">)</span>  <span class="c1"># Fehlende Einrückung!</span>
-
-<span class="c1"># Richtig</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sie sind volljährig.&quot;</span><span class="p">)</span>
-</pre></div>
 </div>
-<p><strong>Verwechslung von Zuweisungs- und Vergleichsoperator:</strong> Für Vergleiche wird
-<code class="docutils literal notranslate"><span class="pre">==</span></code> verwendet, nicht <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Falsch (führt zu unerwarteten Ergebnissen)</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">=</span> <span class="mi">18</span><span class="p">:</span>  <span class="c1"># Zuweisung statt Vergleich!</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sie sind genau 18.&quot;</span><span class="p">)</span>
-
-<span class="c1"># Richtig</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">==</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sie sind genau 18.&quot;</span><span class="p">)</span>
-</pre></div>
+<p>Auch zu dem Thema Funktionen mit Rückgabe gibt es ein Video.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Video “Funktionen mit Rückgabewert” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ehSP-sYoKCY"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
-<p><strong>Ungeeignete Datentypen für Vergleiche:</strong> Achten Sie darauf, dass die
-verglichenen Werte kompatible Datentypen haben.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problematisch</span>
-<span class="n">alter</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie alt sind Sie? &quot;</span><span class="p">)</span>  <span class="c1"># alter ist ein String</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>  <span class="c1"># Vergleich zwischen String und Zahl führt zu TypeError</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sie sind volljährig.&quot;</span><span class="p">)</span>
-
-<span class="c1"># Richtig</span>
-<span class="n">alter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie alt sind Sie? &quot;</span><span class="p">))</span>  <span class="c1"># Umwandlung in Integer</span>
-<span class="k">if</span> <span class="n">alter</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sie sind volljährig.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Diese Fehler führen zu Syntax- oder Laufzeitfehlern, die den Programmablauf
-unterbrechen. Achten Sie daher besonders auf die korrekte Syntax und Einrückung
-bei if-Anweisungen.</p>
-</section>
+</details></section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
-<p>In diesem Kapitel haben wir uns mit einer einfachen Verzweigung beschäftigt. Im
-nächsten Kapitel geht es um mehrfache Verzweigungen mit elif und else.</p>
+<p>Funktionen mit Parametern und Rückgabewerten ermöglichen flexible Eingaben und
+die Rückgabe von Ergebnissen, was unsere Programme modular und wiederverwendbar
+macht. Im nächsten Kapitel lernen wir, wie Variablen unterschiedliche
+Gültigkeitsbereiche haben können - entweder nur innerhalb einer Funktion (lokal)
+oder im gesamten Programm (global).</p>
 </section>
 </section>
 
@@ -818,7 +859,7 @@ nächsten Kapitel geht es um mehrfache Verzweigungen mit elif und else.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">5.1 Vergleiche und der boolesche Datentyp</p>
+        <p class="prev-next-title">5.1 Funktionen definieren</p>
       </div>
     </a>
     <a class="right-next"
@@ -826,7 +867,7 @@ nächsten Kapitel geht es um mehrfache Verzweigungen mit elif und else.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else</p>
+        <p class="prev-next-title">5.3 Funktionen in der Praxis</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -848,9 +889,8 @@ nächsten Kapitel geht es um mehrfache Verzweigungen mit elif und else.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-der-if-verzweigung">Syntax der if-Verzweigung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-modulo-operator">Der modulo-Operator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typische-fehlerquellen-bei-if-anweisungen">Typische Fehlerquellen bei if-Anweisungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-von-funktionen-mit-parametern">Definition von Funktionen mit Parametern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-mit-parametern-und-ruckgabewerten">Funktionen mit Parametern und Rückgabewerten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
   </nav></div>

@@ -12,136 +12,126 @@ kernelspec:
   name: python3
 ---
 
-# 5.1 Vergleiche und der boolesche Datentyp
+# 5.1 Funktionen definieren
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-Viele Möglichkeiten unserer Gesellschaft stehen nur Volljährigen offen und sind
-damit an eine Altersangabe gebunden. Wenn jetzt ein Computersystem vorab prüfen
-soll, ob Volljährigkeit vorliegt oder nicht, dann brauchen wir einen einfachen
-Vergleich. Daher beschäftigen wir uns in diesem Kapitel mit Vergleichen und dem
-Datentyp Bool.
+Eine Funktion in Python ist eine Zusammenfassung von Anweisungen, die dazu
+dienen, eine bestimmte Teilaufgabe zu lösen. Dabei arbeitet die Funktion in
+ihrer allgemeinsten Form nach dem EVA-Prinzip: Eingabe, Verarbeitung, Ausgabe.
+Die Funktion übernimmt Objekte als Eingabe, verarbeitet diese und liefert
+Objekte als Ergebnis zurück. Wie die Funktion dabei im Inneren genau
+funktioniert (Verarbeitung), ist für den Anwender zunächst unwichtig.
+
+Beispielsweise gibt es im Modul `numpy` die Funktion `sqrt()`. Wir übergeben der
+Funktion eine Zahl (Eingabe), z.B. `sqrt(5)`. Die Funktion liefert dann als
+Ergebnis $\sqrt{5}$​ zurück. Welches Verfahren zur Berechnung der Wurzel
+verwendet wurde, müssen wir als Anwender nicht wissen.
+
+Insbesondere muss die Teilaufgabe, die die Funktion löst, nichts mit Mathematik
+zu tun haben. Eine Funktion in der Informatik unterscheidet sich von einer
+mathematischen Funktion, auch wenn oft mathematische Funktionen als Beispiel
+verwendet werden. Ein Beispiel für eine nicht-mathematische Funktion haben Sie
+mit `input()` bereits kennengelernt. Die Funktion nimmt einen Text entgegen, z.B.
+die Frage "Wie groß sind Sie?". Dann wird dieser Text verarbeitet, in diesem
+Fall auf dem Bildschirm angezeigt und die Antwort eingelesen. Die Antwort kann
+dann in einer Variablen gespeichert werden.
 
 ## Lernziele
 
 ```{admonition} Lernziele
 :class: goals
-* Sie kennen den Datentyp **Bool** mit seinen beiden Werten `True` und `False`.
-* Sie kennen die wichtigsten **Vergleichsoperatoren** für Zahlen und Strings.
+* Sie kennen die Fachbegriffe 
+  * **Aufruf** einer Funktion,
+  * **Argumente** einer Funktion und
+  * **Rückgabewert** einer Funktion.
+* Sie können eine einfache Funktion selbst implementieren und aufrufen.
 ```
 
-## Der Datentyp Bool
+## Die Benutzung von Funktionen (oder der Aufruf von Funktionen)
 
-Zurück zu dem Beispiel mit der Überprüfung der Volljährigkeit. Angenommen, wir
-speichern das Alter der Benutzers oder der Benutzerin in der Variable `alter`.
-Damit wäre ein simples Beispiel für eine einfache Bedingung der mathematische
-Ausdruck `alter < 18`. Der Wert der Variablen `alter` wird also mit der Zahl 18
-verglichen. Dieser Vergleich ist entweder **wahr (True)** oder **falsch
-(False)**. Oder anders formuliert, diese Bedingung ist entweder erfüllt oder
-nicht erfüllt.
+Der Aufruf einer Funktion hat folgende Syntax:
 
-Um den Wahrheitswert einer Bedingung zu speichern, hat Python einen eigenen
-Datentyp, einen sogenannten booleschen Datentyp. Nach dem englischen Wort wird
-dieser Datentyp in der Informatik üblicherweise **Bool** oder **Boolean**
-genannt. Das besondere an diesem Datentyp ist, dass eine Variable diesen
-Datentyps nur zwei verschiedene Werte annehmen kann, nämlich
-
-* True: Wahrheitswert ist wahr oder
-* False: Wahrheitswert ist falsch.
-
-Aber wie kann man dann überprüfen, welcher Datentyp in einer Variablen
-gespeichert ist? Dazu gibt es das Kommando `type`. Führen Sie die nächste
-Code-Zelle aus.
-
-```{code-cell} ipython3
-a = False
-type(a)
+```python
+rueckgabewert = funktion( argument1, argument2, ... )
 ```
 
-## Vergleiche mit Zahlen
+Eine Funktion wird benutzt, indem man den Namen der Funktion und dann in runden
+Klammern ihre **Argumente** hinschreibt. In der Informatik wird das als
+**Aufruf** einer Funktion bezeichnet. Welche Argumente für eine Funktion
+verwendet werden dürfen, hängt von der Implementierung der Funktion ab.
 
-Nachdem wir jetzt den Datentyp kennengelernt haben, mit dem Python das Ergebnis
-eines Vergleichs speichert, kommen wir nun zu dem Vergleich selbst.
-
-Zunächst beschäftigen wir uns mit mathematischen Vergleichen. In der Mathematik
-ist ein Vergleich ein Ausdruck mit zwei Argumenten und einem Vergleichsoperator
-in der Mitte. Die beiden Argumente können auch unterschiedliche Datentypen
-haben, dann muss der Vergleichsoperator aber sinnvoll für diese Datentypen
-definiert sein. Zum Beispiel darf man einen Integer mit einem Float vergleichen
-
-`3 < 17.2`
-
-aber
-
-`3 < 'vier'`
-
-ist nicht sinnvoll und undefiniert. Es gibt die folgenden Vergleichsoperatoren
-in Python:
-
-* `<`   kleiner
-* `<=`  kleiner oder gleich
-* `>`   größer
-* `>=`  größer oder gleich
-* `==`  gleich
-* `!=` ungleich
-
-Im interaktiven Modus von Python können wir leicht den Wahrheitsgehalt von
-Vergleichen überprüfen. Wir setzen eine Variable auf den Wert 7:
+Beispielsweise kann als Argument für die `len()`-Funktion ein String übergeben
+werden oder eine Liste.
 
 ```{code-cell} ipython3
-x = 7
+len('Hallo')
 ```
 
-Jetzt probieren wir in den nachfolgenden Code-Zellen verschiedene
-Vergleichsoperatoren aus.
-
-Ist x genau gleich 15?
-
 ```{code-cell} ipython3
-x == 15    
+len([1,2,3,4,8,2])
 ```
 
-Ist x kleiner als 42?
+In der Regel geben Funktionen wieder Ergebnisse zurück. Diese werden
+**Rückgabewert** genannt. Beispielsweise können die Rückgabewert einer Variable
+zugewiesen werden, um mit dem Ergebnis weiter zu arbeiten.
 
 ```{code-cell} ipython3
-x < 42
+laenge1 = len('Hallo')
+laenge2 = len(['Apfel', 'Banane', 'Erdbeere'])
+
+if laenge1 < laenge2:
+    print('Das Wort Hallo enthält weniger Buchstaben als Früchte im Obstsalat.')
+else:
+    print('Das Wort Hallo enthält mehr Buchstaben als Einträge in der Liste.')
 ```
 
-Ist x genau 30?
+## Definition von einfachen Funktionen
 
-```{code-cell} ipython3
-x == 30
+Einfache Funktionen werden mit dem Schlüsselwort `def` gefolgt vom
+Funktionsnamen definiert. In Python verwendet man für Funktionsnamen
+üblicherweise Kleinbuchstaben und Unterstriche zur Trennung von Wörtern. Die
+Code-Anweisungen der Funktion werden eingerückt.
+
+```python
+def meine_funktion():
+    anweisung01
+    anweisung02
+     ...
+
 ```
 
-Ist x ungleich 42?
+Erstes Beispiel:
+
+Die folgende Funktion hat weder Eingabe noch Rückgabe, sondern führt einfach
+eine Aktion aus.
 
 ```{code-cell} ipython3
-x != 42 
+def gruesse_ausrichten():
+    print('Ich grüße Sie!')
 ```
 
-Ist x größer als 30?
+Nachdem die Funktion `gruesse_ausrichten()` so implementiert wurde, können wir
+sie im Folgenden direkt verwenden.
 
 ```{code-cell} ipython3
-x > 30
+gruesse_ausrichten()
 ```
 
-Ist x größer gleich 30?
+Und natürlich kann man sie in Programmverzweigungen und Schleifen einbauen.
 
 ```{code-cell} ipython3
-x >= 30
+for i in range(7):
+    gruesse_ausrichten()
 ```
 
 ```{admonition} Mini-Übung
 :class: miniexercise
-Wählen Sie sich eine Zahl. Testen Sie anschließend:
-* Ist Ihre Zahl kleiner gleich 5?
-* Ist Ihre Zahl genau 17?
-* Ist Ihre Zahl nicht gleich 17?
-* Ist Ihre Zahl positiv?
-* Ist Ihre Zahl kleiner als -17.7?
+Schreiben Sie eine Funktion, die mit Turtle ein Rechteck zeichnet. Testen Sie
+Ihre Funktion auch.
 ```
 
 ```{code-cell} ipython3
@@ -152,157 +142,33 @@ Wählen Sie sich eine Zahl. Testen Sie anschließend:
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-# Eingabe: Wahl meiner Zahl
-x = 33
+import ColabTurtlePlus.Turtle as turtle
+turtle.clearscreen()
 
-# kleiner gleich 5?
-x <= 5
-
-# genau gleich 17?
-x == 17
-
-# nicht gleich 17?
-x != 17
-
-# positiv?
-x > 0
-
-# kleiner als -17.7?
-x < -17.7
+def zeichne_rechteck():
+    rechteck = turtle.Turtle()
+    for i in range(2):
+        rechteck.forward(100)
+        rechteck.left(90)
+        rechteck.forward(50)
+        rechteck.left(90)
+        
+zeichne_rechteck()
 ```
 ````
 
-```{dropdown} Video "Vergleiche in Python" von Programmieren Starten
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ucsv_Nhhxmk"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Das folgende Video zeigt Ihnen nochmal, wie in Python Funktionen definiert
+werden.
+
+```{dropdown} Video "Funktionen" von Programmieren Starten
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LQCfN5HS9xI"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ```
-
-## Vergleiche mit Strings
-
-Als nächstes werden wir uns mit der Verwendung von Strings in Vergleichen
-beschäftigen. Strings werden häufig in Vergleichen verwendet, um festzustellen,
-ob zwei Strings gleich sind oder ob ein String in einem anderen enthalten ist.
-
-Um festzustellen, ob zwei Strings in Python gleich sind, können wir den
-Gleichheitsoperator `==` verwenden. Der Gleichheitsoperator gibt `True` zurück,
-wenn die beiden Strings exakt übereinstimmen, und `False`, wenn sie sich
-unterscheiden.
-
-```{code-cell} ipython3
-string01 = 'Hallo'
-string02 = 'Welt'
-string03 = 'Hallo'
-string04 = 'hallo'
-
-print(string01 == string02)  # Ausgabe: False
-print(string01 == string03)  # Ausgabe: True
-print(string01 == string04)  # Ausgabe: False
-```
-
-In diesem Beispiel sind die Strings `string01` und `string03` gleich. Der String
-`string02` ist jedoch unterschiedlich von `string01`, daher ist das Ergebnis
-`False`. Beachten Sie auch, dass der String `string04` nicht gleich `string01`
-ist, obwohl er den gleichen Wert hat, da Groß- und Kleinschreibung in Python bei
-der Vergleichsoperation berücksichtigt werden.
-
-Um zu überprüfen, ob ein String in einem anderen enthalten ist, können wir den
-Operator `in` verwenden. Der Operator `in` gibt `True` zurück, wenn der String
-in dem anderen String enthalten ist, und `False`, wenn nicht.
-
-```{code-cell} ipython3
-string01 = 'Hallo Welt'
-string02 = 'Welt'
-string03 = 'Python'
-
-print(string02 in string01)  # Ausgabe: True
-print(string03 in string01)  # Ausgabe: False
-```
-
-In diesem Beispiel ist der String `string02` in dem String `string01` enthalten,
-daher ist das Ergebnis `True`. Der String `string03` ist jedoch nicht in
-`string01` enthalten, daher ist das Ergebnis `False`.
-
-Beachten Sie, dass bei der Überprüfung die Groß- und Kleinschreibung in Python
-beachtet werden muss. Wenn wir also nach dem String `'welt'` suchen, erhalten wir
-`False`, da der String `'Welt'` großgeschrieben ist.
-
-Wir können auch andere Vergleichsoperationen wie <, >, <=, >= mit Strings
-verwenden. Diese Operationen vergleichen die Strings nach ihrem
-lexikographischen Wert, d.h. sie vergleichen die Zeichen eines Strings in der
-Reihenfolge, in der sie auftreten.
-
-```{code-cell} ipython3
-a = "Apfel"
-b = "Banane"
-
-print(a < b)  # Ausgabe: True
-print(a > b)  # Ausgabe: False
-print(a <= b)  # Ausgabe: True
-print(a >= b)  # Ausgabe: False
-```
-
-In diesem Beispiel ist `'Apfel'` kleiner als `'Banane'`, da "A" im Alphabet vor
-"B" steht, daher ist das Ergebnis des `<`-Operators `True`. Der `>`-Operator
-gibt `False` zurück, da `'Apfel'` nicht größer als `'Banane'` ist. Der
-`<=`-Operator gibt `True` zurück, da `'Apfel'` kleiner oder gleich `'Banane'`
-ist. Der `>=`-Operator gibt `False` zurück, da `'Apfel'` nicht größer oder
-gleich `'Banane'` ist.
-
-````{admonition} Mini-Übung
-:class: miniexercise
-Gegeben sind die folgenden Strings:
-```python
-material1 = "Stahl"
-material2 = "Aluminium"
-material3 = "Stahllegierung"
-material4 = "aluminium"
-```
-Überprüfen Sie folgende Vergleiche und notieren Sie, ob das Ergebnis `True` oder
-`False` ist:
-
-1. Ist `material1` lexikographisch größer als `material2`?
-2. Enthält `material3` den String `material1`?
-3. Sind `material2` und `material4` identisch?
-4. Überprüfen Sie mit dem `in-`Operator, ob die Zeichenfolge "leg" in
-   `material3` vorkommt.
-5. Ist `material4` lexikographisch kleiner als `material1`?
-````
-
-```{code-cell} ipython3
-# Geben Sie nach diesem Kommentar Ihren Code ein:
-
-```
-
-````{admonition} Lösung
-:class: miniexercise, toggle
-```python
-material1 = "Stahl"
-material2 = "Aluminium"
-material3 = "Stahllegierung"
-material4 = "aluminium"
-
-# 1. Ist material1 lexikographisch größer als material2?
-print(material1 > material2)  # True, da 'S' im Alphabet nach 'A' kommt
-
-# 2. Enthält material3 den String material1?
-print(material1 in material3)  # True, da "Stahl" in "Stahllegierung" enthalten ist
-
-# 3. Sind material2 und material4 identisch?
-print(material2 == material4)  # False, da Groß-/Kleinschreibung unterschiedlich ist
-
-# 4. Überprüfen Sie mit dem in-Operator, ob die Zeichenfolge "leg" in material3 vorkommt.
-print("leg" in material3)  # True, da "leg" in "Stahllegierung" enthalten ist
-
-# 5. Ist material4 lexikographisch kleiner als material1?
-print(material4 < material1)  # False, da Großbuchstaben im ASCII-Code vor Kleinbuchstaben kommen
-```
-````
 
 ## Zusammenfassung und Ausblick
 
-In diesem Kapitel haben wir den booleschen Datentyp Bool mit seinen Werten True
-und False kennengelernt. Wir haben Vergleichsoperatoren (<, >, ==, !=, <=, >=)
-für Zahlen und Strings untersucht und gesehen, wie String-Vergleiche auf
-lexikographischer Ordnung basieren. Außerdem haben wir den 'in'-Operator zur
-Überprüfung von Teil-Strings kennengelernt.
+In diesem Kapitel haben wir einfache Funktionen in Python kennengelernt. Mit dem
+Schlüsselwort `def` können wir Anweisungen bündeln und über einen Funktionsnamen
+wiederholt aufrufen. Im nächsten Kapitel erweitern wir unsere Funktionen um
+Parameter und Rückgabewerte, wodurch sie flexibler und vielseitiger einsetzbar
+werden.

@@ -1,12 +1,21 @@
-# 3. Listen und Module
+# 3. Entscheidungen treffen
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-Bisher waren die Datentypen eine Zahl oder Text. Der Datentyp Liste, der in
-diesem Kapitel eingeführt wird, sammelt Daten in einem gemeinsamen Container.
-Nach der Einführung in Listen geht es um ein ganz anderes Thema, nämlich Module.
-Module erweitern den Kern von Python. In diesem Kapitel geht es darum, Module zu
-laden. Konkret werden die beiden Module Math und Turtle vorgestellt.
+Bisher haben wir kleinere Skripte geschrieben, bei denen die Anweisungen Zeile
+für Zeile ausgeführt wurden. Ein Programm oder Skript, das nur aus einer
+einfachen Aneinanderreihung von Befehlen besteht, nennt man linear. Bisher
+hatten wir also nur lineare Programme.
+
+In diesem und in den nächsten Skripten werden wir uns mit dem Thema
+**Kontrollstruktur** beschäftigen. Kontrollstrukturen dienen dazu, den linearen
+Ablauf der Programme oder Skripte aufzubrechen und beispielsweise auf Eingaben
+der Benutzerinnen und Benutzer zu reagieren. Wir starten dazu mit der
+Kontrollstruktur **Programmverzweigung**. Wenn ein Skript auf eine Eingabe oder
+auf den aktuellen Zustand einer Variable reagieren soll, muss der
+Python-Interpreter in der Lage sein, Vergleiche zu ziehen und entscheiden zu
+können. Daher beschäftigen wir uns vorher mit dem **Datentyp Bool** und
+**Vergleichen**.

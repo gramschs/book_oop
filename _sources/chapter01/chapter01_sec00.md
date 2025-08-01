@@ -14,7 +14,7 @@ kernelspec:
   name: python3
 ---
 
-# 1. Getting Started
+# 1. Grundlagen und erste Schritte
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

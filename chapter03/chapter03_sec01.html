@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1 Listen &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+    <title>3.1 Wahrheitswerte und Vergleiche &#8212; Python für Studierende der Ingenieurwissenschaften</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -64,8 +64,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter03/chapter03_sec01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.2 Das Modul NumPy" href="chapter03_sec02.html" />
-    <link rel="prev" title="3. Listen und Module" href="chapter03_sec00.html" />
+    <link rel="next" title="3.2 Einfache Verzweigungen" href="chapter03_sec02.html" />
+    <link rel="prev" title="3. Entscheidungen treffen" href="chapter03_sec00.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,99 +171,108 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen Programmierung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Grundlagen und erste Schritte</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec01.html">1.1 Hardware und Software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec02.html">1.2 Programmieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Installation und Start von Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Jupyter Notebooks und Python als Taschenrechner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Eingabe, Verarbeitung und Ausgabe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Taschenrechner und Ausgabe (print)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen und Variablen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Eingabe (input) und Zuweisungsoperator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Daten speichern und verarbeiten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Variablen und Zuweisungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Benutzereingaben</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter03_sec00.html">3. Listen und Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1 Listen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter03_sec02.html">3.2 Das Modul NumPy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter03_sec03.html">3.3 Das Modul Turtle</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter03_sec00.html">3. Entscheidungen treffen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1 Wahrheitswerte und Vergleiche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter03_sec02.html">3.2 Einfache Verzweigungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter03_sec03.html">3.3 Mehrfachverzweigungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter03_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Zählschleifen (for), Strings und Zufallszahlen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Zufallszahlen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Wiederholungen automatisieren</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen mit range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Verschachtelte Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Schleifen mit Bedingungen (while)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter05/chapter05_sec00.html">5. Programmverzweigung (if - elif - else)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec01.html">5.1 Vergleiche und der boolesche Datentyp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec02.html">5.2 Programmverzweigungen: if</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec03.html">5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter05/chapter05_sec00.html">5. Code strukturieren mit Funktionen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec01.html">5.1 Funktionen definieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec02.html">5.2 Parameter und Rückgabewerte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec03.html">5.3 Funktionen in der Praxis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Funktionen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Funktionen selbst schreiben</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Funktionen mit Parameter und Rückgabe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Lokale und globale Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Datensammlungen verwalten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Listen erstellen und verwenden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Listen und Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Strings als Zeichenketten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Digitale Logik, Schleifen mit Bedingung, Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Digitale Logik: und, oder, nicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Schleifen mit Bedingung (while)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Fortgeschrittene Datenstrukturen und Fehlerbehandlung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Zufallszahlen und Simulationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Fehlerbehandlung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. Objektorientierte Programmierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Was sind Objekte?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Attribute und Methoden*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 OOP in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Automatisierungstechnik</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Einführung MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Numerisches Rechnen mit MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 Programmieren in MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Einführung MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Numerisches Rechnen mit MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Programmieren in MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Simulink Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Simulink-Bibliothek</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Simulink Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Simulink-Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übung</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Pandas anstatt Excel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Series und DataFrame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Arbeiten mit Tabellendaten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Statistik mit Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übungen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Einführung in Data Science mit Pandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Series und DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Arbeiten mit Tabellendaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 Statistik mit Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Kontinuierliche Daten visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Diskrete Daten und Häufigkeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 DataFrames visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec05.html">Übungen</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Theorie Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Lineare Regression mit polyfit und polyval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">12.3 Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Liniendiagramm und Streudiagramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Balkendiagramm und Histogramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">11.3 DataFrames visualisieren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Was ist maschinelles Lernen?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Überwachtes, unüberwachtes und verstärkendes Lernen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Lineare Regressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Multiple lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec03.html">13.3 Polynomiale Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter14/chapter14_sec00.html">14. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec01.html">14.1 Was ist ein Entscheidungsbaum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec02.html">14.2 Entscheidungsbäume trainieren und visualisieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec03.html">14.3 Entscheidungsbäume in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
@@ -482,7 +491,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3.1 Listen</h1>
+    <h1>3.1 Wahrheitswerte und Vergleiche</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -493,13 +502,16 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-fur-sammlungen">Container für Sammlungen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-erzeugen-mit">Listen erzeugen mit []</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elemente-aus-einer-liste-herausholen-zugriff">Elemente aus einer Liste herausholen: Zugriff</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-liste-verkettete-liste">Liste + Liste = verkettete Liste</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-lang-ist-eine-liste">Wie lang ist eine Liste?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elemente-loschen-mit-del-und-remove">Elemente löschen mit del und remove</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-datentyp-bool">Der Datentyp Bool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleiche-mit-zahlen">Vergleiche mit Zahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleiche-mit-strings">Vergleiche mit Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele-2">Lernziele 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-und">Das logische UND</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-oder">Das logische ODER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-nicht">Das logische NICHT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prioritat-der-logischen-operatoren">Priorität der logischen Operatoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick-2">Zusammenfassung und Ausblick 2</a></li>
 </ul>
             </nav>
         </div>
@@ -511,394 +523,772 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="listen">
-<h1>3.1 Listen<a class="headerlink" href="#listen" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="wahrheitswerte-und-vergleiche">
+<h1>3.1 Wahrheitswerte und Vergleiche<a class="headerlink" href="#wahrheitswerte-und-vergleiche" title="Link to this heading">#</a></h1>
 <div class="warning admonition">
 <p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
 <p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
 </div>
-<p>Bisher haben wir drei verschiedene Datentypen kennengelernt:</p>
-<ul class="simple">
-<li><p>Integer (ganze Zahlen),</p></li>
-<li><p>Float (Fließkommazahlen) und</p></li>
-<li><p>String (Zeichenketten).</p></li>
-</ul>
-<p>Damit können wir einzelne Objekte der realen Welt gut abbilden. Mit einem String
-können wir den Namen einer Person erfassen, mit einem Integer das Alter der
-Person und mit einem Float die Körpergröße der Person gemessen in Meter. Was uns
-aber bisher fehlt ist, eine Sammlung von Namen oder eine Sammlung von
-Körpergrößen verwalten zu können. Daher werden wir uns in diesem Jupyter
-Notebook mit Listen beschäftigen.</p>
+<p>Viele Möglichkeiten unserer Gesellschaft stehen nur Volljährigen offen und sind
+damit an eine Altersangabe gebunden. Wenn jetzt ein Computersystem vorab prüfen
+soll, ob Volljährigkeit vorliegt oder nicht, dann brauchen wir einen einfachen
+Vergleich. Daher beschäftigen wir uns in diesem Kapitel mit Vergleichen und dem
+Datentyp Bool.</p>
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <div class="goals admonition">
 <p class="admonition-title">Lernziele</p>
 <ul class="simple">
-<li><p>Sie wissen, dass <strong>Container</strong> Datentypen sind, die andere Objekte als Sammlung verwalten.</p></li>
-<li><p>Sie können eine <strong>Liste</strong> erzeugen.</p></li>
-<li><p>Sie wissen, was der Fachbegriff <strong>Index</strong> bedeutet.</p></li>
-<li><p>Sie können lesend und schreibend auf die Elemente einer Liste zugreifen, beherrschen also</p>
-<ul>
-<li><p><strong>Lesezugriff</strong> und</p></li>
-<li><p><strong>Schreibzugriff</strong>.</p></li>
-</ul>
-</li>
-<li><p>Sie können mit dem Plus-Operator + Listen <strong>verketten</strong>.</p></li>
-<li><p>Sie können Elemente aus einer Liste löschen:</p>
-<ul>
-<li><p>Löschung per Index: Funktion <strong>del</strong></p></li>
-<li><p>Löschung nach Wert: Methode <strong>remove</strong></p></li>
-</ul>
-</li>
+<li><p>Sie kennen den Datentyp <strong>Bool</strong> mit seinen beiden Werten <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p>Sie kennen die wichtigsten <strong>Vergleichsoperatoren</strong> für Zahlen und Strings.</p></li>
 </ul>
 </div>
 </section>
-<section id="container-fur-sammlungen">
-<h2>Container für Sammlungen<a class="headerlink" href="#container-fur-sammlungen" title="Link to this heading">#</a></h2>
-<p>In der Mathematik gibt es den Begriff des Vektors. Einen Vektor kann man als
-eine Sammlung von Zahlen interpretieren. Dabei müssen Vektoren nicht immer eine
-geometrische Interpretation haben. Beispielsweise steht der Vektor</p>
-<p>(116, 144, 199)</p>
-<p>für ein sehr schönes Blau, wenn die drei Komponenten als die Intensität der
-Farbanteile Rot - Grün - Blau interpretiert werden. Diese Art Farben zu
-beschreiben, wird RGB-Wert genannt (siehe auch <a class="reference external" href="https://de.wikipedia.org/wiki/RGB-Farbraum">Wikipedia →
-RGB-Farbraum</a>). Die Internetseite
-<a class="reference external" href="https://www.color-hex.com/">https://www.color-hex.com</a> ermöglicht es, die
-RGB-Werte verschiedener Farbtöne zu ermitteln.</p>
-<p>Wir könnten aber auch eine Namensliste mit den Mitgliedern einer WG führen
-wollen, z.B. [“Alice”, “Bob”, “Charlie”]. Damit verlassen wir die mathematische
-Welt der Zahlen und damit des Vektors. Aber auch für diese Anwendungsszenarien
-wäre es schön, Daten gemeinsam zu sammeln und zu verwalten.</p>
-<p>Der Fachbegriff für Datentypen, die dafür gedacht sind, Daten als Sammlung zu
-verwalten, ist <strong>Container</strong>. In Python gibt es verschiedene Container:</p>
+<section id="der-datentyp-bool">
+<h2>Der Datentyp Bool<a class="headerlink" href="#der-datentyp-bool" title="Link to this heading">#</a></h2>
+<p>Zurück zu dem Beispiel mit der Überprüfung der Volljährigkeit. Angenommen, wir
+speichern das Alter der Benutzers oder der Benutzerin in der Variable <code class="docutils literal notranslate"><span class="pre">alter</span></code>.
+Damit wäre ein simples Beispiel für eine einfache Bedingung der mathematische
+Ausdruck <code class="docutils literal notranslate"><span class="pre">alter</span> <span class="pre">&lt;</span> <span class="pre">18</span></code>. Der Wert der Variablen <code class="docutils literal notranslate"><span class="pre">alter</span></code> wird also mit der Zahl 18
+verglichen. Dieser Vergleich ist entweder <strong>wahr (True)</strong> oder <strong>falsch
+(False)</strong>. Oder anders formuliert, diese Bedingung ist entweder erfüllt oder
+nicht erfüllt.</p>
+<p>Um den Wahrheitswert einer Bedingung zu speichern, hat Python einen eigenen
+Datentyp, einen sogenannten booleschen Datentyp. Nach dem englischen Wort wird
+dieser Datentyp in der Informatik üblicherweise <strong>Bool</strong> oder <strong>Boolean</strong>
+genannt. Das besondere an diesem Datentyp ist, dass eine Variable diesen
+Datentyps nur zwei verschiedene Werte annehmen kann, nämlich</p>
 <ul class="simple">
-<li><p>Listen: list</p></li>
-<li><p>Tupel: tuple</p></li>
-<li><p>Dictionaries: dict</p></li>
-<li><p>Mengen: set</p></li>
+<li><p>True: Wahrheitswert ist wahr oder</p></li>
+<li><p>False: Wahrheitswert ist falsch.</p></li>
 </ul>
-<p>Wir behandeln in diesem Abschnitt die Listen.</p>
-</section>
-<section id="listen-erzeugen-mit">
-<h2>Listen erzeugen mit []<a class="headerlink" href="#listen-erzeugen-mit" title="Link to this heading">#</a></h2>
-<p>Eine Liste wird in Python durch eckige Klammern [  ] erzeugt.</p>
-<p>Betrachten wir ein Beispiel. Hier wird eine Liste mit den Elementen 1, 2, 3, 4,
-5 erzeugt und dann anschließend in der Variablen <code class="docutils literal notranslate"><span class="pre">liste_beispiel</span></code> gespeichert.
-Mit der Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> lassen wir den Inhalt der Liste ausgeben.</p>
+<p>Aber wie kann man dann überprüfen, welcher Datentyp in einer Variablen
+gespeichert ist? Dazu gibt es das Kommando <code class="docutils literal notranslate"><span class="pre">type</span></code>. Führen Sie die nächste
+Code-Zelle aus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste_beispiel</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">liste_beispiel</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
 </pre></div>
 </div>
 </div>
 </div>
-<p>Probieren Sie in der nächsten Mini-Übung selbst aus, wie eine Liste erzeugt
-wird.</p>
+</section>
+<section id="vergleiche-mit-zahlen">
+<h2>Vergleiche mit Zahlen<a class="headerlink" href="#vergleiche-mit-zahlen" title="Link to this heading">#</a></h2>
+<p>Nachdem wir jetzt den Datentyp kennengelernt haben, mit dem Python das Ergebnis
+eines Vergleichs speichert, kommen wir nun zu dem Vergleich selbst.</p>
+<p>Zunächst beschäftigen wir uns mit mathematischen Vergleichen. In der Mathematik
+ist ein Vergleich ein Ausdruck mit zwei Argumenten und einem Vergleichsoperator
+in der Mitte. Die beiden Argumente können auch unterschiedliche Datentypen
+haben, dann muss der Vergleichsoperator aber sinnvoll für diese Datentypen
+definiert sein. Zum Beispiel darf man einen Integer mit einem Float vergleichen</p>
+<p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">&lt;</span> <span class="pre">17.2</span></code></p>
+<p>aber</p>
+<p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">&lt;</span> <span class="pre">'vier'</span></code></p>
+<p>ist nicht sinnvoll und undefiniert. Es gibt die folgenden Vergleichsoperatoren
+in Python:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>   kleiner</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>  kleiner oder gleich</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>   größer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>  größer oder gleich</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code>  gleich</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code> ungleich</p></li>
+</ul>
+<p>Im interaktiven Modus von Python können wir leicht den Wahrheitsgehalt von
+Vergleichen überprüfen. Wir setzen eine Variable auf den Wert 7:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jetzt probieren wir in den nachfolgenden Code-Zellen verschiedene
+Vergleichsoperatoren aus.</p>
+<p>Ist x genau gleich 15?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">==</span> <span class="mi">15</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ist x kleiner als 42?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ist x genau 30?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">==</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ist x ungleich 42?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">!=</span> <span class="mi">42</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ist x größer als 30?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ist x größer gleich 30?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Erzeugen Sie eine Liste mit Ihrem Vornamen, Ihrem Nachnamen und Ihrer Körpergröße in m. Welche Datentypen brauchen Sie für diese drei Objekte? Lassen Sie Ihre Liste auch ausgeben.</p>
+<p>Wählen Sie sich eine Zahl. Testen Sie anschließend:</p>
+<ul class="simple">
+<li><p>Ist Ihre Zahl kleiner gleich 5?</p></li>
+<li><p>Ist Ihre Zahl genau 17?</p></li>
+<li><p>Ist Ihre Zahl nicht gleich 17?</p></li>
+<li><p>Ist Ihre Zahl positiv?</p></li>
+<li><p>Ist Ihre Zahl kleiner als -17.7?</p></li>
+</ul>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Musterfrau&#39;</span><span class="p">,</span> <span class="mf">1.61</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe: Wahl meiner Zahl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">33</span>
+
+<span class="c1"># kleiner gleich 5?</span>
+<span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span>
+
+<span class="c1"># genau gleich 17?</span>
+<span class="n">x</span> <span class="o">==</span> <span class="mi">17</span>
+
+<span class="c1"># nicht gleich 17?</span>
+<span class="n">x</span> <span class="o">!=</span> <span class="mi">17</span>
+
+<span class="c1"># positiv?</span>
+<span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+<span class="c1"># kleiner als -17.7?</span>
+<span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">17.7</span>
 </pre></div>
 </div>
-<p>Vor- und Nachname werden durch Strings repräsentiert, die Körpergröße als Float.</p>
 </div>
-<p>Im folgenden Video können Sie sich die Erzeugung von Listen nochmal ansehen.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video “Python Tutorial - Listen” von Programmieren starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ihF8bZoauBs"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<span class="sd-summary-text">Video “Vergleiche in Python” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ucsv_Nhhxmk"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 </details></section>
-<section id="elemente-aus-einer-liste-herausholen-zugriff">
-<h2>Elemente aus einer Liste herausholen: Zugriff<a class="headerlink" href="#elemente-aus-einer-liste-herausholen-zugriff" title="Link to this heading">#</a></h2>
-<p>Jede Liste hat einen Index. Man kann sich eine Liste wie eine Straße mit einer
-Sammlung von Häusern vorstellen. Um ein Haus in der Straße zu finden, hat es
-eine Hausnummer. Und das ist in der Informatik der <strong>Index</strong>, also die Position
-in der Liste, an der ein Element zu finden ist.</p>
-<p>In jeder Programmiersprache gibt es Container mit einem Index, wobei der Index
-in der Regel durch Integer repräsentiert wird. Allerdings gibt es Unterschiede,
-bei welcher Zahl die Nummerierung beginnt. <strong>Python fängt mit der Null an.</strong>
-Dann können wir mit dem Index sozusagen nachsehen, welches Element an dieser
-Index-Position gespeichert ist. Das nennt man in der Informatik <strong>Lesezugriff</strong>.
-Oder wir können das Element an einer bestimmten Index-Position gegen ein neues
-Element austauschen. Das nennt man dann <strong>Schreibzugriff</strong>.</p>
-<p>Um auf ein Element einer Liste zugreifen zu können (egal ob lesend oder
-schreibend), verwenden wir eckige Klammern und den Index. Der Lesezugriff für
-das erste Element sieht biepielsweise so aus:</p>
+<section id="vergleiche-mit-strings">
+<h2>Vergleiche mit Strings<a class="headerlink" href="#vergleiche-mit-strings" title="Link to this heading">#</a></h2>
+<p>Als nächstes werden wir uns mit der Verwendung von Strings in Vergleichen
+beschäftigen. Strings werden häufig in Vergleichen verwendet, um festzustellen,
+ob zwei Strings gleich sind oder ob ein String in einem anderen enthalten ist.</p>
+<p>Um festzustellen, ob zwei Strings in Python gleich sind, können wir den
+Gleichheitsoperator <code class="docutils literal notranslate"><span class="pre">==</span></code> verwenden. Der Gleichheitsoperator gibt <code class="docutils literal notranslate"><span class="pre">True</span></code> zurück,
+wenn die beiden Strings exakt übereinstimmen, und <code class="docutils literal notranslate"><span class="pre">False</span></code>, wenn sie sich
+unterscheiden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeugung einer Liste</span>
-<span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rot&#39;</span><span class="p">,</span> <span class="s1">&#39;grün&#39;</span><span class="p">,</span> <span class="s1">&#39;blau&#39;</span><span class="p">,</span> <span class="s1">&#39;gelb&#39;</span><span class="p">,</span> <span class="s1">&#39;weiß&#39;</span><span class="p">,</span> <span class="s1">&#39;schwarz&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string01</span> <span class="o">=</span> <span class="s1">&#39;Hallo&#39;</span>
+<span class="n">string02</span> <span class="o">=</span> <span class="s1">&#39;Welt&#39;</span>
+<span class="n">string03</span> <span class="o">=</span> <span class="s1">&#39;Hallo&#39;</span>
+<span class="n">string04</span> <span class="o">=</span> <span class="s1">&#39;hallo&#39;</span>
 
-<span class="c1"># Lesezugriff mit Position 1, also Index 0</span>
-<span class="n">erstes_objekt</span> <span class="o">=</span> <span class="n">meine_liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">erstes_objekt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string01</span> <span class="o">==</span> <span class="n">string02</span><span class="p">)</span>  <span class="c1"># Ausgabe: False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string01</span> <span class="o">==</span> <span class="n">string03</span><span class="p">)</span>  <span class="c1"># Ausgabe: True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string01</span> <span class="o">==</span> <span class="n">string04</span><span class="p">)</span>  <span class="c1"># Ausgabe: False</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rot
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+False
 </pre></div>
 </div>
 </div>
 </div>
-<p>In der nächsten Mini-Übung wird der Lesezugriff genutzt, um ein Element in einer
-neuen Variable zu speichern.</p>
+<p>In diesem Beispiel sind die Strings <code class="docutils literal notranslate"><span class="pre">string01</span></code> und <code class="docutils literal notranslate"><span class="pre">string03</span></code> gleich. Der String
+<code class="docutils literal notranslate"><span class="pre">string02</span></code> ist jedoch unterschiedlich von <code class="docutils literal notranslate"><span class="pre">string01</span></code>, daher ist das Ergebnis
+<code class="docutils literal notranslate"><span class="pre">False</span></code>. Beachten Sie auch, dass der String <code class="docutils literal notranslate"><span class="pre">string04</span></code> nicht gleich <code class="docutils literal notranslate"><span class="pre">string01</span></code>
+ist, obwohl er den gleichen Wert hat, da Groß- und Kleinschreibung in Python bei
+der Vergleichsoperation berücksichtigt werden.</p>
+<p>Um zu überprüfen, ob ein String in einem anderen enthalten ist, können wir den
+Operator <code class="docutils literal notranslate"><span class="pre">in</span></code> verwenden. Der Operator <code class="docutils literal notranslate"><span class="pre">in</span></code> gibt <code class="docutils literal notranslate"><span class="pre">True</span></code> zurück, wenn der String
+in dem anderen String enthalten ist, und <code class="docutils literal notranslate"><span class="pre">False</span></code>, wenn nicht.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string01</span> <span class="o">=</span> <span class="s1">&#39;Hallo Welt&#39;</span>
+<span class="n">string02</span> <span class="o">=</span> <span class="s1">&#39;Welt&#39;</span>
+<span class="n">string03</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">string02</span> <span class="ow">in</span> <span class="n">string01</span><span class="p">)</span>  <span class="c1"># Ausgabe: True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string03</span> <span class="ow">in</span> <span class="n">string01</span><span class="p">)</span>  <span class="c1"># Ausgabe: False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>In diesem Beispiel ist der String <code class="docutils literal notranslate"><span class="pre">string02</span></code> in dem String <code class="docutils literal notranslate"><span class="pre">string01</span></code> enthalten,
+daher ist das Ergebnis <code class="docutils literal notranslate"><span class="pre">True</span></code>. Der String <code class="docutils literal notranslate"><span class="pre">string03</span></code> ist jedoch nicht in
+<code class="docutils literal notranslate"><span class="pre">string01</span></code> enthalten, daher ist das Ergebnis <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Beachten Sie, dass bei der Überprüfung die Groß- und Kleinschreibung in Python
+beachtet werden muss. Wenn wir also nach dem String <code class="docutils literal notranslate"><span class="pre">'welt'</span></code> suchen, erhalten wir
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, da der String <code class="docutils literal notranslate"><span class="pre">'Welt'</span></code> großgeschrieben ist.</p>
+<p>Wir können auch andere Vergleichsoperationen wie &lt;, &gt;, &lt;=, &gt;= mit Strings
+verwenden. Diese Operationen vergleichen die Strings nach ihrem
+lexikographischen Wert, d.h. sie vergleichen die Zeichen eines Strings in der
+Reihenfolge, in der sie auftreten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;Apfel&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;Banane&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Ausgabe: True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Ausgabe: False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Ausgabe: True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Ausgabe: False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>In diesem Beispiel ist <code class="docutils literal notranslate"><span class="pre">'Apfel'</span></code> kleiner als <code class="docutils literal notranslate"><span class="pre">'Banane'</span></code>, da “A” im Alphabet vor
+“B” steht, daher ist das Ergebnis des <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>-Operators <code class="docutils literal notranslate"><span class="pre">True</span></code>. Der <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>-Operator
+gibt <code class="docutils literal notranslate"><span class="pre">False</span></code> zurück, da <code class="docutils literal notranslate"><span class="pre">'Apfel'</span></code> nicht größer als <code class="docutils literal notranslate"><span class="pre">'Banane'</span></code> ist. Der
+<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>-Operator gibt <code class="docutils literal notranslate"><span class="pre">True</span></code> zurück, da <code class="docutils literal notranslate"><span class="pre">'Apfel'</span></code> kleiner oder gleich <code class="docutils literal notranslate"><span class="pre">'Banane'</span></code>
+ist. Der <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>-Operator gibt <code class="docutils literal notranslate"><span class="pre">False</span></code> zurück, da <code class="docutils literal notranslate"><span class="pre">'Apfel'</span></code> nicht größer oder
+gleich <code class="docutils literal notranslate"><span class="pre">'Banane'</span></code> ist.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Speichern Sie das 4. Element der Liste <code class="docutils literal notranslate"><span class="pre">meine_liste</span> <span class="pre">=</span> <span class="pre">['rot',</span> <span class="pre">'grün',</span> <span class="pre">'blau',</span> <span class="pre">'gelb',</span> <span class="pre">'weiß',</span> <span class="pre">'schwarz']</span></code> in der Variable <code class="docutils literal notranslate"><span class="pre">vier</span></code> ab und lassen Sie es ausgeben.</p>
+<p>Gegeben sind die folgenden Strings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">material1</span> <span class="o">=</span> <span class="s2">&quot;Stahl&quot;</span>
+<span class="n">material2</span> <span class="o">=</span> <span class="s2">&quot;Aluminium&quot;</span>
+<span class="n">material3</span> <span class="o">=</span> <span class="s2">&quot;Stahllegierung&quot;</span>
+<span class="n">material4</span> <span class="o">=</span> <span class="s2">&quot;aluminium&quot;</span>
+</pre></div>
+</div>
+<p>Überprüfen Sie folgende Vergleiche und notieren Sie, ob das Ergebnis <code class="docutils literal notranslate"><span class="pre">True</span></code> oder
+<code class="docutils literal notranslate"><span class="pre">False</span></code> ist:</p>
+<ol class="arabic simple">
+<li><p>Ist <code class="docutils literal notranslate"><span class="pre">material1</span></code> lexikographisch größer als <code class="docutils literal notranslate"><span class="pre">material2</span></code>?</p></li>
+<li><p>Enthält <code class="docutils literal notranslate"><span class="pre">material3</span></code> den String <code class="docutils literal notranslate"><span class="pre">material1</span></code>?</p></li>
+<li><p>Sind <code class="docutils literal notranslate"><span class="pre">material2</span></code> und <code class="docutils literal notranslate"><span class="pre">material4</span></code> identisch?</p></li>
+<li><p>Überprüfen Sie mit dem <code class="docutils literal notranslate"><span class="pre">in-</span></code>Operator, ob die Zeichenfolge “leg” in
+<code class="docutils literal notranslate"><span class="pre">material3</span></code> vorkommt.</p></li>
+<li><p>Ist <code class="docutils literal notranslate"><span class="pre">material4</span></code> lexikographisch kleiner als <code class="docutils literal notranslate"><span class="pre">material1</span></code>?</p></li>
+</ol>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rot&#39;</span><span class="p">,</span> <span class="s1">&#39;grün&#39;</span><span class="p">,</span> <span class="s1">&#39;blau&#39;</span><span class="p">,</span> <span class="s1">&#39;gelb&#39;</span><span class="p">,</span> <span class="s1">&#39;weiß&#39;</span><span class="p">,</span> <span class="s1">&#39;schwarz&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">material1</span> <span class="o">=</span> <span class="s2">&quot;Stahl&quot;</span>
+<span class="n">material2</span> <span class="o">=</span> <span class="s2">&quot;Aluminium&quot;</span>
+<span class="n">material3</span> <span class="o">=</span> <span class="s2">&quot;Stahllegierung&quot;</span>
+<span class="n">material4</span> <span class="o">=</span> <span class="s2">&quot;aluminium&quot;</span>
 
-<span class="n">vier</span> <span class="o">=</span> <span class="n">meine_liste</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">vier</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>Der Schreibzugriff erfolgt ebenfalls mit eckigen Klammern und dem Index.</p>
-<p>Im folgenden Code sehen Sie, wie in der Liste die Farbe weiß durch lila ersetzt wird.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeugung Liste</span>
-<span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rot&#39;</span><span class="p">,</span> <span class="s1">&#39;grün&#39;</span><span class="p">,</span> <span class="s1">&#39;blau&#39;</span><span class="p">,</span> <span class="s1">&#39;gelb&#39;</span><span class="p">,</span> <span class="s1">&#39;weiß&#39;</span><span class="p">,</span> <span class="s1">&#39;schwarz&#39;</span><span class="p">]</span>
+<span class="c1"># 1. Ist material1 lexikographisch größer als material2?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">material1</span> <span class="o">&gt;</span> <span class="n">material2</span><span class="p">)</span>  <span class="c1"># True, da &#39;S&#39; im Alphabet nach &#39;A&#39; kommt</span>
 
-<span class="c1"># Schreibzugriff</span>
-<span class="n">meine_liste</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;lila&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;rot&#39;, &#39;grün&#39;, &#39;blau&#39;, &#39;gelb&#39;, &#39;lila&#39;, &#39;schwarz&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Der Zugriff auf Listen wird auch in dem folgenden Video erklärt.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video “Python Tutorial - Zugriff auf Listen” von Programmieren starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_XzWPXvya2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-</details></section>
-<section id="liste-liste-verkettete-liste">
-<h2>Liste + Liste = verkettete Liste<a class="headerlink" href="#liste-liste-verkettete-liste" title="Link to this heading">#</a></h2>
-<p>Auch wenn es im ersten Moment verrückt erscheint, Python kann Listen addieren.
-Am besten schauen wir uns ein Beispiel an:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste_de</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rot&#39;</span><span class="p">,</span> <span class="s1">&#39;grün&#39;</span><span class="p">,</span> <span class="s1">&#39;blau&#39;</span><span class="p">]</span>
-<span class="n">liste_en</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="c1"># 2. Enthält material3 den String material1?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">material1</span> <span class="ow">in</span> <span class="n">material3</span><span class="p">)</span>  <span class="c1"># True, da &quot;Stahl&quot; in &quot;Stahllegierung&quot; enthalten ist</span>
 
-<span class="c1"># Verkettung zweier Listen durch +</span>
-<span class="n">liste_de_en</span> <span class="o">=</span> <span class="n">liste_de</span> <span class="o">+</span> <span class="n">liste_en</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">liste_de_en</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;rot&#39;, &#39;grün&#39;, &#39;blau&#39;, &#39;red&#39;, &#39;green&#39;, &#39;blue&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Das Aneinanderhängen von Elementen zweier Container nennen wir in der Informatik
-<strong>Verkettung</strong>. Oft wird auch der englische Begriff <strong>Concatenation</strong> verwendet.</p>
-<p>In der folgenden Mini-Übung können Sie die Verkettung ausprobieren.</p>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Erzeugen Sie eine Liste mit den Monaten März, April und Mai und speichern Sie
-diese Liste in der Variable <code class="docutils literal notranslate"><span class="pre">fruehling</span></code>. Erzeugen Sie anschließend die Listen
-<code class="docutils literal notranslate"><span class="pre">sommer</span></code>, <code class="docutils literal notranslate"><span class="pre">herbst</span></code> und <code class="docutils literal notranslate"><span class="pre">winter</span></code> mit den jeweils passenden Monaten. Verketten Sie
-die vier Listen und speichern Sie in der Variable <code class="docutils literal notranslate"><span class="pre">jahr</span></code> ab. Lassen Sie zuletzt das
-Jahr anzeigen.</p>
-<p>Welchen Index hat Ihr Geburtsmonat in der Liste <code class="docutils literal notranslate"><span class="pre">jahr</span></code>?</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Listen mit Monaten</span>
-<span class="n">fruehling</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;März&#39;</span><span class="p">,</span> <span class="s1">&#39;April&#39;</span><span class="p">,</span> <span class="s1">&#39;Mai&#39;</span><span class="p">]</span>
-<span class="n">sommer</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Juni&#39;</span><span class="p">,</span> <span class="s1">&#39;Juli&#39;</span><span class="p">,</span> <span class="s1">&#39;August&#39;</span><span class="p">]</span>
-<span class="n">herbst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;September&#39;</span><span class="p">,</span> <span class="s1">&#39;Oktober&#39;</span><span class="p">,</span> <span class="s1">&#39;November&#39;</span><span class="p">]</span>
-<span class="n">winter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Dezember&#39;</span><span class="p">,</span> <span class="s1">&#39;Januar&#39;</span><span class="p">,</span> <span class="s1">&#39;Februar&#39;</span><span class="p">]</span>
+<span class="c1"># 3. Sind material2 und material4 identisch?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">material2</span> <span class="o">==</span> <span class="n">material4</span><span class="p">)</span>  <span class="c1"># False, da Groß-/Kleinschreibung unterschiedlich ist</span>
 
-<span class="c1"># Jahr</span>
-<span class="n">jahr</span> <span class="o">=</span> <span class="n">fruehling</span> <span class="o">+</span> <span class="n">sommer</span> <span class="o">+</span> <span class="n">herbst</span> <span class="o">+</span> <span class="n">winter</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">jahr</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Der März hat den Index 0, der April den Index 1 usw… Der letzte Monat ist der
-Februar, der den Index 11 hat.</p>
-</div>
-</section>
-<section id="wie-lang-ist-eine-liste">
-<h2>Wie lang ist eine Liste?<a class="headerlink" href="#wie-lang-ist-eine-liste" title="Link to this heading">#</a></h2>
-<p>Manchmal möchte man wissen, wie viele Elemente in einer Liste enthalten sind.
-Dafür gibt es in Python die eingebaute Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> – kurz für length, also
-Länge.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">farben</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rot&#39;</span><span class="p">,</span> <span class="s1">&#39;grün&#39;</span><span class="p">,</span> <span class="s1">&#39;blau&#39;</span><span class="p">]</span>
-<span class="n">anzahl_farben</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">farben</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anzahl_farben</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-</div>
-</div>
-<p>In diesem Beispiel enthält die Liste <code class="docutils literal notranslate"><span class="pre">farben</span></code> drei Elemente, daher gibt
-<code class="docutils literal notranslate"><span class="pre">len(farben)</span></code> den Wert 3 zurück.</p>
-<p>Diese Funktion ist besonders nützlich, wenn man mit Listen arbeitet, deren Länge
-sich verändert, zum Beispiel, wenn Einträge hinzugefügt oder gelöscht werden.</p>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Erzeugen Sie eine Liste mit Ihren drei Lieblingsgerichten. Verwenden Sie
-<code class="docutils literal notranslate"><span class="pre">len()</span></code>, um die Länge der Liste zu bestimmen, und geben Sie sie aus.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code.</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gerichte</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pizza&#39;</span><span class="p">,</span> <span class="s1">&#39;Lasagne&#39;</span><span class="p">,</span> <span class="s1">&#39;Sushi&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gerichte</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="elemente-loschen-mit-del-und-remove">
-<h2>Elemente löschen mit del und remove<a class="headerlink" href="#elemente-loschen-mit-del-und-remove" title="Link to this heading">#</a></h2>
-<p>Die Verkettung der Listen führt dazu, dass die Listen länger werden. Die
-Umkehrung davon fehlt noch, das Kürzen von Listen. Wie so oft in Python gibt es
-mehrere Möglichkeiten, ein Element aus einer Liste zu entfernen, also zu
-löschen. Die Anweisung <code class="docutils literal notranslate"><span class="pre">del</span></code> löscht das Element an einer bestimmten Position.
-Zuerst kommt die Anweisung, dann das Listenelement mit Index:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Null&#39;</span><span class="p">,</span> <span class="s1">&#39;Eins&#39;</span><span class="p">,</span> <span class="s1">&#39;Zwei&#39;</span><span class="p">,</span> <span class="s1">&#39;Drei&#39;</span><span class="p">,</span> <span class="s1">&#39;Vier&#39;</span><span class="p">,</span> <span class="s1">&#39;Fünf&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vor dem Löschen: &#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
+<span class="c1"># 4. Überprüfen Sie mit dem in-Operator, ob die Zeichenfolge &quot;leg&quot; in material3 vorkommt.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;leg&quot;</span> <span class="ow">in</span> <span class="n">material3</span><span class="p">)</span>  <span class="c1"># True, da &quot;leg&quot; in &quot;Stahllegierung&quot; enthalten ist</span>
 
-<span class="k">del</span> <span class="n">meine_liste</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nach dem Löschen&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
+<span class="c1"># 5. Ist material4 lexikographisch kleiner als material1?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">material4</span> <span class="o">&lt;</span> <span class="n">material1</span><span class="p">)</span>  <span class="c1"># False, da Großbuchstaben im ASCII-Code vor Kleinbuchstaben kommen</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vor dem Löschen: 
-[&#39;Null&#39;, &#39;Eins&#39;, &#39;Zwei&#39;, &#39;Drei&#39;, &#39;Vier&#39;, &#39;Fünf&#39;]
-Nach dem Löschen
-[&#39;Null&#39;, &#39;Eins&#39;, &#39;Drei&#39;, &#39;Vier&#39;, &#39;Fünf&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Wie Sie sehen ist das dritte Element in der Liste gelöscht worden, da die
-Nummerierung des Index bei 0 startet.</p>
-<p>Vielleicht möchte man aber gar nicht ein Element an einer bestimmten Position
-löschen, sondern einen bestimmten Eintrag. Das folgende Beispiel implementiert
-eine Einkaufsliste in Python. Sobald ein Lebensmittel gekauft ist, soll es von
-der Liste gestrichen werden.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">einkaufsliste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Milch&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaffee&#39;</span><span class="p">,</span> <span class="s1">&#39;Brötchen&#39;</span><span class="p">,</span> <span class="s1">&#39;Marmelade&#39;</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Einkaufsliste: &#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">einkaufsliste</span><span class="p">)</span>
-
-<span class="n">einkaufsliste</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;Brötchen&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nach dem Einkauf in der Bäckerei: &#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">einkaufsliste</span><span class="p">)</span>
-
-<span class="n">einkaufsliste</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;Milch&#39;</span><span class="p">)</span>
-<span class="n">einkaufsliste</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;Kaffee&#39;</span><span class="p">)</span>
-<span class="n">einkaufsliste</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;Marmelade&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nach dem Einkauf im Supermarkt: &#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Einkaufsliste: 
-[&#39;Milch&#39;, &#39;Kaffee&#39;, &#39;Brötchen&#39;, &#39;Marmelade&#39;]
-Nach dem Einkauf in der Bäckerei: 
-[&#39;Milch&#39;, &#39;Kaffee&#39;, &#39;Marmelade&#39;]
-Nach dem Einkauf im Supermarkt: 
-[]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Die Vorgehensweise, um das Element <code class="docutils literal notranslate"><span class="pre">Milch</span></code> zu löschen, ist diesmal komplett
-anders. Diesmal hängen wir an die Variable <code class="docutils literal notranslate"><span class="pre">einkaufsliste</span></code> einen Punkt und dann
-den Namen des Kommandos <code class="docutils literal notranslate"><span class="pre">remove()</span></code>. Wieso das?</p>
-<p>Das Kommando <code class="docutils literal notranslate"><span class="pre">del</span></code> ist so wichtig und universell, dass es mit allen Containern
-funktioniert. Daher ist dieser Befehl als eine sogenannte <strong>Funktion</strong> im
-Python-Kern implementiert. Das Kommando <code class="docutils literal notranslate"><span class="pre">remove()</span></code> bezieht sich jedoch nur auf
-die Liste. Daher ist dieser Befehl als eine sogenannte <strong>Methode</strong>
-implementiert. Eine Methode ist eine Funktion, die zu einem Datentyp dazugehört.</p>
-<p>In späteren Kapiteln werden wir selbst Funktionen und Methoden
-(Objektorientierung) implementieren und auf die Unterschiede detaillierter
-eingehen. Im Moment begnügen wir uns mit der Tatsache, dass es Funktionen wie</p>
-<ul class="simple">
-<li><p>input()</p></li>
-<li><p>print()</p></li>
-<li><p>del()</p></li>
-</ul>
-<p>gibt und Methoden, die mit einem Punkt an das Objekt angehängt werden wie z.B.
-<code class="docutils literal notranslate"><span class="pre">.remove()</span></code>.</p>
 </section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
-<p>In diesem Kapitel haben wir gelernt, wie man mit Listen mehrere Werte in Python
-strukturiert speichern kann. Wir wissen nun, wie Listen erstellt, gelesen,
-verändert, verkettet und verkürzt werden. Außerdem kennen wir mit <code class="docutils literal notranslate"><span class="pre">len()</span></code> eine
-einfache Möglichkeit, die Länge einer Liste zu bestimmen. Diese Konzepte bilden
-die Grundlage für viele weiterführende Themen wie Schleifen und Interaktionen,
-die in späteren Kapiteln behandelt werden.</p>
+<p>In diesem Kapitel haben wir den booleschen Datentyp Bool mit seinen Werten True
+und False kennengelernt. Wir haben Vergleichsoperatoren (&lt;, &gt;, ==, !=, &lt;=, &gt;=)
+für Zahlen und Strings untersucht und gesehen, wie String-Vergleiche auf
+lexikographischer Ordnung basieren. Außerdem haben wir den ‘in’-Operator zur
+Überprüfung von Teil-Strings kennengelernt.</p>
+</section>
+<section id="lernziele-2">
+<h2>Lernziele 2<a class="headerlink" href="#lernziele-2" title="Link to this heading">#</a></h2>
+<div class="goals admonition">
+<p class="admonition-title">Lernziele</p>
+<ul class="simple">
+<li><p>Sie kennen die logischen Operatoren und können diese in Python einsetzen:</p>
+<ul>
+<li><p>logisches UND: <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
+<li><p>logisches ODER: <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+<li><p>logisches NICHT: <code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
+</ul>
+</li>
+<li><p>Sie verstehen die Priorität der logischen Operatoren und können komplexe
+Bedingungen korrekt formulieren.</p></li>
+</ul>
+</div>
+</section>
+<section id="das-logische-und">
+<h2>Das logische UND<a class="headerlink" href="#das-logische-und" title="Link to this heading">#</a></h2>
+<p>Beim logischen UND müssen beide Bedingungen erfüllt sein, damit insgesamt die
+kombinierte Bedingung erfüllt ist. Vergleichbar ist dies mit einer
+Reihenschaltung in der Elektrotechnik: Nur wenn beide Schalter eingeschaltet
+sind, kann der Strom fließen.</p>
+<p>Hier finden Sie ein erläuterndes Video (ca. 3:14 min) zur UND-Schaltung:</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=79WVEr2BVZI">https://www.youtube.com/watch?v=79WVEr2BVZI</a></p>
+<p>Die Ergebnisse der UND-Verknüpfung lassen sich in einer Wahrheitstabelle
+darstellen:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bedingung 1</p></th>
+<th class="head"><p>Bedingung 2</p></th>
+<th class="head"><p>Ergebnis mit <code class="docutils literal notranslate"><span class="pre">and</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Beispiel aus der Industrie: Ein automatisches Werkzeug darf nur dann betätigt
+werden, wenn das Werkstück korrekt eingespannt ist UND der Sicherheitsbereich
+frei ist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">werkstueck_eingespannt</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">sicherheitsbereich_frei</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">werkstueck_eingespannt</span> <span class="ow">and</span> <span class="n">sicherheitsbereich_frei</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Werkzeug kann betätigt werden.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sicherheitsvoraussetzungen nicht erfüllt.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Werkzeug kann betätigt werden.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bei komplexeren Bedingungen kann die Verwendung von Klammern die Lesbarkeit
+verbessern, auch wenn dies syntaktisch nicht immer erforderlich ist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="n">druck</span> <span class="o">=</span> <span class="mf">3.5</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">temperatur</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">druck</span> <span class="o">&lt;</span> <span class="mf">4.0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;System arbeitet im normalen Betriebszustand.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;System außerhalb der normalen Parameter.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>System arbeitet im normalen Betriebszustand.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Schreiben Sie ein Programm für die Steuerung einer Hydraulikpresse. Die Presse
+darf nur betätigt werden, wenn</p>
+<ol class="arabic simple">
+<li><p>die Betriebstemperatur zwischen 60°C und 85°C liegt und</p></li>
+<li><p>der Druck zwischen 2.5 und 5.0 bar beträgt.</p></li>
+</ol>
+<p>Lassen Sie die Werte vom Benutzer eingeben und geben Sie eine entsprechende
+Meldung aus.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
+<span class="n">temperatur</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Aktuelle Betriebstemperatur (°C): &#39;</span><span class="p">))</span>
+<span class="n">druck</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Aktueller Druck (bar): &#39;</span><span class="p">))</span>
+
+<span class="c1"># Verarbeitung und Ausgabe</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">60</span> <span class="o">&lt;=</span> <span class="n">temperatur</span> <span class="o">&lt;=</span> <span class="mi">85</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mf">2.5</span> <span class="o">&lt;=</span> <span class="n">druck</span> <span class="o">&lt;=</span> <span class="mf">5.0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hydraulikpresse kann betätigt werden.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Betriebsparameter außerhalb des sicheren Bereichs!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="das-logische-oder">
+<h2>Das logische ODER<a class="headerlink" href="#das-logische-oder" title="Link to this heading">#</a></h2>
+<p>Beim logischen ODER muss nur eine der Bedingungen erfüllt sein, damit insgesamt
+die kombinierte Bedingung erfüllt ist. Die Bedingung ist auch erfüllt, wenn
+beide Teilbedingungen wahr sind. Vergleichbar ist dies mit einer
+Parallelschaltung in der Elektrotechnik: Es reicht, wenn einer der beiden
+Schalter eingeschaltet ist, damit der Strom fließen kann.</p>
+<p>Hier finden Sie ein erläuterndes Video (ca. 2:42 min) zur ODER-Schaltung:</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=UNkXbvSN9w8">https://www.youtube.com/watch?v=UNkXbvSN9w8</a></p>
+<p>Die Wahrheitstabelle für das logische ODER:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bedingung 1</p></th>
+<th class="head"><p>Bedingung 2</p></th>
+<th class="head"><p>Ergebnis mit <code class="docutils literal notranslate"><span class="pre">or</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Beispiel aus der Produktion: Ein Notaus-System muss aktiviert werden, wenn
+entweder der Temperaturwert zu hoch ist ODER der Druckwert einen kritischen Wert
+überschreitet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">95</span>  <span class="c1"># in Grad Celsius</span>
+<span class="n">druck</span> <span class="o">=</span> <span class="mf">4.8</span>      <span class="c1"># in bar</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">temperatur</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">druck</span> <span class="o">&gt;</span> <span class="mf">5.0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNUNG: Notabschaltung wird eingeleitet!&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;System arbeitet im normalen Betriebsbereich.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNUNG: Notabschaltung wird eingeleitet!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python verwendet eine sogenannte <strong>Kurzschlussauswertung</strong> für logische
+Operatoren. Dies bedeutet:</p>
+<ul class="simple">
+<li><p>Bei einem <code class="docutils literal notranslate"><span class="pre">and</span></code>-Ausdruck: Wenn der erste Teil <code class="docutils literal notranslate"><span class="pre">False</span></code> ist, wird der zweite
+Teil nicht mehr ausgewertet.</p></li>
+<li><p>Bei einem <code class="docutils literal notranslate"><span class="pre">or</span></code>-Ausdruck: Wenn der erste Teil <code class="docutils literal notranslate"><span class="pre">True</span></code> ist, wird der zweite Teil
+nicht mehr ausgewertet.</p></li>
+</ul>
+<p>Dies kann man sich zur Verbesserung der Performance zunutze machen, indem man
+bei <code class="docutils literal notranslate"><span class="pre">and</span></code>-Verknüpfungen die Bedingung mit der höheren Wahrscheinlichkeit für
+<code class="docutils literal notranslate"><span class="pre">False</span></code> zuerst platziert.</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Schreiben Sie ein Programm für ein Alarmsystem einer CNC-Fräse. Das System soll
+einen Alarm auslösen, wenn:</p>
+<ol class="arabic simple">
+<li><p>Die Drehzahl unter 500 U/min fällt oder über 2000 U/min steigt</p></li>
+<li><p>Die Kühlmitteltemperatur über 60°C steigt</p></li>
+</ol>
+<p>Lassen Sie die Werte vom Benutzer eingeben und geben Sie eine entsprechende
+Meldung aus.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
+<span class="n">drehzahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Aktuelle Drehzahl (U/min): &#39;</span><span class="p">))</span>
+<span class="n">kuehlmitteltemperatur</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Aktuelle Kühlmitteltemperatur (°C): &#39;</span><span class="p">))</span>
+
+<span class="c1"># Verarbeitung und Ausgabe</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">drehzahl</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">drehzahl</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">kuehlmitteltemperatur</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ALARM: Betriebsparameter außerhalb des sicheren Bereichs!&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;System arbeitet im normalen Betriebsbereich.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="das-logische-nicht">
+<h2>Das logische NICHT<a class="headerlink" href="#das-logische-nicht" title="Link to this heading">#</a></h2>
+<p>Das logische NICHT kehrt eine Aussage um. Wenn eine Bedingung wahr ist, wird sie
+falsch und umgekehrt. In Python verwenden wir den Operator <code class="docutils literal notranslate"><span class="pre">not</span></code> für diese
+Umkehrung.</p>
+<p>Die Wahrheitstabelle für das logische NICHT:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bedingung</p></th>
+<th class="head"><p>Ergebnis mit <code class="docutils literal notranslate"><span class="pre">not</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Beispiel aus dem Maschinenbau: Eine Maschine darf nicht gestartet werden, wenn
+der Wartungsmodus aktiviert ist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wartungsmodus_aktiv</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">wartungsmodus_aktiv</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maschine kann gestartet werden.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maschine im Wartungsmodus: Start nicht möglich.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maschine im Wartungsmodus: Start nicht möglich.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Verwendung von <code class="docutils literal notranslate"><span class="pre">not</span></code> kann oft komplexe Bedingungen vereinfachen. Statt zu
+prüfen, ob ein Wert außerhalb eines Bereichs liegt, kann man prüfen, ob er nicht
+innerhalb des Bereichs liegt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">78</span>
+
+<span class="c1"># Diese beiden Bedingungen sind äquivalent</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">temperatur</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">temperatur</span> <span class="o">&gt;</span> <span class="mi">85</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperatur außerhalb des Betriebsbereichs.&#39;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">60</span> <span class="o">&lt;=</span> <span class="n">temperatur</span> <span class="o">&lt;=</span> <span class="mi">85</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperatur außerhalb des Betriebsbereichs.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prioritat-der-logischen-operatoren">
+<h2>Priorität der logischen Operatoren<a class="headerlink" href="#prioritat-der-logischen-operatoren" title="Link to this heading">#</a></h2>
+<p>Bei mehreren logischen Operatoren in einem Ausdruck ist die Reihenfolge der
+Auswertung wichtig. In Python gilt folgende Priorität:</p>
+<ol class="arabic simple">
+<li><p>Klammern <code class="docutils literal notranslate"><span class="pre">()</span></code></p></li>
+<li><p>Nicht <code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
+<li><p>Und <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
+<li><p>Oder <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+</ol>
+<p>Zur Verdeutlichung einige Beispiele:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Priorität der logischen Operatoren</span>
+<span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">c</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># not hat Vorrang vor and</span>
+<span class="n">ergebnis1</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span>  <span class="c1"># entspricht (not a) and b</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;not a and b = </span><span class="si">{</span><span class="n">ergebnis1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># and hat Vorrang vor or</span>
+<span class="n">ergebnis2</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">c</span>  <span class="c1"># entspricht (a and b) or c</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a and b or c = </span><span class="si">{</span><span class="n">ergebnis2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Klammern ändern die Priorität</span>
+<span class="n">ergebnis3</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">and</span> <span class="p">(</span><span class="n">b</span> <span class="ow">or</span> <span class="n">c</span><span class="p">)</span>  <span class="c1"># erst b or c, dann and</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a and (b or c) = </span><span class="si">{</span><span class="n">ergebnis3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>not a and b = False
+a and b or c = True
+a and (b or c) = True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um Missverständnisse zu vermeiden, ist es oft ratsam, Klammern zu setzen, auch
+wenn sie aufgrund der Prioritätsregeln nicht unbedingt nötig wären. Dies
+verbessert die Lesbarkeit des Codes.</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Überlegen Sie zunächst, was das Ergebnis der folgenden logischen Verknüpfungen
+ist (wahr oder falsch):</p>
+<ol class="arabic simple">
+<li><p>True and True</p></li>
+<li><p>True or False</p></li>
+<li><p>not True</p></li>
+<li><p>False or True</p></li>
+<li><p>True or (not False)</p></li>
+<li><p>(not True) and False</p></li>
+<li><p>not (True or False)</p></li>
+<li><p>(not False) or (False and False)</p></li>
+</ol>
+<p>Prüfen Sie Ihre Antworten anschließend im Python-Interpreter.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. True and True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True and True =&quot;</span><span class="p">,</span> <span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># True</span>
+
+<span class="c1"># 2. True or False</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True or False =&quot;</span><span class="p">,</span> <span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># True</span>
+
+<span class="c1"># 3. not True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;not True =&quot;</span><span class="p">,</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># False</span>
+
+<span class="c1"># 4. False or True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;False or True =&quot;</span><span class="p">,</span> <span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># True</span>
+
+<span class="c1"># 5. True or (not False)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True or (not False) =&quot;</span><span class="p">,</span> <span class="kc">True</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="kc">False</span><span class="p">))</span>  <span class="c1"># True</span>
+
+<span class="c1"># 6. (not True) and False</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(not True) and False =&quot;</span><span class="p">,</span> <span class="p">(</span><span class="ow">not</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># False</span>
+
+<span class="c1"># 7. not (True or False)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;not (True or False) =&quot;</span><span class="p">,</span> <span class="ow">not</span> <span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">))</span>  <span class="c1"># False</span>
+
+<span class="c1"># 8. (not False) or (False and False)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(not False) or (False and False) =&quot;</span><span class="p">,</span> <span class="p">(</span><span class="ow">not</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">))</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Video zu “Logische Operatoren” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/075l6R42tkQ"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</details></section>
+<section id="zusammenfassung-und-ausblick-2">
+<h2>Zusammenfassung und Ausblick 2<a class="headerlink" href="#zusammenfassung-und-ausblick-2" title="Link to this heading">#</a></h2>
+<p>Die booleschen Operatoren <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> und <code class="docutils literal notranslate"><span class="pre">not</span></code> sind fundamentale Werkzeuge für
+die Programmierung von Bedingungen in Python. Sie ermöglichen die Formulierung
+komplexer Entscheidungslogik und sind besonders für Steuerungs- und
+Regelungsanwendungen von großer Bedeutung. Im nächsten Kapitel beschäftigen wir
+uns mit Schleifen.</p>
 </section>
 </section>
 
@@ -938,7 +1328,7 @@ die in späteren Kapiteln behandelt werden.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3. Listen und Module</p>
+        <p class="prev-next-title">3. Entscheidungen treffen</p>
       </div>
     </a>
     <a class="right-next"
@@ -946,7 +1336,7 @@ die in späteren Kapiteln behandelt werden.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3.2 Das Modul NumPy</p>
+        <p class="prev-next-title">3.2 Einfache Verzweigungen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -968,13 +1358,16 @@ die in späteren Kapiteln behandelt werden.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-fur-sammlungen">Container für Sammlungen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-erzeugen-mit">Listen erzeugen mit []</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elemente-aus-einer-liste-herausholen-zugriff">Elemente aus einer Liste herausholen: Zugriff</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-liste-verkettete-liste">Liste + Liste = verkettete Liste</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-lang-ist-eine-liste">Wie lang ist eine Liste?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elemente-loschen-mit-del-und-remove">Elemente löschen mit del und remove</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-datentyp-bool">Der Datentyp Bool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleiche-mit-zahlen">Vergleiche mit Zahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleiche-mit-strings">Vergleiche mit Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele-2">Lernziele 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-und">Das logische UND</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-oder">Das logische ODER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-nicht">Das logische NICHT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prioritat-der-logischen-operatoren">Priorität der logischen Operatoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick-2">Zusammenfassung und Ausblick 2</a></li>
 </ul>
   </nav></div>
 

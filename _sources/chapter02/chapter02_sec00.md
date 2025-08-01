@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2. Eingabe, Verarbeitung und Ausgabe
+# 2. Daten speichern und verarbeiten
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

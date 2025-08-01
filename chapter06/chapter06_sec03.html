@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.3 Lokale und globale Variablen &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+    <title>6.3 Strings als Zeichenketten &#8212; Python für Studierende der Ingenieurwissenschaften</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -61,11 +61,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter06/chapter06_sec03';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Übungen" href="chapter06_sec04.html" />
-    <link rel="prev" title="6.2 Funktionen mit Parameter und Rückgabe" href="chapter06_sec02.html" />
+    <link rel="prev" title="6.2 Listen und Schleifen" href="chapter06_sec02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,99 +173,108 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen Programmierung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Grundlagen und erste Schritte</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec01.html">1.1 Hardware und Software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec02.html">1.2 Programmieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Installation und Start von Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Jupyter Notebooks und Python als Taschenrechner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Eingabe, Verarbeitung und Ausgabe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Taschenrechner und Ausgabe (print)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen und Variablen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Eingabe (input) und Zuweisungsoperator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Daten speichern und verarbeiten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Variablen und Zuweisungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Benutzereingaben</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Listen und Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Listen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Das Modul NumPy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Das Modul Turtle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Entscheidungen treffen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Wahrheitswerte und Vergleiche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Einfache Verzweigungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Mehrfachverzweigungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Zählschleifen (for), Strings und Zufallszahlen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Zufallszahlen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Wiederholungen automatisieren</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen mit range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Verschachtelte Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Schleifen mit Bedingungen (while)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter05/chapter05_sec00.html">5. Programmverzweigung (if - elif - else)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec01.html">5.1 Vergleiche und der boolesche Datentyp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec02.html">5.2 Programmverzweigungen: if</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec03.html">5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter05/chapter05_sec00.html">5. Code strukturieren mit Funktionen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec01.html">5.1 Funktionen definieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec02.html">5.2 Parameter und Rückgabewerte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec03.html">5.3 Funktionen in der Praxis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter06_sec00.html">6. Funktionen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="chapter06_sec01.html">6.1 Funktionen selbst schreiben</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter06_sec02.html">6.2 Funktionen mit Parameter und Rückgabe</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3 Lokale und globale Variablen</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter06_sec00.html">6. Datensammlungen verwalten</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chapter06_sec01.html">6.1 Listen erstellen und verwenden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter06_sec02.html">6.2 Listen und Schleifen</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3 Strings als Zeichenketten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter06_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Digitale Logik, Schleifen mit Bedingung, Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Digitale Logik: und, oder, nicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Schleifen mit Bedingung (while)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Fortgeschrittene Datenstrukturen und Fehlerbehandlung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Zufallszahlen und Simulationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Fehlerbehandlung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. Objektorientierte Programmierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Was sind Objekte?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Attribute und Methoden*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 OOP in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Automatisierungstechnik</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Einführung MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Numerisches Rechnen mit MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 Programmieren in MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Einführung MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Numerisches Rechnen mit MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Programmieren in MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Simulink Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Simulink-Bibliothek</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Simulink Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Simulink-Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übung</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Pandas anstatt Excel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Series und DataFrame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Arbeiten mit Tabellendaten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Statistik mit Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übungen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Einführung in Data Science mit Pandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Series und DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Arbeiten mit Tabellendaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 Statistik mit Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Kontinuierliche Daten visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Diskrete Daten und Häufigkeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 DataFrames visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec05.html">Übungen</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Theorie Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Lineare Regression mit polyfit und polyval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">12.3 Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Liniendiagramm und Streudiagramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Balkendiagramm und Histogramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">11.3 DataFrames visualisieren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Was ist maschinelles Lernen?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Überwachtes, unüberwachtes und verstärkendes Lernen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Lineare Regressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Multiple lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec03.html">13.3 Polynomiale Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter14/chapter14_sec00.html">14. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec01.html">14.1 Was ist ein Entscheidungsbaum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec02.html">14.2 Entscheidungsbäume trainieren und visualisieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec03.html">14.3 Entscheidungsbäume in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
@@ -482,7 +493,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>6.3 Lokale und globale Variablen</h1>
+    <h1>6.3 Strings als Zeichenketten</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -493,9 +504,14 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variablen">Lokale Variablen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-aus-funktionen-zuruckgeben">Werte aus Funktionen zurückgeben</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globale-variablen">Globale Variablen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-sind-container">Strings sind Container</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-sind-unveranderlich">Strings sind unveränderlich</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#und-wenn-doch-ein-string-geandert-werden-soll">Und wenn doch ein String geändert werden soll?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verketten-von-strings">Verketten von Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ersetzen-von-teilstrings">Ersetzen von Teilstrings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatierte-strings-f-strings">Formatierte Strings (f-Strings)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
             </nav>
@@ -508,180 +524,430 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lokale-und-globale-variablen">
-<h1>6.3 Lokale und globale Variablen<a class="headerlink" href="#lokale-und-globale-variablen" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="strings-als-zeichenketten">
+<h1>6.3 Strings als Zeichenketten<a class="headerlink" href="#strings-als-zeichenketten" title="Link to this heading">#</a></h1>
 <div class="warning admonition">
 <p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
 <p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
 </div>
-<p>In Python gibt es zwei Arten von Variablen: lokale und globale Variablen. Der
-Unterschied zwischen beiden liegt in ihrem Geltungsbereich (auch “Scope”
-genannt), also wo im Programm sie verwendet werden können. Vor allem bei der
-Definition von Funktionen ist die Nichtbeachtung des Unterschieds eine häufige
-Fehlerquelle, weshalb wir in diesem Kapitel den Unterschied beleuchten.</p>
+<p>Den Datentyp String haben Sie bereits zu Beginn im Kapitel “Einstieg in die
+Programmierung” kennengelernt. Bis jetzt haben wir Strings vor allem dazu
+benutzt, um mit der print()-Funktion etwas auszugeben. In diesem Jupyter
+Notebook geht es nun darum, Strings auch zu manipulieren und mit den sogenannten
+f-Strings auch formatierte Ausgaben zu produzieren.</p>
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <div class="goals admonition">
 <p class="admonition-title">Lernziele</p>
 <ul class="simple">
-<li><p>Sie kennen den Unterschied zwischen <strong>lokalen</strong> und <strong>globalen</strong> Variablen.</p></li>
-<li><p>Sie können erklären, warum die Trennung von lokalen und globalen Variablen
-wichtig ist.</p></li>
-<li><p>Sie wissen, wie Sie Werte aus Funktionen an das Hauptprogramm zurückgeben
-können.</p></li>
+<li><p>Sie wissen, dass Strings unveränderliche Container sind und welche
+Konsequenzen das für die Programmierung hat.</p></li>
+<li><p>Sie können mit dem Index auf einzelne Zeichen eines Strings zugreifen.</p></li>
+<li><p>Sie können Strings mit dem Plus-Operator <strong>verketten</strong>.</p></li>
+<li><p>Sie können mit der <strong>.replace()</strong>-Methode einen Teilstring in einem String
+durch einen anderen Teilstring ersetzen.</p></li>
+<li><p>Sie können mit einem <strong>f-String</strong> den Wert einer Variablen in einen String
+einbetten und zur Laufzeit anzeigen lassen.</p></li>
 </ul>
 </div>
 </section>
-<section id="lokale-variablen">
-<h2>Lokale Variablen<a class="headerlink" href="#lokale-variablen" title="Link to this heading">#</a></h2>
-<p>Schauen Sie sich bitte folgende Funktionsimplementierung an. Was macht die
-Funktion?</p>
+<section id="strings-sind-container">
+<h2>Strings sind Container<a class="headerlink" href="#strings-sind-container" title="Link to this heading">#</a></h2>
+<p>Im deutschen Fachbegriff Zeichenketten steckt schon die Idee, Strings als eine
+Verkettung von einzelnen Zeichen zu interpretieren. Mit dieser Idee ist dann
+vielleicht auch nicht verwunderlich, dass die einzelnen Zeichen eines Strings
+über den Index angesprochen werden können.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Probieren wir es aus.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">17</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeugung und Anzeige String</span>
+<span class="n">mein_string</span> <span class="o">=</span> <span class="s1">&#39;Hallo, Du da!&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_string</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Vor der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-<span class="n">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nach der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<span class="c1"># Zugriff auf einzelne Zeichen per Index</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2. Zeichen: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_string</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vor der Anwendung der Funktion ist x = 17.
-Nach der Anwendung der Funktion ist x = 17.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hallo, Du da!
+2. Zeichen: 
+a
 </pre></div>
 </div>
 </div>
 </div>
-<p>Überraschung! Der Wert von <code class="docutils literal notranslate"><span class="pre">x</span></code> hat sich nicht verändert, obwohl die Funktion
-offensichtlich <code class="docutils literal notranslate"><span class="pre">x</span></code> um 1 erhöhen sollte. Um besser zu verstehen, was passiert,
-schauen wir in die Funktion “hinein”, indem wir einige <code class="docutils literal notranslate"><span class="pre">print</span></code>-Anweisungen
-hinzufügen:</p>
+<p>Aber welche Zeichen gehören dazu? Probieren Sie die folgende Mini-Übung aus.</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Speichern Sie den String ‘Hallo, Du da!’ in einer Variable. Beantworten Sie
+folgende Fragen zuerst durch Überlegen, dann durch Ausprobieren.</p>
+<ul class="simple">
+<li><p>Was ist der größte Index des String ‘Hallo, Du da!’?</p></li>
+<li><p>Was passiert, wenn Sie versuchen, auf den Index 20 zuzugreifen?</p></li>
+<li><p>Welches Zeichen hat den Index 6?</p></li>
+</ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Im Inneren der Funktion vor der Erhöhung ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Im Inneren der Funktion nach der Erhöhung ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Jetzt probieren wir nochmal aus, die Funktion auf <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">17</span></code> anzuwenden:</p>
+<div class="minisolution toggle admonition">
+<p class="admonition-title">Lösung</p>
+<ul class="simple">
+<li><p>Der größte Index ist 12.</p></li>
+<li><p>Beim Versuch, auf Index 20 zuzugreifen, gibt es eine Fehlermeldung:
+‘IndexError: string index out of range’. Der Index 20 ist außerhalb des
+zulässigen Indexbereichs von 0 bis 12.</p></li>
+<li><p>Das Zeichen an Indexposition 6 ist ein Leerzeichen. Leerzeichen sind auch
+Zeichen und müssen mitgezählt werden.</p></li>
+</ul>
+</div>
+<p>Mit den beiden for-Schleifen der letzten beiden Abschnitte können wir die
+Zeichen auch einzeln ausgeben lassen. Als erstes nutzen wir die for-Schleife
+direkt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">17</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Vor der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-<span class="n">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nach der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">zeichen</span> <span class="ow">in</span> <span class="s1">&#39;Hallo, Du Da!&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zeichen</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vor der Anwendung der Funktion ist x = 17.
-Im Inneren der Funktion vor der Erhöhung ist x = 17.
-Im Inneren der Funktion nach der Erhöhung ist x = 18.
-Nach der Anwendung der Funktion ist x = 17.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H
+a
+l
+l
+o
+,
+ 
+D
+u
+ 
+D
+a
+!
 </pre></div>
 </div>
 </div>
 </div>
-<p>Was ist passiert? Die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> in der Funktion ist eine <strong>lokale Variable</strong>.
-Lokale Variablen sind Variablen, die innerhalb einer Funktion definiert werden.
-Ihr Geltungsbereich ist auf die Funktion beschränkt, in der sie definiert
-wurden. Das bedeutet, dass sie innerhalb der Funktion verwendet werden können,
-aber außerhalb der Funktion nicht sichtbar oder zugänglich sind.</p>
-<div class="warning admonition">
-<p class="admonition-title">Hinweis</p>
-<p>Wenn Sie eine Funktion aufrufen und ihr einen Wert übergeben, wird dieser Wert
-in eine neue, lokale Variable kopiert. Änderungen an dieser lokalen Variable
-wirken sich nicht auf Variablen außerhalb der Funktion aus, auch wenn diese
-denselben Namen haben.</p>
+<p>Als nächstes wird über den Index iteriert. Iteration ist der Fachbegriff für das
+mehrfache Wiederholen einer Anweisung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mein_string</span> <span class="o">=</span> <span class="s1">&#39;Hallo, Du da!&#39;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">):</span>
+    <span class="n">zeichen</span> <span class="o">=</span> <span class="n">mein_string</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zeichen</span><span class="p">)</span>
+</pre></div>
 </div>
-<p>Es ist Absicht, dass Python strikt darauf achtet, lokale Variablen auf ihren Geltungsbereich zu beschränken. Die Entwickler einer Funktion können vorab nicht wissen, wie alle anderen Variablen im Hauptprogramm heißen. Daher müssen alle Variablen in der Funktion lokal bleiben, um nicht unabsichtlich Variablen, die zufälligerweise den gleichen Namen tragen, zu überschreiben.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H
+a
+l
+l
+o
+,
+ 
+D
+u
+ 
+d
+a
+!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Woher kommt die magische Zahl 13 in dem obigen <code class="docutils literal notranslate"><span class="pre">range()</span></code>-Objekt? Das ist die
+Länge des Strings, die wir besser mit der <code class="docutils literal notranslate"><span class="pre">len()</span></code>-Funktion bestimmen lassen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mein_string</span> <span class="o">=</span> <span class="s1">&#39;Hallo, Du da!&#39;</span>
+<span class="n">laenge</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mein_string</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">laenge</span><span class="p">):</span>
+    <span class="n">zeichen</span> <span class="o">=</span> <span class="n">mein_string</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zeichen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H
+a
+l
+l
+o
+,
+ 
+D
+u
+ 
+d
+a
+!
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="werte-aus-funktionen-zuruckgeben">
-<h2>Werte aus Funktionen zurückgeben<a class="headerlink" href="#werte-aus-funktionen-zuruckgeben" title="Link to this heading">#</a></h2>
-<p>Möchte man erreichen, dass eine Funktion den Wert einer Variable ändert, kann man dies über die Rückgabe und explizite Zuweisung erreichen. Dann ist aber jedem Programmierer und jeder Programmiererin, die diese Funktion benutzt, explizit klar, dass damit der Wert der Variablen geändert wird.</p>
+<section id="strings-sind-unveranderlich">
+<h2>Strings sind unveränderlich<a class="headerlink" href="#strings-sind-unveranderlich" title="Link to this heading">#</a></h2>
+<p>Bei Listen können wir einzelne Elemente der Liste direkt manipulieren, z.B.
+können wir das dritte Element durch ein anderes ersetzen wie in dem folgenden
+Beispiel.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># modifizierte Funktion mit Rückgabe</span>
-<span class="k">def</span> <span class="nf">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Eins&#39;</span><span class="p">,</span> <span class="s1">&#39;Zwei&#39;</span><span class="p">,</span> <span class="s1">&#39;Drei&#39;</span><span class="p">,</span> <span class="s1">&#39;Vier&#39;</span><span class="p">,</span> <span class="s1">&#39;Fünf&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Am Anfang: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
 
-<span class="c1"># Test</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">17</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Vor der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">erhoehe_um_eins</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nach der Anwendung der Funktion ist x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<span class="c1"># Austausch der &#39;Drei&#39; durch &#39;MMMH&#39;</span>
+<span class="n">meine_liste</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MMMH&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nach dem Austausch:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vor der Anwendung der Funktion ist x = 17.
-Nach der Anwendung der Funktion ist x = 18.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Am Anfang: 
+[&#39;Eins&#39;, &#39;Zwei&#39;, &#39;Drei&#39;, &#39;Vier&#39;, &#39;Fünf&#39;]
+Nach dem Austausch:
+[&#39;Eins&#39;, &#39;Zwei&#39;, &#39;MMMH&#39;, &#39;Vier&#39;, &#39;Fünf&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Jetzt funktioniert es! Durch die Rückgabe des veränderten Wertes und die
-Zuweisung an die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> im Hauptprogramm wird der Wert tatsächlich
-geändert.</p>
+<p>Obwohl Strings genau wie Listen Container sind, funktioniert die Manipulation
+eines einzelnen Zeichens in einem String leider nicht. Entfernen Sie in der
+folgenden Code-Zelle den Kommentar vor <code class="docutils literal notranslate"><span class="pre">wort[0]</span> <span class="pre">=</span> <span class="pre">'H'</span></code>. Was passiert?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wort</span> <span class="o">=</span> <span class="s1">&#39;hallo!&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Am Anfang: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wort</span><span class="p">)</span>
+
+<span class="c1"># Austausch des kleinen Buchstaben h durch ein großes H </span>
+<span class="c1"># wort[0] = &#39;H&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nach dem Austausch:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wort</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Am Anfang: 
+hallo!
+Nach dem Austausch:
+hallo!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Python-Interpreter gibt eine Fehlermeldung aus: ‘str’ object does not
+support item assignment’. Ein item ist ein einzelnes Element der Liste und
+assignment ist das englische Wort für Zuweisung. Auf Deutsch lautet diese
+Fehlermeldung also, dass ein String-Objekt die Zuweisung eines einzelnen
+Elements/Zeichens nicht unterstützt. Oder anders ausgedrückt, es ist verboten,
+einen String durch eine Zuweisung zu ändern.</p>
+<p>Bei Strings handelt es sich um einen sogenannten <strong>unveränderlichen Datentyp</strong>.
+Das bedeutet, dass der Inhalt eines Strings nach seiner Erstellung nicht mehr
+verändert werden kann.</p>
+<p>Es gibt andere Programmiersprachen wie beispielsweise C und MATLAB, in denen
+Strings als veränderliche Objekte umgesetzt sind. Die Entwickler:innen von
+Python haben sich bei der Entwicklung von Python aus Gründen der
+Speichereffizienz und der Sicherheit von daraus abgeleiten Datentypen (z.B.
+Dictionaries) dagegen entschieden.</p>
 </section>
-<section id="globale-variablen">
-<h2>Globale Variablen<a class="headerlink" href="#globale-variablen" title="Link to this heading">#</a></h2>
-<p>Globale Variablen sind Variablen, die außerhalb von Funktionen definiert werden. Ihr Geltungsbereich erstreckt sich über das gesamte Programm, was bedeutet, dass sie sowohl innerhalb als auch außerhalb von Funktionen verwendet werden können.
-In Python ist die Verwendung einer globalen Variable innerhalb einer Funktion standardmäßig nur lesend möglich. Um auch einen Schreibzugriff zu erlauben, gibt es die Möglichkeit, eine Variable mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">global</span></code> innerhalb der Funktion zu deklarieren:</p>
+<section id="und-wenn-doch-ein-string-geandert-werden-soll">
+<h2>Und wenn doch ein String geändert werden soll?<a class="headerlink" href="#und-wenn-doch-ein-string-geandert-werden-soll" title="Link to this heading">#</a></h2>
+<p>Natürlich kann es dennoch vielfältige Gründe geben, einen String nach seiner
+Erstellung noch abzuändern. Beispielsweise könnte bei einer Benutzereingabe ein
+Tippfehler aufgetreten sein, der korrigiert werden soll. Obwohl Strings in
+Python unveränderlich sind, gibt es immer noch viele Operationen, die auf
+Strings ausgeführt werden können, wie z.B. das Anhängen von Strings, das Suchen
+oder das Ersetzen von Teilstrings. Allerdings wird in diesen Fällen nicht der
+ursprüngliche String modifiziert, sondern ein neuer String erzeugt.</p>
+<section id="verketten-von-strings">
+<h3>Verketten von Strings<a class="headerlink" href="#verketten-von-strings" title="Link to this heading">#</a></h3>
+<p>Sie können Strings in Python einfach aneinanderhängen (verketten), indem Sie den
+<code class="docutils literal notranslate"><span class="pre">+</span></code>-Operator verwenden. Hier ist ein Beispiel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Globale Variable</span>
-
-<span class="k">def</span> <span class="nf">aendere_global</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">x</span>  <span class="c1"># Deklaration, dass wir die globale Variable x verwenden wollen</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Vor der Funktion: x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">aendere_global</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nach der Funktion: x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span>  <span class="o">=</span> <span class="s1">&#39;Alice&#39;</span>
+<span class="n">gruss</span> <span class="o">=</span> <span class="s1">&#39;Hallo &#39;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gruss</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vor der Funktion: x = 10
-Nach der Funktion: x = 15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hallo Alice!
 </pre></div>
 </div>
 </div>
 </div>
-<div class="warning admonition">
-<p class="admonition-title">Warnung</p>
-<p>Die Verwendung von globalen Variablen wird in der professionellen Programmierung
-oft vermieden, da sie zu schwer nachvollziehbaren Programmabläufen führen kann.
-Wenn mehrere Funktionen dieselbe globale Variable verändern, ist es schwierig zu
-verfolgen, wann und wie Variablen verändert werden. Dies führt zu Programmen,
-die fehleranfällig und schwer zu warten sind.</p>
-<p>Verwenden Sie stattdessen Parameter und Rückgabewerte, um Daten zwischen
-Funktionen und dem Hauptprogramm zu übertragen. Dies macht Ihren Code klarer,
-nachvollziehbarer und weniger fehleranfällig.</p>
+<p>Allerdings haben Sie damit nicht wirklich den String geändert, sondern einen
+neuen String erzeugt.</p>
+</section>
+<section id="ersetzen-von-teilstrings">
+<h3>Ersetzen von Teilstrings<a class="headerlink" href="#ersetzen-von-teilstrings" title="Link to this heading">#</a></h3>
+<p>Python bietet mehrere Methoden zum Suchen und Ersetzen von Teilstrings in einem
+String. Eine dieser Methoden ist <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>. Hier ist ein Beispiel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;MATLAB ist eine großartige Programmiersprache!&#39;</span>
+<span class="n">neuer_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;MATLAB&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">neuer_text</span><span class="p">)</span>
+</pre></div>
 </div>
-<p>Um den Unterschied zwischen lokalen und globalen Variablen zu verdeutlichen, können wir uns den Geltungsbereich wie “Blasen” oder “Räume” vorstellen.</p>
-<img alt="../_images/variable-scope.svg" id="variable-scope-svg" src="../_images/variable-scope.svg" /></section>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python ist eine großartige Programmiersprache!
+</pre></div>
+</div>
+</div>
+</div>
+<p>In diesem Beispiel haben wir den Teilstring “MATLAB” durch den Teilstring
+“Python” ersetzt. Wie Sie sehen, mussten wir für den abgeänderten Text eine neue
+Variable namens <code class="docutils literal notranslate"><span class="pre">neuer_text</span></code> verwenden. Wenn mehrfach Änderungen des Strings
+durchgeführt werden sollen, ist das Ausdenken von neuen Variablennamen lästig.
+Dann kann der ursprüngliche Variablenname wiederverwendet werden, wie im
+folgenden Beispiel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;MATLAB ist eine großartige Programmiersprache!&#39;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;MATLAB&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python ist eine großartige Programmiersprache!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es gibt viele andere nützliche Operationen, die Sie auf Strings in Python
+ausführen können, wie z.B. das Suchen von Teilstrings mit der <code class="docutils literal notranslate"><span class="pre">.find()</span></code>-Methode,
+das Zählen von Vorkommen von Teilstrings mit der <code class="docutils literal notranslate"><span class="pre">.count()</span></code>-Methode und das
+Konvertieren von Strings in Groß- oder Kleinbuchstaben mit den Methoden
+<code class="docutils literal notranslate"><span class="pre">.upper()</span></code> und <code class="docutils literal notranslate"><span class="pre">.lower()</span></code>. In der nächsten Mini-Übung probieren wir noch einmal
+die <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>-Methode aus.</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Schreiben Sie ein Programm, das in dem Spruch “Zehn Ziegen zogen 10 Kilogramm
+Zucker zum Zoo.” die Einheit Kilogramm durch Zentner ersetzt. Lassen Sie den
+Spruch vor und nach der Korrektur ausgeben.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="minisolution toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spruch</span> <span class="o">=</span> <span class="s1">&#39;Zehn Ziegen zogen 10 Kilogramm Zucker zum Zoo.&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vor dem Anwenden der .replace()-Methode: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spruch</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Jetzt wird .replace() angewendet: &#39;</span><span class="p">)</span>
+<span class="n">spruch</span> <span class="o">=</span> <span class="n">spruch</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Kilogramm&#39;</span><span class="p">,</span> <span class="s1">&#39;Zentner&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spruch</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="formatierte-strings-f-strings">
+<h2>Formatierte Strings (f-Strings)<a class="headerlink" href="#formatierte-strings-f-strings" title="Link to this heading">#</a></h2>
+<p>Zum Schluss behandeln wir noch formatierte Strings, die sogenannten f-Strings.
+Seit Python 3.6 erleichtert dieser Typ von String die Programmierung. Falls Sie
+Python-Code sehen, in dem Prozentzeichen vorkommen (ganz, ganz alt) oder die
+.format()-Methode benutzt wird, wundern Sie sich nicht. In dieser Vorlesung
+verwenden wir f-Strings.</p>
+<p>f-Strings sind die Abkürzung für “formatted string literals”. Sie ermöglichen
+es, den Wert einer Variable oder einen Ausdruck direkt in den String
+einzubetten. Dazu werden geschweifte Klammern verwendet, also <code class="docutils literal notranslate"><span class="pre">{</span></code> und <code class="docutils literal notranslate"><span class="pre">}</span></code> und zu
+Beginn des Strings wird ein <code class="docutils literal notranslate"><span class="pre">f</span></code> eingefügt, um aus dem String einen f-String zu
+machen. Der Python-Interpreter fügt dann zur Laufzeit des Programms den
+entsprechenden Wert der Variable in den String ein.</p>
+<p>Hier ein Beispiel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Alice&#39;</span>
+<span class="n">alter</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mein Name ist </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> und ich bin </span><span class="si">{</span><span class="n">alter</span><span class="si">}</span><span class="s1"> Jahre alt.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mein Name ist Alice und ich bin 14 Jahre alt.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Insbesondere bei Ausgabe von Zahlen sind f-Strings besonders nützlich. Wenn nach
+dem Variablennamen ein Doppelpunkt eingefügt wird, kann danach die Anzahl der
+gewünschten Stellen vor dem Komma (hier natürlich ein Punkt) und der
+Nachkommastellen festgelegt werden. Zusätzlich setzen wir ein <code class="docutils literal notranslate"><span class="pre">f</span></code> in die
+geschweiften Klammern, um einen Float anzeigen zu lassen. Im folgenden Beispiel
+geben wir <span class="math notranslate nohighlight">\(\pi\)</span> auf zwei Nachkommastellen an.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Pi = </span><span class="si">{</span><span class="n">pi</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pi = 3.14
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es ist schwierig, sich alle Formatierungsoptionen zu merken. Auf der
+Internetseite
+<a class="reference external" href="https://cheatography.com/brianallan/cheat-sheets/python-f-strings-basics/">https://cheatography.com/brianallan/cheat-sheets/python-f-strings-basics/</a>
+finden Sie eine umfangreiche Übersicht und können sich zudem ein pdf-Dokument
+herunterladen.</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Schreiben Sie ein Programm, mit dem der Flächeninhalt eines Rechtecks berechnet werden soll. Die beide Seitenlängen werden jeweils in den Variablen <code class="docutils literal notranslate"><span class="pre">laenge</span></code> und <code class="docutils literal notranslate"><span class="pre">breite</span></code> gespeichert (suchen Sie sich eigene Zahlen aus). Ausgegeben werden soll dann: “Der Flächeninhalt eines Rechtecks mit den Seiten XX und XX ist XX.”, wobei XX durch die korrekten Zahlen ersetzt werden und der Flächeninhalt auf eine Nachkommastelle gerundet werden soll.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="minisolution toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
+<span class="n">laenge</span> <span class="o">=</span> <span class="mf">5.5</span>
+<span class="n">breite</span> <span class="o">=</span> <span class="mf">6.3</span>
+
+<span class="c1"># Verarbeitung</span>
+<span class="n">flaeche</span> <span class="o">=</span> <span class="n">laenge</span> <span class="o">*</span> <span class="n">breite</span>
+
+<span class="c1"># Ausgabe </span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Der Flächeninhalt eines Rechtecks mit den Seiten </span><span class="si">{</span><span class="n">laenge</span><span class="si">}</span><span class="s1"> und </span><span class="si">{</span><span class="n">breite</span><span class="si">}</span><span class="s1"> ist </span><span class="si">{</span><span class="n">flaeche</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
-<p>In diesem Kapitel haben wir den Untrrschied zwischen globalen und lokalen
-Variablen gelernt. Im nächsten Kapitel widmen wir uns dem Thema digitale Logik.</p>
+<p>In diesem Kapitel haben wir gelernt, dass Strings unveränderlich sind. Werden
+Strings manipuliert, müssen wir das Ergebnis explizit in einer neuen Variablen
+speichern, sollten wir mit dem manipuliertem String weiter arbeiten wollen. Im
+nächsten Kapitel betrachten wir Zufallszahlen.</p>
 </section>
 </section>
 
@@ -721,7 +987,7 @@ Variablen gelernt. Im nächsten Kapitel widmen wir uns dem Thema digitale Logik.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">6.2 Funktionen mit Parameter und Rückgabe</p>
+        <p class="prev-next-title">6.2 Listen und Schleifen</p>
       </div>
     </a>
     <a class="right-next"
@@ -751,9 +1017,14 @@ Variablen gelernt. Im nächsten Kapitel widmen wir uns dem Thema digitale Logik.
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variablen">Lokale Variablen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-aus-funktionen-zuruckgeben">Werte aus Funktionen zurückgeben</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globale-variablen">Globale Variablen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-sind-container">Strings sind Container</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-sind-unveranderlich">Strings sind unveränderlich</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#und-wenn-doch-ein-string-geandert-werden-soll">Und wenn doch ein String geändert werden soll?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verketten-von-strings">Verketten von Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ersetzen-von-teilstrings">Ersetzen von Teilstrings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatierte-strings-f-strings">Formatierte Strings (f-Strings)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
   </nav></div>

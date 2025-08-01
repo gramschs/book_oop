@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.3 Zufallszahlen &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+    <title>4.3 Schleifen mit Bedingungen (while) &#8212; Python für Studierende der Ingenieurwissenschaften</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -61,13 +61,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter04/chapter04_sec03';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Übungen" href="chapter04_sec04.html" />
-    <link rel="prev" title="4.2 Strings" href="chapter04_sec02.html" />
+    <link rel="prev" title="4.2 Verschachtelte Schleifen" href="chapter04_sec02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -173,99 +171,108 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen Programmierung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Grundlagen und erste Schritte</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec01.html">1.1 Hardware und Software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec02.html">1.2 Programmieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Installation und Start von Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Jupyter Notebooks und Python als Taschenrechner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Eingabe, Verarbeitung und Ausgabe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Taschenrechner und Ausgabe (print)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen und Variablen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Eingabe (input) und Zuweisungsoperator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Daten speichern und verarbeiten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Variablen und Zuweisungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Benutzereingaben</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Listen und Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Listen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Das Modul NumPy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Das Modul Turtle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Entscheidungen treffen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Wahrheitswerte und Vergleiche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Einfache Verzweigungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Mehrfachverzweigungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter04_sec00.html">4. Zählschleifen (for), Strings und Zufallszahlen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="chapter04_sec01.html">4.1 for-Schleifen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter04_sec02.html">4.2 Strings</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3 Zufallszahlen</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter04_sec00.html">4. Wiederholungen automatisieren</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chapter04_sec01.html">4.1 for-Schleifen mit range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter04_sec02.html">4.2 Verschachtelte Schleifen</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3 Schleifen mit Bedingungen (while)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter04_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter05/chapter05_sec00.html">5. Programmverzweigung (if - elif - else)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec01.html">5.1 Vergleiche und der boolesche Datentyp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec02.html">5.2 Programmverzweigungen: if</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec03.html">5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter05/chapter05_sec00.html">5. Code strukturieren mit Funktionen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec01.html">5.1 Funktionen definieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec02.html">5.2 Parameter und Rückgabewerte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec03.html">5.3 Funktionen in der Praxis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Funktionen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Funktionen selbst schreiben</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Funktionen mit Parameter und Rückgabe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Lokale und globale Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Datensammlungen verwalten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Listen erstellen und verwenden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Listen und Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Strings als Zeichenketten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Digitale Logik, Schleifen mit Bedingung, Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Digitale Logik: und, oder, nicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Schleifen mit Bedingung (while)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Fortgeschrittene Datenstrukturen und Fehlerbehandlung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Zufallszahlen und Simulationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Fehlerbehandlung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. Objektorientierte Programmierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Was sind Objekte?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Attribute und Methoden*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 OOP in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Automatisierungstechnik</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Einführung MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Numerisches Rechnen mit MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 Programmieren in MATLAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Einführung MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Numerisches Rechnen mit MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Programmieren in MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Simulink Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Simulink-Bibliothek</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Simulink Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Simulink-Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übung</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Pandas anstatt Excel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Series und DataFrame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Arbeiten mit Tabellendaten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Statistik mit Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übungen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Einführung in Data Science mit Pandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Series und DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Arbeiten mit Tabellendaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 Statistik mit Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Kontinuierliche Daten visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Diskrete Daten und Häufigkeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 DataFrames visualisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec05.html">Übungen</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Theorie Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Lineare Regression mit polyfit und polyval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">12.3 Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Liniendiagramm und Streudiagramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Balkendiagramm und Histogramm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">11.3 DataFrames visualisieren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Was ist maschinelles Lernen?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Überwachtes, unüberwachtes und verstärkendes Lernen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Lineare Regressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Multiple lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec03.html">13.3 Polynomiale Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter14/chapter14_sec00.html">14. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec01.html">14.1 Was ist ein Entscheidungsbaum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec02.html">14.2 Entscheidungsbäume trainieren und visualisieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec03.html">14.3 Entscheidungsbäume in der Praxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
 </ul>
@@ -484,7 +491,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>4.3 Zufallszahlen</h1>
+    <h1>4.3 Schleifen mit Bedingungen (while)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -495,8 +502,9 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichverteilte-zufallszahlen">Gleichverteilte Zufallszahlen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalverteilte-zufallszahlen">Normalverteilte Zufallszahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-der-while-schleife">Syntax der while-Schleife</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-abbrechen-mit-break">Schleifen abbrechen mit break</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-vorzeitig-fortsetzen-mit-continue">Schleifen vorzeitig fortsetzen mit continue</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
             </nav>
@@ -509,81 +517,82 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="zufallszahlen">
-<h1>4.3 Zufallszahlen<a class="headerlink" href="#zufallszahlen" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="schleifen-mit-bedingungen-while">
+<h1>4.3 Schleifen mit Bedingungen (while)<a class="headerlink" href="#schleifen-mit-bedingungen-while" title="Link to this heading">#</a></h1>
 <div class="warning admonition">
 <p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
 <p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
 </div>
-<p>In diesem Kapitel werden wir uns mit der Erzeugung und Anwendung von
-Zufallszahlen in Python beschäftigen. Wir nutzen dazu das Modul <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>
-aus der Bibliothek NumPy.</p>
+<p>Ein typisches Beispiel aus dem Alltag, bei dem wir etwas wiederholen, solange
+eine Bedingung erfüllt ist, ist das Kochen von Wasser. Moderne Wasserkocher
+haben einen eingebauten Temperatursensor, der die Temperatur des Wassers misst.
+Solange die Wassertemperatur kleiner als 100 ˚C ist, wird das Wasser
+erhitzt. Sobald die 100 ˚C erreicht sind, wird der Wasserkocher
+abgeschaltet. Solche Wiederholungen wollen wir nun mit Python umsetzen.</p>
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <div class="goals admonition">
 <p class="admonition-title">Lernziele</p>
 <ul class="simple">
-<li><p>Sie kennen das Modul <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>.</p></li>
-<li><p>Sie können mit <code class="docutils literal notranslate"><span class="pre">.randint()</span></code> <strong>gleichverteilte Integers</strong> und mit <code class="docutils literal notranslate"><span class="pre">.uniform()</span></code>
-<strong>gleichverteilte Floats</strong> erzeugen lassen.</p></li>
-<li><p>Sie können mit <code class="docutils literal notranslate"><span class="pre">.normal()</span></code> <strong>normalverteilte Floats</strong> zu einem vorgegebenen
-Mittelwert und einer vorgegebenen Standabweichung erzeugen lassen.</p></li>
-<li><p>Sie kennen den Unterschied zwischen gleichverteilten und
-normalverteilten Zufallszahlen.</p></li>
+<li><p>Sie können eine Schleife mit Bedingung als <strong>while</strong>-Schleife in Python
+implementieren.</p></li>
+<li><p>Sie können mit <strong>break</strong> eine Schleife vorzeitig abbrechen.</p></li>
+<li><p>Sie können mit <strong>continue</strong> eine Schleife vorzeitig fortsetzen.</p></li>
 </ul>
 </div>
 </section>
-<section id="gleichverteilte-zufallszahlen">
-<h2>Gleichverteilte Zufallszahlen<a class="headerlink" href="#gleichverteilte-zufallszahlen" title="Link to this heading">#</a></h2>
-<p>Beim Würfeln mit einem sechseitigen Würfel (W6) hat jede Augenzahl von 1 bis 6
-die gleiche Wahrscheinlichkeit von 1/6. Wenn wir mit Python einen solchen Würfel
-simulieren möchten, können wir die Funktion <code class="docutils literal notranslate"><span class="pre">randint()</span></code> aus dem Modul
-<code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> verwenden. Dazu müssen wir zunächst NumPy importieren.</p>
+<section id="syntax-der-while-schleife">
+<h2>Syntax der while-Schleife<a class="headerlink" href="#syntax-der-while-schleife" title="Link to this heading">#</a></h2>
+<p>Bei einer Wiederholung mit Bedingung werden eine oder mehrere Anweisungen
+solange wiederholt, wie die Bedingung erfüllt ist. Die sogenannte while-Schleife
+hat folgende Struktur:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="k">while</span> <span class="n">Bedingung</span><span class="p">:</span> 
+        <span class="n">anweisungsblock</span>
+</pre></div>
+</div>
+<p>Die bedingte Wiederholung wird mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">while</span></code> eingeleitet. Dann
+folgt die Bedingung, die mit einem <code class="docutils literal notranslate"><span class="pre">:</span></code> abgeschlossen wird. Alle Anweisungen, die
+wiederholt werden sollen, werden eingerückt. Diesen Teil nennt man das
+Schleifeninnere, die Zeile <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">Bedingung:</span></code> nennt man den Schleifenkopf.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>While-Schleifen sind ein mächtiges Werkzeug in Python, aber es ist wichtig, sie
+sorgfältig zu verwenden. Eine schlecht definierte Bedingung könnte dazu führen,
+dass die Schleife <strong>unendlich</strong> läuft, was zu Problemen führen kann.</p>
+</div>
+<p>Um auf das Beispiel mit dem Wasserkocher zurückzukommen … auch wenn wir jetzt
+keinen echten Temperatursensor haben, würde eine while-Schleife, die einen
+Wasserkocher simuliert, folgendermaßen aussehen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">wuerfelwurf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wuerfelwurf</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">while</span> <span class="n">temperatur</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;aktuelle Wassertemperatur: </span><span class="si">{</span><span class="n">temperatur</span><span class="si">}</span><span class="s1"> ˚C&#39;</span><span class="p">)</span>
+  <span class="n">temperatur</span> <span class="o">+=</span> <span class="mi">10</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Befehl an Wasserkocher: schalte das Heizelement aus!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Das Wasser ist fertig gekocht!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>aktuelle Wassertemperatur: 20 ˚C
+aktuelle Wassertemperatur: 30 ˚C
+aktuelle Wassertemperatur: 40 ˚C
+aktuelle Wassertemperatur: 50 ˚C
+aktuelle Wassertemperatur: 60 ˚C
+aktuelle Wassertemperatur: 70 ˚C
+aktuelle Wassertemperatur: 80 ˚C
+aktuelle Wassertemperatur: 90 ˚C
+aktuelle Wassertemperatur: 100 ˚C
+Befehl an Wasserkocher: schalte das Heizelement aus!
+Das Wasser ist fertig gekocht!
 </pre></div>
 </div>
 </div>
 </div>
-<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">randint()</span></code> kann nicht ohne Argumente aufgerufen werden, denn wir
-müssen den Bereich vorschreiben, aus dem die gleichverteilten Zufallszahlen
-gezogen werden sollen. Der Bereich wird durch das erste und zweite Argument der
-Funktion gebildet, wobei das erste Argument inklusive ist und das zweite
-Argument exklusive. Da das erste Argument inklusiv ist, geben wir hier die <code class="docutils literal notranslate"><span class="pre">1</span></code>
-an. Dahingegen müssen wir als zweites Argument die <code class="docutils literal notranslate"><span class="pre">7</span></code> übergeben, um
-gleichverteilte Zufallszahlen bis <code class="docutils literal notranslate"><span class="pre">6</span></code> zu bekommen, da das zweite Argument
-exklusiv ist.</p>
-<p>Wir können auch ein drittes Argument übergeben, das die Anzahl der gezogenen
-Zufallszahlen steuert. Mit dem folgenden Code werden beispielsweise 10
-gleichverteilte Integers zwischen 1 und 6 zufällig gezogen.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wuerfelwurfe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wuerfelwurfe</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 3 6 2 4 5 3 2 1 5]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Probieren wir das neu erlernte Wissen in einer Mini-Übung aus.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Lassen Sie sechs Lottozahlen erzeugen, d.h. sechs Integer, die zwischen 1 und 49
-gleichmäßig verteilt sind. Die Lottozahlen sollen auch ausgegeben werden.</p>
-<p>Könnte damit die Ziehung der Lottozahlen simuliert werden?</p>
+<p>Schreiben Sie ein Programm, das einen Countdown von 10 nach 0 implementiert.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -592,151 +601,108 @@ gleichmäßig verteilt sind. Die Lottozahlen sollen auch ausgegeben werden.</p>
 </div>
 </div>
 </div>
-<div class="minisolution toggle admonition">
+<div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># Erzeugung der Lottozahlen</span>
-<span class="n">lottozahlen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-
-<span class="c1"># Ausgabe</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lottozahlen</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">while</span> <span class="n">zaehler</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zaehler</span><span class="p">)</span>
+    <span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span> <span class="o">-</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>Eine Simulation der Ziehung der Lottozahlen ist damit nicht möglich. Bei der
-echten Ziehung darf jede Zahl nur einmal vorkommen, dies gewährleistet der obige
-Code nicht.</p>
 </div>
-<p>Sollen gleichverteilte Floats erzeugt werden, nutzen wir die Funktion
-<code class="docutils literal notranslate"><span class="pre">.uniform()</span></code>, die ebenfalls im Modul <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> enthalten ist. Hier können
-wir scheinbar auf die Angabe eines Bereichs verzichten.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Video “Schleifen mit Bedingung” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sXLicTuJzB4"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</details></section>
+<section id="schleifen-abbrechen-mit-break">
+<h2>Schleifen abbrechen mit break<a class="headerlink" href="#schleifen-abbrechen-mit-break" title="Link to this heading">#</a></h2>
+<p>Die <code class="docutils literal notranslate"><span class="pre">break</span></code>-Anweisung kann verwendet werden, um die Schleife vorzeitig zu
+beenden, auch wenn die Bedingung der <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife noch <code class="docutils literal notranslate"><span class="pre">True</span></code> ist. Hier ist
+ein Beispiel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zufallszahl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">zufallszahl</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">zaehler</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">zaehler</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Der Zaehler hat aktuell den Wert: </span><span class="si">{</span><span class="n">zaehler</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+    <span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1175334413381035
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Zaehler hat aktuell den Wert: 0.
+Der Zaehler hat aktuell den Wert: 1.
+Der Zaehler hat aktuell den Wert: 2.
 </pre></div>
 </div>
 </div>
 </div>
-<p>Wenn wir die obige Code-Zelle mehrfach ausführen, stellen wir fest, dass die
-gleichverteilten Floats zwischen 0 und 1 liegen. Etwas präziser formuliert
-liegen die Zufallszahlen in dem halboffenen Intervall <span class="math notranslate nohighlight">\([0, 1)\)</span>. Wir können auch
-hier das Intervall vorschreiben, indem wir die linke Intervallgrenze als erstes
-Argument (inklusiv) übergeben und die rechte Intervallgrenze als zweites
-Argument (exklusiv).</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Schreiben Sie ein Programm, das vom Benutzer natürliche Zahlen abfragt und diese
+quadriert und ausgibt. Wird eine 0 eingegeben, soll die Eingabe der Zahlen
+abgebrochen werden und die Meldung “Sie haben 0 eingegeben, das Programm wird
+beendet.” ausgegeben werden.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zufallszahl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">5.2</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">zufallszahl</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.472139022203014
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Mit Hilfe des dritten Argumentes können wir mehreren Zufallszahlen gleichzeitig
-erzeugen lassen.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zufallszahlen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">zufallszahlen</span><span class="p">)</span>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">zahl</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Geben Sie eine natürliche Zahl ein (0 zum Beenden): &#39;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">zahl</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sie haben 0 eingegeben, das Programm wird beendet.&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="n">quadratzahl</span> <span class="o">=</span> <span class="n">zahl</span><span class="o">**</span><span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Das Quadrat von </span><span class="si">{</span><span class="n">zahl</span><span class="si">}</span><span class="s1"> ist </span><span class="si">{</span><span class="n">quadratzahl</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19.30467998 18.58199682 13.58980352 16.25728531 14.369761  ]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Damit werden fünf gleichverteilte Zufallszahlen zwischen 10 und 20 (exklusiv)
-generiert.</p>
-<p>Wir wollen nun analysieren, ob die Zufallszahlen wirklich gleichmäßig aus dem
-Intervall <span class="math notranslate nohighlight">\([10, 20)\)</span> stammen. Dazu lassen wir 1000 gleichverteilte Zufallszahlen
-generieren. Danach teilen wir das Intervall in 10 Abschnitte und lassen nun von
-<span class="math notranslate nohighlight">\([10, 11)\)</span>, <span class="math notranslate nohighlight">\([11, 12)\)</span>, <span class="math notranslate nohighlight">\([12, 13)\)</span> usw. bis <span class="math notranslate nohighlight">\([19, 20)\)</span> zählen, wie häufig eine
-Zufallszahl aus diesem Teilintervall kommt. Dieses sogenannte Histogramm sieht
-folgendermaßen aus (den Code brauchen Sie noch nicht verstehen, das kommt
-später).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">zufallszahlen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">zufallszahlen</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogramm: Gleichverteilung im Intervall [10, 20]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Teilintervalle&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Häufigkeit&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/54c8f0860c153e680a2bb5cabad227c436a292e49eab3f1faf2971ffe8d13115.png" src="../_images/54c8f0860c153e680a2bb5cabad227c436a292e49eab3f1faf2971ffe8d13115.png" />
-</div>
-</div>
-<p>Ordnet man die gezogenen Zufallszahlen den 10 Teilintervallen zu, so sind in
-jedem Teilintervall ungefähr 200 Zufallszahlen enthalten.</p>
 </section>
-<section id="normalverteilte-zufallszahlen">
-<h2>Normalverteilte Zufallszahlen<a class="headerlink" href="#normalverteilte-zufallszahlen" title="Link to this heading">#</a></h2>
-<p>Eine normalverteilte Zufallszahl folgt der sogenannten Normalverteilung oder
-Gaußschen Verteilung. Das ist eine Wahrscheinlichkeitsverteilung, die durch ihr
-Glockenkurven-Diagramm bekannt ist. Sie ist eine der wichtigsten Modelle in
-Natur- und Ingenieurwissenschaften, da viele Messgrößen (z. B. Körpergröße,
-Fertigungstoleranzen, Messfehler) näherungsweise normalverteilt sind.</p>
-<p>Die Normalverteilung wird durch zwei Parameter beschrieben: den Mittelwert (oder
-Erwartungswert) und die Standardabweichung. Der Mittelwert ist der Wert, um den
-die Werte im Durchschnitt zentriert sind. Die Standardabweichung ist ein Maß für
-die Streuung der Werte.</p>
-<p>In Python können wir mit der Funktion <code class="docutils literal notranslate"><span class="pre">numpy.random.normal()</span></code> normalverteilte
-Zufallszahlen erzeugen:</p>
+<section id="schleifen-vorzeitig-fortsetzen-mit-continue">
+<h2>Schleifen vorzeitig fortsetzen mit continue<a class="headerlink" href="#schleifen-vorzeitig-fortsetzen-mit-continue" title="Link to this heading">#</a></h2>
+<p>Die <code class="docutils literal notranslate"><span class="pre">continue</span></code>-Anweisung wird verwendet, um den aktuellen Durchgang der Schleife
+zu beenden und sofort mit dem nächsten Schleifendurchgang zu beginnen. Hier ist
+ein Beispiel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zufallszahl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">zufallszahl</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">zaehler</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">zaehler</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Der Zaehler hat aktuell den Wert: </span><span class="si">{</span><span class="n">zaehler</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.2623769596497813
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Zaehler hat aktuell den Wert: 1.
+Der Zaehler hat aktuell den Wert: 2.
+Der Zaehler hat aktuell den Wert: 4.
+Der Zaehler hat aktuell den Wert: 5.
 </pre></div>
 </div>
 </div>
 </div>
-<p>Das erste Argument <code class="docutils literal notranslate"><span class="pre">0</span></code> steht für einen Mittelwert von 0. Das zweite Argument <code class="docutils literal notranslate"><span class="pre">1</span></code>
-bedeutet, dass die Normalverteiung eine Standardabweichung von 1 hat.</p>
-<p>Wir können auch mehrere Zahlen gleichzeitig erzeugen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zufallszahlen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">zufallszahlen</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.76327292 -1.07802454 -0.11366938 -0.17014007 -0.99484797]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Jetzt wurden fünf normalverteilte Zufallszahlen erzeugt.</p>
+<p>In diesem Beispiel wird “Der Zaehler hat aktuell den Wert: 3” nicht ausgegeben,
+da die <code class="docutils literal notranslate"><span class="pre">continue</span></code>-Anweisung dafür sorgt, dass vorzeitig der nächste
+Schleifendurchgang begonnen wird, sobald <code class="docutils literal notranslate"><span class="pre">zaehler</span></code> den Wert <code class="docutils literal notranslate"><span class="pre">3</span></code> erreicht.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Bei einer Schulklasse wird die Körpergröße der Jugendlichen (Alter: 14 bis 18
-Jahre) gemessen. Der Mittelwert bei den Mädchen ist 166.3 cm (Standardabweichung
-6.39 cm) und bei den Jungen 176.8 cm (Standardabweichung 7.46 cm) (Quelle:
-<a class="reference external" href="https://de.wikipedia.org/wiki/Normalverteilung">Wikipedia</a>).</p>
-<p>Lassen Sie die Körpergrößen einer durchschnittlichen Schulklasse (= 13 Mädchen
-und 13 Jungen) erzeugen und ausgeben.</p>
+<p>Schreiben Sie ein Programm, das eine Zahl abfragt und deren Wurzel berechnet
+und ausgibt. Wird eine negative Zahl eingegeben, so soll die Wurzelberechnung
+übersprungen werden. Insgesamt soll das Programm solange laufen, bis drei
+Wurzeln berechnet wurden.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -745,50 +711,25 @@ und 13 Jungen) erzeugen und ausgeben.</p>
 </div>
 </div>
 </div>
-<div class="minisolution toggle admonition">
+<div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># Erzeugung der Körpergrößen</span>
-<span class="n">maedchen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">166.3</span><span class="p">,</span> <span class="mf">6.39</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
-<span class="n">jungen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">176.8</span><span class="p">,</span> <span class="mf">7.46</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
-
-<span class="c1"># Ausgabe</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">maedchen</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">jungen</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">zaehler</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">zahl</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Geben Sie eine positive Zahl ein: &#39;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">zahl</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sie haben eine negative Zahl eingegeben, davon kann keine Wurzel berechnet werden.&#39;</span><span class="p">)</span>
+        <span class="k">continue</span>
+    <span class="n">wurzel</span> <span class="o">=</span> <span class="n">zahl</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Die Wurzel von </span><span class="si">{</span><span class="n">zahl</span><span class="si">}</span><span class="s1"> ist </span><span class="si">{</span><span class="n">wurzel</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+    <span class="n">zaehler</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
-</div>
-</div>
-<p>Auch hier wollen wir visualisieren, wie die Häufigkeit der Zufallszahlen
-verteilt ist. Dazu erzeugen wir 2000 normalverteilte Zufallszahlen mit
-Mittelwert 0 und Standardabweichung 1, was standardnormalverteilt genannt wird.
-Diesmal nehmen wir 10 automatische Teilintervalle, um die Häufigkeiten der
-Zufallszahlen pro Teilintervall anzeigen zu lassen.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">zufallszahlen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">zufallszahlen</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogramm: Standardnormalverteilung&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Teilintervalle&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Häufigkeit&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/0d1e1f1ee7c8ac62686592bf6462f3a8a402d1f6a2b2d86d9a12e18556d730bc.png" src="../_images/0d1e1f1ee7c8ac62686592bf6462f3a8a402d1f6a2b2d86d9a12e18556d730bc.png" />
 </div>
 </div>
 </section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
-<p>Mit den Zufallszahlen können wir Anwendungen des Alltags durch Python simulieren
-lassen. Bevor wir sie einsetzen, müssen wir jedoch entscheiden, ob wir Integers
-oder Floats benötigen und ob sie gleichverteilt oder normalverteilt sein sollen.
-Das nächste Kapitel führt Kontrollstrukturen ein, um abhängig von einer
-Bedingung Code auszuführen.</p>
+<p>Von den Schleifen kommen wir im nächsten Kapitel zu einem komplett anderem
+Thema: Dictionaries.</p>
 </section>
 </section>
 
@@ -828,7 +769,7 @@ Bedingung Code auszuführen.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">4.2 Strings</p>
+        <p class="prev-next-title">4.2 Verschachtelte Schleifen</p>
       </div>
     </a>
     <a class="right-next"
@@ -858,8 +799,9 @@ Bedingung Code auszuführen.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichverteilte-zufallszahlen">Gleichverteilte Zufallszahlen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalverteilte-zufallszahlen">Normalverteilte Zufallszahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-der-while-schleife">Syntax der while-Schleife</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-abbrechen-mit-break">Schleifen abbrechen mit break</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-vorzeitig-fortsetzen-mit-continue">Schleifen vorzeitig fortsetzen mit continue</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
   </nav></div>

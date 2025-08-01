@@ -14,6 +14,11 @@ kernelspec:
 
 # 11.3 DataFrames visualisieren
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Bisher haben wir die Daten für die Visualisierung manuell erzeugt. In diesem
 Kapitel beschäftigen wir uns damit, wie Pandas-DataFrames professionell
 visualisiert werden. Wir lernen fortgeschrittene Techniken kennen, die beispielsweise für das Anfertigen einer Bachelorarbeit wichtig sind.

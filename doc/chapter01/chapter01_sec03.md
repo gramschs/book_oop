@@ -16,6 +16,11 @@ kernelspec:
 
 # 1.3 Installation und Start von Python
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Python wird in der Regel mit dem Betriebsystem ausgeliefert. Für diese Vorlesung
 benötigen wir jedoch Python-Erweiterungen, die standardmäßig nicht installiert
 werden. Daher benutzen wir in dieser Vorlesung **Anaconda**, eine sehr bekannte

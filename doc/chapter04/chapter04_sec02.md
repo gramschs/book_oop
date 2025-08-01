@@ -13,6 +13,11 @@ kernelspec:
 
 # 4.2 Strings
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Den Datentyp String haben Sie bereits zu Beginn im Kapitel "Einstieg in die
 Programmierung" kennengelernt. Bis jetzt haben wir Strings vor allem dazu
 benutzt, um mit der print()-Funktion etwas auszugeben. In diesem Jupyter

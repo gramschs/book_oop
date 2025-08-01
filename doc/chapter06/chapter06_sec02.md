@@ -14,6 +14,11 @@ kernelspec:
 
 # 6.2 Funktionen mit Parameter und Rückgabe
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Vorgefertigte Funktionen haben wir schon mit Argument und Rückgabewert
 aufgerufen. In diesem Kapitel geht es darum, selbst eine Funktion zu
 implementieren, die Argumente entgegennimmt, diese verarbeitet und dann

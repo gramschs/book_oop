@@ -14,6 +14,11 @@ kernelspec:
 
 # 12.2 Lineare Regression mit polyfit und polyval
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Nachdem wir im letzten Kapitel uns mit der Theorie der linearen Regression
 beschäftigt haben, möchten wir nun konkret eine Regressionsgerade an Messdaten
 anpassen. Umgangssprachlich wird auch gesagt, dass wir einen Fit durchführen

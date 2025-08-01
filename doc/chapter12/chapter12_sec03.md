@@ -14,6 +14,11 @@ kernelspec:
 
 # 12.3 Polynomiale Regression
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Die in den vorangegangenen Regressionstechniken erweitern wir nun von linearen
 Regressiongeraden auf Regressionspolynome wie beispielsweise
 Regressionsparabeln.

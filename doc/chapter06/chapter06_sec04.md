@@ -14,6 +14,11 @@ kernelspec:
 
 # Übungen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 ```{admonition} Übung 6.1
 :class: miniexercise
 Schreiben Sie eine Funktion, die als Argument einen Integer $n$ übergeben

@@ -14,6 +14,11 @@ kernelspec:
 
 # 7.2 Schleifen mit Bedingung (while)
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Ein typisches Beispiel aus dem Alltag, bei dem wir etwas wiederholen, solange
 eine Bedingung erfüllt ist, ist das Kochen von Wasser. Moderne Wasserkocher
 haben einen eingebauten Temperatursensor, der die Temperatur des Wassers misst.

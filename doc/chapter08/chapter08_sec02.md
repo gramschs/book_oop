@@ -1,5 +1,10 @@
 # 8.2 Numerisches Rechnen mit MATLAB
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 MATLAB ist als Matrix-Labor vor allem für das Rechnen mit Vektoren und Matrizen
 ausgelegt. Daher erkunden wir in diesem Kapitel die grundlegenden Datentypen und
 Rechenoperationen für Vektoren und Matrizen.

@@ -14,6 +14,11 @@ kernelspec:
 
 # 6.3 Lokale und globale Variablen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 In Python gibt es zwei Arten von Variablen: lokale und globale Variablen. Der
 Unterschied zwischen beiden liegt in ihrem Geltungsbereich (auch "Scope"
 genannt), also wo im Programm sie verwendet werden können. Vor allem bei der

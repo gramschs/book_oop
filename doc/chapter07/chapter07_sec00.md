@@ -1,5 +1,10 @@
 # 7. Digitale Logik, Schleifen mit Bedingung, Dictionaries
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Bisher haben wir zwei Arten von Kontrollstrukturen kennengelernt. Bei den
 Zählschleifen werden Python-Anweisungen wiederholt ausgeführt. Dabei ist klar,
 wie oft die Schleife durchlaufen wird. Bei den Programmverzweigungen werden

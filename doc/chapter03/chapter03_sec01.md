@@ -13,6 +13,11 @@ kernelspec:
 
 # 3.1 Listen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Bisher haben wir drei verschiedene Datentypen kennengelernt:
 
 * Integer (ganze Zahlen),

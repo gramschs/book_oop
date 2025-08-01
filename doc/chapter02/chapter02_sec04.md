@@ -14,6 +14,11 @@ kernelspec:
 
 # Übungen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 ```{admonition} Übung 2.1
 :class: miniexercise
 Zu welchen Datentypen gehören folgende Ausdrücke? Stellen Sie erst eine

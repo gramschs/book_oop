@@ -13,6 +13,11 @@ kernelspec:
 
 # 4.1 for-Schleifen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 In der Praxis kommt es oft vor, dass wir von vornherein wissen, wie oft wir eine
 Handlung wiederholen wollen. Beispielsweise soll in einem Verein darüber
 abgestimmt werden, ob Anna oder Bob zukünftig die Kasse verwalten soll. Alle

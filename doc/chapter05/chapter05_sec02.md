@@ -14,6 +14,11 @@ kernelspec:
 
 # 5.2 Programmverzweigungen: if
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Im letzten Kapitel haben wir gelernt, wie ein Vergleich in Python durchgeführt
 wird und mit welchem Datentyp das Ergebnis eines solchen Vergleichs gespeichert
 wird. In diesem Kapitel geht es nun darum, dass ein Python-Programm auf das

@@ -14,6 +14,11 @@ kernelspec:
 
 # 9.1 Simulink Einführung
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 MATLAB bietet neben einer Reihe von Toolboxen auch eine Zusatzsoftware an, die
 es Ingenieur:innen erleichtert, technische Systeme zu modellieren. Diese
 Software heißt Simulink und benötigt MATLAB. Detaillierte Informationen zu

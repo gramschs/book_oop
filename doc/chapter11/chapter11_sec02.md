@@ -14,6 +14,11 @@ kernelspec:
 
 # 11.2 Diskrete Daten und Häufigkeiten
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 ## Lernziele
 
 ```{admonition} Lernziele

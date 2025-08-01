@@ -15,6 +15,11 @@ kernelspec:
 
 # 2.2 Datentypen und Variablen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Mit Zahlen wird anders umgegangen, als mit Texten. Zahlen werden beispielsweise
 addiert, bei Texten werden beispielsweise Kleinbuchstaben durch Großbuchstaben
 ersetzt. Daher ist es nicht verwunderlich, dass Python für beide Arten von

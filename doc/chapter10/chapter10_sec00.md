@@ -14,6 +14,11 @@ kernelspec:
 
 # 10. Pandas anstatt Excel
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Maschinelles Lernenist dazu gedacht, Muster in größeren Datenmengen zu finden.
 Der einfache Datenyp Liste reicht nicht aus, um größere Datenmengen effizient zu
 verwalten. Typischerweise liegen größere Datensätze in Form von Tabllen vor. Das

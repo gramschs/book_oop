@@ -14,6 +14,11 @@ kernelspec:
 
 # 13.1 Was ist maschinelles Lernen?
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 KI (Künstliche Intelligenz) ist in aller Munde. Etwas seltener wird der Begriff
 **maschinelles Lernen** verwendet. Maschinelles Lernen, oft auch **Machine
 Learning** genannt, ist ein Teilgebiet der Künstlichen Intelligenz.

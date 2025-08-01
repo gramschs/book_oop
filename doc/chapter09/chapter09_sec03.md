@@ -14,6 +14,11 @@ kernelspec:
 
 # 9.3 Ableitung, Integration und Differentialgleichung mit Simulink
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Bei den Modellen treten sehr häufig Differentialgleichungen auf. In diesem
 Kapitel betrachten wir die Modellierung einer linearen Differentialgleichung 1.
 Ordnung mit Simulink. Davor sehen wir uns noch zwei Beispiele zur Ableitung und

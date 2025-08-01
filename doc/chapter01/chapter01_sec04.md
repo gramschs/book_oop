@@ -16,6 +16,11 @@ kernelspec:
 
 # Übungen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 ```{admonition} Übung 1.1
 :class: miniexercise
 Installieren Sie Anaconda und Python auf Ihrem PC oder Laptop. Starten Sie die

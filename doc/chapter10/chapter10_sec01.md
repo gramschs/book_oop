@@ -14,6 +14,11 @@ kernelspec:
 
 # 10.1 Series und DataFrame
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Einfache Listen reichen nicht aus, um größere Datenmengen oder Tabellen
 effizient zu speichern. Dazu benutzen Data Scientists Pandas. Pandas ist eine
 Bibliothek zur Verarbeitung und Analyse von Daten in Form von Datenreihen und

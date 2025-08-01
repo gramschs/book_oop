@@ -1,5 +1,10 @@
 # 8. MATLAB
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Was ist überhaupt MATLAB? Wikipedia erklärt MATLAB folgendermaßen (siehe
 [https://de.wikipedia.org/wiki/Matlab](https://de.wikipedia.org/wiki/Matlab)):
 

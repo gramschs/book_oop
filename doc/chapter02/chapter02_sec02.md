@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.2 Datentypen und Variablen
+# 2.2 Datentypen
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

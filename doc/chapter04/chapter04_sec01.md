@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 4.1 for-Schleifen
+# 4.1 for-Schleifen mit range
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

@@ -19,384 +19,185 @@ kernelspec:
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-```{admonition} Übung 6.1
+```{admonition} Übung 3.1
 :class: miniexercise
-Schreiben Sie eine Funktion, die als Argument einen Integer $n$ übergeben
-bekommt und danach n-mal das Wort `Hallo` ausdruckt. Testen Sie anschließend
-Ihre Funktion.
+1. Erstellen Sie eine Liste mit den ersten drei Fußballvereinen der aktuellen
+   Bundesligatabelle.
+2. Erstellen Sie eine Liste, die die folgenden aktuellen Daten von Eintracht
+   Frankfurt enthält:
+   * Anzahl Spieltage
+   * Anzahl Siege
+   * Anzahl Unentschieden
+   * Anzahl Niederlagen
+   * Torverhältnis (also z.B. 55:31)
+   * Tordifferenz 
+   * Punkte
+3. Lassen Sie beide Listen ausgeben.
+4. Lassen Sie die aktuellen Punkte von Eintracht Frankfurt ausgeben.
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
+Die folgenden Daten variieren natürlich je nach Datum. Das ist der Stand vom 22.03.2023: 
 ```python
-# Funktion
-def schreibe_hallo(n):
-    for i in range(n):
-        print('Hallo')
-
-# Test der Funktion
-schreibe_hallo(7)
-```
-````
-
-```{admonition} Übung 6.2
-:class: miniexercise
-Der Body-Maß-Index BMI wird berechnet nach der Formel 
-
-$$\text{bmi} = \frac{m}{l^2},$$
-
-wobei $m$ das Gewicht (Masse) in kg ist und $l$ die Körpergröße in m.
-
-1. Schreiben Sie eine Funktion, die als Argument Gewicht und Körpergröße
-entgegennimmt und den BMI zurückgibt. 
-2. Schreiben Sie anschließend ein Hauptprogramm, das eine Benutzerin oder einen
-Benutzer nach Gewicht und Körpergröße fragt. Dann wird der BMI mittels der
-Funktion aus Schritt 1 berechnet und zuletzt wird ausgeben: 
-* bei einem BMI < 18.5: Sie haben Untergewicht. Ihr BMI lautet: xx.
-* bei einem BMI im Intervall [18.5, 25.0]: Sie haben Normalgewicht. Ihr BMI
-  lautet: xx.
-* bei einem BMI im Intervall [25.0, 30.0]: Sie haben Übergewicht. Ihr BMI
-  lautet: xx.
-* bei einem BMI > 30.0: Sie haben Adipositas. Ihr BMI lautet: xx.
-
-xx steht dabei für den ausgerechneten BMI.
-```
-
-````{admonition} Lösung
-:class: miniexercise, toggle
-```python
-# Funktion zur Berechnung des BMI
-def berechne_bmi(gewicht, koerpergroesse):
-    bmi = gewicht / koerpergroesse**2
-    return bmi
-
-### HAUPTPROGRAMM ###
-
 # Eingabe
-m = float(input('Bitte geben Sie Ihr Gewicht in kg an: '))
-l = float(input('Bitte geben Sie Ihre Körpergröße in m an: '))
-
-# Verarbeitung
-bmi = berechne_bmi(m,l)
+bundesliga_top3 = ['Borussia Dortmund', 'FC Bayern München', '1. FC Union Berlin']
+eintracht_frankfurt = [25, 11, 7, 7, '46:36', 10, 40]
 
 # Ausgabe
-if bmi <= 18.5:
-    print(f'Sie haben Untergewicht. Ihr BMI lautet {bmi :.1f}.')
-elif bmi <= 25:
-    print(f'Sie haben Normalgewicht. Ihr BMI lautet {bmi :.1f}.')
-elif bmi <= 30:
-    print(f'Sie haben Übergewicht. Ihr BMI lautet {bmi :.1f}.')
-else:
-    print('Sie haben Adipositas, bitte suchen Sie einen Arzt auf. Ihr BMI lautet {bmi :.1f}.', bmi)
+print('TOP3 der Bundesliga:')
+print(bundesliga_top3)
+
+print('Spieldaten Eintracht Frankfurt:')
+print(eintracht_frankfurt)
+
+print('Aktuelle Punkte von Eintracht Frankfurt:')
+print(eintracht_frankfurt[6])
 ```
 ````
 
-```{admonition} Übung 6.3
+```{admonition} Übung 3.2
 :class: miniexercise
-:class: miniexercise
-Im Maschinenbau müssen Sie oft mit geometrischen Formen arbeiten. Erstellen Sie eine kleine Funktionsbibliothek zur Berechnung von Flächen und Volumen.
+Schreiben Sie ein Programm, das den Benutzer zwei Seitenlängen für die beiden
+Katheten $a$ und $b$ eines rechtwinkligen Dreiecks eingeben lässt. Anschließend
+berechnet das Programm die Länge der Hypotenuse $c$ und gibt diese aus.
 
-1. Schreiben Sie eine Funktion `kreisflaeche(radius)`, die die Fläche eines
-   Kreises berechnet.
-2. Schreiben Sie eine Funktion `zylindervolumen(radius, hoehe)`, die das Volumen
-   eines Zylinders berechnet. Nutzen Sie dabei die erste Funktion!
-3. Testen Sie beide Funktionen mit unterschiedlichen Werten.
+Bemerkung: Was passiert, wenn Sie eine negative Zahl eingeben?
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-from numpy import pi
+# Eingabe der Seitenlängen
+a = float(input('Gib die Länge von Seite a ein: '))
+b = float(input('Gib die Länge von Seite b ein: '))
 
-def kreisflaeche(radius):
-    flaeche = pi * radius**2
-    return flaeche
+# Berechnung der Hypotenuse
+c = (a**2 + b**2)**0.5
 
-def zylindervolumen(radius, hoehe):
-    grundflaeche = kreisflaeche(radius)
-    volumen = grundflaeche * hoehe
-    return volumen
-
-# Test der Funktionen
-r1 = 5
-print(f"Ein Kreis mit Radius {r1} hat die Fläche: {kreisflaeche(r1):.2f} Flächeneinheiten")
-
-r2 = 3
-h2 = 7
-print(f"Ein Zylinder mit Radius {r2} und Höhe {h2} hat das Volumen: {zylindervolumen(r2, h2):.2f} Volumeneinheiten")
+# Ausgabe des Ergebnisses
+print('Die Länge der Hypotenuse c beträgt:')
+print(c)
 ```
+Alternativ könnte man auch die Wurzelfunktion aus dem NumPy-Modul importieren und benutzen:
+```python
+from numpy import sqrt
+c = sqrt(a**2 + b**2)
+```
+Zur Bemerkung: Wenn der Benutzer eine negative Zahl eingibt, würde das Programm
+das berechnen, was es soll. Aber im Kontext der Anwendung könnte das Ergebnis
+sinnlos sein, da die Länge der Seiten eines Dreiecks immer positiv sein muss. Es
+wäre daher sinnvoll, eine Überprüfung der Eingabe durchzuführen, um
+sicherzustellen, dass a und b positive Zahlen sind. Wenn der Benutzer eine
+negative Zahl eingibt, könnte das Programm eine Fehlermeldung ausgeben und den
+Benutzer auffordern, eine gültige Eingabe zu machen. Dazu kommen wir in späteren
+Vorlesungen.
 ````
 
-```{admonition} Übung 6.4
+```{admonition} Übung 3.3
 :class: miniexercise
-Im Ingenieurwesen müssen oft Temperaturwerte zwischen verschiedenen Einheiten
-umgerechnet werden. Die gebräuchlichsten Einheiten sind Celsius (°C), Fahrenheit
-(°F) und Kelvin (K).
+Schreiben Sie ein Programm, das den Benutzer nach seinem Gewicht in Kilogramm
+und seiner Größe in Metern fragt. Danach soll das Programm Body-Mass-Index (BMI)
+berechnen und ausgeben. Der BMI berechnet sich mit der Formel
 
-Schreiben Sie drei Funktionen:
+$$\text{BMI} = \frac{m}{l^2},$$
 
-1. `celsius_zu_fahrenheit(celsius)`: Diese Funktion soll einen Temperaturwert in
-   Celsius als Parameter erhalten und den entsprechenden Wert in Fahrenheit
-   zurückgeben. Die Formel lautet: F = C · 1.8 + 32
+wobei $m$ für das Körpergewicht in kg und $l$ für die Körpergröße in m steht.
 
-2. `fahrenheit_zu_celsius(fahrenheit)`: Diese Funktion soll einen Temperaturwert
-   in Fahrenheit als Parameter erhalten und den entsprechenden Wert in Celsius
-   zurückgeben. Die Formel lautet: C = (F - 32) / 1.8
-
-3. `celsius_zu_kelvin(celsius)`: Diese Funktion soll einen Temperaturwert in
-   Celsius als Parameter erhalten und den entsprechenden Wert in Kelvin
-   zurückgeben. Die Formel lautet: K = C + 273.15
-
-Schreiben Sie außerdem ein Hauptprogramm, das:
-
-1. Den Benutzer nach einem Temperaturwert in Celsius fragt.
-2. Diesen Wert in Fahrenheit und Kelvin umrechnet.
-3. Die umgerechneten Werte ausgibt.
-4. Den Wert in Fahrenheit wieder zurück in Celsius umrechnet, um die Richtigkeit
-   der Umrechnung zu überprüfen.
-
-Erweitern Sie Ihr Programm um eine Benutzerschnittstelle, die dem Benutzer
-ermöglicht, die gewünschte Umrechnungsrichtung auszuwählen (z.B. von Celsius
-nach Fahrenheit oder von Fahrenheit nach Celsius).
+Welchen BMI haben Sie?
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-def celsius_zu_fahrenheit(celsius):
-    fahrenheit = celsius * 1.8 + 32
-    return fahrenheit
+# Eingabe von Gewicht und Größe
+gewicht = float(input("Gib dein Gewicht in Kilogramm ein: "))
+groesse = float(input("Gib deine Größe in Metern ein: "))
 
+# Berechnung des BMI
+bmi = gewicht / (groesse ** 2)
 
-def fahrenheit_zu_celsius(fahrenheit):
-    celsius = (fahrenheit - 32) / 1.8
-    return celsius
-
-
-def celsius_zu_kelvin(celsius):
-    kelvin = celsius + 273.15
-    return kelvin
-
-
-### HAUPTPROGRAMM ###
-
-print("Temperaturumrechner")
-print("===================")
-print("1: Celsius → Fahrenheit und Kelvin")
-print("2: Fahrenheit → Celsius")
-print("3: Kelvin → Celsius")
-
-auswahl = int(input("\nBitte wählen Sie die gewünschte Umrechnung (1-3): "))
-
-if auswahl == 1:
-    # Celsius → Fahrenheit und Kelvin
-    celsius = float(input("Bitte geben Sie die Temperatur in Celsius ein: "))
-    
-    # Umrechnung
-    fahrenheit = celsius_zu_fahrenheit(celsius)
-    kelvin = celsius_zu_kelvin(celsius)
-    
-    # Überprüfung durch Rückumrechnung
-    celsius_pruefung = fahrenheit_zu_celsius(fahrenheit)
-    
-    # Ausgabe
-    print(f"\nTemperaturumrechnung für {celsius:.2f} °C:")
-    print(f"Fahrenheit: {fahrenheit:.2f} °F")
-    print(f"Kelvin: {kelvin:.2f} K")
-    print(f"\nÜberprüfung: {fahrenheit:.2f} °F = {celsius_pruefung:.2f} °C")
-    
-    # Genauigkeitsüberprüfung mit Rundungsfehlertoleranz
-    if abs(celsius - celsius_pruefung) < 0.001:
-        print("Die Umrechnung ist korrekt!")
-    else:
-        print("Hinweis: Es gibt eine kleine Abweichung aufgrund von Rundungsfehlern.")
-        
-elif auswahl == 2:
-    # Fahrenheit → Celsius
-    fahrenheit = float(input("Bitte geben Sie die Temperatur in Fahrenheit ein: "))
-    
-    # Umrechnung
-    celsius = fahrenheit_zu_celsius(fahrenheit)
-    
-    # Ausgabe
-    print(f"\n{fahrenheit:.2f} °F entspricht {celsius:.2f} °C")
-    
-elif auswahl == 3:
-    # Kelvin → Celsius
-    kelvin = float(input("Bitte geben Sie die Temperatur in Kelvin ein: "))
-    
-    # Umrechnung (Kelvin zu Celsius ist einfach K - 273.15)
-    celsius = kelvin - 273.15
-    
-    # Ausgabe
-    print(f"\n{kelvin:.2f} K entspricht {celsius:.2f} °C")
-    
-else:
-    print("Fehler: Ungültige Auswahl. Bitte wählen Sie 1, 2 oder 3.")
+# Ausgabe des Ergebnisses
+print("Dein BMI beträgt:")
+print(bmi)
 ```
 ````
 
-````{admonition} Übung 6.5
+```{admonition} Übung 3.4
 :class: miniexercise
-Lassen Sie einen Tannenbaum als sogenannte ASCII-Art zeichnen. Damit ist
-gemeint, dass ein Bild durch Zeichen dargestellt wird. In diesem Fall sollen die
-Blätter durch den Stern `*` dargestellt werden und der Stamm durch drei
-vertikale Striche `|||`. Das Zeichnen des Tannenbaums soll als Funktion
-implementiert werden, wobei die Höhe der Blätter und die Höhe des Stammes als
-Argumente übergeben werden sollen. Die Funktion soll die Gesamthöhe des
-Tannenbaums zurückgeben.
-
-Testen Sie Ihre Funktion. Lassen Sie einen Tannenbaum mit Blätterhöhe 5 und
-einer Stammhöhe von 3 zeichnen. Darüber hinaus soll ausgegeben werden, wie hoch
-der Tannenbaum insgesamt ist. Beispielhaft könnte Ihr Test folgende Ausgabe
-produzieren:
-```
-    *
-   ***
-  *****
- *******
-*********
-   |||
-   |||
-   |||
-
-Der Tannenbaum ist insgesamt 8 Zeilen hoch.
-```
-````
-
-````{admonition} Lösung
-:class: miniexercise, toggle
-```python
-def zeichne_tannenbaum(blaetterhoehe, stammhoehe):
-    # Blätter zeichnen
-    for i in range(blaetterhoehe):
-        print(' ' * (blaetterhoehe - i - 1) + '*' * (2 * i + 1))
-    # Stamm zeichnen
-    for i in range(stammhoehe):
-        print(' ' * (blaetterhoehe - 2) + 3 * '|')
-
-    # Gesamthöhe berechnen und zurückgeben
-    gesamthoehe = blaetterhoehe + stammhoehe
-    return gesamthoehe
-
-
-# Test
-L = zeichne_tannenbaum(5, 3)
-print(f'Der Tannenbaum ist insgesamt {L} Zeilen hoch.')
-```
-````
-
-```{admonition} Übung 6.6
-:class: miniexercise
-Schreiben Sie drei Funktionen. Die erste soll mit Hilfe des Turtle-Moduls den
-Buchstaben `R` zeichnen, die zweite den Buchstaben `O` und die dritte den
-Buchstaben `T`. 
-
-Dabei sollen die Funktionen die folgenden Bedingungen erfüllen:
-
-1. Jeder Buchstabe soll in einem rechteckigen Rahmen sein, bei dem die untere
-   linke Ecke auf der Position $(start, 0)$ beginnt. Dabei wird `start` der
-   Funktion als Argument übergeben. Der Rahmen muss aber nicht gezeichnet
-   werden.
-2. Jede Funktion soll auch zurückgeben, wie breit der "gedachte" Rahmen ist.
-3. Innerhalb jeder Funktion soll am Ende der Roboter auf die linke untere Ecke
-   zurückkehren und it seiner Nase in Richtung Osten zeigen.
-
-Testen Sie Ihre Funktion. Lassen Sie zuerst das Wort `ROT` schreiben. 
-Probieren Sie auch `TOR` aus.
-
-Tipp: Für R und O dürfen Sie gerne die `circle`-Methode verwenden, siehe
-[Dokumentation
-ColabTurtlePlus](https://larryriddle.agnesscott.org/ColabTurtlePlus/documentation2.html).
-Auch `penup`, `pendown` und `goto` könnten hilfreich sein.
+Schreiben Sie ein Programm, das mit dem Turtle-Modul ein Quadrat zeichnet. Zuerst
+soll vom Benutzer abgefragt werden, welche Seitenlänge in Pixel das Quadrat
+haben soll. Dann soll abgefragt werden, welche Farbe die Seiten haben sollen.
+Mit diesen Angaben soll dann das Quadrat gezeichnet werden.
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
+# Import notwendiger Module
 import ColabTurtlePlus.Turtle as turtle
+
+# Benutzereingabe für die Größe und Farbe des Quadrats
+seitenlaenge = int(input("Gib die Seitenlänge des Quadrats ein: "))
+farbe = input("Gib die Farbe des Quadrats auf Englisch ein (z.B. red, blue, green, yellow): ")
+
+# Erstellen eines Turtle-Objekts
 turtle.clearscreen()
+quadrat = turtle.Turtle()
 
-robo = turtle.Turtle()
-robo.speed(13)
+# Zeichnen des Quadrats
+quadrat.pencolor(farbe)
+quadrat.forward(seitenlaenge)
+quadrat.left(90)
+quadrat.forward(seitenlaenge)
+quadrat.left(90)
+quadrat.forward(seitenlaenge)
+quadrat.left(90)
+quadrat.forward(seitenlaenge)
+quadrat.left(90)
+```
+````
 
-def zeichne_R(start, robo):
-    robo.penup()
-    robo.goto(start, 0)
-    robo.pendown()
-    robo.left(90)
-    robo.forward(200)
-    robo.right(90)
-    robo.circle(-50, 180)
-    robo.left(135)
-    robo.forward(100)  # Direkte Linie für das Bein von R
-    
-    # Rückkehr zur Startposition und Ausrichtung nach Osten
-    robo.penup()
-    robo.goto(start, 0)
-    robo.setheading(0)
-    
-    return 100  # Breite des R mit etwas Abstand
+```{admonition} Übung 3.5
+:class: miniexercise
+Lassen Sie Turtle das Haus vom Nikolaus zeichnen. Das Haus vom Nikolaus sieht folgendermaßen aus:
+```{figure} media/haus_nikolaus.svg
+---
+height: 150px
+name: haus_nikolaus
+---
+Das Haus vom Nikolaus
+```
 
+````{admonition} Lösung
+:class: miniexercise, toggle
+```python
+# Import notwendiger Module
+import ColabTurtlePlus.Turtle as turtle
+from numpy import sqrt
 
-def zeichne_O(start, robo):
-    robo.penup()
-    robo.goto(start + 50, 0)  # Startposition für den Kreis
-    robo.setheading(0)  # Sicherstellen, dass der Roboter nach Osten zeigt
-    robo.pendown()
-    robo.circle(50, 360)
+seite = 100
+diagonale = sqrt(100**2 + 100**2)
 
-    # Rückkehr zur Startposition und Ausrichtung nach Osten
-    robo.penup()
-    robo.goto(start, 0)
-    robo.setheading(0)
-    
-    return 100  # Breite des O
+# Erstellen eines Turtle-Objekts
+turtle.clearscreen()
+t = turtle.Turtle()
 
-
-def zeichne_T(start, robo):
-    # Zeichne den vertikalen Strich des T
-    robo.penup()
-    robo.goto(start + 50, 0)  # Mittelposition für den vertikalen Strich
-    robo.setheading(90)  # Nach oben ausrichten
-    robo.pendown()
-    robo.forward(200)
-    
-    # Zeichne den horizontalen Strich des T
-    robo.penup()
-    robo.goto(start, 200)  # Linke Position für den horizontalen Strich
-    robo.setheading(0)  # Nach rechts ausrichten
-    robo.pendown()
-    robo.forward(100)  # Zeichne den horizontalen Strich
-    
-    # Rückkehr zur Startposition und Ausrichtung nach Osten
-    robo.penup()
-    robo.goto(start, 0)
-    robo.setheading(0)
-    
-    return 100  # Breite des T
-
-
-# Test der Funktionen
-auswahl = 'ROT'  # Kann zu 'TOR' geändert werden für den anderen Test
-
-if auswahl == 'ROT':
-    start_R = -150  # Etwas weiter links beginnen für bessere Sichtbarkeit
-    breite_R = zeichne_R(start_R, robo)
-    
-    start_O = start_R + breite_R + 10  # 10 Pixel Abstand zwischen den Buchstaben
-    breite_O = zeichne_O(start_O, robo)
-    
-    start_T = start_O + breite_O + 10
-    zeichne_T(start_T, robo)
-else:
-    start_T = -150
-    breite_T = zeichne_T(start_T, robo)
-    
-    start_O = start_T + breite_T + 10
-    breite_O = zeichne_O(start_O, robo)
-    
-    start_R = start_O + breite_O + 10
-    zeichne_R(start_R, robo)
+# Zeichne das Haus
+t.forward(seite)
+t.left(135)
+t.forward(diagonale)
+t.right(135)
+t.forward(seite)
+t.left(135)
+t.forward(0.5 * diagonale)
+t.left(90)
+t.forward(0.5 * diagonale)
+t.left(45)
+t.forward(seite)
+t.left(135)
+t.forward(diagonale)
+t.right(135)
+t.forward(seite)
 ```
 ````

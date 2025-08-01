@@ -19,510 +19,349 @@ kernelspec:
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-````{admonition} Übung 12.1
-:class: miniexercise
-Gegeben ist der folgende Code mit Zeilennummern, um Messdaten zu visualisieren.
-Suchen Sie die darin enthaltenen Fehler. Korrigieren Sie anschließend den Code.
-```python
-1  # Datenimport Messdaten
-2  x = [-20, -15, -10, -5, 0, 5]
-3  y = [152.38, 124.43, 88.91, 37.43, 5.52, -27.41]
-4    
-5  # Parabel durch die Messdaten
-6  y_parabel = x**2
-7   
-8  # Plot der Messdaten mit zusätzlicher Parabel
-9  plt.figure()
-10 plt.scatter(x,y)
-11 plt.plot(x, y_parabel)
-12 plt.xlabel('Temperatur')
-13 plt.ylabel('Materialeigenschaft')
-14 plt.titel('Messdaten')
-15 plt.show()
-```
-````
+Für alle Übungsaufgaben verwenden wir den Datensatz
+`schlaf_gesundheit_lifestyle_datensatz.csv`, der Informationen über
+Schlafgewohnheiten und Lebensstil von 374 Personen enthält. Der Datensatz ist
+eine deutsche Übersetzung des Datensatzes "Health and Sleep Relation" von
+[Kaggle](https://www.kaggle.com/datasets/orvile/health-and-sleep-relation-2024/data).
 
-````{admonition} Lösung
-:class: miniexercise, toggle
-* Zeile 6: Listen dürfen nicht quadriert werden.
-* Zeile 9: Der Aufruf plt.figure() fürht zu einer Fehlermeldung, da Matplotlib
-  nicht importiert wurde.
-* Zeile 14: plt.title() ist falsch geschrieben.
-```python
-import matplotlib.pyplot as plt
+Laden Sie ihn hier herunter: {download}`Download
+schlaf_gesundheit_lifestyle_datensatz.csv<https://nextcloud.frankfurt-university.de/s/SGjPamEi4saWwaj>`
 
-# Datenimport Messdaten
-x = [-20, -15, -10, -5, 0, 5]
-y = [152.38, 124.43, 88.91, 37.43, 5.52, -27.41]
-    
-# Parabel durch die Messdaten
-y_parabel = []
-for zahl in x:
-    y_parabel.append(zahl**2)
-   
-# Plot der Messdaten mit zusätzlicher Parabel
-plt.figure()
-plt.scatter(x,y)
-plt.plot(x, y_parabel)
-plt.xlabel('Temperatur')
-plt.ylabel('Materialeigenschaft')
-plt.title('Messdaten')
-plt.show()
-```
-
-Bemerkung: Hätten wir nicht eine Liste, sondern NumPy-Arrays genommen, um die
-Messwerte zu speichern, hätte die Quadratur funktioniert.
-````
-
-```{admonition} Übung 12.2
-:class: miniexercise
-Laden Sie den Datensatz `studierendenzahlen_frankfurt_uas.csv` ([→ hier
-Download](https://nextcloud.frankfurt-university.de/s/MzxHw2rDRdx5eRA)) herunter
-und importieren Sie ihn mit Pandas. Die ersten drei Zeilen sind Kommentare und
-müssen daher mit dem Argument `skiprows=3` übersprungen werden.
-
-1. Lassen Sie die Studierendenzahlen männlich und weiblich visualisieren.
-2. Berechnen Sie eine Regressionsgerade jeweils für die Studierendenzahlen
-   weiblich und männlich. Wächst die Anzahl der männlichen oder der weiblichen
-   Studierenden schneller?
-3. Bewerten Sie mit Hilfe des $R^2$-Scores, ob die beiden Regressionsgeraden
-   brauchbar sind.
-4. Lassen Sie die Regressionsgeraden zusammen mit den Studierendenzahlen
-   visualisieren.
-```
-
-````{admonition} Lösung
-:class: miniexercise, toggle
-Der Code zum Import der Studierendenzahlen ist:
 ```python
 import pandas as pd
-
-studizahlen = pd.read_csv('studierendenzahlen_frankfurt_uas.csv', skiprows=3, index_col=0)
-studizahlen.head()
-```
-Der Index kann auf die erste Spalte gesetzt werden, muss aber nicht. Die
-Visualisierung als Streudiagramm erfolgt mit folgenden Python-Code:
-```python
 import matplotlib.pyplot as plt
-
-# Extraktion der Daten aus der Tabelle
-y_maennlich = studizahlen['männlich']
-y_weiblich = studizahlen['weiblich']
-semester = studizahlen.index
-
-# Streudiagramm
-plt.figure()
-plt.scatter(semester, y_maennlich)
-plt.scatter(semester, y_weiblich)
-plt.xticks(rotation = 45, ha='right')
-plt.xlabel('Semester')
-plt.ylabel('Anzahl Studierende')
-plt.title('Entwicklung der Studierendenzahlen Frankfurt UAS')
-plt.show()
-```
-Für die Regressionsgeraden brauchen wir Zahlen als Ursache, nicht Semester.
-Daher basteln wir mit der `range`-Funktion x-Werte von 0 bis zur Anzahl der
-Semester. Danach wenden wir `polyfit` mit Grad 1 an und lassen die beiden
-Steigungen und die $R^2$-Scores ausgeben.
-```python
-from sklearn.metrics import r2_score
 import numpy as np
 
-anzahl_semester = len(semester)
-x = range(anzahl_semester)
-
-p_maennlich = np.polyfit(x, y_maennlich, 1)
-p_weiblich  = np.polyfit(x, y_weiblich, 1)
-
-print(f'Steigung bei der Entwicklung Studenten: {p_maennlich[0]:.2f}')
-print(f'Steigung bei der Entwicklung Studentinnen: {p_weiblich[0]:.2f}')
-
-r2_maennlich = r2_score(y_maennlich, np.polyval(p_maennlich, x))
-r2_weiblich = r2_score(y_weiblich, np.polyval(p_weiblich, x))
-
-print(f'R2-Score für Studenten: {r2_maennlich:.2f}')
-print(f'R2-Score für Studentinnen: {r2_weiblich:.2f}')
+# Datensatz einlesen
+data = pd.read_csv('schlaf_gesundheit_lifestyle_datensatz.csv')
 ```
-Die Anzahl der weiblichen Studierenden wächst schneller als die der männlichen
-Studierenden. Das Modell ist für Studenten weniger gut geeignet (R2 0.67), aber
-für Studentinnen sehr gut (R2 0.9).
 
-Zuletzt wird alles zusammen visualisiert.
-```python3
-# Erstelle Wertetabelle für das Diagramm
-x_modell = np.linspace(0, anzahl_semester)
-y_modell_maennlich = np.polyval(p_maennlich, x_modell)
-y_modell_weiblich = np.polyval(p_weiblich, x_modell)
-
-# Visualisierung Streudiagramm und Reggressionsgeraden als Liniendiagramm
-plt.figure()
-plt.scatter(semester, y_maennlich)
-plt.scatter(semester, y_weiblich)
-plt.plot(x_modell, y_modell_maennlich)
-plt.plot(x_modell, y_modell_weiblich)
-plt.xticks(rotation = 45, ha='right')
-plt.xlabel('Semester')
-plt.ylabel('Anzahl Studierende')
-plt.title('Entwicklung der Studierendenzahlen Frankfurt UAS')
-plt.show()
-```
-````
-
-```{admonition} Übung 12.3
+```{admonition} Übung 11.1: Streudiagramme
 :class: miniexercise
-Laden Sie die Biersteuerstatistik
-([→ hier Download](https://nextcloud.frankfurt-university.de/s/Ejc2LFEW3Hz3mA9))
-herunter.
+Laden Sie die Datei `schlaf_gesundheit_lifestyle_datensatz.csv` herunter.
 
-1. Importieren Sie die Daten mit Pandas (8 Zeilen müssen übersprungen werden).
-   Lassen Sie sich einen Überblick anzeigen. Was enthält die Tabelle?
-2. Filtern Sie die Tabelle nach den Jahren 2020, 2021 und 2022 lassen Sie den
-   Absatz von Bier in Hektolitern pro Monat visualisieren.
-3. Stellen Sie eine Vermutung an. Durch welches Regressionspolynom könnte der
-   Absatz von Bier pro Monat am besten erklärt werden?
-4. Stellen Sie das Regressionspolynom für 2022 auf und visualisieren Sie es
-   zusammen mit den Messwerten. Bewerten Sie es mit dem $R^2$-Score.
+1. Verschaffen Sie sich erst einen Überblick über die Daten mit `data.info()`
+   und `data.head()`.
+2. Erstellen Sie ein Streudiagramm, das die Beziehung zwischen Alter (x-Achse)
+   und Schlafdauer (y-Achse) zeigt. Verwenden Sie blaue Kreise als Marker und
+   beschriften Sie die Achsen: "Alter [Jahre]" und "Schlafdauer [Stunden]".
+   Titel: "Zusammenhang zwischen Alter und Schlafdauer". Fügen Sie mit
+   `plt.grid(True, alpha=0.3)` Gitterlinien hinzu.
+3. Erstellen Sie ein zweites Streudiagramm, das die Beziehung zwischen
+   Stresslevel (x-Achse) und Herzfrequenz (y-Achse) zeigt. Verwenden Sie rote
+   Dreiecke als Marker (marker='^'). Beschriften Sie die Achsen entsprechend und
+   setzen Sie einen aussagekräftigen Titel.
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
 import pandas as pd
-
-daten = pd.read_csv('biersteuerstatistik.csv', skiprows=8)
-daten.info()
-```
-
-Die Datei enthält 360 Einträge mit Jahr, Monat und Absatz von Bier in Hektolitern.
-
-```python
 import matplotlib.pyplot as plt
-
-for jahr in [2020, 2021, 2022]:
-    daten_pro_jahr = daten.loc[ daten['Jahr'] == jahr ]
-    x = daten_pro_jahr.loc[:, 'Monat']
-    y = daten_pro_jahr.loc[:, 'Absatz von Bier [hl]'] 
-    plt.scatter(x,y, label=str(jahr))
-plt.legend()
-plt.xticks(rotation = 45, ha='right')
-plt.xlabel('Monat')
-plt.ylabel('Absatz von Bier [hl]')
-plt.title('Bierstatistik')
-plt.show()
-```
-
-Aufgrund der Visualisierung entscheiden wir uns für eine Annäherung durch eine
-Regressionsparabel.
-
-```python
+import matplotlib.style as style
+style.use('seaborn-v0_8') 
 import numpy as np
-from sklearn.metrics import r2_score
 
-data_2022 = daten.loc[daten['Jahr'] == 2022]
+# Datensatz einlesen
+data = pd.read_csv('schlaf_gesundheit_lifestyle_datensatz.csv')
 
-x = range(1, 13)
-y = data_2022.loc[:, 'Absatz von Bier [hl]']
+# 1. Überblick über die Daten
+print(data.info())
+print(data.head())
 
-p2022 = np.polyfit(x, y, 2)
-r2 = r2_score(y, np.polyval(p2022, x))
-print(f'R2-Score: {r2:.1f}')
-
-x_modell = np.linspace(1, 12)
-y_modell = np.polyval(p2022, x_modell)
-
+# 2. Streudiagramm: Alter vs. Schlafdauer
 plt.figure()
-plt.scatter(x, y)
-plt.plot(x_modell, y_modell)
-plt.xlabel('Monat')
-plt.ylabel('Absatz von Bier [hl]')
-plt.title('Bierstatistik für das Jahr 2022')
+plt.scatter(data['Alter'], data['Schlafdauer'])
+plt.xlabel('Alter [Jahre]')
+plt.ylabel('Schlafdauer [Stunden]')
+plt.title('Zusammenhang zwischen Alter und Schlafdauer')
+plt.grid(True, alpha=0.3)
+plt.show()
+
+# 3. Streudiagramm: Stresslevel vs. Herzfrequenz
+plt.figure()
+plt.scatter(data['Stresslevel'], data['Herzfrequenz'], color='red', marker='^')
+plt.xlabel('Stresslevel')
+plt.ylabel('Herzfrequenz [Schläge/min]')
+plt.title('Zusammenhang zwischen Stress und Herzfrequenz')
+plt.grid(True, alpha=0.3)
 plt.show()
 ```
-Das Modell ist mit einem $R^2$-Score von 0.8 gut.
 ````
 
-```{admonition} Übung 12.4
+```{admonition} Übung 11.2: Balkendiagramme und Histogramme
 :class: miniexercise
-Verwenden Sie die Bierstatistik-Daten von 2021 aus Übung 12.3 und vergleichen Sie Regressionspolynome der Grade 1, 2, 3 und 4. 
+1. Erstellen Sie ein Balkendiagramm für eine Auswahl von 5 Personen aus dem
+   Datensatz. Filtern Sie die ersten 5 Zeilen mit `data.head(5)` und stellen Sie
+   deren Alter auf der x-Achse und Schlafdauer auf der y-Achse dar. Verwenden
+   Sie verschiedene Farben, drehen Sie die x-Achsenbeschriftung um 45° und
+   setzen Sie den Titel "Schlafdauer der ersten 5 Personen".
 
-1. Berechnen Sie für jeden Polynomgrad die Koeffizienten mit `polyfit()`.
-2. Erstellen Sie für jeden Grad das entsprechende Modell mit `polyval()`.
-3. Berechnen Sie jeweils den R²-Wert mit `r2_score()`.
-4. Erstellen Sie eine Tabelle mit Polynomgrad und R²-Wert.
-5. Visualisieren Sie alle vier Modelle zusammen mit den Originaldaten in einem Diagramm.
-6. Diskutieren Sie: Welcher Polynomgrad ist am besten geeignet? Begründen Sie Ihre Antwort anhand der R²-Werte und der Visualisierung.
-7. Was passiert, wenn Sie den Polynomgrad auf 11 erhöhen? Testen Sie es und erklären Sie das Ergebnis.
+2. Erstellen Sie ein Histogramm der Schlafdauer aus dem Datensatz mit 15 Bins,
+   Transparenz (alpha=0.7), grüner Farbe mit schwarzen Rändern. Berechnen Sie
+   den Durchschnitt der Schlafdauer mit `data['Schlafdauer'].mean()` und fügen
+   Sie eine vertikale Linie für diesen Durchschnittswert hinzu. Erstellen Sie
+   eine Legende, die den Durchschnittswert anzeigt.
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
-Teilaufgabe 1. bis 4. 
 ```python
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import r2_score
+import numpy as np
 
-# Daten laden (gleich wie in Übung 12.3)
-daten = pd.read_csv('data/biersteuerstatistik.csv', skiprows=8)
-data_2021 = daten.loc[daten['Jahr'] == 2021, :]
+data = pd.read_csv('schlaf_gesundheit_lifestyle_datensatz.csv')
 
-# x-Werte (Monate 1-12) und y-Werte (Bierabsatz)
-x = range(1, 13)
-y = data_2021.loc[:, 'Absatz von Bier [hl]']
+# 1. Balkendiagramm: Erste 5 Personen
+personen = data.head(5)
 
-# Polynomgrade 1 bis 4 berechnen und R²-Werte ermitteln
-print("Vergleich verschiedener Polynomgrade:")
-
-r2_werte = {}
-modelle = {}
-
-for grad in range(1, 5):
-    # Koeffizienten berechnen
-    p = np.polyfit(x, y, grad)
-    modelle[grad] = p
-    
-    # Modell anwenden
-    y_modell = np.polyval(p, x)
-    
-    # R²-Wert berechnen
-    r2 = r2_score(y, y_modell)
-    r2_werte[grad] = r2
-    
-    print(f"Polynomgrad {grad}: R² = {r2:.4f}")
-```
-
-Teilaufgabe 5:
-```python
 plt.figure()
-plt.scatter(x, y, color='black', label='Messdaten 2021')
+plt.bar(range(5), personen['Schlafdauer'])
+plt.xlabel('Person')
+plt.ylabel('Schlafdauer [Stunden]')
+plt.title('Schlafdauer der ersten 5 Personen')
+plt.xticks(range(5), personen['Person_ID'])
+plt.tight_layout()
+plt.show()
 
-# x-Werte für glatte Kurven
-x_plot = np.linspace(1, 12, 100)
-for grad in range(1, 5):
-    y_plot = np.polyval(modelle[grad], x_plot)
-    plt.plot(x_plot, y_plot, 
-             label=f'Grad {grad} (R² = {r2_werte[grad]:.3f})')
+# 2. Histogramm: Schlafdauer
+durchschnitt_schlafdauer = data['Schlafdauer'].mean()
 
-plt.xlabel('Monat')
-plt.ylabel('Absatz von Bier [hl]')
-plt.title('Vergleich verschiedener Polynomgrade - Bierstatistik 2021')
+plt.figure()
+plt.hist(data['Schlafdauer'], bins=15, alpha=0.7, color='green', edgecolor='black')
+plt.axvline(durchschnitt_schlafdauer, color='red', linestyle='--', linewidth=2, 
+            label=f'Durchschnitt: {durchschnitt_schlafdauer:.1f}h')
+plt.xlabel('Schlafdauer [Stunden]')
+plt.ylabel('Häufigkeit')
+plt.title('Verteilung der Schlafdauer')
 plt.legend()
 plt.grid(True, alpha=0.3)
 plt.show()
 ```
-Teilaufgabe 6:
-* Grad 1 (linear): R² sehr niedrig, kann die Saisonalität nicht erfassen
-* Grad 2 (quadratisch): deutliche Verbesserung, erfasst den Grundtrend
-* Grad 3 (kubisch): weitere Verbesserung, kann asymmetrische Muster erfassen
-* Grad 4: nur geringfügige Verbesserung, Risiko von Overfitting
-Empfehlung: Grad 3 bietet das beste Verhältnis zwischen Overfitting und Underfitting
-
-Teilaufgabe 7:
-```python
-p_11 = np.polyfit(x, y, 11)
-y_modell_11 = np.polyval(p_11, x)
-r2_11 = r2_score(y, y_modell_11)
-
-print(f"Polynomgrad 11: R² = {r2_11:.4f}")
-
-# Vergleich: bestes Modell (Grad 3) vs. Overfitting (Grad 11)
-y_plot_3 = np.polyval(modelle[3], x_plot)
-y_plot_11 = np.polyval(p_11, x_plot)
-
-# Visualisierung von Grad 11
-plt.figure()
-plt.scatter(x, y, color='black', label='Messdaten 2022')
-plt.plot(x_plot, y_plot_3,  label=f'Grad 3 (R² = {r2_werte[3]:.3f})')
-plt.plot(x_plot, y_plot_11, label=f'Grad 11 (R² = {r2_11:.3f})')
-plt.xlabel('Monat')
-plt.ylabel('Absatz von Bier [hl]')
-plt.title('Overfitting-Beispiel: Grad 3 vs. Grad 11')
-plt.legend()
-plt.grid(True, alpha=0.3)
-plt.show()
-```
-Erklärung zu Grad 11: Das Polynom 11. Grades hat einen perfekten R²-Wert, aber
-
-* es schwingt stark zwischen den Datenpunkten und
-* es würde neue Daten schlecht vorhersagen (Overfitting).
-
-Bei 12 Datenpunkten ist ein Polynom 11. Grades fast eine Interpolation und
-praktisch unbrauchbar für Prognosen.
 ````
 
-```{admonition} Übung 12.5
+```{admonition} Übung 11.3 Subplots
 :class: miniexercise
-Laden Sie den Datensatz `stromverbrauch_hessen.csv` ([→ hier
-Download](https://nextcloud.frankfurt-university.de/s/ddfDzAAnJtJ4FZQ)) herunter
-und analysieren Sie die Entwicklung des Stromverbrauchs in Hessen von 2000 bis
-2021.
+Analysieren Sie die durchschnittliche Schlafqualität nach Berufsgruppen.
 
-Hinweis: Die CSV-Datei enthält Kommentarzeilen am Anfang. Verwenden Sie
-`skiprows=4` beim Einlesen mit Pandas.
-
-1. Datenexploration:
-   - Laden Sie den Datensatz und verschaffen Sie sich einen Überblick.
-   - In welchem Zeitraum liegen die Daten vor?
-   - Welche Verbrauchergruppen sind enthalten?
-
-2. Visualisierung:
-   - Erstellen Sie ein Liniendiagramm, das die Entwicklung des
-     Gesamtstromverbrauchs über die Jahre zeigt.
-   - Erstellen Sie ein weiteres Diagramm, das die drei Verbrauchergruppen
-     (Industrie, Verkehr, Haushalte etc.) separat in diesem Diagramm darstellt.
-
-3. Trend-Analyse mit linearer Regression:
-   - Berechnen Sie für jede der vier Kategorien (insgesamt, Industrie, Verkehr,
-     Haushalte etc.) eine lineare Regressionsgerade.
-   - Ermitteln Sie jeweils die Steigung und interpretieren Sie diese: Welche
-     Verbrauchergruppe zeigt den stärksten Rückgang/Anstieg pro Jahr?
-   - Berechnen Sie für jede Regression den R²-Wert. Welche Kategorie lässt sich
-     am besten durch einen linearen Trend erklären?
-
-4. Prognose:
-   - Verwenden Sie die lineare Regression für den Gesamtstromverbrauch, um eine
-     Prognose für das Jahr 2025 zu erstellen.
-   - Diskutieren Sie: Ist diese Prognose realistisch? Was spricht dafür/dagegen?
-
-5. Erweiterte Analyse:
-   - Der Verkehrssektor zeigt starke Schwankungen. Testen Sie, ob ein Polynom 2.
-     oder 3. Grades den Verkehrsstromverbrauch besser erklärt als eine Gerade.
-   - Vergleichen Sie die R²-Werte und visualisieren Sie alle drei Modelle.
+1. Berechnen Sie die durchschnittliche Schlafqualität pro Beruf.
+2. Erstellen Sie ein horizontales Balkendiagramm (`plt.barh`) und sortieren Sie
+   die Berufe nach Schlafqualität (bester zuerst).
+3. Fügen Sie eine horizontale Linie für den Gesamtdurchschnitt hinzu.
+4. Verwenden Sie ein professionelles Styling-Theme
+   (`plt.style.use('seaborn-v0_8')`).
+5. Titel: "Durchschnittliche Schlafqualität nach Beruf".
 ```
 
 ````{admonition} Lösung
-:class: minisolution, toggle
-1\. Datenexploration
+:class: miniexercise, toggle
 ```python
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import r2_score
+import numpy as np
 
-# Datenexploration
-data = pd.read_csv('data/stromverbrauch_hessen.csv', skiprows=4, index_col=0)
-data.info()
-data.describe()
-```
+data = pd.read_csv('schlaf_gesundheit_lifestyle_datensatz.csv')
 
-Zeitraum: 2000 bis 2021
-Verbrauchergruppen:
+# Professionelles Styling
+plt.style.use('seaborn-v0_8')
 
-* insgesamt
-* Industrie
-* Verkehr
-* Haushalte, Gewerbe, Handel, Dienstleistungen und übrige Verbraucher
+# 1. Filtere Daten für 5 verschiedene Berufe
+arzt_data = data[data['Beruf'] == 'Arzt']
+lehrer_data = data[data['Beruf'] == 'Lehrer']
+manager_data = data[data['Beruf'] == 'Manager']
+ingenieur_data = data[data['Beruf'] == 'Ingenieur']
+anwalt_data = data[data['Beruf'] == 'Anwalt']
 
-2\. Visualisierung
-```python
-# Gesamtstromverbrauch
+# 2. Berechne Durchschnitte manuell
+berufe = ['Arzt', 'Lehrer', 'Manager', 'Ingenieur', 'Anwalt']
+durchschnitte = [
+    arzt_data['Schlafqualitaet'].mean(),
+    lehrer_data['Schlafqualitaet'].mean(),
+    manager_data['Schlafqualitaet'].mean(),
+    ingenieur_data['Schlafqualitaet'].mean(),
+    anwalt_data['Schlafqualitaet'].mean()
+]
+print(durchschnitte)
+
+# 3. Gesamtdurchschnitt berechnen
+gesamtdurchschnitt = data['Schlafqualitaet'].mean()
+
+# 4. Balkendiagramm
 plt.figure()
-plt.plot(data.index, data['insgesamt'])
-plt.title('Entwicklung des Gesamtstromverbrauchs in Hessen (2000-2021)')
-plt.xlabel('Jahr')
-plt.ylabel('Stromverbrauch [GWh]')
-plt.grid(True, alpha=0.3)
+plt.bar(berufe, durchschnitte)
 
-# Verbrauchergruppen separat
-plt.figure()
-plt.plot(data.index, data['Industrie'], label='Industrie')
-plt.plot(data.index, data['Verkehr'], label='Verkehr')
-plt.plot(data.index, data['Haushalte, Gewerbe, Handel, Dienstleistungen und übrige Verbraucher'], label='Haushalte, Gewerbe etc.')
-plt.title('Stromverbrauch nach Verbrauchergruppen')
-plt.xlabel('Jahr')
-plt.ylabel('Stromverbrauch [GWh]')
+# Horizontale Linie für Gesamtdurchschnitt
+plt.axhline(gesamtdurchschnitt, color='red', linestyle='--', linewidth=2,
+            label=f'Gesamtdurchschnitt: {gesamtdurchschnitt:.1f}')
+
+plt.xlabel('Durchschnittliche Schlafqualität (1-10)')
+plt.ylabel('Beruf')
+plt.title('Durchschnittliche Schlafqualität nach Beruf')
 plt.legend()
-plt.grid(True, alpha=0.3)
+plt.grid(True, alpha=0.3, axis='x')
 plt.tight_layout()
 plt.show()
 ```
+````
 
-3\. Trend-Analyse mit linearer Regression
-```python
-# Vorbereitung der Daten
-x = range(2000, 2022) 
-verbrauchergruppen = data.columns
+```{admonition} Übung 11.4: Dashboard für Schlafanalyse
+:class: miniexercise
+Erstellen Sie ein 2x2 Subplot-Dashboard mit folgenden Visualisierungen:
 
+- Subplot 1 (oben links): Histogramm der Schlafdauer für alle Personen
+- Subplot 2 (oben rechts): Streudiagramm Stresslevel vs. Schlafqualität  
+- Subplot 3 (unten links): Balkendiagramm der Herzfrequenz für die ersten 6 Personen
+- Subplot 4 (unten rechts): Streudiagramm Alter vs. Aktivitätslevel
 
-regressionen = {}
-
-for gruppe in verbrauchergruppen:
-    y = data[gruppe]
-    
-    # Lineare Regression
-    p = np.polyfit(x, y, 1)
-    y_prognose = np.polyval(p, x)
-    r2 = r2_score(y, y_prognose)
-    
-    # Steigung pro Jahr (p[0] ist Steigung, entspricht Änderung pro Jahr)
-    steigung_pro_jahr = p[0]
-    
-    # Ausgabe der Ergebnisse
-    print(f"{gruppe}:")
-    print(f"  Steigung: {steigung_pro_jahr:.1f} GWh/Jahr")
-    print(f"  R²-Wert: {r2:.4f}")
-    print()
+Zusätzliche Anforderungen:
+- Figur-Größe: 15x12 Zoll
+- Gemeinsamer Haupttitel: "Schlaf- und Gesundheitsdashboard"
 ```
-insgesamt: Steigung: -59.2 GWh/Jahr und R²-Wert: 0.0724<br>
-Industrie: Steigung: -59.7 GWh/Jahr und R²-Wert: 0.4206<br>
-Verkehr: Steigung: -4.5 GWh/Jahr und R²-Wert: 0.0268<br>
-Haushalte etc.: Steigung: 4.9 GWh/Jahr und R²-Wert: 0.0006<br>
 
-Den stärksten Rückgang hat die Gruppe der Industrie (-59.7 GWh/Jahr), den
-stärksten Anstieg die Haushalte (+ 4.9 GWh/Jahr). Am ehesten lässt sich der
-Stromverbrauch der Industrie mit einem linearen Modell erklären (R² = 0.4206).
-
-4\. Prognose
+````{admonition} Lösung
+:class: miniexercise, toggle
 ```python
-p = np.polyfit(x, data['insgesamt'], 1)
-gesamtverbrauch_2025 = np.polyval(p, 2025)
-print(f"Gesamtverbrauch für 2025: {gesamtverbrauch_2025:.1f} GWh")
-```
-Gesamtverbrauch für 2025: 34963.5 GWh
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 
-Der R²-Wert von 0.0724 für den Gesamtverbrauch ist schlecht, daher ist diese
-Prognose fragwürdig.
+data = pd.read_csv('schlaf_gesundheit_lifestyle_datensatz.csv')
 
-5\. Erweiterte Analyse
-```python
-verkehr = data['Verkehr']
+# 2x2 Subplot-Layout erstellen
+fig, axes = plt.subplots(2, 2, figsize=(15, 12))
 
-# Teste verschiedene Polynomgrade
-grade = [1, 2, 3]
-verkehr_modelle = {}
+# Subplot 1: Histogramm der Schlafdauer
+axes[0, 0].hist(data['Schlafdauer'], bins=15, alpha=0.7, color='blue', edgecolor='black')
+axes[0, 0].set_xlabel('Schlafdauer [h]')
+axes[0, 0].set_ylabel('Häufigkeit')
+axes[0, 0].set_title('Verteilung der Schlafdauer')
+axes[0, 0].grid(True, alpha=0.3)
 
-plt.figure()
-plt.scatter(x, verkehr, label='Verkehrsdaten')
+# Subplot 2: Streudiagramm Stresslevel vs. Schlafqualität
+axes[0, 1].scatter(data['Stresslevel'], data['Schlafqualitaet'], alpha=0.6, color='red')
+axes[0, 1].set_xlabel('Stresslevel')
+axes[0, 1].set_ylabel('Schlafqualität')
+axes[0, 1].set_title('Stress vs. Schlafqualität')
+axes[0, 1].grid(True, alpha=0.3)
 
-x_plot = np.linspace(2000, 2022, 100)
-for grad in grade:
-    p = np.polyfit(x, verkehr, grad)
-    y_prognose = np.polyval(p, x)
-    r2 = r2_score(verkehr, y_prognose)
-    print(f'R2-Score für Grad {grad} = {r2:.2f}')
-    verkehr_modelle[grad] = {'koeffizienten': p, 'r2': r2}
-    
-    # Visualisierung des Regressionspolynoms
-    y_plot = np.polyval(p, x_plot)
-    plt.plot(x_plot, y_plot, label=f'Grad {grad} (R² = {r2:.3f})')
+# Subplot 3: Balkendiagramm Herzfrequenz (erste 6 Personen)
+erste_6 = data.head(6)
+farben = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
+axes[1, 0].bar(range(len(erste_6)), erste_6['Herzfrequenz'], color=farben, alpha=0.8)
+axes[1, 0].set_xlabel('Person')
+axes[1, 0].set_ylabel('Herzfrequenz [Schläge/min]')
+axes[1, 0].set_title('Herzfrequenz (erste 6 Personen)')
+axes[1, 0].set_xticks(range(len(erste_6)))
+axes[1, 0].set_xticklabels([f'P{i+1}' for i in range(len(erste_6))])
+axes[1, 0].grid(True, alpha=0.3)
 
-plt.xlabel('Jahr')
-plt.ylabel('Stromverbrauch Verkehr [GWh]')
-plt.title('Verkehrssektor: Vergleich verschiedener Regressionsmodelle')
-plt.legend()
-plt.grid(True, alpha=0.3)
+# Subplot 4: Streudiagramm Alter vs. Aktivitätslevel
+axes[1, 1].scatter(data['Alter'], data['Aktivitaetslevel'], alpha=0.6, color='green')
+axes[1, 1].set_xlabel('Alter [Jahre]')
+axes[1, 1].set_ylabel('Aktivitätslevel')
+axes[1, 1].set_title('Alter vs. Aktivitätslevel')
+axes[1, 1].grid(True, alpha=0.3)
+
+plt.suptitle('Schlaf- und Gesundheitsdashboard', fontsize=16, fontweight='bold')
+plt.tight_layout()
 plt.show()
 ```
-R2-Score für Grad 1 = 0.03<br>
-R2-Score für Grad 2 = 0.04<br>
-R2-Score für Grad 3 = 0.18<br>
+````
 
-Auch wenn der R²-Score für das Polynom 3. Grades besser ist als der für Grad 1
-oder 2, zeigt die Visualisierung, dass das kubische Modell ungeeignet ist. Das
-lokale Minimum liegt ungefähr im Jahr 2005, das lokale Maximum ungefähr 2025.
-Damit muss das Polynom für Jahre vor 2000 immer weiter steigen. Demnach wäre der
-Stromverbrauch für den Verkehrssektor umso höher, je weiter wir in die
-Vergangenheit zurückgehen, was nicht realistisch ist. Entweder wir verwerfen das
-Modell oder schränken es auf den betrachteten Zeitraum 2000 bis 2022 ein.
+```{admonition} Übung 11.5: Random Walk
+:class: miniexercise
+Teilaufgabe 1:
+   
+Programmieren Sie eine Funktion, die einen Random Walk mit dem Turtle-Modul
+implementiert (siehe Übung 7.5). Der Roboter soll 100x zufällig eine Richtung
+Osten, Süden, Westen oder Norden wählen und dann 10 Schritte laufen. Lassen Sie
+dann den Abstand zum Ursprung berechnen und von der Funktion zurückgeben.
+
+Tipp: Die aktuelle Position des Roboters kann mit der Methode `.position()`
+bestimmt werden. Die Anweisung `x,y = robo.position()` speichert die x-Position
+in x und entsprechend die y-Position in y, wenn Ihr Roboter `robo` heißt.
+
+Teilaufgabe 2:
+
+Lassen Sie nun den Roboter 10 x seinen Random Walk ausführen und jeweils die
+Entfernung zum Ursprung zurückgeben. Sammeln Sie die Entfernungen in einer
+Liste. Untersuchen Sie mit einem Histogramm, wie die Entfernungen verteilt sind.
+Wenn die Rechenzeiten auf Ihrer Hardware annehmbar sind, erhöhen Sie bitte die
+Anzahl der Random Walks (vorsichtig!).
+
+Tipp: Setzen Sie innerhalb der Random-Walk-Funktion die Geschwindigkeit des
+Roboters auf `0`, also `robo.speed(0)`, falls Ihr Roboter `robo` heißt. Fügen
+Sie außerdem nach der letzten Bewegung den Befehl `robo.done()`ein. Dann wird
+die Bewegung nicht mehr animiert und nur der Laufweg angezeigt.
+```
+
+````{admonition} Lösung
+:class: miniexercise, toggle
+Teilaufgabe 1: Implementierung eines Random Walks als Funktion
+```python
+import ColabTurtlePlus.Turtle as turtle
+import numpy as np
+
+def random_walk():
+    robo = turtle.Turtle()
+    robo.speed(0)
+    for i in range(100):
+        zufallswinkel = np.random.randint(3) * 90
+        robo.left(zufallswinkel)
+        robo.forward(10)
+
+    x,y = robo.position()
+    robo.done()
+    
+    entfernung = np.sqrt(x**2 + y**2)
+    return entfernung
+```
+
+Teilaufgabe 2: Durchführung von vielen Random Walks und Sammeln der Entfernungen
+in einer Liste (hier 500 Randon Walks):
+
+```python
+turtle.clearscreen()
+    
+liste_entfernungen = []
+for i in range(500):
+    d = random_walk()
+    liste_entfernungen.append(d)
+```
+
+Das Ergebnis könnte beispielhaft so aussehen:
+
+```{figure} pics/solution09_03_random_walks.png
+---
+width: 75%
+name: fig_solution09_03_random_walks
+---
+Endergebnis von 500 Random Walks
+```
+
+Der Code zur Erzeugung des Histogramms ist:
+
+```python
+import matplotlib.pyplot as plt
+
+plt.figure()
+plt.hist(liste_entfernungen, bins=25)
+plt.xlabel('Entfernung zum Ursprung in px')
+plt.ylabel('Häufigkeit')
+plt.title('Analyse der Random Walks');
+```
+
+Das Histogramm könnte beispielhaft so aussehen:
+
+```{figure} pics/solution09_03_histogram.png
+---
+width: 75%
+name: fig_solution09_03_histogram
+---
+Histogramm der 500 Random Walks
+```
+
+Die Entfernungen sind nicht gleichverteilt und auch nicht normalverteilt.
 ````

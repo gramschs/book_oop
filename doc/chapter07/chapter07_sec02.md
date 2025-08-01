@@ -12,177 +12,230 @@ kernelspec:
   name: python3
 ---
 
-# 7.2 Schleifen mit Bedingung (while)
+# 7.2 Zufallszahlen und Simulationen
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-Ein typisches Beispiel aus dem Alltag, bei dem wir etwas wiederholen, solange
-eine Bedingung erfüllt ist, ist das Kochen von Wasser. Moderne Wasserkocher
-haben einen eingebauten Temperatursensor, der die Temperatur des Wassers misst.
-Solange die Wassertemperatur kleiner als 100 ˚C ist, wird das Wasser
-erhitzt. Sobald die 100 ˚C erreicht sind, wird der Wasserkocher
-abgeschaltet. Solche Wiederholungen wollen wir nun mit Python umsetzen.
+In diesem Kapitel werden wir uns mit der Erzeugung und Anwendung von
+Zufallszahlen in Python beschäftigen. Wir nutzen dazu das Modul `numpy.random`
+aus der Bibliothek NumPy.
 
 ## Lernziele
 
 ```{admonition} Lernziele
 :class: goals
-* Sie können eine Schleife mit Bedingung als **while**-Schleife in Python
-  implementieren.
-* Sie können mit **break** eine Schleife vorzeitig abbrechen.
-* Sie können mit **continue** eine Schleife vorzeitig fortsetzen.
+* Sie kennen das Modul `numpy.random`.
+* Sie können mit `.randint()` **gleichverteilte Integers** und mit `.uniform()`
+  **gleichverteilte Floats** erzeugen lassen.
+* Sie können mit `.normal()` **normalverteilte Floats** zu einem vorgegebenen
+  Mittelwert und einer vorgegebenen Standabweichung erzeugen lassen.
+* Sie kennen den Unterschied zwischen gleichverteilten und
+  normalverteilten Zufallszahlen.
 ```
 
-## Syntax der while-Schleife
+## Gleichverteilte Zufallszahlen
 
-Bei einer Wiederholung mit Bedingung werden eine oder mehrere Anweisungen
-solange wiederholt, wie die Bedingung erfüllt ist. Die sogenannte while-Schleife
-hat folgende Struktur:
+Beim Würfeln mit einem sechseitigen Würfel (W6) hat jede Augenzahl von 1 bis 6
+die gleiche Wahrscheinlichkeit von 1/6. Wenn wir mit Python einen solchen Würfel
+simulieren möchten, können wir die Funktion `randint()` aus dem Modul
+`numpy.random` verwenden. Dazu müssen wir zunächst NumPy importieren.
 
-```python
- while Bedingung: 
-        anweisungsblock
+```{code-cell} ipython
+import numpy as np
+
+wuerfelwurf = np.random.randint(1, 7)
+print(wuerfelwurf)
 ```
 
-Die bedingte Wiederholung wird mit dem Schlüsselwort `while` eingeleitet. Dann
-folgt die Bedingung, die mit einem `:` abgeschlossen wird. Alle Anweisungen, die
-wiederholt werden sollen, werden eingerückt. Diesen Teil nennt man das
-Schleifeninnere, die Zeile `while Bedingung:` nennt man den Schleifenkopf.
+Die Funktion `randint()` kann nicht ohne Argumente aufgerufen werden, denn wir
+müssen den Bereich vorschreiben, aus dem die gleichverteilten Zufallszahlen
+gezogen werden sollen. Der Bereich wird durch das erste und zweite Argument der
+Funktion gebildet, wobei das erste Argument inklusive ist und das zweite
+Argument exklusive. Da das erste Argument inklusiv ist, geben wir hier die `1`
+an. Dahingegen müssen wir als zweites Argument die `7` übergeben, um
+gleichverteilte Zufallszahlen bis `6` zu bekommen, da das zweite Argument
+exklusiv ist.
 
-```{warning}
-While-Schleifen sind ein mächtiges Werkzeug in Python, aber es ist wichtig, sie
-sorgfältig zu verwenden. Eine schlecht definierte Bedingung könnte dazu führen,
-dass die Schleife **unendlich** läuft, was zu Problemen führen kann.
+Wir können auch ein drittes Argument übergeben, das die Anzahl der gezogenen
+Zufallszahlen steuert. Mit dem folgenden Code werden beispielsweise 10
+gleichverteilte Integers zwischen 1 und 6 zufällig gezogen.
+
+```{code-cell} ipython
+wuerfelwurfe = np.random.randint(1, 7, 10)
+print(wuerfelwurfe)
 ```
 
-Um auf das Beispiel mit dem Wasserkocher zurückzukommen ... auch wenn wir jetzt
-keinen echten Temperatursensor haben, würde eine while-Schleife, die einen
-Wasserkocher simuliert, folgendermaßen aussehen.
-
-```{code-cell}
-temperatur = 20
-while temperatur <= 100:
-  print(f'aktuelle Wassertemperatur: {temperatur} ˚C')
-  temperatur += 10 
-print('Befehl an Wasserkocher: schalte das Heizelement aus!')
-print('Das Wasser ist fertig gekocht!')
-```
+Probieren wir das neu erlernte Wissen in einer Mini-Übung aus.
 
 ```{admonition} Mini-Übung
 :class: miniexercise
-Schreiben Sie ein Programm, das einen Countdown von 10 nach 0 implementiert.
+Lassen Sie sechs Lottozahlen erzeugen, d.h. sechs Integer, die zwischen 1 und 49
+gleichmäßig verteilt sind. Die Lottozahlen sollen auch ausgegeben werden.
+
+Könnte damit die Ziehung der Lottozahlen simuliert werden?
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Hier Ihr Code
 ```
 
 ````{admonition} Lösung
-:class: miniexercise, toggle
+:class: minisolution, toggle
 ```python
-zaehler = 10
-while zaehler >= 0:
-    print(zaehler)
-    zaehler = zaehler - 1
+import numpy as np
+
+# Erzeugung der Lottozahlen
+lottozahlen = np.random.randint(1, 50, 6)
+
+# Ausgabe
+print(lottozahlen)
 ```
+Eine Simulation der Ziehung der Lottozahlen ist damit nicht möglich. Bei der
+echten Ziehung darf jede Zahl nur einmal vorkommen, dies gewährleistet der obige
+Code nicht.
 ````
 
-```{dropdown} Video "Schleifen mit Bedingung" von Programmieren Starten
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sXLicTuJzB4"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
-clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Sollen gleichverteilte Floats erzeugt werden, nutzen wir die Funktion
+`.uniform()`, die ebenfalls im Modul `numpy.random` enthalten ist. Hier können
+wir scheinbar auf die Angabe eines Bereichs verzichten.
+
+```{code-cell} ipython3
+zufallszahl = np.random.uniform()
+print(zufallszahl)
 ```
 
-## Schleifen abbrechen mit break
+Wenn wir die obige Code-Zelle mehrfach ausführen, stellen wir fest, dass die
+gleichverteilten Floats zwischen 0 und 1 liegen. Etwas präziser formuliert
+liegen die Zufallszahlen in dem halboffenen Intervall $[0, 1)$. Wir können auch
+hier das Intervall vorschreiben, indem wir die linke Intervallgrenze als erstes
+Argument (inklusiv) übergeben und die rechte Intervallgrenze als zweites
+Argument (exklusiv).
 
-Die `break`-Anweisung kann verwendet werden, um die Schleife vorzeitig zu
-beenden, auch wenn die Bedingung der `while`-Schleife noch `True` ist. Hier ist
-ein Beispiel:
+```{code-cell} ipython3
+zufallszahl = np.random.uniform(-5.2, 3.0)
+print(zufallszahl)
+```
+
+Mit Hilfe des dritten Argumentes können wir mehreren Zufallszahlen gleichzeitig
+erzeugen lassen.
+
+```{code-cell} ipython3
+zufallszahlen = np.random.uniform(10, 20, 5)
+print(zufallszahlen)
+```
+
+Damit werden fünf gleichverteilte Zufallszahlen zwischen 10 und 20 (exklusiv)
+generiert.
+
+Wir wollen nun analysieren, ob die Zufallszahlen wirklich gleichmäßig aus dem
+Intervall $[10, 20)$ stammen. Dazu lassen wir 1000 gleichverteilte Zufallszahlen
+generieren. Danach teilen wir das Intervall in 10 Abschnitte und lassen nun von
+$[10, 11)$, $[11, 12)$, $[12, 13)$ usw. bis $[19, 20)$ zählen, wie häufig eine
+Zufallszahl aus diesem Teilintervall kommt. Dieses sogenannte Histogramm sieht
+folgendermaßen aus (den Code brauchen Sie noch nicht verstehen, das kommt
+später).
 
 ```{code-cell}
-zaehler = 0
-while zaehler < 5:
-    if zaehler == 3:
-        break
-    print(f'Der Zaehler hat aktuell den Wert: {zaehler}.')
-    zaehler = zaehler + 1
+import matplotlib.pyplot as plt
+
+zufallszahlen = np.random.uniform(10, 20, 2000)
+
+plt.hist(zufallszahlen)
+plt.title('Histogramm: Gleichverteilung im Intervall [10, 20]')
+plt.xlabel('Teilintervalle')
+plt.ylabel('Häufigkeit');
 ```
+
+Ordnet man die gezogenen Zufallszahlen den 10 Teilintervallen zu, so sind in
+jedem Teilintervall ungefähr 200 Zufallszahlen enthalten.
+
+## Normalverteilte Zufallszahlen
+
+Eine normalverteilte Zufallszahl folgt der sogenannten Normalverteilung oder
+Gaußschen Verteilung. Das ist eine Wahrscheinlichkeitsverteilung, die durch ihr
+Glockenkurven-Diagramm bekannt ist. Sie ist eine der wichtigsten Modelle in
+Natur- und Ingenieurwissenschaften, da viele Messgrößen (z. B. Körpergröße,
+Fertigungstoleranzen, Messfehler) näherungsweise normalverteilt sind.
+
+Die Normalverteilung wird durch zwei Parameter beschrieben: den Mittelwert (oder
+Erwartungswert) und die Standardabweichung. Der Mittelwert ist der Wert, um den
+die Werte im Durchschnitt zentriert sind. Die Standardabweichung ist ein Maß für
+die Streuung der Werte.
+
+In Python können wir mit der Funktion `numpy.random.normal()` normalverteilte
+Zufallszahlen erzeugen:
+
+```{code-cell} ipython3
+zufallszahl = np.random.normal(0, 1)
+print(zufallszahl)
+```
+
+Das erste Argument `0` steht für einen Mittelwert von 0. Das zweite Argument `1`
+bedeutet, dass die Normalverteiung eine Standardabweichung von 1 hat.
+
+Wir können auch mehrere Zahlen gleichzeitig erzeugen:
+
+```{code-cell} ipython3
+zufallszahlen = np.random.normal(0, 1, 5)
+print(zufallszahlen)
+```
+
+Jetzt wurden fünf normalverteilte Zufallszahlen erzeugt.
 
 ```{admonition} Mini-Übung
 :class: miniexercise
-Schreiben Sie ein Programm, das vom Benutzer natürliche Zahlen abfragt und diese
-quadriert und ausgibt. Wird eine 0 eingegeben, soll die Eingabe der Zahlen
-abgebrochen werden und die Meldung "Sie haben 0 eingegeben, das Programm wird
-beendet." ausgegeben werden.
+Bei einer Schulklasse wird die Körpergröße der Jugendlichen (Alter: 14 bis 18
+Jahre) gemessen. Der Mittelwert bei den Mädchen ist 166.3 cm (Standardabweichung
+6.39 cm) und bei den Jungen 176.8 cm (Standardabweichung 7.46 cm) (Quelle:
+[Wikipedia](https://de.wikipedia.org/wiki/Normalverteilung)).
+
+Lassen Sie die Körpergrößen einer durchschnittlichen Schulklasse (= 13 Mädchen
+und 13 Jungen) erzeugen und ausgeben.
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Hier Ihr Code
 ```
 
 ````{admonition} Lösung
-:class: miniexercise, toggle
+:class: minisolution, toggle
 ```python
-while True:
-    zahl = int(input('Geben Sie eine natürliche Zahl ein (0 zum Beenden): '))
-    if zahl == 0:
-        print('Sie haben 0 eingegeben, das Programm wird beendet.')
-        break
-    quadratzahl = zahl**2
-    print(f'Das Quadrat von {zahl} ist {quadratzahl}.')
+import numpy as np
+
+# Erzeugung der Körpergrößen
+maedchen = np.random.normal(166.3, 6.39, 13)
+jungen = np.random.normal(176.8, 7.46, 13)
+
+# Ausgabe
+print(maedchen)
+print(jungen)
 ```
 ````
 
-## Schleifen vorzeitig fortsetzen mit continue
-
-Die `continue`-Anweisung wird verwendet, um den aktuellen Durchgang der Schleife
-zu beenden und sofort mit dem nächsten Schleifendurchgang zu beginnen. Hier ist
-ein Beispiel:
-
-```{code-cell}
-zaehler = 0
-while zaehler < 5:
-    zaehler = zaehler + 1
-    if zaehler == 3:
-        continue
-    print(f'Der Zaehler hat aktuell den Wert: {zaehler}.')
-```
-
-In diesem Beispiel wird "Der Zaehler hat aktuell den Wert: 3" nicht ausgegeben,
-da die `continue`-Anweisung dafür sorgt, dass vorzeitig der nächste
-Schleifendurchgang begonnen wird, sobald `zaehler` den Wert `3` erreicht.
-
-```{admonition} Mini-Übung
-:class: miniexercise
-Schreiben Sie ein Programm, das eine Zahl abfragt und deren Wurzel berechnet
-und ausgibt. Wird eine negative Zahl eingegeben, so soll die Wurzelberechnung
-übersprungen werden. Insgesamt soll das Programm solange laufen, bis drei
-Wurzeln berechnet wurden.
-```
+Auch hier wollen wir visualisieren, wie die Häufigkeit der Zufallszahlen
+verteilt ist. Dazu erzeugen wir 2000 normalverteilte Zufallszahlen mit
+Mittelwert 0 und Standardabweichung 1, was standardnormalverteilt genannt wird.
+Diesmal nehmen wir 10 automatische Teilintervalle, um die Häufigkeiten der
+Zufallszahlen pro Teilintervall anzeigen zu lassen.
 
 ```{code-cell}
-# Hier Ihr Code
-```
+import matplotlib.pyplot as plt
 
-````{admonition} Lösung
-:class: miniexercise, toggle
-```python
-zaehler = 0
-while zaehler < 3:
-    zahl = int(input('Geben Sie eine positive Zahl ein: '))
-    if zahl < 0:
-        print('Sie haben eine negative Zahl eingegeben, davon kann keine Wurzel berechnet werden.')
-        continue
-    wurzel = zahl**0.5
-    print(f'Die Wurzel von {zahl} ist {wurzel}.')
-    zaehler += 1
+zufallszahlen = np.random.normal(0, 1, 2000)
+
+plt.hist(zufallszahlen)
+plt.title('Histogramm: Standardnormalverteilung')
+plt.xlabel('Teilintervalle')
+plt.ylabel('Häufigkeit');
 ```
-````
 
 ## Zusammenfassung und Ausblick
 
-Von den Schleifen kommen wir im nächsten Kapitel zu einem komplett anderem
-Thema: Dictionaries.
+Mit den Zufallszahlen können wir Anwendungen des Alltags durch Python simulieren
+lassen. Bevor wir sie einsetzen, müssen wir jedoch entscheiden, ob wir Integers
+oder Floats benötigen und ob sie gleichverteilt oder normalverteilt sein sollen.
+Das nächste Kapitel führt Kontrollstrukturen ein, um abhängig von einer
+Bedingung Code auszuführen.

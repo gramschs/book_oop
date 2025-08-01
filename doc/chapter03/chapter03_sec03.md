@@ -1,311 +1,318 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.13.8
 kernelspec:
-  display_name: turtle
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-# 3.3 Das Modul Turtle
+# 3.3 Mehrfachverzweigungen
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-In der Informatik bezeichnet man Grafiken, die dadurch entstehen, dass ein
-Roboter Linien auf eine Leinwand zeichnet, als *Turtle-Grafiken*. Der Roboter
-wird durch einfache Kommandos gesteuert. Er besitzt eine bestimmte Position (x-
-und y-Koordinaten in einem kartesischen Koordinatensystem) und eine Ausrichtung.
-Auch der "Stift" des Roboters kann angepasst werden – zum Beispiel in Farbe oder
-Linienstärke.
-
-Python bringt bereits ein Modul namens `turtle` mit, um solche Grafiken zu
-erstellen. Da wir jedoch in dieser Vorlesung mit **Jupyter Notebooks** arbeiten,
-verwenden wir das Modul `ColabTurtlePlus`. Es erweitert die Standardfunktionen
-und ist speziell für den Einsatz in Notebooks geeignet.
-
-````{admonition} Hinweis: Installation notwendig
-:class: warning
-Das Modul colabTurtlePlus ist kein Standardmodul und muss daher nachinstalliert
-werden. Bitte beachten Sie die Hinweise zur Installation "Module
-nachinstallieren" und die dazugehörige Mini-Übung unten. Falls Sie mit JupyterLite
-arbeiten, verwenden Sie bitte
-```python
-%pip install -q ColabTurtlePlus
-```
-````
+In unserem Alltag kommen häufig Entscheidungen zwischen zwei Möglichkeiten vor.
+Wenn ich an eine T-Kreuzung komme, muss ich mich entscheiden: links oder rechts?
+Betrete ich ein Gebäude, entscheide ich zwischen Treppe und Fahrstuhl. Mein
+Alter entscheidet darüber, ob ich etwas darf oder nicht darf. Für diese Wahl
+zwischen zwei Möglichkeiten gibt es Programmverzweigungen mit zwei Weigen. Und
+auch bei Programmverzweigungen mit zwei Zweigen hört es noch nicht auf, denn
+vielleicht kommt man ja an eine Viererkreuzung. Daher behandeln wir in diesem
+Kapitel Programmverzweigungen mit mehreren Zweigen.
 
 ## Lernziele
 
 ```{admonition} Lernziele
 :class: goals
-* Sie können ein fehlendes Modul mit **conda** oder **pip** nachinstallieren.
-* Sie wissen, was eine **Turtle-Grafik** ist.
-* Sie können das Modul **colabTurtlePlus** importieren.
-* Sie können ein Roboterfeld initalisieren und den Roboter mit einfachen
-  Kommandos über das Roboterfeld steuern.
+* Sie können Programmverzweigungen mit zwei Zweigen mittels **if - else**
+  implementieren.
+* Sie können mehrteilige Programmverzweigungen mit **if - elif - else**
+  implementieren.
 ```
 
-## Module nachinstallieren
+## Programmverzweigungen mit zwei Zweigen: if – else
 
-Um ein Python-Modul bzw. ein Python-Paket aus einem Jupyter Notebook
-nachzuinstallieren, gibt es grundsätzlich zwei Möglichkeiten: mit **conda** oder
-mit **pip**. Conda ist ein Paket-Manager, der in der Anaconda-Distribution
-enthalten ist und in der Regel für die Installation von Python-Paketen verwendet
-wird, während pip ein Paket-Manager ist, der mit Python selbst installiert wird.
-
-Hier sind Schritt-für-Schritt-Anleitungen, wie man ein Python-Modul mit conda
-oder pip in einem Jupyter Notebook nachinstallieren kann.
-
-### Installation mit conda
+Wir erweitern die Syntax mit dem if-Block um ein neues Element, nämlich den
+sogenannten **else-Block**:
 
 ```python
-!conda install <paketname>
+if bedingung:
+    anweisungsblock 1
+else:
+    anweisungsblock 2
 ```
 
-Ersetzen Sie `<paketname>` durch den Namen des gewünschten Pakets.
-Nutzen Sie diese Methode bevorzugt, wenn Sie mit der Anaconda-Distribution arbeiten.
+Wichtig ist, dass die Anweisungen, die nur bedingt ausgeführt werden sollen,
+eingerückt sind!
 
-### Installation mit pip
+Falls die Bedingung erfüllt ist, wird der 1. Anweisungsblock ausgeführt,
+ansonsten der 2. Anweisungsblock. Danach führt der Python-Interpreter alles nach
+dem if-else-Konstrukt aus, d.h. der Interpreter macht mit dem normalen
+Programmablauf weiter.
+
+Hier erneut ein Beispiel mit dem Alter.
 
 ```python
-%pip install <paketname>
+alter = int(input('Wie alt sind Sie? '))
+if alter >= 18:
+    print('Sie sind volljährig, Sie dürfen Alkohol kaufen.')
+else:
+    print('Sie sind noch nicht volljährig und dürfen daher keinen Alkohol kaufen.')
+
+print('Jetzt haben wir aber genug über den Alkoholkauf geredet...')
 ```
 
-Verwenden Sie `pip`, wenn das Paket nicht in der Anaconda-Distribution enthalten
-ist. Diese Variante funktioniert auch zuverlässig in Google Colab oder
-JupyterLite.
-
-Wichtig: Vermischen Sie conda und pip nicht für dasselbe Paket. Das kann zu
-Fehlern führen.
-
-### Wann conda und wann pip?
-
-Es ist wichtig zu beachten, dass conda und pip unterschiedliche
-Paket-Repositories verwenden. Wenn ein Paket mit conda installiert wurde, sollte
-es nicht mit pip aktualisiert oder deinstalliert werden, da dies zu
-Inkompatibilitäten führen kann. Umgekehrt sollte ein mit pip installiertes Paket
-nicht mit conda aktualisiert oder deinstalliert werden.
-
-In dieser Vorlesung arbeiten wir mit der Anaconda-Distribution. Sie sollten also
-immer zuerst versuchen, das fehlende Modul mit conda nachzuinstallieren. Nur
-wenn es nicht in der Anaconda-Distribution enthalten ist, nehmen Sie bitte pip.
-Die beiden folgenden Links verlinken auf die Liste der verfügbaren Pakete:
-
-* [https://docs.anaconda.com/anaconda/packages/pkg-docs/](https://docs.anaconda.com/anaconda/packages/pkg-docs/)
-* [https://pypi.org](https://pypi.org)
+Wir vertiefen die zweifache Verzweigung mit einer Mini-Übung.
 
 ```{admonition} Mini-Übung
 :class: miniexercise
-Installieren Sie jetzt das Modul `ColabTurtlePlus`, das leider nicht in der
-Anaconda-Distribution enthalten ist. Mehr Details zu diesem Modul finden Sie
-unter
-[https://pypi.org/project/ColabTurtlePlus/](https://pypi.org/project/ColabTurtlePlus/).
+Schreiben Sie ein Skript, das nach der aktuellen Temperatur fragt. Wenn die
+aktuelle Temperatur kleiner gleich 3 ˚C ist, dann lassen Sie ausgeben:
+"Vorsicht, es besteht Glatteisgefahr!" und ansonsten "Kein Grund zur Sorge."
 ```
-
-````{admonition} Lösung
-:class: miniexercise, toggle
-```markdown
-%pip install -q ColabTurtlePlus
-```
-````
-
-## Ein Turtlefeld initalisieren
-
-Als erstes werden alle Funktionalitäten des Turtle-Moduls geladen. Die typische
-Abkürzung für dieses Modul ist `turtle`.
 
 ```{code-cell} ipython3
-import ColabTurtlePlus.Turtle as turtle
-```
+# Geben Sie nach diesem Kommentar Ihren Code ein:
 
-Es erscheint eine Meldung, nämlich der Hinweis: "Put clearscreen() as the first
-line in a cell (after the import command) to re-run turtle commands in the
-cell". Mit dem Kommando `turtle.clearscreen()` wird ein Turtlefeld initalisiert
-und gleichzeitig können später die vorhandenen Grafiken damit gelöscht werden,
-wenn die Code-Zelle erneut ausgeführt wird.
-
-Mit `dir(turtle)` können wir erkunden, was an Funktionalitäten vorhanden ist.
-
-```{code-cell} ipython3
-dir(turtle)
-```
-
-Dann folgen wir der Anweisung, zuerst das Kommando `clearscreen()` zu benutzen.
-
-```{code-cell} ipython3
-turtle.clearscreen()
-```
-
-Es erscheint eine leere Leinwand, die 800 Bildpunkte breit ist und 600
-Bildpunkte hoch ist. Bildpunkte werden normalerweise als **Pixel** bezeichnet,
-was wiederum mit px abgekürzt wird.
-
-Als nächstes setzen wir einen Roboter mitten in das Feld. Der Roboter soll den
-Namen Robo tragen. Da Variablen traditionell klein geschrieben werden, wird mit
-der folgenden Code-Zeile ein Roboter-Objekt namens `robo` initalisiert.
-
-```{code-cell} ipython3
-robo = turtle.Turtle()
-```
-
-Der virtuelle Roboter wird durch ein Dreieck gekennzeichnet. Die Spitze des
-Dreiecks zeigt in die Richtung, in die der Roboter aktuell schaut, also in die
-Bewegungsrichtung.
-
-## Der Roboter bewegt sich
-
-Der Roboter wird mit einfachen Befehlen wie vorwärts, links, rechts, usw.
-gesteuert. Die Befehle sind dabei der englischen Sprache entnommen. Da sie an
-den Roboter gerichtet sind, wird zuerst der Name des Roboters verwendet, dann
-ein Punkt gesetzt und zuletzt der Befehlsname geschrieben. In die runden
-Klammern kommen die Argumente, z.B. um wie viele Schritte der Roboter sich
-vorwärts bewegen soll.
-
-Mit dem Befehl
-
-```python3
-robo.forward(schritte)
-```
-
-wird der Roboter vorwärts bewegt und legt insgesamt `schritte` (gemessen in
-Pixeln) zurück.
-
-Mit den Befehlen
-
-```python3
-robo.left(winkel)
-```
-
-und
-
-```python3
-robo.right(winkel)
-```
-
-wird der Roboter nach links (gegen den Uhrzeigersinn) oder rechts (im
-Uhrzeigersinn) gedreht. Der Drehwinkel wird durch die Variable `winkel`
-in Grad angegeben.
-
-Um jetzt den kompletten Code zusammen zu haben, wiederholen wir die bisherigen
-Code-Zeilen in der folgenden Code-Zelle und experimentieren dann in der
-übernächsten Code-Zelle mit der Steuerung des Roboters. Wenn Sie das Turtle-Feld
-wieder auf seinen Ausgangszustand zurücksetzen möchten, führen Sie erneut die
-Code-Zelle mit der Erzeugung und Initialisierung aus.
-
-```{code-cell} ipython3
-# Initalisierung des Feldes und Löschung bereits vorhandener Grafiken
-turtle.clearscreen()
-
-# Erzeugung eines Roboters mit Namen robo und Platzierung auf dem Feld
-robo = turtle.Turtle()
-
-# Robo bewegt sich
-robo.forward(100)
-robo.left(120)
-robo.forward(50)
-```
-
-```{admonition} Mini-Übung
-:class: miniexercise
-Lassen Sie den Roboter ein Rechteck der Länge 200 px und Höhe 100 px zeichnen.
-Am Ende soll der Roboter in die ursprüngliche Richtung hin ausgerichtet sein,
-also nach Osten bzw. rechts.
-```
-
-```{code-cell}
-# Hier Ihr Code
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-turtle.clearscreen()
-robo = turtle.Turtle()
-robo.forward(200)
-robo.left(90)
-robo.forward(100)
-robo.left(90)
-robo.forward(200)
-robo.left(90)
-robo.forward(100)
-robo.left(90)
+# Eingabe
+temperatur = float(input('Welche Temperatur haben wir aktuell?'))
+
+# Verarbeitung und Ausgabe
+if temperatur <= 3:
+    print('Vorsicht, es besteht Glatteisgefahr!')
+else:
+    print('Kein Grund zur Sorge.')
 ```
-Anmerkung: natürlich hätten wir den Roboter auch viermal nach rechts drehen
-lassen können.
 ````
 
-## Robo kann noch mehr
+## Programmverzweigungen mit vielen Zweigen: if – elif – else
 
-Die folgenden Befehle an den Roboter dienen zur Steuerung der Bewegung:
+Eins, zwei, drei -- viele ... häufig müssen mehr als zwei Fälle unterschieden
+werden. In einer Mini-Übung haben wir beispielsweise überprüft, ob eine Zahl
+negativ oder positiv oder Null ist. Ein Beispiel aus dem Alltag ist der Kauf
+einer Fahrkarte für den ÖPNV. Meist wird beim Ticketpreis unterschieden, ob die
+Person jünger als 6 ist (keine Fahrkarte notwendig), zwischen 6 und 14 ist
+(Schülerfahrkarte) oder älter als 14 (Erwachsenenfahrkarte). Da es jetzt drei
+Altersklassen gibt, können wir kein if-else-Konstrukt benutzen, denn nur weil
+die Person beispielsweise nicht jünger als 6 ist wissen wir noch lange nicht, ob
+die Person eine Schülerfahrkarte oder eine Erwachsenenfahrkarte braucht.
 
-* forward(schritte): Der Roboter bewegt sich vorwärts, die Streckenlänge wird in
-  Schritten/Pixel `schritte` angegeben.
-* backward(schritte): Der Roboter bewegt sich rückwärts, die Streckenlänge wird
-  in Schritten/Pixel `schritte` angegeben.
-* right(winkel): Der Roboter dreht sich nach rechts, der Winkel `winkel` wird in
-  Grad angegeben.
-* left(winkel): Der Roboter dreht sich nach links, der Winkel `winkel` wird in
-  Grad angegeben.  
-* goto(x,y): Der Roboter läuft direkt zu der angegeben Position (x,y).
+Beachten Sie die Wahl der Vergleichsoperatoren: Bei `alter <= 14` ist eine
+Person mit genau 14 Jahren noch in der Kategorie 'Schülerfahrkarte'. Bei `alter
+< 15` wäre dies ebenso der Fall. Überlegen Sie bei der Implementierung genau, ob
+Randwerte in- oder exklusiv behandelt werden sollen.
 
-Der Stift wird mit folgenden Befehlen eingestellt:
+Probieren wir es einfach:
 
-* penup(): Der Stift wird hochgehoben. Bewegt sich der Roboter, hinterlässt er
-  keine Zeichnung.
-* pendown(): Der Stift wird abgesetzt, ab jetzt zeichnet der Roboter wieder.
-* pensize(breite): Die Breite der Striche wird eingestellt, z.B. ist
-  `robo.pensize(10)` ein breiter Strich.  
-
-Für die Farbe gibt es das folgende Kommando:
-
-* pencolor(farbe): Ändert die Farbe der Striche, z.B. stellt der Befehl
-  `robo.pencolor('red')` auf rote Farbe um. Die Farben werden als String
-  übergeben und entsprechen den englischen Farben.
-
-Mehr Details finden Sie in der
-[Turtle-Dokumentation von ColabTurtlePlus](https://larryriddle.agnesscott.org/ColabTurtlePlus/documentation.html).
-
-Zum Abschluss noch eine Mini-Übung.
-
-```{admonition} Mini-Übung
-:class: miniexercise
-Lassen Sie den Roboter ein gleichseitiges Dreieck zeichnen. Die erste Seite soll
-rot sein, die zweite grün und die dritte blau.
+```{code-cell} ipython3
+alter = 8
+if alter < 6:
+    print('keine Fahrkarte notwendig')
+if alter <= 14:
+    print('Schülerfahrkarte')
+if alter > 14:
+    print('Erwachsenenfahrkarte')
 ```
 
-```{code-cell}
-# Hier Ihr Code
+Sieht zunächst einmal gut aus. Für ein Alter von 8 Jahren wird tatsächlich
+Schülerfahrkarte ausgegeben. Wenn wir jetzt aber das Alter auf 5 Jahre setzen,
+so bekommen wir zwei Ausgaben:
+
+```{code-cell} ipython3
+alter = 5
+if alter < 6:
+    print('keine Fahrkarte notwendig')
+if alter <= 14:
+    print('Schülerfahrkarte')
+if alter > 14:
+    print('Erwachsenenfahrkarte')
+```
+
+Wir erhalten die Ausgabe `"keine Fahrkarte notwendig"`, weil die Bedingung des
+ersten if-Konstrukts erfüllt ist (`alter < 6`). Danach wird aber auch noch die
+Ausgabe `"Schülerfahrkarte"` angezeigt, weil auch die Bedingung des zweiten
+if-Konstrukts (`alter <= 14`) erfüllt ist. Diese Variante eignet sich also nicht
+zur Unterscheidung dreier Bedingungen.
+
+Probieren wir es mit einem zusätzlichen if-else-Konstrukt für die Unterscheidung
+der Kinder.
+
+```{code-cell} ipython3
+alter = 5
+
+if alter < 6:
+    print('keine Fahrkarte notwendig')
+else:
+    print('Schülerfahrkarte')
+
+if alter > 14:
+    print('Erwachsenenfahrkarte')
+```
+
+Jetzt sind aber Erwachsene problematisch:
+
+```{code-cell} ipython3
+alter = 27
+
+if alter < 6:
+    print('keine Fahrkarte notwendig')
+else:
+    print('Schülerfahrkarte')
+
+if alter > 14:
+    print('Erwachsenenfahrkarte')
+```
+
+Der Programmcode funktioniert nur korrekt, wenn wir in den else-Zweig noch
+zusätzlich zwischen "jünger als 14" und "älter als 14" unterscheiden.
+
+Führen Sie die folgende Code-Zelle mehrfach aus. Ändern Sie dabei das Alter.
+Probieren Sie beispielsweise 5, 8, 11, 16, 21 und Ihr Alter aus.
+
+```{code-cell} ipython3
+alter = 27
+
+if alter < 6:
+    print('keine Fahrkarte notwendig')
+else:
+    if alter <= 14:
+        print('Schülerfahrkarte')
+    else:
+        print('Erwachsenenfahrkarte')
+```
+
+Um den obigen Code besser zu verstehen, zeichen wir den Ablauf schematisch:
+
+```{image} pics/part02_fahrkarte.png
+:name: part02_fahrkarte
+```
+
+Es wäre schöner, wenn es für solche Mehrfachverzweigungen etwas
+übersichtlicheren Code gäbe. Und in der Tat, den gibt es. Man könnte sozusagen
+den Start des else-Konstruktes mit dem nachfolgenden if-Konstrukt verschmelzen.
+`elif` ist eine Kurzform für `else if` und ermöglicht es, mehrere Bedingungen
+nacheinander zu prüfen, ohne die Einrückungstiefe zu erhöhen. Das Ergebnis davon
+ist die if-elif-else-Syntax. Allgemein sieht das **if-elif-else-Konstrukt** so
+aus:
+
+```python
+if bedingung 1:
+    anweisungsblock 1
+elif bedingung 2:
+    anweisungsblock 2
+elif bedingung 3:
+    anweisungsblock 3   
+...
+else:
+    anweisungsblock n
+```
+
+Wichtig: Bei einem if-elif-else-Konstrukt werden die Bedingungen der Reihe nach
+geprüft. Sobald eine Bedingung erfüllt ist, wird der zugehörige Anweisungsblock
+ausgeführt und alle nachfolgenden Bedingungen werden ignoriert. Daher ist die
+Reihenfolge der Bedingungen entscheidend für die korrekte Funktionsweise des
+Programms.
+
+Hier die besser lesbare Version der Unterscheidung von Zahlen in negative
+Zahlen, 0 und positive Zahlen aus der Mini-Übung:
+
+```{code-cell} ipython3
+a = 17
+if a == 0:
+    print('a ist Null.')
+elif a < 0:
+    print('a ist negativ.')
+else:
+    print('a ist positiv.')
+```
+
+Hier die besser lesbare Version des Fahrkartenautomaten:
+
+```{code-cell} ipython3
+alter = 27
+
+if alter < 6:
+    print('keine Fahrkarte notwendig')
+elif alter <= 14:
+    print('Schülerfahrkarte')
+else:
+    print('Erwachsenenfahrkarte')
+```
+
+````{admonition} Mini-Übung
+:class: miniexercise
+Sie finden den aktuellen Bußgeldkatalog für Geschwindigkeitsüberschreitungen mit
+dem PKW im Internet auf der Seite:
+https://www.bussgeldkatalog.org/geschwindigkeitsueberschreitung/ Schreiben Sie
+ein Skript, dass abhängig von der Geschwindigkeitsüberschreitung ausgibt,
+welche Strafe in Euro verhängt wird. Die Tabelle für das Jahr 2022 lautet wie
+folgt:
+```{image} pics/part02_bussgeldkatalog.png
+:name: part02_bussgeldkatalog
+```
+````
+
+```{code-cell} ipython3
+# Geben Sie nach diesem Kommentar Ihren Code ein:
+
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-turtle.clearscreen()
-robo = turtle.Turtle()
+# Eingabe
+verstoss = int(input('Wieviel zu schnell ist die Person gefahren? '))
 
-robo.pencolor('red')
-robo.forward(50)
-robo.left(120)
-robo.pencolor('green')
-robo.forward(100)
-robo.left(120)
-robo.pencolor('blue')
-robo.forward(100)
-robo.left(120)
-robo.pencolor('red')
-robo.forward(50)
+# Verarbeitung und Ausgabe
+if verstoss <= 10:
+    print('20 EUR')
+elif verstoss <= 15: 
+    print('40 EUR')
+elif verstoss <= 20:
+    print('60 EUR')
+elif verstoss <= 25:
+    print('100 EUR')
+elif verstoss <= 30:
+    print('150 EUR')
+elif verstoss <= 40:
+    print('200 EUR')
+elif verstoss <= 50:
+    print('320 EUR')
+elif verstoss <= 60:
+    print('480 EUR')
+elif verstoss <= 70:
+    print('600 EUR')
+else:
+    print('700 EUR')
 ```
 ````
+
+Wenn Sie das Thema elif/else vertiefen wollen, können Sie sich das folgende
+Video ansehen.
+
+```{dropdown} Video "elif und else" von Programmieren Starten
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f3YdEdYSNdk"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
 
 ## Zusammenfassung und Ausblick
 
-In diesem Kapitel haben wir uns mit Turtle beschäftigt. In den folgenden
-Kapiteln werden wir Turtle nutzen, um verschiedene Programmierkonstrukte
-kennenzulernen.
+In diesem Kapitel haben wir gelernt, wie man mit if, elif und else in Python
+Programmverzweigungen mit zwei oder mehr Entscheidungszweigen umsetzt, um
+unterschiedliche Fälle gezielt abzufragen und übersichtlich zu strukturieren. Im
+nächsten Kapitel werden wir die Strukturierung des Code in kleinere Einheiten
+erlernen (Funktionen).

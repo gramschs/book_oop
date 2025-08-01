@@ -14,7 +14,7 @@ kernelspec:
   name: python3
 ---
 
-# 1.3 Installation und Start von Python
+# 1.3 Jupyter Notebooks und Python als Taschenrechner
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

@@ -12,336 +12,458 @@ kernelspec:
   name: python3
 ---
 
-# 7.1 Digitale Logik: und, oder, nicht
+# 7.1 Dictionaries
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-In früheren Kapiteln haben wir den booleschen Datentyp kennengelernt: wahr
-(`True`) oder falsch (`False`). Man kann solche Ausdrücke auch kombinieren, z.B.
-wenn zwei Bedingungen gleichzeitig erfüllt sein sollen. Beispielsweise soll eine
-Maschine nur dann gestartet werden, wenn der Sicherheitsschalter aktiviert ist
-UND die Temperatur unter einem kritischen Wert liegt. Beide Bedingungen müssen
-erfüllt sein.
-
-Die Grundlage solcher Verknüpfungen bildet die **boolesche Algebra**, benannt
-nach dem Mathematiker [George
-Boole](https://de.wikipedia.org/wiki/George_Boole). In dieser Vorlesung
-konzentrieren wir uns auf die drei wichtigsten logischen Operatoren:
-
-* UND (`and`): beide Bedingungen müssen erfüllt sein
-* ODER (`or`): mindestens eine Bedingung muss erfüllt sein
-* NICHT (`not`): kehrt den Wahrheitswert einer Bedingung um
-
-Diese Operatoren sind grundlegend für technische Systeme und werden häufig für
-Steuerungen, Regelungen und Sicherheitssysteme eingesetzt.
+Häufig müssen Daten strukturiert gespeichert werden. Beispielsweise sollen
+Maschinenkonfigurationen effizient verwaltet werden. Für solche Fälle gibt es
+eine Datenstruktur, die besser als eine Liste geeignet ist, das sogenannte
+Dictionary.
 
 ## Lernziele
 
 ```{admonition} Lernziele
 :class: goals
-* Sie kennen die logischen Operatoren und können diese in Python einsetzen:
-    * logisches UND: `and`
-    * logisches ODER: `or`
-    * logisches NICHT: `not`
-* Sie verstehen die Priorität der logischen Operatoren und können komplexe
-  Bedingungen korrekt formulieren.
+* Sie können Dictionary-Objekte mit **Schlüssel** und **Wert** anlegen und
+  verstehen die grundlegende Syntax **{key: value}**.
+* Sie beherrschen den Zugriff auf Werte über ihre Schlüssel und können
+  überprüfen, ob bestimmte Schlüssel in einem Dictionary vorhanden sind.
+* Sie können neue Schlüssel-Wert-Paare hinzufügen, bestehende Werte
+  aktualisieren und Einträge aus einem Dictionary entfernen.
+* Sie kennen und nutzen die wichtigsten Methoden wie `.keys()`, `.values()`,
+  `.items()` und `.get()` für effiziente Operationen.
+* Sie können durch Schlüssel, Werte oder Schlüssel-Wert-Paare eines Dictionaries
+  iterieren und diese in Schleifen verarbeiten.
 ```
 
-## Das logische UND
+## Grundlagen von Dictionaries
 
-Beim logischen UND müssen beide Bedingungen erfüllt sein, damit insgesamt die
-kombinierte Bedingung erfüllt ist. Vergleichbar ist dies mit einer
-Reihenschaltung in der Elektrotechnik: Nur wenn beide Schalter eingeschaltet
-sind, kann der Strom fließen.
+Dictionaries (deutsch: Wörterbücher) sind eine der wichtigsten Datenstrukturen
+in Python. Sie speichern Daten in Form von Schlüssel-Wert-Paaren (key-value
+pairs), wobei jeder Schlüssel eindeutig sein muss. Wir können uns ein Dictionary
+wie ein technisches Handbuch vorstellen: Wir schlagen einen Begriff (Schlüssel)
+nach und erhalten die zugehörige Information (Wert).
 
-Hier finden Sie ein erläuterndes Video (ca. 3:14 min) zur UND-Schaltung:
+Ein Dictionary ist eine veränderbare, ungeordnete Sammlung von
+Schlüssel-Wert-Paaren. Im Gegensatz zu Listen, die über einen numerischen Index
+angesprochen werden, erfolgt der Zugriff bei Dictionaries über beliebige
+unveränderliche Objekte als Schlüssel (meist Strings oder Zahlen).
 
-<https://www.youtube.com/watch?v=79WVEr2BVZI>
-
-Die Ergebnisse der UND-Verknüpfung lassen sich in einer Wahrheitstabelle
-darstellen:
-
-Bedingung 1 | Bedingung 2 | Ergebnis mit ```and```
-------------|-------------|--------------------------
-True | True | True
-False | True | False
-True | False | False
-False | False | False
-
-Beispiel aus der Industrie: Ein automatisches Werkzeug darf nur dann betätigt
-werden, wenn das Werkstück korrekt eingespannt ist UND der Sicherheitsbereich
-frei ist:
-
-```{code-cell} ipython3
-werkstueck_eingespannt = True
-sicherheitsbereich_frei = True
-
-if werkstueck_eingespannt and sicherheitsbereich_frei:
-    print('Werkzeug kann betätigt werden.')
-else:
-    print('Sicherheitsvoraussetzungen nicht erfüllt.')
+```{code-cell}
+stahl = {
+    "Werkstoffnummer": "1.4301",
+    "Dichte": 7900,  # kg/m³
+    "E-Modul": 200000,  # MPa
+    "Streckgrenze": 190  # MPa
+}
+print(stahl)
 ```
 
-Bei komplexeren Bedingungen kann die Verwendung von Klammern die Lesbarkeit
-verbessern, auch wenn dies syntaktisch nicht immer erforderlich ist:
+Dictionaries werden mit geschweiften Klammern `{}` erstellt. Die
+Schlüssel-Wert-Paare werden durch Doppelpunkte `:` getrennt, mehrere Paare durch
+Kommas `,`.
 
-```{code-cell} ipython3
-temperatur = 75
-druck = 3.5
+```{code-cell}
+# Verschiedene Möglichkeiten der Dictionary-Erstellung
+# 1. Direkte Erstellung
+motor = {"Typ": "V6", "Leistung": 250, "Hubraum": 3.0}
 
-if (temperatur < 80) and (druck < 4.0):
-    print('System arbeitet im normalen Betriebszustand.')
-else:
-    print('System außerhalb der normalen Parameter.')
+# 2. Leeres Dictionary erstellen und befüllen
+getriebe = {}
+getriebe["Typ"] = "Automatik"
+getriebe["Gänge"] = 8
+
+# 3. Mit der dict()-Funktion
+reifen = dict(Breite=225, Verhältnis=45, Durchmesser=17)
+
+print("Motor:", motor)
+print("Getriebe:", getriebe)
+print("Reifen:", reifen)
+```
+
+Der Zugriff auf Werte erfolgt über die Angabe des Schlüssels in eckigen
+Klammern:
+
+```{code-cell}
+# Zugriff auf einzelne Werte
+print("Motorleistung:", motor["Leistung"], "kW")
+print("Anzahl Gänge:", getriebe["Gänge"])
+print("Reifenbreite:", reifen["Breite"], "mm")
+
+# Ändern von Werten
+motor["Leistung"] = 265
+print("Neue Motorleistung:", motor["Leistung"], "kW")
+```
+
+Im Gegensatz zu Listen, die über numerische Indizes (0, 1, 2, ...) angesprochen
+werden, verwenden Dictionaries aussagekräftige Schlüssel:
+
+```{code-cell}
+# Vergleich: Liste vs. Dictionary
+# Als Liste (unübersichtlich)
+werkstoff_liste = ["1.4301", 7900, 200000, 190]
+print("Dichte (Liste):", werkstoff_liste[1])  # Was bedeutet Index 1?
+
+# Als Dictionary (selbsterklärend)
+werkstoff_dict = {
+    "Werkstoffnummer": "1.4301",
+    "Dichte": 7900,
+    "E-Modul": 200000,
+    "Streckgrenze": 190
+}
+print("Dichte (Dictionary):", werkstoff_dict["Dichte"])
 ```
 
 ```{admonition} Mini-Übung
 :class: miniexercise
-Schreiben Sie ein Programm für die Steuerung einer Hydraulikpresse. Die Presse
-darf nur betätigt werden, wenn
+Erstellen Sie ein Dictionary für die Eigenschaften von Aluminium mit folgenden Daten:
+- Werkstoffnummer: "3.1645"
+- Dichte: 2700 kg/m³
+- E-Modul: 70000 MPa
+- Streckgrenze: 160 MPa
+- Wärmeleitfähigkeit: 140 W/(m·K)
 
-1. die Betriebstemperatur zwischen 60°C und 85°C liegt und
-2. der Druck zwischen 2.5 und 5.0 bar beträgt.
-
-Lassen Sie die Werte vom Benutzer eingeben und geben Sie eine entsprechende
-Meldung aus.
+Greifen Sie dann auf die Dichte und die Wärmeleitfähigkeit zu und geben Sie diese mit passenden Einheiten aus.
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # Hier Ihr Code
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-# Eingabe
-temperatur = float(input('Aktuelle Betriebstemperatur (°C): '))
-druck = float(input('Aktueller Druck (bar): '))
+# Dictionary für Aluminium erstellen
+aluminium = {
+    "Werkstoffnummer": "3.1645",
+    "Dichte": 2700,
+    "E-Modul": 70000,
+    "Streckgrenze": 160,
+    "Wärmeleitfähigkeit": 140
+}
 
-# Verarbeitung und Ausgabe
-if (60 <= temperatur <= 85) and (2.5 <= druck <= 5.0):
-    print('Hydraulikpresse kann betätigt werden.')
-else:
-    print('Betriebsparameter außerhalb des sicheren Bereichs!')
+# Zugriff auf spezifische Eigenschaften
+print("Dichte von Aluminium:", aluminium["Dichte"], "kg/m³")
+print("Wärmeleitfähigkeit:", aluminium["Wärmeleitfähigkeit"], "W/(m·K)")
 ```
 ````
 
-## Das logische ODER
+## Arbeiten mit Dictionaries
 
-Beim logischen ODER muss nur eine der Bedingungen erfüllt sein, damit insgesamt
-die kombinierte Bedingung erfüllt ist. Die Bedingung ist auch erfüllt, wenn
-beide Teilbedingungen wahr sind. Vergleichbar ist dies mit einer
-Parallelschaltung in der Elektrotechnik: Es reicht, wenn einer der beiden
-Schalter eingeschaltet ist, damit der Strom fließen kann.
+In diesem Abschnitt betrachten wir, wie Dictionaries dynamisch verändert,
+durchsucht und mit verschiedenen Methoden effizient bearbeitet werden können.
 
-Hier finden Sie ein erläuterndes Video (ca. 2:42 min) zur ODER-Schaltung:
+Dictionaries sind veränderbar. Wir können jederzeit neue Einträge hinzufügen
+oder bestehende entfernen:
 
-<https://www.youtube.com/watch?v=UNkXbvSN9w8>
+```{code-cell}
+# Dictionary für eine Hydraulikpumpe
+pumpe = {
+    "Typ": "Axialkolbenpumpe",
+    "Volumenstrom": 120,  # l/min
+    "Druck": 250  # bar
+}
 
-Die Wahrheitstabelle für das logische ODER:
+# Neue Einträge hinzufügen
+pumpe["Drehzahl"] = 1450  # U/min
+pumpe["Wirkungsgrad"] = 0.92
 
-Bedingung 1 | Bedingung 2 | Ergebnis mit ```or```
-------------|-------------|--------------------------
-True | True | True
-False | True | True
-True | False | True
-False | False | False
+print("Erweiterte Pumpendaten:", pumpe)
 
-Beispiel aus der Produktion: Ein Notaus-System muss aktiviert werden, wenn
-entweder der Temperaturwert zu hoch ist ODER der Druckwert einen kritischen Wert
-überschreitet:
+# Eintrag löschen mit del
+del pumpe["Wirkungsgrad"]
+print("Nach Löschen:", pumpe)
 
-```{code-cell} ipython3
-temperatur = 95  # in Grad Celsius
-druck = 4.8      # in bar
+# Eintrag löschen mit pop() - gibt den Wert zurück
+drehzahl = pumpe.pop("Drehzahl")
+print("Entfernte Drehzahl:", drehzahl)
+print("Finale Pumpendaten:", pumpe)
+```
 
-if (temperatur > 90) or (druck > 5.0):
-    print('WARNUNG: Notabschaltung wird eingeleitet!')
+Bevor Sie auf einen Schlüssel zugreifen, sollten wir prüfen, ob er existiert:
+
+```{code-cell}
+# Maschinenkonfiguration
+maschine = {
+    "Modell": "DMG MORI DMU 50",
+    "Achsen": 5,
+    "Arbeitsraum_X": 500,
+    "Arbeitsraum_Y": 450
+}
+
+# Prüfen, ob Schlüssel existiert
+if "Arbeitsraum_Z" in maschine:
+    print("Z-Achse:", maschine["Arbeitsraum_Z"])
 else:
-    print('System arbeitet im normalen Betriebsbereich.')
-```
+    print("Z-Achse nicht definiert")
+    maschine["Arbeitsraum_Z"] = 400
 
-Python verwendet eine sogenannte **Kurzschlussauswertung** für logische
-Operatoren. Dies bedeutet:
-
-* Bei einem `and`-Ausdruck: Wenn der erste Teil `False` ist, wird der zweite
-  Teil nicht mehr ausgewertet.
-* Bei einem `or`-Ausdruck: Wenn der erste Teil `True` ist, wird der zweite Teil
-  nicht mehr ausgewertet.
-
-Dies kann man sich zur Verbesserung der Performance zunutze machen, indem man
-bei `and`-Verknüpfungen die Bedingung mit der höheren Wahrscheinlichkeit für
-`False` zuerst platziert.
-
-```{admonition} Mini-Übung
-:class: miniexercise
-Schreiben Sie ein Programm für ein Alarmsystem einer CNC-Fräse. Das System soll
-einen Alarm auslösen, wenn:
-
-1. Die Drehzahl unter 500 U/min fällt oder über 2000 U/min steigt
-2. Die Kühlmitteltemperatur über 60°C steigt
-
-Lassen Sie die Werte vom Benutzer eingeben und geben Sie eine entsprechende
-Meldung aus.
-```
-
-```{code-cell} ipython3
-# Hier Ihr Code
-```
-
-````{admonition} Lösung
-:class: miniexercise, toggle
-```python
-# Eingabe
-drehzahl = float(input('Aktuelle Drehzahl (U/min): '))
-kuehlmitteltemperatur = float(input('Aktuelle Kühlmitteltemperatur (°C): '))
-
-# Verarbeitung und Ausgabe
-if (drehzahl < 500) or (drehzahl > 2000) or (kuehlmitteltemperatur > 60):
-    print('ALARM: Betriebsparameter außerhalb des sicheren Bereichs!')
-else:
-    print('System arbeitet im normalen Betriebsbereich.')
-```
-````
-
-## Das logische NICHT
-
-Das logische NICHT kehrt eine Aussage um. Wenn eine Bedingung wahr ist, wird sie
-falsch und umgekehrt. In Python verwenden wir den Operator `not` für diese
-Umkehrung.
-
-Die Wahrheitstabelle für das logische NICHT:
-
-Bedingung | Ergebnis mit ```not```
-----------|--------------------------
-True | False
-False | True
-
-Beispiel aus dem Maschinenbau: Eine Maschine darf nicht gestartet werden, wenn
-der Wartungsmodus aktiviert ist:
-
-```{code-cell} ipython3
-wartungsmodus_aktiv = True
-
-if not wartungsmodus_aktiv:
-    print('Maschine kann gestartet werden.')
-else:
-    print('Maschine im Wartungsmodus: Start nicht möglich.')
-```
-
-Die Verwendung von `not` kann oft komplexe Bedingungen vereinfachen. Statt zu
-prüfen, ob ein Wert außerhalb eines Bereichs liegt, kann man prüfen, ob er nicht
-innerhalb des Bereichs liegt:
-
-```{code-cell} ipython3
-temperatur = 78
-
-# Diese beiden Bedingungen sind äquivalent
-if (temperatur < 60) or (temperatur > 85):
-    print('Temperatur außerhalb des Betriebsbereichs.')
+# Negative Prüfung
+if "Spindeldrehzahl" not in maschine:
+    maschine["Spindeldrehzahl"] = 12000  # U/min
     
-if not (60 <= temperatur <= 85):
-    print('Temperatur außerhalb des Betriebsbereichs.')
+print("Vollständige Maschinendaten:", maschine)
 ```
 
-## Priorität der logischen Operatoren
+Python bietet mehrere nützliche Methoden für die Arbeit mit Dictionaries:
 
-Bei mehreren logischen Operatoren in einem Ausdruck ist die Reihenfolge der
-Auswertung wichtig. In Python gilt folgende Priorität:
+```{code-cell}
+# Werkzeugdaten für Fräswerkzeuge
+werkzeuge = {
+    "VHM_Schaftfraeser_6mm": {"Durchmesser": 6, "Zaehne": 4, "Material": "VHM"},
+    "HSS_Bohrer_8mm": {"Durchmesser": 8, "Material": "HSS-E"},
+    "Planfraeser_50mm": {"Durchmesser": 50, "Zaehne": 5, "Material": "HM"}
+}
 
-1. Klammern `()`
-2. Nicht `not`
-3. Und `and`
-4. Oder `or`
+# keys() - alle Schlüssel abrufen
+print("Verfügbare Werkzeuge:")
+for werkzeug in werkzeuge.keys():
+    print("-", werkzeug)
 
-Zur Verdeutlichung einige Beispiele:
+# values() - alle Werte abrufen
+print("\nWerkzeugdetails:")
+for details in werkzeuge.values():
+    print(details)
 
-```{code-cell} ipython3
-# Priorität der logischen Operatoren
-a = True
-b = False
-c = True
-
-# not hat Vorrang vor and
-ergebnis1 = not a and b  # entspricht (not a) and b
-print(f"not a and b = {ergebnis1}")
-
-# and hat Vorrang vor or
-ergebnis2 = a and b or c  # entspricht (a and b) or c
-print(f"a and b or c = {ergebnis2}")
-
-# Klammern ändern die Priorität
-ergebnis3 = a and (b or c)  # erst b or c, dann and
-print(f"a and (b or c) = {ergebnis3}")
+# items() - Schlüssel-Wert-Paare abrufen
+print("\nKomplette Werkzeugliste:")
+for name, eigenschaften in werkzeuge.items():
+    print(f"{name}: {eigenschaften}")
 ```
 
-Um Missverständnisse zu vermeiden, ist es oft ratsam, Klammern zu setzen, auch
-wenn sie aufgrund der Prioritätsregeln nicht unbedingt nötig wären. Dies
-verbessert die Lesbarkeit des Codes.
+Es gibt verschiedene Möglichkeiten, über ein Dictionary zu iterieren:
+
+```{code-cell}
+# Materialdatenbank
+materialien = {
+    "Stahl": {"Dichte": 7850, "E_Modul": 210000, "Preis_kg": 1.50},
+    "Aluminium": {"Dichte": 2700, "E_Modul": 70000, "Preis_kg": 3.20},
+    "Titan": {"Dichte": 4500, "E_Modul": 110000, "Preis_kg": 45.00}
+}
+
+# Iteration über Schlüssel (Standard)
+print("Materialien in der Datenbank:")
+for material in materialien:  # äquivalent zu materialien.keys()
+    print(material)
+
+# Iteration über Werte
+print("\nMaterialdichten (kg/m³):")
+for eigenschaften in materialien.values():
+    print(eigenschaften["Dichte"])
+
+# Iteration über Schlüssel-Wert-Paare
+print("\nMaterialpreise:")
+for material, eigenschaften in materialien.items():
+    print(f"{material}: {eigenschaften['Preis_kg']} €/kg")
+```
+
+Die Methode `.get()` ermöglicht sicheren Zugriff mit Standardwerten:
+
+```{code-cell}
+# Lagerdaten
+lager = {
+    "Schrauben_M8": 500,
+    "Muttern_M8": 480,
+    "Scheiben_M8": 520
+}
+
+# Unsicherer Zugriff (kann Fehler verursachen)
+# anzahl = lager["Schrauben_M10"]  # KeyError!
+
+# Sicherer Zugriff mit get()
+anzahl_m10 = lager.get("Schrauben_M10", 0)  # Standardwert 0
+print(f"Schrauben M10 im Lager: {anzahl_m10}")
+
+# Mit get() auf vorhandene Werte zugreifen
+anzahl_m8 = lager.get("Schrauben_M8", 0)
+print(f"Schrauben M8 im Lager: {anzahl_m8}")
+```
 
 ```{admonition} Mini-Übung
 :class: miniexercise
-Überlegen Sie zunächst, was das Ergebnis der folgenden logischen Verknüpfungen
-ist (wahr oder falsch):
+Erstellen Sie ein Dictionary für verschiedene Stahlsorten mit ihren Preisen pro Kilogramm:
+- S235: 1.20 €/kg
+- S275: 1.35 €/kg
+- S355: 1.50 €/kg
 
-1. True and True
-2. True or False
-3. not True
-4. False or True
-5. True or (not False)
-6. (not True) and False
-7. not (True or False)
-8. (not False) or (False and False)
-
-Prüfen Sie Ihre Antworten anschließend im Python-Interpreter.
+Fügen Sie dann S460 mit 1.80 €/kg hinzu. Gehen Sie anschließend mit einer for-Schleife durch alle Einträge und geben aus, welche Stahlsorten teurer als 1.40 €/kg sind.
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # Hier Ihr Code
 ```
 
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-# 1. True and True
-print("True and True =", True and True)  # True
+# Dictionary für Stahlsorten erstellen
+stahlpreise = {
+    "S235": 1.20,
+    "S275": 1.35,
+    "S355": 1.50
+}
 
-# 2. True or False
-print("True or False =", True or False)  # True
+# Neue Stahlsorte hinzufügen
+stahlpreise["S460"] = 1.80
 
-# 3. not True
-print("not True =", not True)  # False
-
-# 4. False or True
-print("False or True =", False or True)  # True
-
-# 5. True or (not False)
-print("True or (not False) =", True or (not False))  # True
-
-# 6. (not True) and False
-print("(not True) and False =", (not True) and False)  # False
-
-# 7. not (True or False)
-print("not (True or False) =", not (True or False))  # False
-
-# 8. (not False) or (False and False)
-print("(not False) or (False and False) =", (not False) or (False and False))  # True
+# Teure Stahlsorten ausgeben
+print("Stahlsorten über 1.40 €/kg:")
+for stahl, preis in stahlpreise.items():
+    if preis > 1.40:
+        print(f"- {stahl}: {preis} €/kg")
 ```
 ````
 
-```{dropdown} Video zu "Logische Operatoren" von Programmieren Starten
-<iframe width="560" height="315" src="https://www.youtube.com/embed/075l6R42tkQ"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## Fortgeschrittene Dictionary-Konzepte
+
+In diesem Abschnitt vertiefen wir unser Wissen über Dictionaries durch
+verschachtelte Strukturen und erweiterte Methoden für komplexe Anwendungen im
+Maschinenbau.
+
+Dictionaries können andere Dictionaries als Werte enthalten, was hierarchische
+Datenstrukturen ermöglicht:
+
+```{code-cell}
+# CNC-Maschinenkonfiguration mit verschachtelten Dictionaries
+cnc_maschine = {
+    "Modell": "DMG MORI NLX 2500",
+    "Achsen": {
+        "X": {"Verfahrweg": 300, "Geschwindigkeit": 30, "Beschleunigung": 5},
+        "Y": {"Verfahrweg": 200, "Geschwindigkeit": 30, "Beschleunigung": 5},
+        "Z": {"Verfahrweg": 500, "Geschwindigkeit": 24, "Beschleunigung": 4}
+    },
+    "Spindel": {
+        "Max_Drehzahl": 12000,
+        "Leistung": 30,  # kW
+        "Drehmoment": 250  # Nm
+    },
+    "Werkzeugwechsler": {
+        "Plaetze": 24,
+        "Wechselzeit": 1.5  # Sekunden
+    }
+}
+
+# Zugriff auf verschachtelte Elemente
+print("X-Achse Verfahrweg:", cnc_maschine["Achsen"]["X"]["Verfahrweg"], "mm")
+print("Spindelleistung:", cnc_maschine["Spindel"]["Leistung"], "kW")
+
+# Ändern eines verschachtelten Wertes
+cnc_maschine["Achsen"]["Z"]["Geschwindigkeit"] = 28
+print("Neue Z-Geschwindigkeit:", cnc_maschine["Achsen"]["Z"]["Geschwindigkeit"], "m/min")
 ```
 
-## Zusammenfassung und Ausblick
+Für sicheren Umgang mit möglicherweise fehlenden Schlüsseln bieten sich
+erweiterte Methoden an:
 
-Die booleschen Operatoren `and`, `or` und `not` sind fundamentale Werkzeuge für
-die Programmierung von Bedingungen in Python. Sie ermöglichen die Formulierung
-komplexer Entscheidungslogik und sind besonders für Steuerungs- und
-Regelungsanwendungen von großer Bedeutung. Im nächsten Kapitel beschäftigen wir
-uns mit Schleifen.
+```{code-cell}
+# Maschinenwartungsdaten
+wartung = {
+    "Oelwechsel": "2024-03-15",
+    "Inspektion": "2024-01-10",
+    "Kalibrierung": "2024-02-20"
+}
+
+# get() mit Standardwert für nicht vorhandene Schlüssel
+naechste_wartung = wartung.get("Hauptwartung", "nicht geplant")
+print("Nächste Hauptwartung:", naechste_wartung)
+
+# setdefault() - fügt Schlüssel nur hinzu, wenn er nicht existiert
+wartung.setdefault("Schmierung", "2024-04-01")
+wartung.setdefault("Inspektion", "2024-12-31")  # Ändert nichts, da bereits vorhanden
+
+print("\nAktuelle Wartungsliste:")
+for art, datum in wartung.items():
+    print(f"- {art}: {datum}")
+```
+
+Ein praktisches Beispiel zeigt, wie verschachtelte Dictionaries zur Verwaltung
+komplexer Maschinenkonfigurationen verwendet werden:
+
+```{code-cell}
+# Werkzeugmagazin einer Fräsmaschine
+werkzeugmagazin = {
+    "Platz_1": {
+        "Typ": "Schaftfraeser",
+        "Durchmesser": 10,
+        "Material": "VHM",
+        "Standzeit": 120  # Minuten
+    },
+    "Platz_2": {
+        "Typ": "Bohrer",
+        "Durchmesser": 8.5,
+        "Material": "HSS",
+        "Standzeit": 80
+    },
+    "Platz_3": {
+        "Typ": "Gewindebohrer",
+        "Durchmesser": 6,
+        "Material": "HSSE",
+        "Standzeit": 60
+    }
+}
+
+# Übersicht über alle Werkzeuge
+print("Werkzeugmagazin-Übersicht:")
+for platz, werkzeug in werkzeugmagazin.items():
+    print(f"\n{platz}:")
+    print(f"  Typ: {werkzeug['Typ']}")
+    print(f"  Durchmesser: {werkzeug['Durchmesser']} mm")
+    print(f"  Reststandzeit: {werkzeug['Standzeit']} min")
+```
+
+```{admonition} Mini-Übung
+:class: miniexercise
+Erstellen Sie ein verschachteltes Dictionary für eine einfache Werkzeugmaschine mit:
+- Name: "Drehbank DL-200"
+- Zwei Achsen (X und Z) mit jeweils:
+  - Verfahrweg in mm
+  - Aktuelle Position in mm
+- Spindeldaten mit:
+  - Maximale Drehzahl
+  - Aktuelle Drehzahl
+
+Geben Sie dann die aktuelle Position beider Achsen aus.
+```
+
+```{code-cell}
+# Hier Ihr Code
+```
+
+````{admonition} Lösung
+:class: miniexercise, toggle
+```python
+# Werkzeugmaschine als verschachteltes Dictionary
+drehbank = {
+    "Name": "Drehbank DL-200",
+    "Achsen": {
+        "X": {
+            "Verfahrweg": 150,
+            "Aktuelle_Position": 75.5
+        },
+        "Z": {
+            "Verfahrweg": 500,
+            "Aktuelle_Position": 250.0
+        }
+    },
+    "Spindel": {
+        "Max_Drehzahl": 3000,
+        "Aktuelle_Drehzahl": 1500
+    }
+}
+
+# Ausgabe der aktuellen Positionen
+print(f"Aktuelle Positionen der {drehbank['Name']}:")
+print(f"X-Achse: {drehbank['Achsen']['X']['Aktuelle_Position']} mm")
+print(f"Z-Achse: {drehbank['Achsen']['Z']['Aktuelle_Position']} mm")
+```
+````
+
+## Zusammenfassung
+
+Dictionaries sind eine essenzielle Datenstruktur in Python für die Verwaltung
+von Schlüssel-Wert-Paaren. Sie bieten schnellen Zugriff über aussagekräftige
+Bezeichner statt numerischer Indizes.

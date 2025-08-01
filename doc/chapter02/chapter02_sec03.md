@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.3 Eingabe (input) und Zuweisungsoperator
+# 2.3 Benutzereingaben
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

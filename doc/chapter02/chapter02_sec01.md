@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.1 Taschenrechner und Ausgabe (print)
+# 2.1 Variablen und Zuweisungen
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

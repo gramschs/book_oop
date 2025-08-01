@@ -12,80 +12,103 @@ kernelspec:
   name: python3
 ---
 
-# 5.2 Programmverzweigungen: if
+# 5.2 Parameter und Rückgabewerte
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-Im letzten Kapitel haben wir gelernt, wie ein Vergleich in Python durchgeführt
-wird und mit welchem Datentyp das Ergebnis eines solchen Vergleichs gespeichert
-wird. In diesem Kapitel geht es nun darum, dass ein Python-Programm auf das
-Ergebnis eines Vergleichs reagiert, indem Code-Abschnitte nur dann ausgeführt
-werden, wenn eine Bedingung erfüllt ist.
+Vorgefertigte Funktionen haben wir schon mit Argument und Rückgabewert
+aufgerufen. In diesem Kapitel geht es darum, selbst eine Funktion zu
+implementieren, die Argumente entgegennimmt, diese verarbeitet und dann
+Rückgabewerte liefert.
 
 ## Lernziele
 
-```{admonition} Lernziele
+```{admonition} Lernziel
 :class: goals
-* Sie können mit **if** eine Programmverzweigung implementieren.
-* Sie kennen den **modulo**-Operator `%`.
+* Sie können eine Funktion mit Parametern und Rückgabewerten selbst
+  implementieren.
+* Sie können zwischen Parametern und Argumenten einer Funktion unterscheiden.
 ```
 
-## Syntax der if-Verzweigung
+## Definition von Funktionen mit Parametern
 
-Bei einer Programmverzweigung wird Code abhängig von einer Bedingung ausgeführt.
-Im einfachsten Fall liegt ein if-Block vor. Die Syntax lautet wie folgt:
+Meistens haben Funktionen Argumente, um Eingaben entgegennehmen und verarbeiten
+zu können. Das Argument wird bei der Implementierung der Funktion mit einer
+Variablen eingeführt.
+
+Die allgemeine Syntax zur Definition einer eigenen Funktion mit Parametern sieht
+wie folgt aus:
 
 ```python
-if bedingung:
-    anweisung 1 # gehört zum if-Block
-    anweisung 2 # gehört zum if-Block
-anweisung 3 # gehört NICHT zum if-Block, wird immer ausgeführt
+def meine_funktion(para1, para2, ..., paran):
+    anweisung01
+    anweisung02
+     ...
 ```
 
-Ist die Bedingung erfüllt, also "True", so wird der eingerückte Anweisungsblock
-ausgeführt. Ist die Bedingung *nicht* erfüllt, wird dieser übersprungen. Damit
-ist gemeint, dass der Python-Interpreter nach dem Ende des if-Blocks
-weitermacht, falls die Bedingung nicht erfüllt ist (= False).
+Funktionen werden mit dem Schlüsselwort `def` gefolgt vom Funktionsnamen und
+einer Aufzählung von Parametern in Klammern definiert. Die Code-Anweisungen der
+Funktion werden eingerückt.
 
-Das Ende eines if-Blocks wird in Python durch die Einrückung bestimmt. Alle
-Anweisungen, die mit der gleichen Einrückung nach dem Doppelpunkt folgen,
-gehören zum if-Block. Sobald eine Zeile mit geringerer Einrückung (oder ohne
-Einrückung) erscheint, erkennt Python, dass der if-Block abgeschlossen ist.
-Diese Anweisungen werden dann unabhängig vom Ergebnis der if-Bedingung
-ausgeführt.
-
-Wir betrachten nun ein Beispiel:
+Als Beispiel betrachten wir erneut die Funktion, die Grüße ausrichtet. Doch
+jetzt erweitern wir die Funktion. Die modifizierte Variante soll konkret eine
+Person grüßen.
 
 ```{code-cell} ipython3
-alter = 20
-if alter >= 18:
-    print('Sie dürfen Alkohol kaufen.')
-print('Bananen dürfen Sie immer kaufen, egal wie alt Sie sind ...')
+def gruesse_ausrichten_mit_parameter(name):
+    print(f'Ich grüße {name}!')
 ```
 
-Da die Person volljährig ist (`alter = 20`), ist der Vergleich `alter >= 18`
-wahr, die Bedingung also erfüllt. Daher wird der Anweisungsblock, der nur aus
-einer einzigen Anweisung besteht, ausgeführt. Der Python-Interpreter gibt den
-String `Sie dürfen Alkohol kaufen.` aus und macht dann mit dem normalen Programm
-weiter. In unserem Beispiel mit dem Alkoholkauf ist die Zeile `print('Bananen
-dürfen Sie immer kaufen...')` nicht eingerückt und wird daher unabhängig vom
-Alter immer ausgeführt.
+Der Aufruf einer Funktion ohne passende Argumente führt nun zu einer
+Fehlermeldung. Entfernen Sie in der nächsten Code-Zelle das Kommentarzeichen.
 
-Dieser Code könnte beispielsweise mit einer Benutzerabfrage kombiniert werden:
-
-```python
-alter = int(input('Wie alt sind Sie?'))
-if alter >= 18:
-    print('Sie dürfen Alkohol kaufen.')
-print('Bananen dürfen Sie immer kaufen, egal wie alt Sie sind...')
+```{code-cell} ipython3
+# gruesse_ausrichten_mit_parameter()
 ```
+
+Daher müssen wir die modifizierte Funktion nun mit einem Argument aufrufen:
+
+```{code-cell} ipython3
+gruesse_ausrichten_mit_parameter('Anna')
+```
+
+Hinweis: Bei Funktionen unterscheiden wir zwischen einem **Parameter** einer
+Funktion und einem **Argument**. Die formalen Parameter sind die Variablennamen
+in der Funktionsdefinition (z.B. `name` in `def
+gruesse_ausrichten_mit_parameter(name):`). Sie dienen als Platzhalter für die
+Werte, die beim Funktionsaufruf übergeben werden. Die aktuellen Argumente sind
+dagegen die konkreten Werte, die beim Aufruf der Funktion übergeben werden (z.B.
+`'Anna'` in `gruesse_ausrichten_mit_parameter('Anna')`). Der formale Parameter
+`name` nimmt also beim Funktionsaufruf den Wert des Arguments `'Anna'` an und
+steht innerhalb der Funktion als Variable zur Verfügung.
+
+Die Funktion `gruesse_ausrichten_mit_parameter()` hat aber keinen Rückgabewert.
+Das können wir wie folgt testen:
+
+```{code-cell} ipython3
+x = gruesse_ausrichten_mit_parameter('Alice')
+type(x)
+```
+
+`x` ist vom Typ `NoneType`. Das bedeutet, dass in der Variablen `x` der
+spezielle Python-Wert `None` gespeichert ist. `None` ist ein eigener Datentyp in
+Python und repräsentiert die Abwesenheit eines Wertes oder ein 'nichts'.
+Funktionen, die keinen expliziten Rückgabewert mit `return` angeben, geben
+automatisch `None` zurück.
+
+Sind Funktionen ohne Rückgabewert sinnvoll? Ja, denn so können Python-Programme
+vereinfacht werden. Sollte in einem Programm ein Block von Anweisungen mehrmals
+ausgeführt werden, lohnt es sich, diesen in eine Funktion auszulagern, um diese
+einfach aufrufen zu können.
 
 ```{admonition} Mini-Übung
 :class: miniexercise
-Schreiben Sie ein Skript, das einen Benutzer oder eine Benutzerin nach der aktuellen Temperatur fragt. Wenn die Temperatur kleiner gleich 10 ˚C ist, soll ausgegeben werden: "Heute ist es aber kalt!"
+Schreiben Sie eine Funktion, die mit Turtle ein Rechteck zeichnet. Die beiden
+Seitenlängen des Rechtecks sollen als Argumente der Funktion übergeben werden.
+Testen Sie Ihre Funktion auch.
 ```
 
 ```{code-cell} ipython3
@@ -96,99 +119,112 @@ Schreiben Sie ein Skript, das einen Benutzer oder eine Benutzerin nach der aktue
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-# Eingabe
-temperatur = float(input('Welche Temperatur haben wir aktuell?'))
+import ColabTurtlePlus.Turtle as turtle
+turtle.clearscreen()
 
-# Verarbeitung und Ausgabe
-if temperatur <= 10:
-    print('Heute ist es aber kalt!')
+def zeichne_rechteck(seite1, seite2):
+    rechteck = turtle.Turtle()
+    for i in range(2):
+        rechteck.forward(seite1)
+        rechteck.left(90)
+        rechteck.forward(seite2)
+        rechteck.left(90)
+        
+a = 100
+b = 30
+zeichne_rechteck(a,b)
 ```
 ````
 
-Nach dieser kurzen Mini-Übung kommt in der nächsten Mini-Übung eine etwas
-längere Aufgabenstellung.
+Das folgende Video fasst Funktionen mit Parametern in Python zusammen.
 
-```{admonition} Mini-Übung
-:class: miniexercise
-Schreiben Sie ein Skript, das eine Benutzerin oder einen Benutzer nach einer Zahl fragt. 
-Wenn die Zahl kleiner als 0 ist, soll ausgegeben werden: "Die Zahl ist negativ."
-Wenn die Zahl genau gleich 0 ist, soll ausgegeben werden: "Die Zahl ist Null."
-Wenn die Zahl größer als 0 ist, soll ausgegeben werden: "Die Zahl ist positiv."
-
-Wie viele if-Blöcke brauchen Sie für die Umsetzung dieser Mini-Übung?
-```
-
-```{code-cell} ipython3
-# Geben Sie nach diesem Kommentar Ihren Code ein:
-
-```
-
-````{admonition} Lösung
-:class: miniexercise, toggle
-```python
-# Eingabe
-zahl = float(input('Geben Sie bitte eine Zahl ein: '))
-
-# Verarbeitung und Ausgabe
-if zahl < 0:
-    print('Die Zahl ist negativ.')
-
-if zahl == 0:
-    print('Die Zahl ist Null.')
-
-if zahl > 0:
-    print('Die Zahl ist positiv.')
-```
-
-Der Code erfordert drei if-Blöcke. In einem späteren Kapitel werden wir lernen,
-diese Aufgabe eleganter mit elif / else zu programmieren.
-````
-
-```{dropdown} Video "if-Anweisung" von Programmieren Starten
-<iframe width="560" height="315" src="https://www.youtube.com/embed/b6KzYbM-Hvg"
+```{dropdown} Video "Funktionen mit Parametern" von Programmieren Starten
+<iframe width="560" height="315" src="https://www.youtube.com/embed/af9ORp1Pty0"
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ```
 
-## Der modulo-Operator
+## Funktionen mit Parametern und Rückgabewerten
 
-Ein nützlicher Operator für Verzweigungen ist der modulo-Operator `%`. Dieser
-berechnet den Rest einer Division und wird häufig verwendet, um festzustellen,
-ob eine Zahl durch eine andere teilbar ist oder um zyklische Muster zu erzeugen.
+In der Regel jedoch haben Funktionen einen Rückgabewert. Die allgemeine Syntax
+zur Definition einer eigenen Funktion mit Parametern und Rückgabewert sieht wie
+folgt aus:
+
+```python
+def meine_funktion(para1, para2, ..., paran):
+    anweisung01
+    anweisung02
+     ...
+
+    return rueckgabewert1, rueckgabewert2, ...  
+```
+
+An der Definitionszeile ändert sich nichts. Zuerst wird das Schlüsselwort `def`
+verwendet, dann folgt der Funktionsname und zuletzt werden die Parameter in
+Klammern aufgelistet. Der Rückgabewert der Funktion wird dann durch das
+Schlüsselwort `return` im Inneren der Funktion, also im eingerückten Teil
+definiert. Die Funktion kann einen oder mehrere Rückgabewerte zurückliefern. Bei
+mehreren Rückgabewerten werden diese einfach durch Komma getrennt.
+
+Für Experten:  Bei mehreren Rückgabewerten erzeugt Python intern ein sogenanntes
+Tupel, das all diese Werte enthält. Daher kann man das Ergebnis einer solchen
+Funktion auch direkt einer einzelnen Variablen zuweisen und erhält dann ein
+Tupel, oder man kann die Werte durch Kommas getrennt mehreren Variablen zuweisen
+(Unpacking).
+
+Schauen wir uns ein Beispiel an. Die folgende Funktion nimmt einen Parameter
+entgegen und gibt einen Rückgabewert zurück.
 
 ```{code-cell} ipython3
-# Beispiele für den modulo-Operator
-print(10 % 3)  # Ergebnis: 1 (Rest bei Division 10 durch 3)
-print(8 % 4)   # Ergebnis: 0 (Rest bei Division 8 durch 4)
+def berechne_quadratzahl(zahl):
+    return zahl * zahl
 ```
 
-Der modulo-Operator ist besonders nützlich, um zu prüfen, ob eine Zahl gerade
-oder ungerade ist:
+Jetzt können wir die Funktion ausprobieren.
 
 ```{code-cell} ipython3
-zahl = 15
-if zahl % 2 == 0:
-    print(f"Die Zahl {zahl} ist gerade.")
+for x in range(1,11):
+    y = berechne_quadratzahl(x) 
+    print(f'{x} mal {x} ist {y}')
 ```
 
-Er wird auch häufig eingesetzt, um zu überprüfen, ob ein Wert ein Vielfaches
-eines anderen ist. Zum Beispiel kann man prüfen, ob eine fortlaufende Zahl ein
-Vielfaches von 10 ist:
+Als nächstes kommt ein Beispiel mit zwei Rückgabewerten. Nicht nur die
+Quadratzahl, sondern auch die Kubikzahl soll berechnet werden.
 
 ```{code-cell} ipython3
-for i in range(1, 31):
-    if i % 10 == 0:
-        print(f"Die Zahl {i} ist ein Vielfaches von 10.")
+def berechne_quadrat_kubik(zahl):
+    quadrat = zahl**2
+    kubik = zahl**3
+    return quadrat, kubik
 ```
 
-Dieses Konzept werden wir später bei Schleifen wiedersehen, wenn wir
-beispielsweise nur jeden n-ten Wert verarbeiten oder anzeigen möchten.
+Und erneut testen wir die Funktion.
+
+```{code-cell} ipython3
+for x in range(1,6):
+    x_hoch_2, x_hoch_3 = berechne_quadrat_kubik(x)
+    print(f'x = {x}, x^2 = {x_hoch_2}, x^3 = {x_hoch_3}')
+```
+
+Wenn eine Funktion mehrere Werte zurückgibt, haben wir verschiedene
+Möglichkeiten, diese zu verarbeiten. Meist weisen wir jedem Rückgabewert eine
+eigene Variable zu, wie in `x_hoch_2, x_hoch_3 = berechne_quadrat_kubik(x)`. Man
+muss jedoch nicht immer alle Rückgabewerte verwenden. Benötigt man zum Beispiel
+nur den ersten Rückgabewert, kann man schreiben: `x_hoch_2, _ =
+berechne_quadrat_kubik(x)`. Der Unterstrich `_` ist eine Konvention in Python,
+die signalisiert, dass dieser Wert ignoriert wird.
+
+Alternativ kann man auch alle Rückgabewerte als Tupel einer einzelnen Variable
+zuweisen: `ergebnis = berechne_quadrat_kubik(x)`. Dann greift man über den Index
+auf die einzelnen Werte zu: `ergebnis[0]` für das Quadrat und `ergebnis[1]` für
+den Kubikwert.
 
 ```{admonition} Mini-Übung
 :class: miniexercise
-Schreiben Sie ein Programm, das die Zahlen von 1 bis 30 durchläuft und nur jede
-dritte Zahl ausgibt. Verwenden Sie den Modulo-Operator, um zu prüfen, ob eine
-Zahl durch 3 teilbar ist.
+Schreiben Sie ein Programm, das mit Turtle ein Rechteck zeichnet, wobei die
+beiden Seitenlängen als Argumente der Funktion übergeben werden. Die Funktion
+soll den Umfang des Rechtecks und den Flächeninhalt zurückgeben. Lassen Sie
+anschließend Umfang und Flächeninhalt ausgeben.
 ```
 
 ```{code-cell} ipython3
@@ -199,78 +235,45 @@ Zahl durch 3 teilbar ist.
 ````{admonition} Lösung
 :class: miniexercise, toggle
 ```python
-# Ausgabe jeder dritten Zahl von 1 bis 30
-for zahl in range(1, 31):
-    if zahl % 3 == 0:
-        print(zahl)
+import ColabTurtlePlus.Turtle as turtle
+turtle.clearscreen()
+
+def zeichne_rechteck(seite1, seite2):
+    # Zeichnung des Rechecks
+    rechteck = turtle.Turtle()
+    for i in range(2):
+        rechteck.forward(seite1)
+        rechteck.left(90)
+        rechteck.forward(seite2)
+        rechteck.left(90)
+        
+    # Berechnung Umfang und Flächeninhalt
+    umfang = 2 * seite1 + 2 * seite2
+    flaeche = seite1 * seite2
+    
+    # Rückgabe
+    return umfang, flaeche
+    
+# Test der Funktion      
+a = 100
+b = 30
+U,A = zeichne_rechteck(a,b)
+print(f'Der Umfang ist {U:.2f} Längeneinheiten, der Flächeninhalt des Rechtecks ist {A:.2f} Flächeneinheiten.')
 ```
 ````
 
-## Typische Fehlerquellen bei if-Anweisungen
+Auch zu dem Thema Funktionen mit Rückgabe gibt es ein Video.
 
-Bei der Implementierung von if-Anweisungen in Python gibt es einige häufige
-Fallstricke, die besonders Anfängern begegnen:
-
-**Vergessener Doppelpunkt:** Nach der Bedingung muss immer ein Doppelpunkt
-stehen.
-
-```python
-# Falsch
-if alter >= 18
-    print("Sie sind volljährig.")
-
-# Richtig
-if alter >= 18:
-    print("Sie sind volljährig.")
+```{dropdown} Video "Funktionen mit Rückgabewert" von Programmieren Starten
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ehSP-sYoKCY"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ```
-
-**Falsche Einrückung:** Python verwendet Einrückungen, um Codeblöcke zu
-definieren. Alle Anweisungen, die zum if-Block gehören, müssen gleich eingerückt
-sein.
-
-```python
-# Falsch
-if alter >= 18:
-print("Sie sind volljährig.")  # Fehlende Einrückung!
-
-# Richtig
-if alter >= 18:
-    print("Sie sind volljährig.")
-```
-
-**Verwechslung von Zuweisungs- und Vergleichsoperator:** Für Vergleiche wird
-`==` verwendet, nicht `=`.
-
-```python
-# Falsch (führt zu unerwarteten Ergebnissen)
-if alter = 18:  # Zuweisung statt Vergleich!
-    print("Sie sind genau 18.")
-
-# Richtig
-if alter == 18:
-    print("Sie sind genau 18.")
-```
-
-**Ungeeignete Datentypen für Vergleiche:** Achten Sie darauf, dass die
-verglichenen Werte kompatible Datentypen haben.
-
-```python
-# Problematisch
-alter = input("Wie alt sind Sie? ")  # alter ist ein String
-if alter >= 18:  # Vergleich zwischen String und Zahl führt zu TypeError
-    print("Sie sind volljährig.")
-
-# Richtig
-alter = int(input("Wie alt sind Sie? "))  # Umwandlung in Integer
-if alter >= 18:
-    print("Sie sind volljährig.")
-```
-
-Diese Fehler führen zu Syntax- oder Laufzeitfehlern, die den Programmablauf
-unterbrechen. Achten Sie daher besonders auf die korrekte Syntax und Einrückung
-bei if-Anweisungen.
 
 ## Zusammenfassung und Ausblick
 
-In diesem Kapitel haben wir uns mit einer einfachen Verzweigung beschäftigt. Im
-nächsten Kapitel geht es um mehrfache Verzweigungen mit elif und else.
+Funktionen mit Parametern und Rückgabewerten ermöglichen flexible Eingaben und
+die Rückgabe von Ergebnissen, was unsere Programme modular und wiederverwendbar
+macht. Im nächsten Kapitel lernen wir, wie Variablen unterschiedliche
+Gültigkeitsbereiche haben können - entweder nur innerhalb einer Funktion (lokal)
+oder im gesamten Programm (global).

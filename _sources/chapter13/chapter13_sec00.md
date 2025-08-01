@@ -14,6 +14,11 @@ kernelspec:
 
 # 13. Grundbegriffe Künstliche Intelligenz
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Maschinelles Lernen (ML) und Künstliche Intelligenz (KI) sind die Trends des
 letzten Jahrzehnts. Stand Juli 2022 liefert die Suchmaschine Google für den
 deutschen Begriff maschinelles Lernen 2.8 Millionen Treffer. Auf Englisch

@@ -14,6 +14,11 @@ kernelspec:
 
 # 12.1 Theorie Regression
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 In der Analyse technischer und physikalischer Daten ist die Methode der
 Regression ein fundamentales Werkzeug. Sie ist ein statistisches Verfahren, das
 den Zusammenhang zwischen Variablen ermittelt. In diesem Kapitel beschäftigen

@@ -15,6 +15,11 @@ kernelspec:
 
 # 2.1 Taschenrechner und Ausgabe (print)
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Ein Klassiker beim Erlernen einer neuen Programmiersprache ist das
 Hallo-Welt-Programm. Dabei geht es darum, den Text "Hallo Welt" auf dem
 Bildschirm anzeigen zu lassen. Klingt simpel, aber je nach Programmiersprache

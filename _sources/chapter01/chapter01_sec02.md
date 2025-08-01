@@ -16,6 +16,11 @@ kernelspec:
 
 # 1.2 Programmieren
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Es gibt viele Gründe, warum es sich lohnt, Programmieren zu lernen. Die
 Nachfrage nach Ingenieurinnen und Ingenieuren, die zusätzlich Programmieren
 können, wächst aufgrund der Digitalisierung der Industrie rasant. Programmieren

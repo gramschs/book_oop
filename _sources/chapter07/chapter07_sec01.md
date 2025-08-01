@@ -14,6 +14,11 @@ kernelspec:
 
 # 7.1 Digitale Logik: und, oder, nicht
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 In früheren Kapiteln haben wir den booleschen Datentyp kennengelernt: wahr
 (`True`) oder falsch (`False`). Man kann solche Ausdrücke auch kombinieren, z.B.
 wenn zwei Bedingungen gleichzeitig erfüllt sein sollen. Beispielsweise soll eine

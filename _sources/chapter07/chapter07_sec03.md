@@ -14,6 +14,11 @@ kernelspec:
 
 # 7.3 Dictionaries
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Häufig müssen Daten strukturiert gespeichert werden. Beispielsweise sollen
 Maschinenkonfigurationen effizient verwaltet werden. Für solche Fälle gibt es
 eine Datenstruktur, die besser als eine Liste geeignet ist, das sogenannte

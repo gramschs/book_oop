@@ -14,6 +14,11 @@ kernelspec:
 
 # 4.3 Zufallszahlen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 In diesem Kapitel werden wir uns mit der Erzeugung und Anwendung von
 Zufallszahlen in Python beschäftigen. Wir nutzen dazu das Modul `numpy.random`
 aus der Bibliothek NumPy.

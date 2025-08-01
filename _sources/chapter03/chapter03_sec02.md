@@ -13,6 +13,11 @@ kernelspec:
 
 # 3.2 Das Modul NumPy
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Python kann auch auf schwachbrüstiger Hardware laufen wie beispielsweise auf
 dem Raspberry Pi. Ein Grund für die Effizienz von Python ist, dass nicht alle
 möglichen Datentypen, Funktionen und Methoden von Beginn an in den Speicher

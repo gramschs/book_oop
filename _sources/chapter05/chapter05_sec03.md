@@ -14,6 +14,11 @@ kernelspec:
 
 # 5.3 Programmverzweigungen mit mehreren Zweigen: if -- elif -- else
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 In unserem Alltag kommen häufig Entscheidungen zwischen zwei Möglichkeiten vor.
 Wenn ich an eine T-Kreuzung komme, muss ich mich entscheiden: links oder rechts?
 Betrete ich ein Gebäude, entscheide ich zwischen Treppe und Fahrstuhl. Mein

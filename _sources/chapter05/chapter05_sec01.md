@@ -14,6 +14,11 @@ kernelspec:
 
 # 5.1 Vergleiche und der boolesche Datentyp
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Viele Möglichkeiten unserer Gesellschaft stehen nur Volljährigen offen und sind
 damit an eine Altersangabe gebunden. Wenn jetzt ein Computersystem vorab prüfen
 soll, ob Volljährigkeit vorliegt oder nicht, dann brauchen wir einen einfachen

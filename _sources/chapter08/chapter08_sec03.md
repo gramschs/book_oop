@@ -1,5 +1,10 @@
 # 8.3 Programmieren in MATLAB
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Ein Programmierkurs in MATLAB erfordert eine ganze Vorlesung. In diesem Kapitel vergleichen wir nur die Programmierkonstrukte aus Python mit denen von MATLAB. Gerne können Sie Details in dem Vorlesungsskript
 
 > [https://gramschs.github.io/book_matlab/](https://gramschs.github.io/book_matlab/intro.html)

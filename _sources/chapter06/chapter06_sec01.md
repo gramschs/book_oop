@@ -14,6 +14,11 @@ kernelspec:
 
 # 6.1 Funktionen selbst schreiben
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Eine Funktion in Python ist eine Zusammenfassung von Anweisungen, die dazu
 dienen, eine bestimmte Teilaufgabe zu lösen. Dabei arbeitet die Funktion in
 ihrer allgemeinsten Form nach dem EVA-Prinzip: Eingabe, Verarbeitung, Ausgabe.

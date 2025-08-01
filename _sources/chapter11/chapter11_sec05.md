@@ -14,6 +14,11 @@ kernelspec:
 
 # Übungen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Für alle Übungsaufgaben verwenden wir den Datensatz
 `schlaf_gesundheit_lifestyle_datensatz.csv`, der Informationen über
 Schlafgewohnheiten und Lebensstil von 374 Personen enthält. Der Datensatz ist

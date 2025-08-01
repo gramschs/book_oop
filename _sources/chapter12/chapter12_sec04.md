@@ -14,6 +14,11 @@ kernelspec:
 
 # Übungen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 ````{admonition} Übung 12.1
 :class: miniexercise
 Gegeben ist der folgende Code mit Zeilennummern, um Messdaten zu visualisieren.

@@ -13,6 +13,11 @@ kernelspec:
 
 # 3.3 Das Modul Turtle
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 In der Informatik bezeichnet man Grafiken, die dadurch entstehen, dass ein
 Roboter Linien auf eine Leinwand zeichnet, als *Turtle-Grafiken*. Der Roboter
 wird durch einfache Kommandos gesteuert. Er besitzt eine bestimmte Position (x-

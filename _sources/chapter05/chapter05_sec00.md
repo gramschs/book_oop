@@ -1,5 +1,10 @@
 # 5. Programmverzweigung (if - elif - else)
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Bisher haben wir kleinere Skripte geschrieben, bei denen die Anweisungen Zeile
 für Zeile ausgeführt wurden. Ein Programm oder Skript, das nur aus einer
 einfachen Aneinanderreihung von Befehlen besteht, nennt man linear. Bisher

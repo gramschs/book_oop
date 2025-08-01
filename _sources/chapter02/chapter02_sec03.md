@@ -15,6 +15,11 @@ kernelspec:
 
 # 2.3 Eingabe (input) und Zuweisungsoperator
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Ohne die Eingabe von Daten sind Apps wertlos. In diesem Kapitel beschäftigen wir
 uns daher einer direkten Eingabemöglichkeit in Python und lernen dazu die
 input()-Funktion kennen. Um die input()-Funktion korrekt zu nutzen beschäftigen

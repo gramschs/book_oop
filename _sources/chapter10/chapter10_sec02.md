@@ -14,6 +14,11 @@ kernelspec:
 
 # 10.2 Arbeiten mit Tabellendaten
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Eine Tabellenkalkulationssoftware wie LibreOffice Calc, Excel oder Number ist
 nicht nur nützlich, um Daten zu sammeln, sondern auch um sie zu bearbeiten. In
 diesem Kapitel geht es darum zu lernen, wie mit Pandas auf einzelne Zeilen,

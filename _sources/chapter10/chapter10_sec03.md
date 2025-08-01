@@ -14,6 +14,11 @@ kernelspec:
 
 # 10.3 Statistik mit Pandas
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 ## Lernziele
 
 ```{admonition} Lernziele

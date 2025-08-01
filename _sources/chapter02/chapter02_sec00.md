@@ -15,6 +15,11 @@ kernelspec:
 
 # 2. Eingabe, Verarbeitung und Ausgabe
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Dieses Jupyter Notebook ist der Einstieg in die wissenschaftliche Programmierung
 mit Python. Zuerst werden wir Python als Taschenrechner benutzen. Danach widmen
 wir uns einfachen Datentypen und Variablen. Zusammen mit einfachen

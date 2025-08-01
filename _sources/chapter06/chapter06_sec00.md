@@ -1,4 +1,9 @@
-# 6. Funktionen 
+# 6. Funktionen
+
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
 
 Aus der Mathematik kennen Sie schon den Begriff der Funktion. In der Informatik
 hat der Begriff Funktion jedoch eine leicht andere Bedeutung. Funktionen sind

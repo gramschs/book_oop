@@ -14,6 +14,11 @@ kernelspec:
 
 # Übungen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 ```{admonition} Übung 5.1
 :class: miniexercise
 Schreiben Sie ein Programm, das den Benutzer nach seinem Geburtsjahr fragt.

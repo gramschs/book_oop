@@ -14,6 +14,11 @@ kernelspec:
 
 # 13.2 Überwachtes, unüberwachtes und verstärkendes Lernen
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Nachdem im letzten Kapitel erklärt wurde, was machinelles Lernen überhaupt
 ist, betrachten wir in diesem Kapitel die drei großen Kategorien von
 ML-Modellen: überwachtes Lernen (Supervised Learning), unüberwachtes Lernen

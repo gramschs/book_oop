@@ -14,6 +14,11 @@ kernelspec:
 
 # 11.1 Kontinuierliche Daten visualisieren
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 ## Lernziele
 
 ```{admonition} Lernziele

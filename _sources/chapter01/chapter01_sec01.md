@@ -16,6 +16,11 @@ kernelspec:
 
 # 1.1 Hardware und Software
 
+```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
+:class: warning
+Dieses Vorlesungsskript wird gerade umgebaut.
+```
+
 Bevor wir mit der Programmierung in Python beginnen, machen wir uns zunächst mit
 einigen grundlegenden Begriffen der Informatik vertraut. In diesem Kapitel geht
 es darum, was zu Hardware und was zu Software zählt. Darüber hinaus lernen wir

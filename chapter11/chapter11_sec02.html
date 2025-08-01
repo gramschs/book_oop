@@ -1,0 +1,973 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11.2 Diskrete Daten und Häufigkeiten &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter11/chapter11_sec02';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11.3 DataFrames visualisieren" href="chapter11_sec03.html" />
+    <link rel="prev" title="11.1 Kontinuierliche Daten visualisieren" href="chapter11_sec01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/book_logo.png" class="logo__image only-light" alt="Python für Studierende der Ingenieurwissenschaften - Home"/>
+    <img src="../_static/book_logo.png" class="logo__image only-dark pst-js-only" alt="Python für Studierende der Ingenieurwissenschaften - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Willkommen zum interaktiven Vorlesungsskript Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen Programmierung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec01.html">1.1 Hardware und Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec02.html">1.2 Programmieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Installation und Start von Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Eingabe, Verarbeitung und Ausgabe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Taschenrechner und Ausgabe (print)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen und Variablen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Eingabe (input) und Zuweisungsoperator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Listen und Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Listen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Das Modul NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Das Modul Turtle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Zählschleifen (for), Strings und Zufallszahlen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Zufallszahlen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter05/chapter05_sec00.html">5. Programmverzweigung (if - elif - else)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec01.html">5.1 Vergleiche und der boolesche Datentyp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec02.html">5.2 Programmverzweigungen: if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec03.html">5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Funktionen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Funktionen selbst schreiben</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Funktionen mit Parameter und Rückgabe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Lokale und globale Variablen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Digitale Logik, Schleifen mit Bedingung, Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Digitale Logik: und, oder, nicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Schleifen mit Bedingung (while)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Automatisierungstechnik</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Einführung MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Numerisches Rechnen mit MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 Programmieren in MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übung</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter09/chapter09_sec00.html">9. Simulink</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec01.html">9.1 Simulink Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec02.html">9.2 Simulink-Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec03.html">9.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter09/chapter09_sec04.html">Übung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung Data Science</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Pandas anstatt Excel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Series und DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Arbeiten mit Tabellendaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Statistik mit Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter11_sec00.html">11. Visualisierung mit Matplotlib</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chapter11_sec01.html">11.1 Kontinuierliche Daten visualisieren</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.2 Diskrete Daten und Häufigkeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter11_sec03.html">11.3 DataFrames visualisieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter11_sec05.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Theorie Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Lineare Regression mit polyfit und polyval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">12.3 Polynomiale Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Was ist maschinelles Lernen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Überwachtes, unüberwachtes und verstärkendes Lernen</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/gramschs/book_python/main?urlpath=lab/tree/docs/chapter11/chapter11_sec02.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/gramschs/book_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter11/chapter11_sec02.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/chapter11/chapter11_sec02.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>11.2 Diskrete Daten und Häufigkeiten</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balkendiagramme">Balkendiagramme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramme">Histogramme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-ist-der-unterschied-zwischen-balkendiagramm-und-histogramm">Was ist der Unterschied zwischen Balkendiagramm und Histogramm?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="diskrete-daten-und-haufigkeiten">
+<h1>11.2 Diskrete Daten und Häufigkeiten<a class="headerlink" href="#diskrete-daten-und-haufigkeiten" title="Link to this heading">#</a></h1>
+<section id="lernziele">
+<h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
+<div class="goals admonition">
+<p class="admonition-title">Lernziele</p>
+<ul class="simple">
+<li><p>Sie können diskrete Daten als <strong>Balkendiagramm</strong> visualisieren.</p></li>
+<li><p>Sie können kontinuierliche Daten als <strong>Histogramm</strong> darstellen.</p></li>
+<li><p>Sie verstehen den Unterschied zwischen Balkendiagrammen und Histogrammen.</p></li>
+<li><p>Sie können die <strong>Anzahl der Bins</strong> bei Histogrammen anpassen.</p></li>
+<li><p>Sie können Balken- und Histogramme mit <strong>Farben</strong> gestalten.</p></li>
+</ul>
+</div>
+</section>
+<section id="balkendiagramme">
+<h2>Balkendiagramme<a class="headerlink" href="#balkendiagramme" title="Link to this heading">#</a></h2>
+<p>Ein Balkendiagramm wird mit der Funktion <code class="docutils literal notranslate"><span class="pre">bar()</span></code> erstellt. Balkendiagramme
+eignen sich zur Darstellung von diskreten, kategorialen Daten. Angenommen, wir
+möchten auswerten, wie viele Nutzer/innen in campUAS auf die Jupyter Notebooks
+zum Download zugegriffen haben:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Woche</p></th>
+<th class="head"><p>Anzahl Nutzer/innen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>9</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dann wird das Balkendiagramm mit folgendem Code erzeugt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Daten</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Balkendiagramm</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Woche&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Anzahl Nutzer/innen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Zugriff auf Jupyter Notebooks zum Download WiSe 2021/22&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2c4028de806b8e3470fb2e4340262d953103989e4b017a669dde9697c401b5b8.png" src="../_images/2c4028de806b8e3470fb2e4340262d953103989e4b017a669dde9697c401b5b8.png" />
+</div>
+</div>
+<p>Farben können mit dem optionalen Argument <code class="docutils literal notranslate"><span class="pre">color=</span></code> eingestellt werden. Dabei
+funktionieren häufig einfach die englischen Bezeichnungen für grundlegende
+Farben wie beispielsweise red, green, blue. Eine Alternative dazu ist, den
+RGB-Wert zu spezifizieren, also den Rot-Anteil, den Grün-Anteil und den
+Blau-Anteil. Details finden Sie in der Matplotlib-Dokumentation:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colors.html">https://matplotlib.org/stable/tutorials/colors/colors.html</a></p>
+</div></blockquote>
+<p>Im folgenden Balkendiagramm sind die Balken grau dargestellt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Daten</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Balkendiagramm mit Farbe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Woche&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Anzahl Nutzer/innen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Zugriff auf Jupyter Notebooks zum Download WiSe 2021/22&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/90ca883384438d598021a4adc9a7dd7a020d5ea7cbc04e0efca9eca1d653598d.png" src="../_images/90ca883384438d598021a4adc9a7dd7a020d5ea7cbc04e0efca9eca1d653598d.png" />
+</div>
+</div>
+<p>Balkendiagramme eignen sich besonders gut für den Vergleich von Kategorien. Hier
+ein weiteres Beispiel mit verschiedenen Programmiersprachen und ihrer
+Beliebtheit. Bei diesem Beispiel färben wir auch noch die Balken ein. Dazu
+übergeben wir dem Argument <code class="docutils literal notranslate"><span class="pre">color</span></code> eine Liste mit Strings, die die Farben
+Hex-Code spezifiziert. Mehr Details zu Hex-Codes für Farben finden Sie hier:
+<a class="reference external" href="https://www.color-hex.com">https://www.color-hex.com</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Daten (fiktive Umfrage)</span>
+<span class="n">sprachen</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Java&#39;</span><span class="p">,</span> <span class="s1">&#39;C++&#39;</span><span class="p">,</span> <span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span> <span class="s1">&#39;C#&#39;</span><span class="p">]</span>
+<span class="n">beliebtheit</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">58</span><span class="p">]</span>
+
+<span class="c1"># Balkendiagramm</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">sprachen</span><span class="p">,</span> <span class="n">beliebtheit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#3776ab&#39;</span><span class="p">,</span> <span class="s1">&#39;#f89820&#39;</span><span class="p">,</span> <span class="s1">&#39;#00599c&#39;</span><span class="p">,</span> <span class="s1">&#39;#f7df1e&#39;</span><span class="p">,</span> <span class="s1">&#39;#239120&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Programmiersprache&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Beliebtheit (%)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Beliebtheit von Programmiersprachen unter Studierenden&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/520f3c019e30ba71a15878e40730b8647d65a9744f16392852bde8ee47a5eb56.png" src="../_images/520f3c019e30ba71a15878e40730b8647d65a9744f16392852bde8ee47a5eb56.png" />
+</div>
+</div>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Hier ist eine Tabelle mit den Zugriffszahlen auf die Jupyter Notebooks in der
+Vorlesung Angewandte Informatik. Bitte stellen Sie die Daten als Balkendiagramm
+inklusive Beschriftungen dar. Färben Sie die Balken schwarz.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Woche</p></th>
+<th class="head"><p>Anzahl Nutzer/innen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>15</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>11</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Woche&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Anzahl Nutzer/innen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Zugriffszahlen Jupyter Notebooks - Angewandte Informatik&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="histogramme">
+<h2>Histogramme<a class="headerlink" href="#histogramme" title="Link to this heading">#</a></h2>
+<p>Während Balkendiagramme für diskrete, kategoriale Daten verwendet werden,
+dienen Histogramme zur Darstellung der Verteilung kontinuierlicher Daten.
+Ein Histogramm zeigt, wie häufig bestimmte Wertebereiche in einem Datensatz
+vorkommen.</p>
+<p>Der wichtigste Unterschied: Bei Balkendiagrammen sind die Kategorien fest
+vorgegeben (z.B. Wochentage, Programmiersprachen), bei Histogrammen werden
+die kontinuierlichen Daten in Intervalle (sogenannte “Bins”) unterteilt.</p>
+<p>Erstellen wir zunächst einen Datensatz mit kontinuierlichen Daten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Simuliere Körpergrößen von 1000 Personen (normalverteilt)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># Für reproduzierbare Ergebnisse</span>
+<span class="n">koerpergroessen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">175</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Mittelwert 175cm, Standardabweichung 8cm</span>
+
+<span class="c1"># Histogramm erstellen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">koerpergroessen</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Körpergröße [cm]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Häufigkeit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Verteilung der Körpergrößen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3918939e534cb2b0fb553539f9dd4dfc087d59a2339cab07e6fbd58979fcd63c.png" src="../_images/3918939e534cb2b0fb553539f9dd4dfc087d59a2339cab07e6fbd58979fcd63c.png" />
+</div>
+</div>
+<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">hist()</span></code> nimmt die Rohdaten und erstellt automatisch ein
+Histogramm. Der Parameter <code class="docutils literal notranslate"><span class="pre">bins</span></code> bestimmt, in wie viele Intervalle die Daten
+aufgeteilt werden. Mehr Bins führen zu einer feineren Aufteilung, weniger Bins
+zu einer gröberen.</p>
+<p>Schauen wir uns den Effekt verschiedener Bin-Anzahlen an. Zusätzlich nutzen wir
+noch die Optionen <code class="docutils literal notranslate"><span class="pre">alpha</span></code> (Transparenzgrad), <code class="docutils literal notranslate"><span class="pre">color</span></code> (Farbe) und <code class="docutils literal notranslate"><span class="pre">edgecolor</span></code>
+(Farbe des Rahmens um die Balken), um die Bins besser zu visualisieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verschiedene Bin-Anzahlen vergleichen</span>
+<span class="n">anzahl_bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">titel</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;10 Bins&#39;</span><span class="p">,</span> <span class="s1">&#39;20 Bins&#39;</span><span class="p">,</span> <span class="s1">&#39;50 Bins&#39;</span><span class="p">,</span> <span class="s1">&#39;100 Bins&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">koerpergroessen</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">anzahl_bins</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Körpergröße [cm]&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Häufigkeit&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titel</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0cbd7ccb51e9fc7b24ff5ad40b93904786fbbbf6614623b48af2d1d432f123fe.png" src="../_images/0cbd7ccb51e9fc7b24ff5ad40b93904786fbbbf6614623b48af2d1d432f123fe.png" />
+<img alt="../_images/56bfdadcf30282dbae3e69823e69a4098659bdd8329d4a19d257e6df65287782.png" src="../_images/56bfdadcf30282dbae3e69823e69a4098659bdd8329d4a19d257e6df65287782.png" />
+<img alt="../_images/b0ec9cb109e68d51a7ffd950f73d3ef660537bd15b73c94ad03fc24a92f631fc.png" src="../_images/b0ec9cb109e68d51a7ffd950f73d3ef660537bd15b73c94ad03fc24a92f631fc.png" />
+<img alt="../_images/bc7223098599cfc89a2d87f6dba81373db6c05be92eb5e56b128d785caf388d1.png" src="../_images/bc7223098599cfc89a2d87f6dba81373db6c05be92eb5e56b128d785caf388d1.png" />
+</div>
+</div>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Erstellen Sie ein Histogramm für simulierte Reaktionszeiten:</p>
+<ul class="simple">
+<li><p>Generieren Sie 500 Zufallszahlen mit Mittelwert 0.25 und Standardabweichung 0.05</p></li>
+<li><p>Verwenden Sie 25 Bins</p></li>
+<li><p>Färben Sie das Histogramm orange</p></li>
+<li><p>Beschriften Sie die Achsen: x-Achse “Reaktionszeit [s]”, y-Achse “Häufigkeit”</p></li>
+<li><p>Titel: “Verteilung der Reaktionszeiten”</p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Daten generieren</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">reaktionszeiten</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># Histogramm erstellen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">reaktionszeiten</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Reaktionszeit [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Häufigkeit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Verteilung der Reaktionszeiten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="was-ist-der-unterschied-zwischen-balkendiagramm-und-histogramm">
+<h2>Was ist der Unterschied zwischen Balkendiagramm und Histogramm?<a class="headerlink" href="#was-ist-der-unterschied-zwischen-balkendiagramm-und-histogramm" title="Link to this heading">#</a></h2>
+<p>Um den Unterschied zwischen Balkendiagramm und Histogramm zu verdeutlichen,
+schauen wir uns Daten von Autos als Beispiel an.</p>
+<p>Mit dem Balkendiagramm visualisieren wir diskrete Daten wie beispielsweise die
+Anzahl der verkauften Autos pro Marke.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Anzahl verkaufter Autos pro Marke (diskrete Kategorien)</span>
+<span class="n">marken</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BMW&#39;</span><span class="p">,</span> <span class="s1">&#39;Mercedes&#39;</span><span class="p">,</span> <span class="s1">&#39;Audi&#39;</span><span class="p">,</span> <span class="s1">&#39;VW&#39;</span><span class="p">,</span> <span class="s1">&#39;Ford&#39;</span><span class="p">]</span>
+<span class="n">verkaufte_autos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">marken</span><span class="p">,</span> <span class="n">verkaufte_autos</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Automarke&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Anzahl verkaufter Autos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Balkendiagramm: Diskrete Kategorien&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/336c8b4e4d81e8ba0972a50974326d0b20dfde86777689cc6417f0b94a3fad9b.png" src="../_images/336c8b4e4d81e8ba0972a50974326d0b20dfde86777689cc6417f0b94a3fad9b.png" />
+</div>
+</div>
+<p>Wenn es aber nun darum geht, darzustellen, wie viele Autos ein bestimmtes Alter
+in Jahren haben, ist ein Balkendiagramm unübersichtlich. Besser ist es, die Jahre
+zuerst zu clustern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alter der Autos (kontinuierliche Daten)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">alter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">alter</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Alter [Jahre]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Anzahl Autos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogramm: Kontinuierliche Daten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/eb083a32ef51d49238fdfeb7f22f295defb097e96f7fbc44e12867436a4a0d7a.png" src="../_images/eb083a32ef51d49238fdfeb7f22f295defb097e96f7fbc44e12867436a4a0d7a.png" />
+</div>
+</div>
+</section>
+<section id="zusammenfassung-und-ausblick">
+<h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
+<p>In diesem Kapitel haben wir zwei wichtige Visualisierungstypen für verschiedene
+Datenarten kennengelernt. Balkendiagramme eignen sich für diskrete, kategoriale
+Daten und ermöglichen den direkten Vergleich zwischen verschiedenen Kategorien.
+Histogramme zeigen die Verteilung kontinuierlicher Daten und helfen dabei,
+Muster und Häufigkeiten in großen Datensätzen zu erkennen. Im nächsten Kapitel
+werden wir lernen, wie wir diese Techniken auf reale Datensätze anwenden können.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gramschs/book_python",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter11"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter11_sec01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">11.1 Kontinuierliche Daten visualisieren</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter11_sec03.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">11.3 DataFrames visualisieren</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balkendiagramme">Balkendiagramme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramme">Histogramme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-ist-der-unterschied-zwischen-balkendiagramm-und-histogramm">Was ist der Unterschied zwischen Balkendiagramm und Histogramm?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Simone Gramsch
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9.1 Simulink Einführung &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter09/chapter09_sec01';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9.2 Simulink-Bibliothek" href="chapter09_sec02.html" />
+    <link rel="prev" title="9. Simulink" href="chapter09_sec00.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/book_logo.png" class="logo__image only-light" alt="Python für Studierende der Ingenieurwissenschaften - Home"/>
+    <img src="../_static/book_logo.png" class="logo__image only-dark pst-js-only" alt="Python für Studierende der Ingenieurwissenschaften - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Willkommen zum interaktiven Vorlesungsskript Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen Programmierung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01/chapter01_sec00.html">1. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec01.html">1.1 Hardware und Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec02.html">1.2 Programmieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Installation und Start von Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Eingabe, Verarbeitung und Ausgabe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec01.html">2.1 Taschenrechner und Ausgabe (print)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec02.html">2.2 Datentypen und Variablen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec03.html">2.3 Eingabe (input) und Zuweisungsoperator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter02/chapter02_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03/chapter03_sec00.html">3. Listen und Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec01.html">3.1 Listen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec02.html">3.2 Das Modul NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec03.html">3.3 Das Modul Turtle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter03/chapter03_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter04/chapter04_sec00.html">4. Zählschleifen (for), Strings und Zufallszahlen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec01.html">4.1 for-Schleifen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec02.html">4.2 Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec03.html">4.3 Zufallszahlen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter04/chapter04_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter05/chapter05_sec00.html">5. Programmverzweigung (if - elif - else)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec01.html">5.1 Vergleiche und der boolesche Datentyp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec02.html">5.2 Programmverzweigungen: if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec03.html">5.3 Programmverzweigungen mit mehreren Zweigen: if – elif – else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter05/chapter05_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter06/chapter06_sec00.html">6. Funktionen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec01.html">6.1 Funktionen selbst schreiben</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec02.html">6.2 Funktionen mit Parameter und Rückgabe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec03.html">6.3 Lokale und globale Variablen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter06/chapter06_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter07/chapter07_sec00.html">7. Digitale Logik, Schleifen mit Bedingung, Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec01.html">7.1 Digitale Logik: und, oder, nicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec02.html">7.2 Schleifen mit Bedingung (while)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec03.html">7.3 Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter07/chapter07_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Automatisierungstechnik</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. MATLAB</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Einführung MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Numerisches Rechnen mit MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 Programmieren in MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übung</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter09_sec00.html">9. Simulink</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.1 Simulink Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter09_sec02.html">9.2 Simulink-Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter09_sec03.html">9.3 Ableitung, Integration und Differentialgleichung mit Simulink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter09_sec04.html">Übung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung Data Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter10/chapter10_sec00.html">10. Pandas anstatt Excel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec01.html">10.1 Series und DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec02.html">10.2 Arbeiten mit Tabellendaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec03.html">10.3 Statistik mit Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter10/chapter10_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter11/chapter11_sec00.html">11. Visualisierung mit Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec01.html">11.1 Kontinuierliche Daten visualisieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec02.html">11.2 Diskrete Daten und Häufigkeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec03.html">11.3 DataFrames visualisieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter11/chapter11_sec05.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter12/chapter12_sec00.html">12. Messwerte und Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec01.html">12.1 Theorie Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec02.html">12.2 Lineare Regression mit polyfit und polyval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec03.html">12.3 Polynomiale Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter12/chapter12_sec04.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter13/chapter13_sec00.html">13. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec01.html">13.1 Was ist maschinelles Lernen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec02.html">13.2 Überwachtes, unüberwachtes und verstärkendes Lernen</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/gramschs/book_python/main?urlpath=lab/tree/docs/chapter09/chapter09_sec01.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/gramschs/book_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter09/chapter09_sec01.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/chapter09/chapter09_sec01.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>9.1 Simulink Einführung</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-ist-modellierung">Was ist Modellierung?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-von-simulink">Start von Simulink</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quellen-und-senken">Quellen und Senken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-und-speichern">Layout und Speichern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-erste-simulation">Die erste Simulation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="simulink-einfuhrung">
+<h1>9.1 Simulink Einführung<a class="headerlink" href="#simulink-einfuhrung" title="Link to this heading">#</a></h1>
+<p>MATLAB bietet neben einer Reihe von Toolboxen auch eine Zusatzsoftware an, die
+es Ingenieur:innen erleichtert, technische Systeme zu modellieren. Diese
+Software heißt Simulink und benötigt MATLAB. Detaillierte Informationen zu
+Simulink finden Sie auf der Produktseite von
+<a class="reference external" href="https://de.mathworks.com/products/simulink.html">MATLAB</a>. Die Besonderheit von
+Simulink ist, dass die Modellierung grafisch mit Blöcken erfolgt.</p>
+<p>In diesem Kapitel werden wir uns zunächst mit der Modellierung technischer
+Systeme beschäftigen und uns dann die ersten grundlegenden Schritte in Simulink
+erarbeiten.</p>
+<section id="lernziele">
+<h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
+<div class="goals admonition">
+<p class="admonition-title">Lernziele</p>
+<ul class="simple">
+<li><p>Sie können Simulink starten.</p></li>
+<li><p>Sie kennen den Unterschied zwischen <strong>Sources</strong> (Quellen) und <strong>Sinks</strong>
+Senken.</p></li>
+<li><p>Sie können ein Simulink-Signal mit Hilfe des <strong>Scope</strong>-Blocks visualisieren.</p></li>
+<li><p>Sie können ein Signal mit dem <strong>Gain</strong>-Block verstärken.</p></li>
+<li><p>Sie können ein Simulink-Modell abspeichern.</p></li>
+</ul>
+</div>
+</section>
+<section id="was-ist-modellierung">
+<h2>Was ist Modellierung?<a class="headerlink" href="#was-ist-modellierung" title="Link to this heading">#</a></h2>
+<p>Das erste Modell, das Sie vermutlich hatten, war eine Modelleisenbahn oder eine
+Playmobil-Spiellandschaft – vielleicht haben Sie aber auch aus Legosteinen ein
+Auto gebaut? Ein Modell beschreibt die reale Welt in vereinfachter und meist
+verkleinerter Form. In den Natur- und Ingenieurwissenschaften sind Modelle die
+Grundlage des wissenschaftlichen Arbeitens.</p>
+<p><strong>Modellierung</strong> beschreibt nun den Prozess, ein geeignetes Modell zu finden, um
+eine bestimmte Fragestellung zu beantworten. Normalerweise ist kein Modell so
+komplex wie die Wirklichkeit. Die Modellierer:innen müssen sich also
+entscheiden, welche Details wichtig sind und welche sie weglassen können.
+Beispielsweise werden sehr häufig bei Spielzeugfiguren die einzelnen Finger
+weggelassen. Aber auch bei Experimenten müssen solche Entscheidungen getroffen
+werden. Einmal angenommen, ich möchte wissen, wie lange ich mein Eis in die
+Sonne legen kann, bevor es komplett geschmolzen ist. Dann kann ich die
+Sonneneinstrahlung oder die Temperatur messen, verschiedene Eissorten nehmen und
+die Zeitdauer messen, bis wann das Eis geschmolzen ist. Aber es ist nicht
+sinnvoll zusätzlich die Information zu erheben, wie viele Eisbären am Nordpol
+gerade einen Fisch gefangen haben.</p>
+<p>In den Ingenieurwissenschaften versuchen die Forscher:innen dann aus den Daten
+oder den vermuteten Zusammenhängen eine Funktion zu basteln, die hilft die
+Zusammenhänge zu verstehen oder Prognosen zu treffen. Wenn diese Modellierung
+rein datenbasiert erfolgt, so benutzen wir Methoden der Statistik oder des
+maschinellen Lernens. Wenn stattdessen oder zusätzlich prinzipielle
+Zusammenhänge einfließen, verwenden wir Gleichungen oder
+Differentialgleichungen. Bei Simulink legen wir den Schwerpunkt der Modellierung
+auf die Differentialgleichungen.</p>
+</section>
+<section id="start-von-simulink">
+<h2>Start von Simulink<a class="headerlink" href="#start-von-simulink" title="Link to this heading">#</a></h2>
+<p>Da Simulink ein Zusatzprogramm von MATLAB ist, öffnen Sie zuerst MATLAB. Es kann
+sein, dass Sie Simulink erst nachinstallieren müssen. Wenn Simulink installiert
+ist, finden Sie im Hauptmenü von MATLAB einen Button mit Simulink. Starten Sie
+Simulink, legen Sie ein <code class="docutils literal notranslate"><span class="pre">Blank</span> <span class="pre">Model</span></code> an und öffnen Sie die Bibliothek mit den
+Blockdiagrammen. Die folgende Animationen zeigt Ihnen die notwendigen Schritte.</p>
+<p><img alt="Screencast Start von Simulink" src="../_images/part10_start_simulink.gif" /></p>
+</section>
+<section id="quellen-und-senken">
+<h2>Quellen und Senken<a class="headerlink" href="#quellen-und-senken" title="Link to this heading">#</a></h2>
+<p>Als ein erstes einfaches Beispiel simulieren wir ein System, das durch die
+mathematische Funktion <span class="math notranslate nohighlight">\(f(x)=2\sin(x)\)</span> beschrieben wird. Damit betrachten wir
+zwar noch keine Differentialgleichung, sondern nur eine einfache
+Funktionsgleichung, aber können schon die wichtigsten Prinzipien in Simulink
+kennenlernen, nämlich die grafische Block-Modellierung. In Simulink wird jede
+Eingabe, jeder Verarbeitungsschritt und jede Ausgabe durch einen Block
+beschrieben. Diese Blöcke können dann seriell (hintereinander) oder parallel
+zusammengebaut werden. Die Idee hinter den zusammengeschalteten Blöcken erinnert
+an einen Fluss und seine Nebenflüsse, der letztendlich ins Meer fließt wie
+beispielsweise der Rhein. Nur wird in Simulink nicht Wasser transportiert,
+sondern Informationen.</p>
+<p><img alt="Bild des Rhein" src="../_images/part10_rhein_small.jpg" /></p>
+<p>Die Quelle an Informationen wird in Simulink <strong>Source</strong>, so wie der englische
+Begriff. Die weiteren Informationen wie beispielsweise Anfangswerte oder
+Randbedingungen sind ebenfalls Quellen, also Sources und fließen wie die
+Nebenflüsse in den Hauptfluss. Der Abfluss, die Senke oder das Spülbecken heißen
+auf Englisch <strong>Sink</strong>. Unter den Sink-Blöcken finden Sie also das Ergebnis, die
+Ausgabe der Simulation. Wir wollen uns nun das Beispiel</p>
+<div class="math notranslate nohighlight">
+\[f(x)=2\sin(x)\]</div>
+<p>in Simulink ansehen. Die Quelle/Source ist die rechte Seite, genauer gesagt die
+Sinusfunktion <span class="math notranslate nohighlight">\(\sin(x)\)</span>. Die Quelle wird noch verstärkt. Verstärker heißt auf
+Englisch Gain, also wird noch ein Gain-Block zur Verstärkung dazgeschaltet. Am
+Ende mündet alles in eine Visualisierung. Der entsprechende Sink-Block Scope
+zeigt das Ergebnis <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
+<p>Die Blöcke werden in der Bibliothek gesucht. Zur leichteren Navigation dient die
+linke Seitenleiste der Library. Dort wird Sink oder Source ausgewählt, um den
+Eingabeblock Sinus oder den Ausgabeblock Scope auszuwählen. Der Verstärkerblock
+Gain befindet sich bei den häufig genutzten Blöcken. Am einfachsten ist es, die
+Blöcke anzuklicken und auf den Arbeitsplatz zu ziehen, wie in dem folgenden
+Screencast gezeigt wird.</p>
+<p><img alt="Screencast erstes Projekt in Simulink" src="../_images/part10_simulink_firstproject.gif" /></p>
+</section>
+<section id="layout-und-speichern">
+<h2>Layout und Speichern<a class="headerlink" href="#layout-und-speichern" title="Link to this heading">#</a></h2>
+<p>Die genaue Anordnung der Blöcke ist nicht wichtig, da durch das Routing
+(Verbinden der Blöcke) die Fließrichtung definiert ist. Dennoch empfiehlt es
+sich, das Layout übersichtlich zu halten. Der folgende Screencast zeigt, wie die
+Blöcke mit der Maus verschoben werden, bis das Verbindungssignal horizontal
+ausgerichtet ist. Danach wird gezeigt, wie das erste Projekt unter dem Namen
+“firstProject” gespeichert wird.</p>
+<p><img alt="Screencast Speichern" src="../_images/part10_simulink_saveing.gif" /></p>
+</section>
+<section id="die-erste-simulation">
+<h2>Die erste Simulation<a class="headerlink" href="#die-erste-simulation" title="Link to this heading">#</a></h2>
+<p>Nun können wir die Simulation laufen lassen. Im folgenden Screencast werden zwei
+Möglichkeiten gezeigt. Zum einen wird direkt aus dem Hautmenü die Simulation
+gestartet. Anschließend wird durch Doppelklick auf den Scope-Block die
+Visualisierung eingeblendet. Zum anderen kann auch der Scope-Block zuerst
+geöffnet werden und von dort aus die Simulation gestartet werden. Zuletzt wird
+moch gezeigt, wie die Verdopplung des Verstärkungsfaktors von 1 auf 2 dazu
+führt, dass die Sinusfunktion Funktionswerte zwischen -2 und 2 annimmt.</p>
+<p><img alt="Screencast Visualisierung mit dem Scope-Block" src="../_images/part10_simulink_scope.gif" /></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gramschs/book_python",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter09"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter09_sec00.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">9. Simulink</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter09_sec02.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">9.2 Simulink-Bibliothek</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-ist-modellierung">Was ist Modellierung?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-von-simulink">Start von Simulink</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quellen-und-senken">Quellen und Senken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-und-speichern">Layout und Speichern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-erste-simulation">Die erste Simulation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Simone Gramsch
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

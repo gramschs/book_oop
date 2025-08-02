@@ -19,320 +19,358 @@ kernelspec:
 Dieses Vorlesungsskript wird gerade umgebaut.
 ```
 
-KI (Künstliche Intelligenz) ist in aller Munde. Etwas seltener wird der Begriff
-**maschinelles Lernen** verwendet. Maschinelles Lernen, oft auch **Machine
-Learning** genannt, ist ein Teilgebiet der Künstlichen Intelligenz.
+Ein beliebtes Partyspiel ist das Spiel "Wer bin ich?". Die Spielregel sind
+simpel. Eine Person wählt eine berühmte Person oder eine Figur aus einem Film
+oder Buch, die die Mitspieler:innen erraten müssen. Die Mitspieler:innen
+dürfen jedoch nur Fragen stellen, die mit "Ja" oder "Nein" beantwortet werden.
 
-Wir kürzen in dieser Vorlesung maschinelles Lernen oft mit **ML** ab. Damit
-umgehen wir die Diskussion, warum Künstliche Intelligenz mit einem
-Großbuchstaben beginnt und maschinelles Lernen mit einem Kleinbuchstaben.
-Gleichzeitig ist das auch die gängige Abkürzung im englischen Sprachgebrauch.
-Dieses Kapitel klärt, was maschinelles Lernen ist und führt in die
-grundlegenenden Bestandteile eines ML-Systems ein.
+Hier ist ein Beispiel, wie eine typische Runde von "Wer bin ich?" ablaufen
+könnte:
+
+* Spieler 1: Bin ich männlich?
+* Spieler 2: Ja.
+* Spieler 3: Bist du ein Schauspieler?
+* Spieler 1: Nein.
+* Spieler 4: Bist du ein Musiker?
+* Spieler 1: Ja.
+* Spieler 5: Bist du Michael Jackson?
+* Spieler 1: Ja! Richtig!
+
+Als nächstes wäre jetzt Spieler 5 an der Reihe, sich eine Person oder Figur
+auszuwählen, die die anderen Spieler erraten sollen. Vielleicht kennen Sie auch
+die umgekehrte Variante. Der Name der zu ratenden Person/Figur wird der Person
+mit einem Zettel auf die Stirn geklebt. Und nun muss die Person raten, während
+die Mitspieler:innen mit Ja/Nein antworten.
+
+Dieser Partyklassiker lässt sich auch auf das maschinelle Lernen übertragen.
 
 ## Lernziele
 
 ```{admonition} Lernziele
 :class: goals
-* Sie wissen, wie langes es das Forschungsgebiet **maschinelles Lernen** gibt
-  und warum es sich in den letzten beiden Jahrzehnten so stark entwickelt hat.
-* Sie kennen die Bestandteile eines ML-Systems: **Daten**, **Algorithmus** und
-  **Modell**. 
+* Sie wissen, was ein **Entscheidungsbaum (Decision Tree)** ist.
+* Sie kennen die Bestandteile eines Entscheidungsbaumes:
+  * Wurzelknoten (Root Node)
+  * Knoten (Node)
+  * Zweig oder Kante (Branch)
+  * Blatt (Leaf)
+* Sie können einen Entscheidungsbaum mit Scikit-Learn trainieren.
+* Sie können mit Hilfe eines Entscheidungsbaumes Prognosen treffen.
 ```
 
-## Ein wenig Geschichte
+## Ein Entscheidungsbaum im Autohaus
 
-Viele glauben, dass die Forschungsgebiete Künstliche Intelligenz und
-maschinelles Lernen Neuentwicklungen des 21. Jahrhunderts sind. Doch tatsächlich
-hat Arthur L. Samuel bereits 1959 maschinelles Lernen wie folgt definiert:
+Ein **Entscheidungsbaum** gehört zu den überwachten Lernverfahren (Supervised
+Learning). Es ist auch üblich, die englische Bezeichnung **Decision Tree**
+anstatt des deutschen Begriffes zu nutzen. Ein großer Vorteil von
+Entscheidungsbäumen ist ihre Flexibilität, denn sie können sowohl für
+Klassifikations- als auch Regressionsaufgaben eingesetzt werden. Im Folgenden
+betrachten wir als Beispiel eine Klassifikationsaufgabe. In einem Autohaus
+vereinbaren zehn Personen eine Probefahrt. In der folgenden Tabelle ist notiert,
+welchen
 
-```{epigraph}
-»... ein Forschungsgebiet, das Computer in die Lage versetzen soll, zu lernen,
-ohne explizit darauf programmiert zu sein.«
+* `Kilometerstand [in km]` und
+* `Preis [in EUR]`
 
-Arthur L. Samuel, 1959
+das jeweilige Auto hat. In der dritten Spalte `verkauft` ist vermerkt, ob das
+Auto nach der Probefahrt verkauft wurde (`True`) oder nicht (`False`). Diese
+Information ist die Zielgröße. Die Tabelle mit den Daten lässt sich effizient
+mit einem Pandas-DataFrame organisieren:
+
+```{code-cell}
+import pandas as pd 
+
+daten = pd.DataFrame({
+    'Kilometerstand [km]': [32908, 20328, 13285, 17162, 27449, 13715, 32889,  3111, 15607, 18295],
+    'Preis [EUR]': [15960, 20495, 17227, 17851, 5428, 22772, 13581, 16793, 23253, 11382],
+    'verkauft': [False, True, False, True, False, True, False, True, True, False],
+    },
+    index=['Auto 1', 'Auto 2', 'Auto 3', 'Auto 4', 'Auto 5', 'Auto 6', 'Auto 7', 'Auto 8', 'Auto 9', 'Auto 10'])
+daten.head(10)
 ```
 
-[Wikipedia → Maschinelles Lernen](https://de.wikipedia.org/wiki/Maschinelles_Lernen)
-bietet eine weitere Definition:
+Da in unserem Beispiel von den Autos nur die beiden Eigenschaften
+`Kilometerstand [km]` und `Preis [EUR]` erfasst wurden, können wir die
+Datenpunkte anschaulich in einem zweidimensionalen Streudiagramm (Scatterplot)
+visualisieren. Dabei wird der Kilometerstand auf der x-Achse und der Preis auf
+der y-Achse abgetragen. Die Zielgröße `verkauft` kennzeichnen wir durch die
+Farbe. Dabei steht die Farbe Rot für »verkauft« (True) und Blau für »nicht
+verkauft« (False).
 
-```{epigraph}
-»Maschinelles Lernen (ML) ist ein Oberbegriff für die „künstliche“ Generierung
-von Wissen aus Erfahrung: Ein künstliches System lernt aus Beispielen und kann
-diese nach Beendigung der Lernphase verallgemeinern.«
+```{code-cell}
+import plotly.express as px
+
+fig = px.scatter(daten, x = 'Kilometerstand [km]', y = 'Preis [EUR]', 
+                 color='verkauft', title='Künstliche Daten: Verkaufsaktion im Autohaus')
+fig.show()
 ```
 
-Auch hier wird der Aspekt betont, dass das künstliche System selbst lernt. Aber
-was ist mit selbst Lernen gemeint? Ein Kind lernt beispielsweise selbst das
-Laufen. Auch wenn Eltern präzise beschreiben könnten, welcher Muskel zu welchem
-Zeitpunkt kontrahiert werden muss und mit welcher Geschwindigkeit in welche
-Richtung das Bein bewegt werden soll, würde das Kind die Anweisungen nicht
-verstehen können. Ein Kind lernt selbst durch Versuch und Irrtum. In der
-Anfangszeit der Robotik versuchten Forscherinnen und Forscher, Roboter durch
-explizite Befehle zu steuern. Doch bei unvorhergesehenen Hindernissen stießen
-solche Roboter an ihre Grenzen. Aus der Notwendigkeit, dass Roboter ähnlich wie
-Menschen lernen, entwickelte sich das Teilgebiet maschinelles Lernen innerhalb
-der Künstlichen Intelligenz.
+Als nächstes zeigen wir, wie die Autos anhand von Fragen in die beiden Klassen
+»verkauft« und »nicht verkauft« sortiert werden können. Im Streudiagramm
+visualisieren wir die Autos mit ihren Eigenschaften `Kilometerstand [km]` und
+`Preis [EUR]` als Punkte. Dazu passend werden wir schrittweise den
+Entscheidungsbaum entwickeln. Ein Entscheidungsbaum visualisiert
+Entscheidungsregeln in Form einer Baumstruktur. Zu Beginn wurde noch keine Frage
+gestellt und alle Autos befinden sich gemeinsam in einem **Knoten** (Node) des
+Entscheidungsbaumes, der visuell durch einen rechteckigen Kasten symbolisiert
+wird. Dieser erste Knoten wird als **Wurzelknoten** (Root Node) bezeichnet, da
+er die Wurzel des Entscheidungsbaumes darstellt.
 
-Doch nicht nur in der Robotik spielt maschinelles Lernen eine wichtige Rolle.
-Auch bei der Datenanalyse kann es hilfreich sein, wenn ein Computersystem
-eigenständig Muster in den Daten erkennt. Ein Klassiker dafür ist die
-Spam-Erkennung. Natürlich ist es möglich, den Spam-Filter mit expliziten Regeln
-zu programmieren. Schon nach kurzer Zeit ändern jedoch Spammer die E-Mail-Texte
-und schon greifen die expliziten Regeln nicht mehr. Hier helfen maschinell
-gelernte Regeln. Durch die Markierung von E-Mails als Spam lernt das
-E-Mail-Programm nach und nach selbst Regeln, um Spam-E-Mails zu identifizieren.
+<img src="pics/combined_decisiontree00.svg"
+alt="Entscheidungsbaum - Start"
+class="image169"
+width=100%>
 
-Die exponentiell wachsende Datenmenge der letzten beiden Jahrzehnte hat das
-Interesse an maschinellen Lernverfahren stark erhöht. Es gibt aber auch noch
-andere Gründe, die zum aktuellen Boom des maschinellen Lernens beigetragen
-haben.
+<img src="pics/scatterplot00.svg"
+alt="Entscheidungsbaum - Start"
+class="image43"
+width=100%>
 
-````{admonition} Mini-Übung
-:class: miniexercise
-Schauen Sie sich das folgende Video an. Welche drei Gründe werden dort genannt,
-warum maschinelles Lernen zuletzt so stark nachgefragt wurde? 
+<img src="pics/decisiontree_cars00.svg"
+alt="Entscheidungsbaum - Start"
+class="image43"
+width=100%>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/l_HSWmxMRlU" 
+Dann wird eine erste Frage gestellt. *Ist der Verkaufspreis kleiner oder gleich
+16376.50 EUR?* Entsprechend dieser Entscheidung werden die Autos in zwei Gruppen
+aufgeteilt. Wenn ja, wandern die Autos nach links und ansonsten nach rechts. Im
+Entscheidungsbaum wird diese Aufteilung durch einen **Zweig** (Branch) nach
+links und einen Zweig nach rechts symbolisiert. Ein alternativer Name für Zweig
+ist **Kante**. Die Autos »rutschen« die Zweige/Kanten entlang und landen in zwei
+separaten Knoten. Im Streudiagramm (Scatterplot) entspricht diese Fragestellung
+dem Vergleich mit einer horizontalen Linie bei y = 16376.5. Da alle Autos mit
+einem Verkaufspreis kleiner/gleich 16376.5 EUR blau sind, also »nicht verkauft«
+wurden, wird im Streudiagramm (Scatterplot) alles unterhalb der horizontalen
+Linie blau eingefärbt.
+
+<img src="pics/combined_decisiontree01.svg"
+alt="Entscheidungsbaum - 1. Entscheidung"
+class="image169"
+width=100%>
+
+<img src="pics/scatterplot01.svg"
+alt="Entscheidungsbaum - 1. Entscheidung"
+class="image43"
+width=100%>
+
+<img src="pics/decisiontree_cars01.svg"
+alt="Entscheidungsbaum - 1. Entscheidung"
+class="image43"
+width=100%>
+
+Bei den Autos mit einem Preis kleiner oder gleich 16376.50 EUR müssen wir nicht
+weiter sortieren bzw. weitere Fragen stellen. Da aus diesem Knoten keine Zweige
+mehr wachsen, wird dieser Knoten auch **Blatt** (Leaf) genannt. Aber in dem
+Knoten des rechten Zweiges befinden sich fünf rote (also verkaufte) Autos und
+ein blaues (also nicht verkauftes) Auto. Wir wollen diese Autos durch weitere
+Fragen sortieren. Doch obwohl nur ein Auto (nämlich Auto 3) aus dieser Gruppe
+separiert werden soll, ist dies nicht durch nur eine einzige Frage möglich.
+Lautet die Frage: »Ist der Preis kleiner oder gleich 17300 EUR?«, dann wandern
+das rote Auto 8 und das blaue Auto 3 nach links. Wählen wir die Frage: »Ist der
+Kilometerstand kleiner oder gleich 13500 km?«, dann wandern ebenfalls Auto 3 und
+Auto 8 nach links. Beide Fragen sind also gleichwertig, welches sollen wir
+nehmen? Wir gehen nach der Reihenfolge der Eigenschaften vor. Da der
+Kilometerstand in der Tabelle in der ersten Spalte steht und der Preis in der
+zweiten Spalte, entscheiden wir uns für die Frage nach dem Kilometerstand: *»Ist
+der Kilometerstand kleiner oder gleich 13500 km?«* Alternativ könnten wir auch
+den Zufall entscheiden lassen.
+  
+<img src="pics/combined_decisiontree02.svg"
+alt="Entscheidungsbaum - 2. Entscheidung"
+class="image169"
+width=100%>
+
+<img src="pics/scatterplot02.svg"
+alt="Entscheidungsbaum - 2. Entscheidung"
+class="image43"
+width=100%>
+
+<img src="pics/decisiontree_cars02.svg"
+alt="Entscheidungsbaum - 2. Entscheidung"
+class="image43"
+width=100%>
+
+Im Streudiagramm (Scatterplot) wird die noch nicht eingefärbte Fläche rechts der
+vertikalen Linie 13500 km rot gefärbt. Im linken Knoten (Node) sind aber nur
+noch zwei Autos, so dass diesmal eine weitere Frage ausreicht, die beiden Autos
+in zwei Klassen zu sortieren. Wir fragen: *»Ist der Kilometerstand kleiner oder
+gleich 8198 km?«*
+
+<img src="pics/combined_decisiontree03.svg"
+alt="Entscheidungsbaum - 3. Entscheidung"
+class="image169"
+width=100%>
+
+<img src="pics/scatterplot03.svg"
+alt="Entscheidungsbaum - 3. Entscheidung"
+class="image43"
+width=100%>
+
+<img src="pics/decisiontree_cars03.svg"
+alt="Entscheidungsbaum - 3. Entscheidung"
+class="image43"
+width=100%>
+
+Alle Autos sind nun durch die Fragen sortiert und befinden sich in Blättern
+(Leaves). Im Streudiagramm (Scatterplot) wird dieser Zustand kenntlich gemacht,
+indem auch die letzte verbleibende Fläche (oberhalb eines Preises von 16376.50
+EUR) links von Kilometerstand 8198 km rot und rechts davon blau eingefärbt wird.
+
+```{admonition} Was ist ... ein Entscheidungsbaum?
+Ein Entscheidungsbaum (Decision Tree) ist ein Modell zur Entscheidungsfindung,
+das Daten mit Hilfe einer Baumstruktur sortiert. Die Datenobjekte starten beim
+Wurzelknoten (= Ausgangssituation) und werden dann über Knoten (=
+Entscheidungsfrage) und Zweige/Kanten (= Ergebnis der Entscheidung) in Blätter
+(= Endzustand des Entscheidungsprozesses) sortiert.
+```
+
+```{dropdown} Video "Decision Tree Classification Clearly Explained!" von Normalized Nerd
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZVR2Way4nwQ?si=7_of_wa6nrzWIU8g" 
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-````
-
-```{admonition} Lösung
-:class: miniexercise, toggle
-Jannik nennt bei Zeitindex 2:44 min drei Gründe, warum in den letzten zwei Jahrzehnten maschinelles Lernen an Bedeutung gewonnen hat:
-
-1. mehr Daten
-2. schnellere Computer
-3. Forschung
+encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ```
 
-Es gibt einige Gründe, warum ML in den letzten zwei Jahrzehnten so stark an
-Bedeutung gewonnen hat. Im Folgenden werden die wichtigsten Gründe für den
-Bedeutungsgewinn erläutert.
-
-**Datenverfügbarkeit**: Die Produktion von Daten hat mit der Digitalisierung
-massiv zugenommen. Mit der Einführung der Smartphones ist auch die Anzahl der
-Bilder und Videos deutlich gewachsen, die täglich aufgenommen werden. Das
-Kaufverhalten von Kunden in Online-Shops wird beobachtet, Fußballspiele werden
-statistisch analysiert oder Maschinen mit Messsensoren bestückt. Das
-Beratungsunternehmen IDC (International Data Corporation) prognostiziert, dass
-sich die Datenmenge von 33 Zettabytes im Jahr 2018 auf 175 Zettebytes im Jahr
-2025 mehr als verfünffachen wird.
-
-**Rechenleistung**: Der rasante Fortschritt in der Computertechnologie hat die
-Rechenleistung, die für maschinelles Lernen erforderlich ist, drastisch erhöht.
-Speziell für die Entwicklung sogenannter neuronaler Netze werden sogar häufig
-Grafikkarten (GPUs) anstatt eines Prozessors (CPU) bevorzugt.
-
-**Algorithmen und Modelle**: Natürlich ist auch die Erforschung neuer
-Algorithmen und Modelle nicht stehengeblieben. Ein Durchbruch in der Forschung
-war dabei die Entwicklung von den sogenannten Deep-Learning-Modellen, einer
-Variante der neuronalen Netze.
-
-**Software und Tools**: Es gibt jetzt eine Vielzahl von Softwarebibliotheken und
-Tools (z.B. [TensorFlow](https://www.tensorflow.org),
-[PyTorch](https://pytorch.org),
-[Scikit-learn](https://scikit-learn.org/stable/index.html) usw.), die es
-ermöglichen, auch ohne tiefergehende Mathematik- und Programmierkenntnissen
-maschinelles Lernen in der Praxis einzusetzen. Daher werden immer mehr
-Anwendungen mit maschinellem Lernen analysiert und optimiert.
-
-Bisher haben wir nicht besprochen, was es mit Künstlicher Intelligenz und Deep
-Learning auf sich hat. Beide Begriffe werden oft in einem Atemzug mit ML
-genannt. Das folgende Video gibt eine Einführung dazu.
-
-```{dropdown} Video zu "ML Tutorial - #1 Einführung in ML" von CodingWithMagga
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tCApwsdijDk?si=Qf6x6MhoAuEBZv7k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-```
-
-## Was sind Algorithmen und Modelle?
-
-Ein notwendiger Baustein des maschinellen Lernens sind Daten, am besten ganz,
-ganz viele! Aber selbst ein riesiger Haufen an Daten ist alleine wertlos. Erst
-durch Algorithmen, die in diesen Daten Muster finden, gewinnen wir neues Wissen,
-können Prozesse analysieren und Entscheidungen treffen.
-
-Aber was ist nun ein Algorithmus? In dem folgenden Video wird zuerst erklärt,
-was ein Algorithmus ist. Danach werden die ersten grundlegenden Fachbegriffe des
-maschinellen Lernens eingeführt.
-
-```{admonition} Mini-Übung
-:class: miniexercise
-Schauen Sie sich das folgende Video an und beantworten Sie die folgenden Fragen:
-
-1. Welche drei Beispiele für Algorithmen werden aufgezählt?
-2. In dem Video werden die Fachbegriff »Feature« und »Label« eingeführt. Was bedeuten die
-  Begriffe? 
-3. Was bedeutet »überwachtes Lernen«?
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HmUzceKCI9I" 
+```{dropdown} Video "Maschinelles Lernen - Beispiel Entscheidungsbaum
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F9ArN1JIhCY?si=bG0rauYn2XdukIzI" 
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ```
 
-```{admonition} Lösung
-:class: miniexercise, toggle
-1. Bei Zeitindex 0:28 min wird erklärt, dass ein Algorithmus eine exakte
-   Handlungsvorschrift zum Lösen eines Problems ist. Als erstes Beispiel wird
-   die Anweisung, wie ein mathematisches Problem zu lösen ist, genannt. Als
-   weitere Beispiele werden ein Kochrezept oder eine Spieleanleitung aufgezählt.
-   Ab Zeitindex 0:38 min wird Tic-Tac-Toe als Algorithmus formuliert.
-2. Ab Zeitindex 3:19 min werden die Begriffe Feature und Label eingeführt. Die
-   Eingangsdaten (z.B. Bilder von Hunden und Katzen), die wir dem Computer zum
-   Lernen geben, werden Features genannt. Daraus soll der Computer lernen, Hunde
-   von Katzen zu unterscheiden. Dazu müssen zuerst die Bilder, die einen Hund
-   zeigen, als »Hundebild« gekennzeichnet werden und die anderen als
-   »Katzenbild«. Die Kennzeichnung wird Label genannt. Die Zielgröße bzw. Ziel ist die
-   Einordnung Hund/Katze.
-3. Überwachtes Lernen ist das Lernen aus Beispielen (Zeitindex 4:03 min). Bevor
-   der Computer lernt, auf Bildern Hunde und Katzen zu unterscheiden, müssen die
-   Bilder mit den Labels Hund/Katze versehen werden.
+```{dropdown} Video zu "Entscheidungsbäume #1" von The Morpheus Tutorials
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-YW5s_an4z8?si=PYX24rwrWlYhF9EL" 
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ```
 
-Ein **Algorithmus** ist also eine Anleitung, wie ein Problem zu lösen ist.
-Typisch für einen Algorithmus ist, das in sehr kleinen Schritten detailliert
-Anweisungen formuliert werden, um das Problem zu lösen. In der Informatik sind
-Algorithmen besonders wichtig, da durch sie festgelegt wird, wie der Computer
-Daten verarbeiten und ein Problem lösen soll. Jeder einzelne Schritt zur
-Problemlösung muss eindeutig und konkret beschrieben werden. Wird der
-Algorithmus in einer Programmiersprache formuliert, verwendet man den Begriff
-**Computerprogramm**.
+## Entscheidungsbäume mit Scikit-Learn trainieren
 
-```{admonition} Was ist ... ein Algorithmus?
-:class: note
-Ein Algorithmus ist eine spezifische Anleitung mit einzelnen Anweisungen, wie ein
-bestimmtes Problem gelöst werden soll.
+In der Praxis verwenden wir die ML-Bibliothek Scikit-Learn, um einen
+Entscheidungsbaum zu trainieren. Das Modul [Scikit-Learn →
+Tree](https://scikit-learn.org/stable/modules/tree.html) stellt sowohl einen
+Entscheidungsbaum-Algorithmus für Klassifikationsprobleme als auch einen
+Algorithmus für Regressionsprobleme zur Verfügung. Für das obige Beispiel
+Autohaus importieren wir den Algorithmus für Klassifikationsprobleme namens
+`DecisionTreeClassifier`:
+
+```{code-cell}
+from sklearn.tree import DecisionTreeClassifier
 ```
 
-Der Begriff **Modell** hat viele verschiedenen Bedeutungen (siehe [Wikipedia →
-Modell
-(Begriffsklärung)](https://de.wikipedia.org/wiki/Modell_(Begriffsklärung))).
-Zunächst einmal bedeutet Modell, das ein Original vereinfacht beschrieben wird.
-Vereinfacht heißt, dass beispielsweise Details weggelassen werden oder die
-Abmessungen geändert werden. In der Architektur wird beispielsweise ein Haus in
-kleinem Maßstab gebaut, um potentiellen Kunden durch das Modell einen besseren
-Eindruck zu vermitteln, wie das Haus in echt aussehen wird. Im Maschinenbau wird
-das Modell eines Flugzeugs in einen Windkanal gehalten, um die Flugzeuggeometrie
-zu optimieren. In manchen naturwissenschaftlichen Museen gibt es begehbare
-Modelle von Organen wie beispielsweise dem Darm, um den Aufbau des Darms
-begreifbar zu machen. Es gibt auch auch virtuelle Modelle wie  das
-[Vier-Ohren-Modell](https://de.wikipedia.org/wiki/Vier-Seiten-Modell) des
-Kommunikationswissenschaftlers Friedemann Schulz von Thun, das das
-Kommunikationsverhalten von Menschen beschreibt.
+Dann erzeugen wir ein noch untrainiertes Entscheidungsbaum-Modell und weisen es
+der Variable `modell` zu:
 
-In der Welt des maschinellen Lernens bezieht sich der begriff Modell darauf,
-Daten zu interpretieren und basierend auf diesen Daten Vorhersagen oder
-Entscheidungen zu treffen.
-
-```{admonition} Was ist ... ein Modell?
-:class: note
-Ein Modell ist ein vereinfachtes Abbild der Wirklichkeit. Im Kontext das
-maschinellen Lernens ist das ML-Modell eine abstrake Beschreibung eines Systems,
-das unbekannte Daten interpretieren kann oder basierend auf diesen Daten
-Vorhersagen oder Entscheidungen treffen kann.
+```{code-cell}
+modell = DecisionTreeClassifier()
 ```
 
-## Maschinelles Lernen ist wie Kuchenbacken
+Bei der Erzeugung könnten wir noch verschiedene Optionen einstellen, die in der
+[Dokumentation Scikit-Learn →
+DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier)
+nachgelesen werden können. Zunächst belassen wir es aber bei den
+Standardeinstellungen.
 
-Damit kommen beim maschinellen Lernen drei Dinge zusammen: Daten, Algorithmus
-und Modell. Um das Verhältnis zwischen den drei Konzepten zu verdeutlichen,
-vergleichen wir die Konzepte mit dem Kuchenbacken. Die Daten sind die Zutaten,
-aus denen ein Kuchen gebacken werden soll. Der Algorithmus ist das Rezept mit
-einer detaillierten Schritt-für-Schritt-Anleitung, wie der Kuchen gebacken
-werden soll. Das Modell hingegen ist der fertige Kuchen, der aus dem Prozess
-herauskommt. Es ist somit das Endprodukt, das erstellt wird, indem man den
-Anweisungen des Rezepts (dem Algorithmus) folgt und die Zutaten zusammenfügt.
+Als nächstes adaptieren wir die Daten aus dem Pandas-DataFrame so, dass das
+Entscheidungsbaum-Modell trainiert werden kann. Der `DecisionTreeClassifier`
+erwartet für das Training zwei Argumente. Als erstes Argument müssen die
+Eingabedaten übergeben werden, also die Eigenschaften der Autos. Als zweites
+Argument erwartet der `DecisionTreeClassifier` die Zielgröße, also den Status
+»nicht verkauft« oder »verkauft«. Wir trennen daher den Pandas-DataFrame `daten`
+auf und verwenden die Bezeichnung `X` für die Eingabedaten und `y` für die
+Zielgröße.
 
-Sobald das Modell bzw. der Kuchen fertig ist, wird dieses Modell
-dann verwendet, um Vorhersagen zu treffen oder Entscheidungen zu treffen, genau
-wie man einen Kuchen essen würde, nachdem er gebacken ist.
-
-```{figure} pics/ml_as_baking.png
-:name: fig_ml_as_baking
-
-Analogie zwischen dem ML-Workflow und dem Kuchenbacken (Quelle: eigene Darstellung)
+```{code-cell}
+X = daten[['Kilometerstand [km]', 'Preis [EUR]']]
+y = daten['verkauft']
 ```
 
-Allerdings ist es damit nicht getan. Je nachdem, wie viele und welche Gäste
-erwartet werden, benötigen wir einen anderen Kuchen. Bei einer großen
-Geburtstagsparty brauchen wir einen Blechkuchen, damit jeder Gast ein Stückchen
-Kuchen bekommt. Haben wir Diabetiker eingeladen, sollten wir keine
-Schokoladentorte anbieten. Auch beim maschinellen Lernen ist es daher sehr
-wichtig, je nach Einsatzzweck das passende Modell bzw. den passenden Algorithmus
-zu wählen.
+Als nächstes wird der Entscheidungsbaum trainiert. Dazu wird die Methode
+`.fit()` mit den beiden Argumenten `X` und `y` aufgerufen.
 
-Natürlich hängt die Wahl des Kuchens auch von den vorhandenen Zutaten ab. Fehlt
-die Schokolade, so kann ich keinen Schokoladenkuchen backen. Entweder backen wir
-dann einen anderen Kuchen oder wir entscheiden uns, noch schnell zum Supermarkt
-zu gehen und Schokolade einzukaufen. Vielleicht stellen wir auch fest, dass die
-Milch abgelaufen ist und nicht mehr genießbar ist. Dann ist unser Plan nicht
-durchführbar. Und auch hier können wir uns entscheiden, einen anderen Kuchen zu
-backen oder die Zutaten zu erneuern. Diese Analogie passt auch zu maschinellem
-Lernen. Fehlen Daten oder sind die Daten nicht qualititativ hochwertig, können
-wir die Datenlage verbessern, indem wir beispielsweise mehr Experimente
-durchführen oder offensichtlich schiefgelaufene Experimente wiederholen. Diese
-Phase des maschinellen Lernen wird auch **Datenerkundung** oder
-**Datenexploration** genannt. Sollten wir die Daten jedoch nicht verbessern
-können (oder wollen, weil zu teuer oder die Abgabefrist der Bachelorarbeit
-ansteht), dann müssen wir die Auswahl des Modells an die vorhandenen Daten
-anpassen.
-
-Zutaten komplett, Rezept ausgewählt, Kuchen gebacken, der Gast beißt in den
-Kuchen und verzieht das Gesicht ... Zucker und Salz verwechselt. Hätten wir den
-Kuchen lieber einmal vor dem Servieren probiert. Auch beim maschinellen Lernen
-ist es mit dem "Backen" des Modells nicht getan. Ist ein Modell erstellt, so
-muss es auch bewertet werden. Der Prozess des maschinellen Lernens wird mit der
-**Validierung** abgeschlossen, bevor das Modell dann produktiv eingesetzt wird.
-Die Erstellung und Verwendung von Modellen im maschinellen Lernen ist ein
-fortlaufender Prozess. Modelle werden oft mehrfach getestet und angepasst, um
-ihre Leistung zu verbessern. Beim Kuchenbacken könnte der Bäcker auf die Idee
-kommen, den Kuchen nicht bei 160 °C, sondern bei 162 °C zu backen, weil dann der
-Kuchen noch besser schmeckt. Solche Parameter zum Finetunen eines Modells werden
-**Hyperparameter** genannt. Hyperparameter haben nichts mit den vorhanden Daten
-zu tun, sondern gehören zum ML-Modell. Aber auch wenn sich Daten verändern und
-neue Daten hinzukommen, muss das Modell aktualisiert werden, um mit den sich
-ändernden Bedingungen zurechtzukommen.
-
-Die folgende Skizze zeigt den schematischen Ablauf eines typischen ML-Projektes.
-Dabei benutzen wir das sogenannte
-[QUA3CK-Modell](https://www.researchgate.net/publication/339830240_The_QUACK_Machine_Learning_Development_Process_and_the_Laboratory_for_Applied_Machine_Learning_Approaches_LAMA).
-Das QUA3CK-Modell zeigt den typischen Ablauf eines ML-Projektes von der
-wissenschaftlichen Fragestellung (Q -- Question) bis zu deren Beantwortung (K --
-Knowledge Transfer). Dazu gehört das Sammeln und Erkunden der Daten (U --
-Understanding the data), mit Hilfe derer die Frage beantwortet werden soll. Die
-Phase der ML-Modellbildung wird mehrfach durchlaufen und besteht aus der Auswahl
-und dem Training des Algorithmus bzw. des Modells (A -- Algorithm selection and
-training), dazu passend der Auswahl und Anpassung der Daten (A -- Adaption of
-the data) sowie der Anpassung der Hyperparamter (A -- Adjustement of the
-hyperparameter). Die Modelle, die durch diese Schleife erstellt werden, werden
-letztendlich miteinander verglichen und bewertet (C -- Comparison and
-Conclusion), bevor sie produktiv eingesetzt werden.
-
-```{figure} pics/qua3ck_process.png
-:name: fig_qua3ck_process
-:width: 60%
-
-Typischer Ablauf eines ML-Projektes als QUA<sup>3</sup>CK-Prozess dargestellt
-(Quelle: in Anlehnung an [The QUA³CK Machine Learning Development Process and the Laboratory for Applied Machine Learning Approaches (LAMA)](https://www.researchgate.net/publication/339830240_The_QUACK_Machine_Learning_Development_Process_and_the_Laboratory_for_Applied_Machine_Learning_Approaches_LAMA))
+```{code-cell}
+modell.fit(X,y)
 ```
 
-Das folgende Video erklärt den ML-Workflow etwas detaillierter, als wir es mit
-der Kuchenbacken-Analogie getan haben. Als Ausblick auf die weitere Vorlesung
-bietet dieses Video dennoch eine sehr gute Übersicht über die Vorgehenweise in
-einem ML-Projekt und ist daher sehr empfehlenswert.
+Jetzt ist zwar der Entscheidungsbaum trainiert, doch wir sehen nichts. Als
+erstes überprüfen wir mit der Methode `.score()`, wie gut die Prognose des
+Entscheidungsbaumes ist.
 
-```{dropdown} Video zu "ML Tutorial - #2 ML-Workflow" von CodingWithMagga
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f9QT2dqeW04?si=ScwgvnYzsCvbicb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```{code-cell}
+score = modell.score(X,y)
+print(score)
 ```
+
+Eine 1 steht für 100 %, also alle 10 Autos werden korrekt klassifiziert. Dazu
+hat der `DecisionTreeClassifier` basierend auf den Eingabedaten `X` eine
+Prognose erstellt und diese Prognose mit den echten Daten in `y` verglichen. Für
+die Trainingsdaten funktioniert der Entscheidungsbaum also perfekt. Ob der
+Entscheidungsbaum ein neues, elftes Auto korrekt klassifizieren würde, kann so
+erst einmal nicht entschieden werden.
+
+## Prognosen mit Entscheidungsbäumen treffen
+
+Soll für neue Autos eine Prognose abgegeben werden, ob sie sich eher verkaufen
+lassen oder nicht, müssen die neuen Daten die gleiche Struktur wie die
+Eingangsdaten haben. Wir erzeugen daher einen neuen Pandas-DataFrame, bei dem
+die erste Eigenschaft der Kilometerstand der neuen Autos ist und die zweite
+Eigenschaft ihr Preis.
+
+```{code-cell}
+neue_autos = pd.DataFrame({
+    'Kilometerstand [km]': [7580, 11300, 20000],
+    'Preis [EUR]': [20999, 12000, 14999]
+    },
+    index=['Auto 11', 'Auto 12', 'Auto 13']) 
+```
+
+Mit Hilfe der `predict()`-Methode kann dann der Entscheidungsbaum
+prognostizieren, ob die Autos verkauft werden oder nicht.
+
+```{code-cell}
+:tags: [remove-input]
+modell = DecisionTreeClassifier(random_state=0);
+modell.fit(X,y);
+```
+
+```{code-cell}
+prognose = modell.predict(neue_autos)
+print(prognose)
+```
+
+Um für ein neues Auto eine Prognose abzugeben, werden zunächst den Blättern
+Klassen zugeordnet. Sind alle Blätter **rein**, d.h. befinden sich nur Autos
+einer einzigen Klasse in einem Blatt, dann bekommt das Blatt diese Klasse
+zugeordnet. Ist ein Blatt nicht rein, sondern enthält noch Autos mit
+unterschiedlichen Klassen »verkauft« oder »nicht verkauft« so wird diesem Blatt
+diejenige Klasse zugeordnet, die am häufigsten auftritt. Um diese Idee zu
+visualisieren, färben wir im Entscheidungsbaum die Blätter entsprechend rot und
+blau ein.
+
+Jedes neue Auto durchläuft jetzt die Entscheidungen, bis es in einem Blatt
+angekommen ist. Die Klasse des Blattes ist dann die Prognose für dieses Auto.
+
+<img src="pics/combined_decisiontree_prediction.svg"
+alt="Entscheidungsbaum - Prognose"
+class="image169"
+width=100%>
+
+<img src="pics/scatterplot_prediction.svg"
+alt="Entscheidungsbaum - Prognose"
+class="image43"
+width=100%>
+
+<img src="pics/decisiontree_cars_prediction.svg"
+alt="Entscheidungsbaum - Prognose"
+class="image43"
+width=100%>
+
+Der Entscheidungsbaum prognostiziert, dass Auto 11 und Auto 12 nicht verkauft
+werden, aber Auto 13 könnte verkaufbar sein.
 
 ## Zusammenfassung und Ausblick
 
-In diesem Kapitel haben wir zwar die drei grundlegenden Bestandteile eines
-ML-Systems (Daten, Algorithmus und Modell) kennengelernt, aber entscheidend ist
-auch die Anwendung, welche Art von Daten vorliegen. Im nächsten Kapitel werden
-wir die drei großen Kategorien betrachten, in die ML-Modelle eingeteilt werden:
-
-* Überwachtes Lernen (Supervised Learning),
-* Unüberwachtes Lernen (Unsupervised Learning) und
-* Verstärkendes Lernen (Reinforcement Learning).
+In diesem Kapitel haben Sie den Entscheidungsbaum (Decision Tree) anhand einer
+Klassifikationsaufgabe kennengelernt. Mit Hilfe von Scikit-Learn wurde ein
+Entscheidungsbaum trainiert und dazu benutzt, eine Prognose für neue Daten
+abzugeben. Im nächsten Kapitel werden wir uns damit beschäftigen, weitere
+Einstellmöglichkeiten beim Training des Entscheidungsbaumes zu nutzen und
+Entscheidungsbäume durch Scikit-Learn visualisieren zu lassen.

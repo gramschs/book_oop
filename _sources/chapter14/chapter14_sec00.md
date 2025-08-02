@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# 14. Grundbegriffe Künstliche Intelligenz
+# 14. Klassifikation und Entscheidungsbäume
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

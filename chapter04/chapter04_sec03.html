@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.3 Schleifen mit Bedingungen (while) &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+    <title>4.3 Digitale Logik: und, oder, nicht &#8212; Python für Studierende der Ingenieurwissenschaften</title>
   
   
   
@@ -65,7 +65,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Übungen" href="chapter04_sec04.html" />
-    <link rel="prev" title="4.2 Verschachtelte Schleifen" href="chapter04_sec02.html" />
+    <link rel="prev" title="4.2 Schleifen mit Bedingungen (while)" href="chapter04_sec02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -194,8 +194,8 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter04_sec00.html">4. Wiederholungen automatisieren</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="chapter04_sec01.html">4.1 for-Schleifen mit range</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter04_sec02.html">4.2 Verschachtelte Schleifen</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3 Schleifen mit Bedingungen (while)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter04_sec02.html">4.2 Schleifen mit Bedingungen (while)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3 Digitale Logik: und, oder, nicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter04_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
@@ -268,7 +268,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../chapter13/chapter13_sec04.html">Übungen</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter14/chapter14_sec00.html">14. Grundbegriffe Künstliche Intelligenz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter14/chapter14_sec00.html">14. Klassifikation und Entscheidungsbäume</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec01.html">14.1 Was ist ein Entscheidungsbaum?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec02.html">14.2 Entscheidungsbäume trainieren und visualisieren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter14/chapter14_sec03.html">14.3 Entscheidungsbäume in der Praxis</a></li>
@@ -491,7 +491,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>4.3 Schleifen mit Bedingungen (while)</h1>
+    <h1>4.3 Digitale Logik: und, oder, nicht</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -502,9 +502,10 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-der-while-schleife">Syntax der while-Schleife</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-abbrechen-mit-break">Schleifen abbrechen mit break</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-vorzeitig-fortsetzen-mit-continue">Schleifen vorzeitig fortsetzen mit continue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-und">Das logische UND</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-oder">Das logische ODER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-nicht">Das logische NICHT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prioritat-der-logischen-operatoren">Priorität der logischen Operatoren</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
             </nav>
@@ -517,82 +518,130 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="schleifen-mit-bedingungen-while">
-<h1>4.3 Schleifen mit Bedingungen (while)<a class="headerlink" href="#schleifen-mit-bedingungen-while" title="Link to this heading">#</a></h1>
-<div class="warning admonition">
-<p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
-<p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
-</div>
-<p>Ein typisches Beispiel aus dem Alltag, bei dem wir etwas wiederholen, solange
-eine Bedingung erfüllt ist, ist das Kochen von Wasser. Moderne Wasserkocher
-haben einen eingebauten Temperatursensor, der die Temperatur des Wassers misst.
-Solange die Wassertemperatur kleiner als 100 ˚C ist, wird das Wasser
-erhitzt. Sobald die 100 ˚C erreicht sind, wird der Wasserkocher
-abgeschaltet. Solche Wiederholungen wollen wir nun mit Python umsetzen.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="digitale-logik-und-oder-nicht">
+<h1>4.3 Digitale Logik: und, oder, nicht<a class="headerlink" href="#digitale-logik-und-oder-nicht" title="Link to this heading">#</a></h1>
+<p>In früheren Kapiteln haben wir den booleschen Datentyp kennengelernt: wahr
+(<code class="docutils literal notranslate"><span class="pre">True</span></code>) oder falsch (<code class="docutils literal notranslate"><span class="pre">False</span></code>). Man kann solche Ausdrücke auch kombinieren, z.B.
+wenn zwei Bedingungen gleichzeitig erfüllt sein sollen. Beispielsweise soll eine
+Maschine nur dann gestartet werden, wenn der Sicherheitsschalter aktiviert ist
+UND die Temperatur unter einem kritischen Wert liegt. Beide Bedingungen müssen
+erfüllt sein.</p>
+<p>Die Grundlage solcher Verknüpfungen bildet die <strong>boolesche Algebra</strong>, benannt
+nach dem Mathematiker <a class="reference external" href="https://de.wikipedia.org/wiki/George_Boole">George
+Boole</a>. In dieser Vorlesung
+konzentrieren wir uns auf die drei wichtigsten logischen Operatoren:</p>
+<ul class="simple">
+<li><p>UND (<code class="docutils literal notranslate"><span class="pre">and</span></code>): beide Bedingungen müssen erfüllt sein</p></li>
+<li><p>ODER (<code class="docutils literal notranslate"><span class="pre">or</span></code>): mindestens eine Bedingung muss erfüllt sein</p></li>
+<li><p>NICHT (<code class="docutils literal notranslate"><span class="pre">not</span></code>): kehrt den Wahrheitswert einer Bedingung um</p></li>
+</ul>
+<p>Diese Operatoren sind grundlegend für technische Systeme und werden häufig für
+Steuerungen, Regelungen und Sicherheitssysteme eingesetzt.</p>
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <div class="goals admonition">
 <p class="admonition-title">Lernziele</p>
 <ul class="simple">
-<li><p>Sie können eine Schleife mit Bedingung als <strong>while</strong>-Schleife in Python
-implementieren.</p></li>
-<li><p>Sie können mit <strong>break</strong> eine Schleife vorzeitig abbrechen.</p></li>
-<li><p>Sie können mit <strong>continue</strong> eine Schleife vorzeitig fortsetzen.</p></li>
+<li><p>Sie kennen die logischen Operatoren und können diese in Python einsetzen:</p>
+<ul>
+<li><p>logisches UND: <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
+<li><p>logisches ODER: <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+<li><p>logisches NICHT: <code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
+</ul>
+</li>
+<li><p>Sie verstehen die Priorität der logischen Operatoren und können komplexe
+Bedingungen korrekt formulieren.</p></li>
 </ul>
 </div>
 </section>
-<section id="syntax-der-while-schleife">
-<h2>Syntax der while-Schleife<a class="headerlink" href="#syntax-der-while-schleife" title="Link to this heading">#</a></h2>
-<p>Bei einer Wiederholung mit Bedingung werden eine oder mehrere Anweisungen
-solange wiederholt, wie die Bedingung erfüllt ist. Die sogenannte while-Schleife
-hat folgende Struktur:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="k">while</span> <span class="n">Bedingung</span><span class="p">:</span> 
-        <span class="n">anweisungsblock</span>
-</pre></div>
+<section id="das-logische-und">
+<h2>Das logische UND<a class="headerlink" href="#das-logische-und" title="Link to this heading">#</a></h2>
+<p>Beim logischen UND müssen beide Bedingungen erfüllt sein, damit insgesamt die
+kombinierte Bedingung erfüllt ist. Vergleichbar ist dies mit einer
+Reihenschaltung in der Elektrotechnik: Nur wenn beide Schalter eingeschaltet
+sind, kann der Strom fließen.</p>
+<p>Hier finden Sie ein erläuterndes Video (ca. 3:14 min) zur UND-Schaltung:</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=79WVEr2BVZI">https://www.youtube.com/watch?v=79WVEr2BVZI</a></p>
+<p>Die Ergebnisse der UND-Verknüpfung lassen sich in einer Wahrheitstabelle
+darstellen:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bedingung 1</p></th>
+<th class="head"><p>Bedingung 2</p></th>
+<th class="head"><p>Ergebnis mit <code class="docutils literal notranslate"><span class="pre">and</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>Die bedingte Wiederholung wird mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">while</span></code> eingeleitet. Dann
-folgt die Bedingung, die mit einem <code class="docutils literal notranslate"><span class="pre">:</span></code> abgeschlossen wird. Alle Anweisungen, die
-wiederholt werden sollen, werden eingerückt. Diesen Teil nennt man das
-Schleifeninnere, die Zeile <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">Bedingung:</span></code> nennt man den Schleifenkopf.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>While-Schleifen sind ein mächtiges Werkzeug in Python, aber es ist wichtig, sie
-sorgfältig zu verwenden. Eine schlecht definierte Bedingung könnte dazu führen,
-dass die Schleife <strong>unendlich</strong> läuft, was zu Problemen führen kann.</p>
-</div>
-<p>Um auf das Beispiel mit dem Wasserkocher zurückzukommen … auch wenn wir jetzt
-keinen echten Temperatursensor haben, würde eine while-Schleife, die einen
-Wasserkocher simuliert, folgendermaßen aussehen.</p>
+<p>Beispiel aus der Industrie: Ein automatisches Werkzeug darf nur dann betätigt
+werden, wenn das Werkstück korrekt eingespannt ist UND der Sicherheitsbereich
+frei ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="k">while</span> <span class="n">temperatur</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;aktuelle Wassertemperatur: </span><span class="si">{</span><span class="n">temperatur</span><span class="si">}</span><span class="s1"> ˚C&#39;</span><span class="p">)</span>
-  <span class="n">temperatur</span> <span class="o">+=</span> <span class="mi">10</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Befehl an Wasserkocher: schalte das Heizelement aus!&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Das Wasser ist fertig gekocht!&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">werkstueck_eingespannt</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">sicherheitsbereich_frei</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">werkstueck_eingespannt</span> <span class="ow">and</span> <span class="n">sicherheitsbereich_frei</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Werkzeug kann betätigt werden.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sicherheitsvoraussetzungen nicht erfüllt.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>aktuelle Wassertemperatur: 20 ˚C
-aktuelle Wassertemperatur: 30 ˚C
-aktuelle Wassertemperatur: 40 ˚C
-aktuelle Wassertemperatur: 50 ˚C
-aktuelle Wassertemperatur: 60 ˚C
-aktuelle Wassertemperatur: 70 ˚C
-aktuelle Wassertemperatur: 80 ˚C
-aktuelle Wassertemperatur: 90 ˚C
-aktuelle Wassertemperatur: 100 ˚C
-Befehl an Wasserkocher: schalte das Heizelement aus!
-Das Wasser ist fertig gekocht!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Werkzeug kann betätigt werden.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bei komplexeren Bedingungen kann die Verwendung von Klammern die Lesbarkeit
+verbessern, auch wenn dies syntaktisch nicht immer erforderlich ist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="n">druck</span> <span class="o">=</span> <span class="mf">3.5</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">temperatur</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">druck</span> <span class="o">&lt;</span> <span class="mf">4.0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;System arbeitet im normalen Betriebszustand.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;System außerhalb der normalen Parameter.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>System arbeitet im normalen Betriebszustand.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Schreiben Sie ein Programm, das einen Countdown von 10 nach 0 implementiert.</p>
+<p>Schreiben Sie ein Programm für die Steuerung einer Hydraulikpresse. Die Presse
+darf nur betätigt werden, wenn</p>
+<ol class="arabic simple">
+<li><p>die Betriebstemperatur zwischen 60°C und 85°C liegt und</p></li>
+<li><p>der Druck zwischen 2.5 und 5.0 bar beträgt.</p></li>
+</ol>
+<p>Lassen Sie die Werte vom Benutzer eingeben und geben Sie eine entsprechende
+Meldung aus.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -603,133 +652,289 @@ Das Wasser ist fertig gekocht!
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">while</span> <span class="n">zaehler</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">zaehler</span><span class="p">)</span>
-    <span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span> <span class="o">-</span> <span class="mi">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
+<span class="n">temperatur</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Aktuelle Betriebstemperatur (°C): &#39;</span><span class="p">))</span>
+<span class="n">druck</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Aktueller Druck (bar): &#39;</span><span class="p">))</span>
+
+<span class="c1"># Verarbeitung und Ausgabe</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">60</span> <span class="o">&lt;=</span> <span class="n">temperatur</span> <span class="o">&lt;=</span> <span class="mi">85</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mf">2.5</span> <span class="o">&lt;=</span> <span class="n">druck</span> <span class="o">&lt;=</span> <span class="mf">5.0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hydraulikpresse kann betätigt werden.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Betriebsparameter außerhalb des sicheren Bereichs!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="das-logische-oder">
+<h2>Das logische ODER<a class="headerlink" href="#das-logische-oder" title="Link to this heading">#</a></h2>
+<p>Beim logischen ODER muss nur eine der Bedingungen erfüllt sein, damit insgesamt
+die kombinierte Bedingung erfüllt ist. Die Bedingung ist auch erfüllt, wenn
+beide Teilbedingungen wahr sind. Vergleichbar ist dies mit einer
+Parallelschaltung in der Elektrotechnik: Es reicht, wenn einer der beiden
+Schalter eingeschaltet ist, damit der Strom fließen kann.</p>
+<p>Hier finden Sie ein erläuterndes Video (ca. 2:42 min) zur ODER-Schaltung:</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=UNkXbvSN9w8">https://www.youtube.com/watch?v=UNkXbvSN9w8</a></p>
+<p>Die Wahrheitstabelle für das logische ODER:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bedingung 1</p></th>
+<th class="head"><p>Bedingung 2</p></th>
+<th class="head"><p>Ergebnis mit <code class="docutils literal notranslate"><span class="pre">or</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Beispiel aus der Produktion: Ein Notaus-System muss aktiviert werden, wenn
+entweder der Temperaturwert zu hoch ist ODER der Druckwert einen kritischen Wert
+überschreitet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">95</span>  <span class="c1"># in Grad Celsius</span>
+<span class="n">druck</span> <span class="o">=</span> <span class="mf">4.8</span>      <span class="c1"># in bar</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">temperatur</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">druck</span> <span class="o">&gt;</span> <span class="mf">5.0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNUNG: Notabschaltung wird eingeleitet!&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;System arbeitet im normalen Betriebsbereich.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNUNG: Notabschaltung wird eingeleitet!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python verwendet eine sogenannte <strong>Kurzschlussauswertung</strong> für logische
+Operatoren. Dies bedeutet:</p>
+<ul class="simple">
+<li><p>Bei einem <code class="docutils literal notranslate"><span class="pre">and</span></code>-Ausdruck: Wenn der erste Teil <code class="docutils literal notranslate"><span class="pre">False</span></code> ist, wird der zweite
+Teil nicht mehr ausgewertet.</p></li>
+<li><p>Bei einem <code class="docutils literal notranslate"><span class="pre">or</span></code>-Ausdruck: Wenn der erste Teil <code class="docutils literal notranslate"><span class="pre">True</span></code> ist, wird der zweite Teil
+nicht mehr ausgewertet.</p></li>
+</ul>
+<p>Dies kann man sich zur Verbesserung der Performance zunutze machen, indem man
+bei <code class="docutils literal notranslate"><span class="pre">and</span></code>-Verknüpfungen die Bedingung mit der höheren Wahrscheinlichkeit für
+<code class="docutils literal notranslate"><span class="pre">False</span></code> zuerst platziert.</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Schreiben Sie ein Programm für ein Alarmsystem einer CNC-Fräse. Das System soll
+einen Alarm auslösen, wenn:</p>
+<ol class="arabic simple">
+<li><p>Die Drehzahl unter 500 U/min fällt oder über 2000 U/min steigt</p></li>
+<li><p>Die Kühlmitteltemperatur über 60°C steigt</p></li>
+</ol>
+<p>Lassen Sie die Werte vom Benutzer eingeben und geben Sie eine entsprechende
+Meldung aus.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eingabe</span>
+<span class="n">drehzahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Aktuelle Drehzahl (U/min): &#39;</span><span class="p">))</span>
+<span class="n">kuehlmitteltemperatur</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Aktuelle Kühlmitteltemperatur (°C): &#39;</span><span class="p">))</span>
+
+<span class="c1"># Verarbeitung und Ausgabe</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">drehzahl</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">drehzahl</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">kuehlmitteltemperatur</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ALARM: Betriebsparameter außerhalb des sicheren Bereichs!&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;System arbeitet im normalen Betriebsbereich.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="das-logische-nicht">
+<h2>Das logische NICHT<a class="headerlink" href="#das-logische-nicht" title="Link to this heading">#</a></h2>
+<p>Das logische NICHT kehrt eine Aussage um. Wenn eine Bedingung wahr ist, wird sie
+falsch und umgekehrt. In Python verwenden wir den Operator <code class="docutils literal notranslate"><span class="pre">not</span></code> für diese
+Umkehrung.</p>
+<p>Die Wahrheitstabelle für das logische NICHT:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bedingung</p></th>
+<th class="head"><p>Ergebnis mit <code class="docutils literal notranslate"><span class="pre">not</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Beispiel aus dem Maschinenbau: Eine Maschine darf nicht gestartet werden, wenn
+der Wartungsmodus aktiviert ist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wartungsmodus_aktiv</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">wartungsmodus_aktiv</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maschine kann gestartet werden.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maschine im Wartungsmodus: Start nicht möglich.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maschine im Wartungsmodus: Start nicht möglich.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Verwendung von <code class="docutils literal notranslate"><span class="pre">not</span></code> kann oft komplexe Bedingungen vereinfachen. Statt zu
+prüfen, ob ein Wert außerhalb eines Bereichs liegt, kann man prüfen, ob er nicht
+innerhalb des Bereichs liegt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">78</span>
+
+<span class="c1"># Diese beiden Bedingungen sind äquivalent</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">temperatur</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">temperatur</span> <span class="o">&gt;</span> <span class="mi">85</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperatur außerhalb des Betriebsbereichs.&#39;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">60</span> <span class="o">&lt;=</span> <span class="n">temperatur</span> <span class="o">&lt;=</span> <span class="mi">85</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperatur außerhalb des Betriebsbereichs.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prioritat-der-logischen-operatoren">
+<h2>Priorität der logischen Operatoren<a class="headerlink" href="#prioritat-der-logischen-operatoren" title="Link to this heading">#</a></h2>
+<p>Bei mehreren logischen Operatoren in einem Ausdruck ist die Reihenfolge der
+Auswertung wichtig. In Python gilt folgende Priorität:</p>
+<ol class="arabic simple">
+<li><p>Klammern <code class="docutils literal notranslate"><span class="pre">()</span></code></p></li>
+<li><p>Nicht <code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
+<li><p>Und <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
+<li><p>Oder <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+</ol>
+<p>Zur Verdeutlichung einige Beispiele:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Priorität der logischen Operatoren</span>
+<span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">c</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># not hat Vorrang vor and</span>
+<span class="n">ergebnis1</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span>  <span class="c1"># entspricht (not a) and b</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;not a and b = </span><span class="si">{</span><span class="n">ergebnis1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># and hat Vorrang vor or</span>
+<span class="n">ergebnis2</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">c</span>  <span class="c1"># entspricht (a and b) or c</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a and b or c = </span><span class="si">{</span><span class="n">ergebnis2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Klammern ändern die Priorität</span>
+<span class="n">ergebnis3</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">and</span> <span class="p">(</span><span class="n">b</span> <span class="ow">or</span> <span class="n">c</span><span class="p">)</span>  <span class="c1"># erst b or c, dann and</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a and (b or c) = </span><span class="si">{</span><span class="n">ergebnis3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>not a and b = False
+a and b or c = True
+a and (b or c) = True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um Missverständnisse zu vermeiden, ist es oft ratsam, Klammern zu setzen, auch
+wenn sie aufgrund der Prioritätsregeln nicht unbedingt nötig wären. Dies
+verbessert die Lesbarkeit des Codes.</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Überlegen Sie zunächst, was das Ergebnis der folgenden logischen Verknüpfungen
+ist (wahr oder falsch):</p>
+<ol class="arabic simple">
+<li><p>True and True</p></li>
+<li><p>True or False</p></li>
+<li><p>not True</p></li>
+<li><p>False or True</p></li>
+<li><p>True or (not False)</p></li>
+<li><p>(not True) and False</p></li>
+<li><p>not (True or False)</p></li>
+<li><p>(not False) or (False and False)</p></li>
+</ol>
+<p>Prüfen Sie Ihre Antworten anschließend im Python-Interpreter.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. True and True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True and True =&quot;</span><span class="p">,</span> <span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># True</span>
+
+<span class="c1"># 2. True or False</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True or False =&quot;</span><span class="p">,</span> <span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># True</span>
+
+<span class="c1"># 3. not True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;not True =&quot;</span><span class="p">,</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># False</span>
+
+<span class="c1"># 4. False or True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;False or True =&quot;</span><span class="p">,</span> <span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># True</span>
+
+<span class="c1"># 5. True or (not False)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True or (not False) =&quot;</span><span class="p">,</span> <span class="kc">True</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="kc">False</span><span class="p">))</span>  <span class="c1"># True</span>
+
+<span class="c1"># 6. (not True) and False</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(not True) and False =&quot;</span><span class="p">,</span> <span class="p">(</span><span class="ow">not</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># False</span>
+
+<span class="c1"># 7. not (True or False)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;not (True or False) =&quot;</span><span class="p">,</span> <span class="ow">not</span> <span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">))</span>  <span class="c1"># False</span>
+
+<span class="c1"># 8. (not False) or (False and False)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(not False) or (False and False) =&quot;</span><span class="p">,</span> <span class="p">(</span><span class="ow">not</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">))</span>  <span class="c1"># True</span>
 </pre></div>
 </div>
 </div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video “Schleifen mit Bedingung” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sXLicTuJzB4"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
-clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<span class="sd-summary-text">Video zu “Logische Operatoren” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/075l6R42tkQ"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 </details></section>
-<section id="schleifen-abbrechen-mit-break">
-<h2>Schleifen abbrechen mit break<a class="headerlink" href="#schleifen-abbrechen-mit-break" title="Link to this heading">#</a></h2>
-<p>Die <code class="docutils literal notranslate"><span class="pre">break</span></code>-Anweisung kann verwendet werden, um die Schleife vorzeitig zu
-beenden, auch wenn die Bedingung der <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife noch <code class="docutils literal notranslate"><span class="pre">True</span></code> ist. Hier ist
-ein Beispiel:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">zaehler</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">zaehler</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Der Zaehler hat aktuell den Wert: </span><span class="si">{</span><span class="n">zaehler</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-    <span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span> <span class="o">+</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Zaehler hat aktuell den Wert: 0.
-Der Zaehler hat aktuell den Wert: 1.
-Der Zaehler hat aktuell den Wert: 2.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Schreiben Sie ein Programm, das vom Benutzer natürliche Zahlen abfragt und diese
-quadriert und ausgibt. Wird eine 0 eingegeben, soll die Eingabe der Zahlen
-abgebrochen werden und die Meldung “Sie haben 0 eingegeben, das Programm wird
-beendet.” ausgegeben werden.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">zahl</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Geben Sie eine natürliche Zahl ein (0 zum Beenden): &#39;</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">zahl</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sie haben 0 eingegeben, das Programm wird beendet.&#39;</span><span class="p">)</span>
-        <span class="k">break</span>
-    <span class="n">quadratzahl</span> <span class="o">=</span> <span class="n">zahl</span><span class="o">**</span><span class="mi">2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Das Quadrat von </span><span class="si">{</span><span class="n">zahl</span><span class="si">}</span><span class="s1"> ist </span><span class="si">{</span><span class="n">quadratzahl</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="schleifen-vorzeitig-fortsetzen-mit-continue">
-<h2>Schleifen vorzeitig fortsetzen mit continue<a class="headerlink" href="#schleifen-vorzeitig-fortsetzen-mit-continue" title="Link to this heading">#</a></h2>
-<p>Die <code class="docutils literal notranslate"><span class="pre">continue</span></code>-Anweisung wird verwendet, um den aktuellen Durchgang der Schleife
-zu beenden und sofort mit dem nächsten Schleifendurchgang zu beginnen. Hier ist
-ein Beispiel:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">zaehler</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">zaehler</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">continue</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Der Zaehler hat aktuell den Wert: </span><span class="si">{</span><span class="n">zaehler</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Zaehler hat aktuell den Wert: 1.
-Der Zaehler hat aktuell den Wert: 2.
-Der Zaehler hat aktuell den Wert: 4.
-Der Zaehler hat aktuell den Wert: 5.
-</pre></div>
-</div>
-</div>
-</div>
-<p>In diesem Beispiel wird “Der Zaehler hat aktuell den Wert: 3” nicht ausgegeben,
-da die <code class="docutils literal notranslate"><span class="pre">continue</span></code>-Anweisung dafür sorgt, dass vorzeitig der nächste
-Schleifendurchgang begonnen wird, sobald <code class="docutils literal notranslate"><span class="pre">zaehler</span></code> den Wert <code class="docutils literal notranslate"><span class="pre">3</span></code> erreicht.</p>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Schreiben Sie ein Programm, das eine Zahl abfragt und deren Wurzel berechnet
-und ausgibt. Wird eine negative Zahl eingegeben, so soll die Wurzelberechnung
-übersprungen werden. Insgesamt soll das Programm solange laufen, bis drei
-Wurzeln berechnet wurden.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier Ihr Code</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">zaehler</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="n">zahl</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Geben Sie eine positive Zahl ein: &#39;</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">zahl</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sie haben eine negative Zahl eingegeben, davon kann keine Wurzel berechnet werden.&#39;</span><span class="p">)</span>
-        <span class="k">continue</span>
-    <span class="n">wurzel</span> <span class="o">=</span> <span class="n">zahl</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Die Wurzel von </span><span class="si">{</span><span class="n">zahl</span><span class="si">}</span><span class="s1"> ist </span><span class="si">{</span><span class="n">wurzel</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-    <span class="n">zaehler</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
-<p>Von den Schleifen kommen wir im nächsten Kapitel zu einem komplett anderem
-Thema: Dictionaries.</p>
+<p>Die booleschen Operatoren <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> und <code class="docutils literal notranslate"><span class="pre">not</span></code> sind fundamentale Werkzeuge für
+die Programmierung von Bedingungen in Python. Sie ermöglichen die Formulierung
+komplexer Entscheidungslogik und sind besonders für Steuerungs- und
+Regelungsanwendungen von großer Bedeutung. Im nächsten Kapitel beschäftigen wir
+uns mit Schleifen.</p>
 </section>
 </section>
 
@@ -769,7 +974,7 @@ Thema: Dictionaries.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">4.2 Verschachtelte Schleifen</p>
+        <p class="prev-next-title">4.2 Schleifen mit Bedingungen (while)</p>
       </div>
     </a>
     <a class="right-next"
@@ -799,9 +1004,10 @@ Thema: Dictionaries.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-der-while-schleife">Syntax der while-Schleife</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-abbrechen-mit-break">Schleifen abbrechen mit break</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-vorzeitig-fortsetzen-mit-continue">Schleifen vorzeitig fortsetzen mit continue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-und">Das logische UND</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-oder">Das logische ODER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-logische-nicht">Das logische NICHT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prioritat-der-logischen-operatoren">Priorität der logischen Operatoren</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
   </nav></div>

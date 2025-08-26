@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# 8.2 Attribute und Methoden*
+# 8.2 Attribute und Methoden
 
 ```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
 :class: warning

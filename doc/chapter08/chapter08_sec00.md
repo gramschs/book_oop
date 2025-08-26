@@ -14,9 +14,15 @@ kernelspec:
 
 # 8. Objektorientierte Programmierung
 
-```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
-:class: warning
-Dieses Vorlesungsskript wird gerade umgebaut.
-```
+Bis hierhin haben wir uns die Grundlagen der Programmierung erarbeitet:
 
-TODO
+* Datentypen (Integer, Float, Bool, String) und Datenstrukturen (List,
+  Dictionary),
+* Kontrollstrukturen: Verzeigungen und Schleifen
+* Funktionen.
+
+In einigen Programmiersprachen wie beispielsweise C hätten wir damit auch alle
+Sprachelement kennengelernt. Diese Programmierung nennt man **prozedurale
+Programmierung**. Python gehört jedoch zu den objektorientierten
+Programmiersprachen, so dass wir uns jetzt noch dem Thema Objektorientierung
+widmen.

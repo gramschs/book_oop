@@ -119,21 +119,6 @@ Genau hier setzt die objektorientierte Programmierung an. Die Grundidee besteht
 darin, Daten und die dazugehörigen Funktionen in einer gemeinsamen Struktur zu
 bündeln.
 
-```{admonition} Grundbegriffe der objektorientierten Programmierung
-:class: note
-* Eine **Klasse** ist dabei wie ein Bauplan oder ein Formular: Sie legt fest,
-  welche Daten und welche Funktionen zu einem bestimmten Typ von Dingen gehören.
-* Ein **Objekt** ist eine konkrete Ausprägung einer Klasse, sozusagen ein
-  Exemplar nach dem Bauplan. Ein Objekt »Studierender« enthält also die echten
-  Angaben einer Person wie Nachname, Vorname und Matrikelnummer.
-* Die einzelnen Daten, die ein Objekt speichert, nennt man **Attribute**.
-* Neben Attributen können Klassen auch **Methoden** enthalten. Das sind
-  Funktionen, die speziell für die Arbeit mit den Objekten gedacht sind.
-```
-
-In diesem Kapitel konzentrieren wir uns zunächst auf Klassen, Objekte und
-Attribute. Auf Methoden gehen wir im nächsten Kapitel genauer ein.
-
 ```{dropdown} Video zu "Konzept der Objektorientierung" von Programmieren lernen
 <iframe width="560" height="315" src="https://www.youtube.com/embed/46yolPy-2VQ" 
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
@@ -168,13 +153,31 @@ student3 = Student("Colorado", "Charlie", "Elektrotechnik", 2, "11223344")
 Die **Klasse** ist also vergleichbar mit einem Formular, das die Studierenden
 zur Anmeldung ausfüllen müssen. Das Formular legt fest, welche Daten erhoben
 werden. Zur Anmeldung wird die Klausurnote beispielsweise nicht abgefragt, auch
-wenn sich Studierende das vielleicht wünschen würden. **Objekt** dieser Klasse
-ist dann jeder einzelne Studierende wie beispielsweise `student1` oder
-`student2` mit den konkreten Daten.
+wenn sich Studierende das vielleicht wünschen würden. Ein **Objekt** dieser
+Klasse ist dann jeder einzelne Studierende wie beispielsweise `student1` oder
+`student2` mit den konkreten Daten. Die Eigenschaften, die in diesen Objekten
+gemäß dem Bauplan gespeichert sind, werden **Attribute** genannt.
+
+In diesem Kapitel konzentrieren wir uns zunächst auf Klassen, Objekte und
+Attribute. Auf Methoden gehen wir im nächsten Kapitel genauer ein, geben aber in
+der folgenden Zusammenfassung der Grundbegriffe der objektorientierten
+Programmierung (OOP) schon einmal einen Ausblick auf den Fachbegriff Methode.
+
+```{admonition} Grundbegriffe der objektorientierten Programmierung
+:class: note
+* Eine **Klasse** ist dabei wie ein Bauplan oder ein Formular: Sie legt fest,
+  welche Daten und welche Funktionen zu einem bestimmten Typ von Dingen gehören.
+* Ein **Objekt** ist eine konkrete Ausprägung einer Klasse, sozusagen ein
+  Exemplar nach dem Bauplan. Ein Objekt »Studierender« enthält also die echten
+  Angaben einer Person wie Nachname, Vorname und Matrikelnummer.
+* Die einzelnen Daten, die ein Objekt speichert, nennt man **Attribute**.
+* Neben Attributen können Klassen auch **Methoden** enthalten. Das sind
+  Funktionen, die speziell für die Arbeit mit den Objekten gedacht sind.
+```
 
 ## Zugriff auf die Daten eines Objekts
 
-Nachdem wir ein Objekt erstellt haben, können wir auf seine **Attribute** (=
+Nachdem wir ein Objekt erstellt haben, können wir auf seine Attribute (=
 gespeicherte Daten) zugreifen:
 
 ```{code-cell} ipython3
@@ -195,7 +198,8 @@ print(student1.semester)       # Ausgabe: 4
 print(student1.vorname)        # Ausgabe: Anna-Lena
 ```
 
-Um auf ein Attribut zuzugreifen, verwenden wir die Punkt-Notation:
+Um auf ein Attribut zuzugreifen, verwenden wir die **Punkt-Notation** bzw. den
+**Punkt-Operator**:
 
 ```python
 objektname.attributname
@@ -204,8 +208,8 @@ objektname.attributname
 Jedes Objekt hat seine eigenen Attribute:
 
 ```{code-cell} ipython
-student1.nachname = "Abendrot"
-student2.nachname = "Berliner"
+print(student1.nachname)  # "Abendrot"
+print(student2.nachname)  # "Berliner"
 # student1 und student2 sind völlig unabhängig voneinander
 ```
 

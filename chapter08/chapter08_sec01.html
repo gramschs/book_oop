@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>8.1 Was sind Objekte? &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+    <title>8.1 Was sind Klassen und Objekte? &#8212; Python für Studierende der Ingenieurwissenschaften</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter08/chapter08_sec01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.2 Attribute und Methoden*" href="chapter08_sec02.html" />
+    <link rel="next" title="8.2 Attribute und Methoden" href="chapter08_sec02.html" />
     <link rel="prev" title="8. Objektorientierte Programmierung" href="chapter08_sec00.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -221,8 +221,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter08_sec00.html">8. Objektorientierte Programmierung</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.1 Was sind Objekte?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter08_sec02.html">8.2 Attribute und Methoden*</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.1 Was sind Klassen und Objekte?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter08_sec02.html">8.2 Attribute und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter08_sec03.html">8.3 OOP in der Praxis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter08_sec04.html">Übungen</a></li>
 </ul>
@@ -478,7 +478,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -489,11 +491,24 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>8.1 Was sind Objekte?</h1>
+    <h1>8.1 Was sind Klassen und Objekte?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konzept">Konzept</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-losung-eine-klasse-fur-studierende">Die Lösung: Eine Klasse für Studierende</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zugriff-auf-die-daten-eines-objekts">Zugriff auf die Daten eines Objekts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorteile-der-objektorientierten-losung">Vorteile der objektorientierten Lösung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -503,13 +518,306 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="was-sind-objekte">
-<h1>8.1 Was sind Objekte?<a class="headerlink" href="#was-sind-objekte" title="Link to this heading">#</a></h1>
-<div class="warning admonition">
-<p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
-<p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="was-sind-klassen-und-objekte">
+<h1>8.1 Was sind Klassen und Objekte?<a class="headerlink" href="#was-sind-klassen-und-objekte" title="Link to this heading">#</a></h1>
+<p>100 Studierende mit jeweils fünf Eigenschaften verwalten? Das wären 500 einzelne
+Variablen, ein Albtraum! Die objektorientierte Programmierung löst dieses
+Problem: Anstatt Daten und Funktionen getrennt zu behandeln, bündeln wir sie in
+Objekten. In diesem Kapitel lernen wir, wie das funktioniert.</p>
+<section id="lernziele">
+<h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
+<div class="goals admonition">
+<p class="admonition-title">Lernziele</p>
+<ul class="simple">
+<li><p>Sie verstehen das Konzept der objektorientierten Programmierung (OOP).</p></li>
+<li><p>Sie können zwischen einer <strong>Klasse</strong> und einem <strong>Objekt</strong> unterscheiden.</p></li>
+<li><p>Sie können eine einfache Klasse selbst implementieren.</p></li>
+<li><p>Sie wissen, was ein <strong>Attribut</strong> ist und können darauf lesend und schreibend
+zugreifen.</p></li>
+</ul>
 </div>
-<p>TODO</p>
+</section>
+<section id="konzept">
+<h2>Konzept<a class="headerlink" href="#konzept" title="Link to this heading">#</a></h2>
+<p>Bei der bisherigen prozeduralen Programmierung haben wir Funktionen und Daten
+getrennt. Daten speichern wir in Variablen. Funktionen arbeiten dabei nach dem
+EVA-Prinzip: Eingabe – Verarbeitung – Ausgabe. In der Regel erwartet eine
+Funktion eine Eingabe von Daten, verarbeitet diese Daten und gibt Daten zurück.
+In vielen Fällen ist die prozedurale Programmierung völlig ausreichend. Diese
+Herangehensweise stößt an ihre Grenzen, wenn es darum geht, die reale Welt durch
+komplexere Modelle nachzubilden.</p>
+<p>Angenommen, wir wollten ein Programm zur Verwaltung von Studierenden schreiben,
+die an einer Python-Vorlesung teilnehmen. Bereits vor Beginn der Vorlesung
+müssen sich die Studierenden anmelden, um an der Vorlesung teilnehmen zu können.
+In dem Formular werden</p>
+<ul class="simple">
+<li><p>Nachname</p></li>
+<li><p>Vorname</p></li>
+<li><p>Studiengang</p></li>
+<li><p>Semester</p></li>
+<li><p>Matrikelnummer</p></li>
+</ul>
+<p>abgefragt. Angenommen, es melden sich 20 Studierende für die Python-Vorlesung
+an. Welchen Datentyp benutzen wir nun zur Erfassung der Anmeldedaten?</p>
+<p>Eine naheliegende Lösung wäre, für jeden Studierenden separate Variablen
+anzulegen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Studierende 1</span>
+<span class="n">nachname_1</span> <span class="o">=</span> <span class="s2">&quot;Abendrot&quot;</span>
+<span class="n">vorname_1</span> <span class="o">=</span> <span class="s2">&quot;Anna&quot;</span>
+<span class="n">studiengang_1</span> <span class="o">=</span> <span class="s2">&quot;Maschinenbau&quot;</span>
+<span class="n">semester_1</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">matrikelnummer_1</span> <span class="o">=</span> <span class="s2">&quot;12345678&quot;</span>
+
+<span class="c1"># Studierende 2</span>
+<span class="n">nachname_2</span> <span class="o">=</span> <span class="s2">&quot;Berliner&quot;</span>
+<span class="n">vorname_2</span> <span class="o">=</span> <span class="s2">&quot;Bob&quot;</span>
+<span class="n">studiengang_2</span> <span class="o">=</span> <span class="s2">&quot;Maschinenbau&quot;</span>
+<span class="n">semester_2</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">matrikelnummer_2</span> <span class="o">=</span> <span class="s2">&quot;87654321&quot;</span>
+
+<span class="c1"># ... und so weiter für alle 20 Studierenden.</span>
+</pre></div>
+</div>
+<p>Für 20 Studierende benötigen wir 100 Variablen! Das ist nicht nur
+unübersichtlich, sondern auch unpraktisch. Was passiert, wenn wir später weitere
+Informationen speichern möchten, wie beispielsweise die Klausurnote? Dann
+müssten wir 20 weitere Variablen hinzufügen.</p>
+<p>Eine andere Möglichkeit wäre die Verwendung von Listen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nachnamen</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Berliner&quot;</span><span class="p">,</span> <span class="s2">&quot;Colorado&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">vornamen</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">studiengänge</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">semester</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">matrikelnummern</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;12345678&quot;</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">,</span> <span class="s2">&quot;11223344&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Auch hier entstehen Probleme: Der Zusammenhang zwischen den Daten kann leicht
+verloren gehen. Wenn wir beispielsweise einen Studierenden aus der Liste
+entfernen möchten, müssen wir daran denken, den entsprechenden Eintrag in
+allen fünf Listen zu löschen. Vergessen wir eine Liste, stimmen die Daten
+nicht mehr überein.</p>
+<p>Eine weitere Möglichkeit wäre, für jeden Studierenden ein Dictionary zu
+verwenden. Damit könnten wir die Daten folgendermaßen zusammenfassen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">student1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;nachname&quot;</span><span class="p">:</span> <span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vorname&quot;</span><span class="p">:</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;studiengang&quot;</span><span class="p">:</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;semester&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;matrikelnummer&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dictionaries sind zwar praktischer als viele einzelne Variablen oder parallele
+Listen, haben aber auch Grenzen: Wir können zwar Daten bündeln, aber es gibt
+keine feste Struktur. Tippfehler bei Schlüsseln oder fehlende Einträge fallen
+erst zur Laufzeit auf. Außerdem können wir Funktionen zwar separat schreiben,
+sie sind aber nicht automatisch mit den Daten verbunden.</p>
+<p>Genau hier setzt die objektorientierte Programmierung an. Die Grundidee besteht
+darin, Daten und die dazugehörigen Funktionen in einer gemeinsamen Struktur zu
+bündeln.</p>
+<div class="note admonition">
+<p class="admonition-title">Grundbegriffe der objektorientierten Programmierung</p>
+<ul class="simple">
+<li><p>Eine <strong>Klasse</strong> ist dabei wie ein Bauplan oder ein Formular: Sie legt fest,
+welche Daten und welche Funktionen zu einem bestimmten Typ von Dingen gehören.</p></li>
+<li><p>Ein <strong>Objekt</strong> ist eine konkrete Ausprägung einer Klasse, sozusagen ein
+Exemplar nach dem Bauplan. Ein Objekt »Studierender« enthält also die echten
+Angaben einer Person wie Nachname, Vorname und Matrikelnummer.</p></li>
+<li><p>Die einzelnen Daten, die ein Objekt speichert, nennt man <strong>Attribute</strong>.</p></li>
+<li><p>Neben Attributen können Klassen auch <strong>Methoden</strong> enthalten. Das sind
+Funktionen, die speziell für die Arbeit mit den Objekten gedacht sind.</p></li>
+</ul>
+</div>
+<p>In diesem Kapitel konzentrieren wir uns zunächst auf Klassen, Objekte und
+Attribute. Auf Methoden gehen wir im nächsten Kapitel genauer ein.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Video zu “Konzept der Objektorientierung” von Programmieren lernen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/46yolPy-2VQ" 
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</details></section>
+<section id="die-losung-eine-klasse-fur-studierende">
+<h2>Die Lösung: Eine Klasse für Studierende<a class="headerlink" href="#die-losung-eine-klasse-fur-studierende" title="Link to this heading">#</a></h2>
+<p>Die objektorientierte Programmierung löst dieses Problem elegant. Wir erstellen
+eine sogenannte Klasse, die wie ein Formular oder ein Bauplan funktioniert:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit dieser Klasse können wir nun ganz einfach einzelne Studierende erstellen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Einzelne Studierende erstellen (= Objekte)</span>
+<span class="n">student1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="n">student2</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Berliner&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">)</span>
+<span class="n">student3</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Colorado&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;11223344&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die <strong>Klasse</strong> ist also vergleichbar mit einem Formular, das die Studierenden
+zur Anmeldung ausfüllen müssen. Das Formular legt fest, welche Daten erhoben
+werden. Zur Anmeldung wird die Klausurnote beispielsweise nicht abgefragt, auch
+wenn sich Studierende das vielleicht wünschen würden. <strong>Objekt</strong> dieser Klasse
+ist dann jeder einzelne Studierende wie beispielsweise <code class="docutils literal notranslate"><span class="pre">student1</span></code> oder
+<code class="docutils literal notranslate"><span class="pre">student2</span></code> mit den konkreten Daten.</p>
+</section>
+<section id="zugriff-auf-die-daten-eines-objekts">
+<h2>Zugriff auf die Daten eines Objekts<a class="headerlink" href="#zugriff-auf-die-daten-eines-objekts" title="Link to this heading">#</a></h2>
+<p>Nachdem wir ein Objekt erstellt haben, können wir auf seine <strong>Attribute</strong> (=
+gespeicherte Daten) zugreifen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Objekt erstellen</span>
+<span class="n">student1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+
+<span class="c1"># Lesender Zugriff auf Attribute</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">nachname</span><span class="p">)</span>       <span class="c1"># Ausgabe: Abendrot</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">vorname</span><span class="p">)</span>        <span class="c1"># Ausgabe: Anna</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">semester</span><span class="p">)</span>       <span class="c1"># Ausgabe: 3</span>
+
+<span class="c1"># Schreibender Zugriff - Werte ändern</span>
+<span class="n">student1</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="mi">4</span>          <span class="c1"># Anna ist jetzt im 4. Semester</span>
+<span class="n">student1</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="s2">&quot;Anna-Lena&quot;</span> <span class="c1"># Vorname ändern</span>
+
+<span class="c1"># Überprüfung der Änderung</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">semester</span><span class="p">)</span>       <span class="c1"># Ausgabe: 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">vorname</span><span class="p">)</span>        <span class="c1"># Ausgabe: Anna-Lena</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Abendrot
+Anna
+3
+4
+Anna-Lena
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um auf ein Attribut zuzugreifen, verwenden wir die Punkt-Notation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">objektname</span><span class="o">.</span><span class="n">attributname</span>
+</pre></div>
+</div>
+<p>Jedes Objekt hat seine eigenen Attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">student1</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="s2">&quot;Abendrot&quot;</span>
+<span class="n">student2</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="s2">&quot;Berliner&quot;</span>
+<span class="c1"># student1 und student2 sind völlig unabhängig voneinander</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Schauen wir uns nun die Vorteile an, die Objekte in der Programmierung mit sich
+bringen.</p>
+</section>
+<section id="vorteile-der-objektorientierten-losung">
+<h2>Vorteile der objektorientierten Lösung<a class="headerlink" href="#vorteile-der-objektorientierten-losung" title="Link to this heading">#</a></h2>
+<p><strong>1. Zusammengehörige Daten sind gebündelt:</strong>
+Alle Informationen zu einem Studierenden sind in einem Objekt gespeichert. Es
+kann nichts “durcheinander geraten”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">nachname</span><span class="p">)</span>       <span class="c1"># &quot;Abendrot&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">vorname</span><span class="p">)</span>        <span class="c1"># &quot;Anna&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">studiengang</span><span class="p">)</span>    <span class="c1"># &quot;Maschinenbau&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Abendrot
+Anna-Lena
+Maschinenbau
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2. Einfache Erweiterung:</strong>
+Neue Eigenschaften können leicht hinzugefügt werden, ohne bestehenden Code
+zu ändern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">klausurnote</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Neue Eigenschaft</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Da wir nicht wollen, dass die Klausurnote durch die Studierenden bei der
+Anmeldung gesetzt wird, haben wir diese Eigenschaft im <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>-Abschnitt
+bewusst weggelassen. Da die Klausurnote erst später vergeben wird, setzen wir
+sie initial auf <code class="docutils literal notranslate"><span class="pre">None</span></code> (= kein Wert). Es bleibt also bei der alten Methode, ein
+konkretes Objekt zu erzeugen, wie der folgende Code-Abschnitt zeigt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">student1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">klausurnote</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>3. Übersichtliche Verwaltung vieler Objekte:</strong>
+Anstatt 100 einzelner Variablen verwenden wir einfach eine Liste von Objekten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Liste mit Studierenden anlegen</span>
+<span class="n">studierende</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Berliner&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Colorado&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;11223344&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># alle Namen ausgeben</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anna Abendrot
+Bob Berliner
+Charlie Colorado
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>4. Wiederverwendbarkeit:</strong>
+Die Klasse kann in verschiedenen Programmen wiederverwendet werden.</p>
+</section>
+<section id="zusammenfassung-und-ausblick">
+<h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
+<p>In diesem Kapitel haben wir das Grundkonzept der objektorientierten
+Programmierung kennengelernt. Wir haben gesehen, dass eine Klasse wie ein
+Bauplan oder ein Formular funktioniert und daraus Objekte mit konkreten Daten
+entstehen. Die gespeicherten Informationen heißen Attribute. Im nächsten Kapitel
+lernen wir die Methoden kennen, also Funktionen, die direkt zu einer Klasse
+gehören.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -556,7 +864,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">8.2 Attribute und Methoden*</p>
+        <p class="prev-next-title">8.2 Attribute und Methoden</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -566,6 +874,27 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konzept">Konzept</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-losung-eine-klasse-fur-studierende">Die Lösung: Eine Klasse für Studierende</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zugriff-auf-die-daten-eines-objekts">Zugriff auf die Daten eines Objekts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorteile-der-objektorientierten-losung">Vorteile der objektorientierten Lösung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

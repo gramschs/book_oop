@@ -614,21 +614,6 @@ sie sind aber nicht automatisch mit den Daten verbunden.</p>
 <p>Genau hier setzt die objektorientierte Programmierung an. Die Grundidee besteht
 darin, Daten und die dazugehörigen Funktionen in einer gemeinsamen Struktur zu
 bündeln.</p>
-<div class="note admonition">
-<p class="admonition-title">Grundbegriffe der objektorientierten Programmierung</p>
-<ul class="simple">
-<li><p>Eine <strong>Klasse</strong> ist dabei wie ein Bauplan oder ein Formular: Sie legt fest,
-welche Daten und welche Funktionen zu einem bestimmten Typ von Dingen gehören.</p></li>
-<li><p>Ein <strong>Objekt</strong> ist eine konkrete Ausprägung einer Klasse, sozusagen ein
-Exemplar nach dem Bauplan. Ein Objekt »Studierender« enthält also die echten
-Angaben einer Person wie Nachname, Vorname und Matrikelnummer.</p></li>
-<li><p>Die einzelnen Daten, die ein Objekt speichert, nennt man <strong>Attribute</strong>.</p></li>
-<li><p>Neben Attributen können Klassen auch <strong>Methoden</strong> enthalten. Das sind
-Funktionen, die speziell für die Arbeit mit den Objekten gedacht sind.</p></li>
-</ul>
-</div>
-<p>In diesem Kapitel konzentrieren wir uns zunächst auf Klassen, Objekte und
-Attribute. Auf Methoden gehen wir im nächsten Kapitel genauer ein.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Video zu “Konzept der Objektorientierung” von Programmieren lernen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -669,13 +654,31 @@ eine sogenannte Klasse, die wie ein Formular oder ein Bauplan funktioniert:</p>
 <p>Die <strong>Klasse</strong> ist also vergleichbar mit einem Formular, das die Studierenden
 zur Anmeldung ausfüllen müssen. Das Formular legt fest, welche Daten erhoben
 werden. Zur Anmeldung wird die Klausurnote beispielsweise nicht abgefragt, auch
-wenn sich Studierende das vielleicht wünschen würden. <strong>Objekt</strong> dieser Klasse
-ist dann jeder einzelne Studierende wie beispielsweise <code class="docutils literal notranslate"><span class="pre">student1</span></code> oder
-<code class="docutils literal notranslate"><span class="pre">student2</span></code> mit den konkreten Daten.</p>
+wenn sich Studierende das vielleicht wünschen würden. Ein <strong>Objekt</strong> dieser
+Klasse ist dann jeder einzelne Studierende wie beispielsweise <code class="docutils literal notranslate"><span class="pre">student1</span></code> oder
+<code class="docutils literal notranslate"><span class="pre">student2</span></code> mit den konkreten Daten. Die Eigenschaften, die in diesen Objekten
+gemäß dem Bauplan gespeichert sind, werden <strong>Attribute</strong> genannt.</p>
+<p>In diesem Kapitel konzentrieren wir uns zunächst auf Klassen, Objekte und
+Attribute. Auf Methoden gehen wir im nächsten Kapitel genauer ein, geben aber in
+der folgenden Zusammenfassung der Grundbegriffe der objektorientierten
+Programmierung (OOP) schon einmal einen Ausblick auf den Fachbegriff Methode.</p>
+<div class="note admonition">
+<p class="admonition-title">Grundbegriffe der objektorientierten Programmierung</p>
+<ul class="simple">
+<li><p>Eine <strong>Klasse</strong> ist dabei wie ein Bauplan oder ein Formular: Sie legt fest,
+welche Daten und welche Funktionen zu einem bestimmten Typ von Dingen gehören.</p></li>
+<li><p>Ein <strong>Objekt</strong> ist eine konkrete Ausprägung einer Klasse, sozusagen ein
+Exemplar nach dem Bauplan. Ein Objekt »Studierender« enthält also die echten
+Angaben einer Person wie Nachname, Vorname und Matrikelnummer.</p></li>
+<li><p>Die einzelnen Daten, die ein Objekt speichert, nennt man <strong>Attribute</strong>.</p></li>
+<li><p>Neben Attributen können Klassen auch <strong>Methoden</strong> enthalten. Das sind
+Funktionen, die speziell für die Arbeit mit den Objekten gedacht sind.</p></li>
+</ul>
+</div>
 </section>
 <section id="zugriff-auf-die-daten-eines-objekts">
 <h2>Zugriff auf die Daten eines Objekts<a class="headerlink" href="#zugriff-auf-die-daten-eines-objekts" title="Link to this heading">#</a></h2>
-<p>Nachdem wir ein Objekt erstellt haben, können wir auf seine <strong>Attribute</strong> (=
+<p>Nachdem wir ein Objekt erstellt haben, können wir auf seine Attribute (=
 gespeicherte Daten) zugreifen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -707,16 +710,23 @@ Anna-Lena
 </div>
 </div>
 </div>
-<p>Um auf ein Attribut zuzugreifen, verwenden wir die Punkt-Notation:</p>
+<p>Um auf ein Attribut zuzugreifen, verwenden wir die <strong>Punkt-Notation</strong> bzw. den
+<strong>Punkt-Operator</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">objektname</span><span class="o">.</span><span class="n">attributname</span>
 </pre></div>
 </div>
 <p>Jedes Objekt hat seine eigenen Attribute:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">student1</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="s2">&quot;Abendrot&quot;</span>
-<span class="n">student2</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="s2">&quot;Berliner&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">nachname</span><span class="p">)</span>  <span class="c1"># &quot;Abendrot&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student2</span><span class="o">.</span><span class="n">nachname</span><span class="p">)</span>  <span class="c1"># &quot;Berliner&quot;</span>
 <span class="c1"># student1 und student2 sind völlig unabhängig voneinander</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Abendrot
+Berliner
 </pre></div>
 </div>
 </div>

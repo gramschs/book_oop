@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -65,7 +65,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Übungen" href="chapter08_sec04.html" />
-    <link rel="prev" title="8.2 Attribute und Methoden" href="chapter08_sec02.html" />
+    <link rel="prev" title="8.2 Methoden und der self-Parameter" href="chapter08_sec02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -222,7 +222,7 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter08_sec00.html">8. Objektorientierte Programmierung</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="chapter08_sec01.html">8.1 Was sind Klassen und Objekte?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter08_sec02.html">8.2 Attribute und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter08_sec02.html">8.2 Methoden und der self-Parameter</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">8.3 OOP in der Praxis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter08_sec04.html">Übungen</a></li>
 </ul>
@@ -478,7 +478,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -494,6 +496,35 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konzept">Konzept</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-verwalten">Listen von Objekten verwalten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-in-listen-speichern">Objekte in Listen speichern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-durchlaufen">Listen von Objekten durchlaufen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-in-listen-suchen-und-filtern">Objekte in Listen suchen und filtern</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-str-methode-fur-schone-ausgabe">Die <strong>str</strong>-Methode für schöne Ausgabe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-problem-kryptische-objektausgabe">Das Problem: Kryptische Objektausgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-losung-die-str-methode-implementieren">Die Lösung: Die <strong>str</strong>-Methode implementieren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleich-mit-und-ohne-str">Vergleich: mit und ohne <strong>str</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-fur-benutzerfreundliche-ausgabe">Best Practices für benutzerfreundliche Ausgabe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-vollstandiges-beispiel-kursverwaltung">Ein vollständiges Beispiel: Kursverwaltung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-vollstandige-student-klasse">Die vollständige Student-Klasse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kursverwaltung-implementieren">Kursverwaltung implementieren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-operationen">Praktische Operationen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -509,10 +540,219 @@
 <p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
 <p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
 </div>
+<p>Mit Klassen, Objekten und Methoden haben wir die Grundlagen der objektorientierten Programmierung kennengelernt. In diesem Kapitel schauen wir uns an, wie wir diese Konzepte in der Praxis anwenden: Wir verwalten mehrere Objekte in Listen und sorgen dafür, dass unsere Objekte sich schön ausgeben lassen.</p>
+<section id="lernziele">
+<h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
+<div class="goals admonition">
+<p class="admonition-title">Lernziele</p>
+<ul class="simple">
+<li><p>Sie können Objekte in Listen speichern und verwalten.</p></li>
+<li><p>Sie können Listen von Objekten durchlaufen und durchsuchen.</p></li>
+<li><p>Sie verstehen die <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode und können sie implementieren.</p></li>
+<li><p>Sie können ein vollständiges objektorientiertes Programm zur Datenverwaltung erstellen.</p></li>
+<li><p>Sie verstehen, wie OOP bei der Lösung praktischer Probleme hilft.</p></li>
+</ul>
+</div>
+</section>
+<section id="konzept">
+<h2>Konzept<a class="headerlink" href="#konzept" title="Link to this heading">#</a></h2>
+<p>TODO: Einleitungstext über die Bedeutung von Listen von Objekten in der Praxis. Beispiel aus dem Alltag (Kursverwaltung an der Hochschule). Überleitung zu den drei Hauptthemen des Kapitels.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Video zu “Listen von Objekten” von Programmieren lernen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">TODO: Passendes Video suchen oder eigenes erstellen</p>
+</div>
+</details></section>
+<section id="listen-von-objekten-verwalten">
+<h2>Listen von Objekten verwalten<a class="headerlink" href="#listen-von-objekten-verwalten" title="Link to this heading">#</a></h2>
+<p>TODO: Erklärender Text über die Notwendigkeit, mehrere Objekte zu verwalten. Vergleich zu bisherigen Ansätzen (viele einzelne Variablen vs. Listen von Objekten).</p>
+<section id="objekte-in-listen-speichern">
+<h3>Objekte in Listen speichern<a class="headerlink" href="#objekte-in-listen-speichern" title="Link to this heading">#</a></h3>
+<p>TODO: Grundlegendes Beispiel - mehrere Student-Objekte in einer Liste erstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code-Beispiel für das Erstellen einer Liste mit mehreren Student-Objekten</span>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+
+<span class="c1"># Liste mit mehreren Studierenden erstellen</span>
+<span class="n">studierende</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Berliner&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Colorado&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;11223344&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Anzahl Studierende: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">studierende</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anzahl Studierende: 3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="listen-von-objekten-durchlaufen">
+<h3>Listen von Objekten durchlaufen<a class="headerlink" href="#listen-von-objekten-durchlaufen" title="Link to this heading">#</a></h3>
+<p>TODO: Erklärung, wie man mit for-Schleifen über Listen von Objekten iteriert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code-Beispiel für das Durchlaufen einer Liste von Objekten mit for-Schleife</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="objekte-in-listen-suchen-und-filtern">
+<h3>Objekte in Listen suchen und filtern<a class="headerlink" href="#objekte-in-listen-suchen-und-filtern" title="Link to this heading">#</a></h3>
+<p>TODO: Praktische Beispiele für das Suchen nach bestimmten Objekten in Listen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code-Beispiele für:</span>
+<span class="c1"># - Suche nach Student mit bestimmtem Namen</span>
+<span class="c1"># - Filtern nach Studiengang</span>
+<span class="c1"># - Filtern nach Semester</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>TODO: Übung zum Filtern von Objektlisten - z.B. “Finden Sie alle Studierenden im 1. Semester”</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Musterlösung für die Mini-Übung</span>
+</pre></div>
+</div>
+<p>TODO: Erklärung der Lösung</p>
+</div>
+</section>
+</section>
+<section id="die-str-methode-fur-schone-ausgabe">
+<h2>Die <strong>str</strong>-Methode für schöne Ausgabe<a class="headerlink" href="#die-str-methode-fur-schone-ausgabe" title="Link to this heading">#</a></h2>
+<p>TODO: Problemstellung - was passiert, wenn wir <code class="docutils literal notranslate"><span class="pre">print(objekt)</span></code> ohne <code class="docutils literal notranslate"><span class="pre">__str__</span></code>
+aufrufen? Kryptische Ausgabe zeigen.</p>
+<section id="das-problem-kryptische-objektausgabe">
+<h3>Das Problem: Kryptische Objektausgabe<a class="headerlink" href="#das-problem-kryptische-objektausgabe" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Beispiel zeigen, wie Objekte ohne __str__ ausgegeben werden</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="die-losung-die-str-methode-implementieren">
+<h3>Die Lösung: Die <strong>str</strong>-Methode implementieren<a class="headerlink" href="#die-losung-die-str-methode-implementieren" title="Link to this heading">#</a></h3>
+<p>TODO: Erklärung, was <code class="docutils literal notranslate"><span class="pre">__str__</span></code> ist und warum Python diese Methode automatisch aufruft.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Student-Klasse um __str__-Methode erweitern</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vergleich-mit-und-ohne-str">
+<h3>Vergleich: mit und ohne <strong>str</strong><a class="headerlink" href="#vergleich-mit-und-ohne-str" title="Link to this heading">#</a></h3>
+<p>TODO: Direkter Vergleich der Ausgabe mit und ohne <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code-Beispiel, das den Unterschied deutlich macht</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="best-practices-fur-benutzerfreundliche-ausgabe">
+<h3>Best Practices für benutzerfreundliche Ausgabe<a class="headerlink" href="#best-practices-fur-benutzerfreundliche-ausgabe" title="Link to this heading">#</a></h3>
+<p>TODO: Richtlinien für gute <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Implementierungen (kurz, informativ, lesbar).</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>TODO: Übung zur Implementierung einer <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Musterlösung</span>
+</pre></div>
+</div>
+<p>TODO: Erklärung</p>
+</div>
+</section>
+</section>
+<section id="ein-vollstandiges-beispiel-kursverwaltung">
+<h2>Ein vollständiges Beispiel: Kursverwaltung<a class="headerlink" href="#ein-vollstandiges-beispiel-kursverwaltung" title="Link to this heading">#</a></h2>
+<p>TODO: Zusammenführung aller gelernten Konzepte in einem praktischen Beispiel.</p>
+<section id="die-vollstandige-student-klasse">
+<h3>Die vollständige Student-Klasse<a class="headerlink" href="#die-vollstandige-student-klasse" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Komplette Student-Klasse mit allen bisher gelernten Methoden und __str__</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="kursverwaltung-implementieren">
+<h3>Kursverwaltung implementieren<a class="headerlink" href="#kursverwaltung-implementieren" title="Link to this heading">#</a></h3>
+<p>TODO: Praktische Funktionen für eine einfache Kursverwaltung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code für:</span>
+<span class="c1"># - Studierende hinzufügen</span>
+<span class="c1"># - Studierende anzeigen</span>
+<span class="c1"># - Nach Studiengang filtern</span>
+<span class="c1"># - Statistiken erstellen (Anzahl pro Semester, etc.)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="praktische-operationen">
+<h3>Praktische Operationen<a class="headerlink" href="#praktische-operationen" title="Link to this heading">#</a></h3>
+<p>TODO: Beispiele für typische Verwaltungsaufgaben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Beispiele für:</span>
+<span class="c1"># - Alle Studierenden eines Studiengangs anzeigen</span>
+<span class="c1"># - Durchschnittliches Semester berechnen</span>
+<span class="c1"># - Studierende nach Namen sortieren</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="zusammenfassung-und-ausblick">
+<h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
 <p>TODO</p>
-<p>Objektorientierung ist ein sehr detailreiches Thema, das wir in diesem Kapitel
-nur streifen konnten. Die folgenden Videos geben einen vertieften Einblick in
-die Objektorientierung mit Python.</p>
+<ul class="simple">
+<li><p>Listen von Objekten sind ein mächtiges Werkzeug zur Datenverwaltung</p></li>
+<li><p>Die <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode macht Objekte benutzerfreundlich</p></li>
+<li><p>OOP hilft dabei, komplexe Datenstrukturen übersichtlich zu verwalten</p></li>
+<li><p>Diese Konzepte sind die Grundlage für viele Data Science-Werkzeuge</p></li>
+</ul>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Video zu “Klassen und Objekte” von Programmieren lernen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -538,6 +778,7 @@ clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
 </iframe>
 </div>
 </details></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -575,7 +816,7 @@ clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">8.2 Attribute und Methoden</p>
+        <p class="prev-next-title">8.2 Methoden und der self-Parameter</p>
       </div>
     </a>
     <a class="right-next"
@@ -593,6 +834,43 @@ clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konzept">Konzept</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-verwalten">Listen von Objekten verwalten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-in-listen-speichern">Objekte in Listen speichern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-durchlaufen">Listen von Objekten durchlaufen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-in-listen-suchen-und-filtern">Objekte in Listen suchen und filtern</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-str-methode-fur-schone-ausgabe">Die <strong>str</strong>-Methode für schöne Ausgabe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-problem-kryptische-objektausgabe">Das Problem: Kryptische Objektausgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-losung-die-str-methode-implementieren">Die Lösung: Die <strong>str</strong>-Methode implementieren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleich-mit-und-ohne-str">Vergleich: mit und ohne <strong>str</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-fur-benutzerfreundliche-ausgabe">Best Practices für benutzerfreundliche Ausgabe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-vollstandiges-beispiel-kursverwaltung">Ein vollständiges Beispiel: Kursverwaltung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-vollstandige-student-klasse">Die vollständige Student-Klasse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kursverwaltung-implementieren">Kursverwaltung implementieren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-operationen">Praktische Operationen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

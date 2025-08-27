@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>8.2 Attribute und Methoden &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+    <title>8.2 Methoden und der self-Parameter &#8212; Python für Studierende der Ingenieurwissenschaften</title>
   
   
   
@@ -222,7 +222,7 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter08_sec00.html">8. Objektorientierte Programmierung</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="chapter08_sec01.html">8.1 Was sind Klassen und Objekte?</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.2 Attribute und Methoden</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.2 Methoden und der self-Parameter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter08_sec03.html">8.3 OOP in der Praxis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter08_sec04.html">Übungen</a></li>
 </ul>
@@ -478,7 +478,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -489,11 +491,22 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>8.2 Attribute und Methoden</h1>
+    <h1>8.2 Methoden und der self-Parameter</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-sind-funktionen-die-zu-einer-klasse-gehoren">Methoden sind Funktionen, die zu einer Klasse gehören</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-self-parameter">Der self-Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -503,13 +516,414 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="attribute-und-methoden">
-<h1>8.2 Attribute und Methoden<a class="headerlink" href="#attribute-und-methoden" title="Link to this heading">#</a></h1>
-<div class="warning admonition">
-<p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
-<p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="methoden-und-der-self-parameter">
+<h1>8.2 Methoden und der self-Parameter<a class="headerlink" href="#methoden-und-der-self-parameter" title="Link to this heading">#</a></h1>
+<p>Bisher haben wir gelernt, wie wir Daten in Objekten speichern können. Aber
+Objekte können mehr als nur Daten speichern, sonst könnten wir auch Dictionaries
+nehmen. Ihren großen Vorteil erlangen Objekte durch Methoden.</p>
+<section id="lernziele">
+<h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
+<div class="goals admonition">
+<p class="admonition-title">Lernziele</p>
+<ul class="simple">
+<li><p>Sie verstehen, was Methoden sind und wie sie sich von normalen Funktionen
+unterscheiden.</p></li>
+<li><p>Sie können einfache Methoden in einer Klasse implementieren und aufrufen.</p></li>
+<li><p>Sie verstehen den <code class="docutils literal notranslate"><span class="pre">self</span></code>-Parameter und wissen, warum er benötigt wird.</p></li>
+<li><p>Sie können über <code class="docutils literal notranslate"><span class="pre">self</span></code> auf Objektattribute zugreifen und diese verändern.</p></li>
+<li><p>Sie können Methoden schreiben, die mit den Daten des jeweiligen Objekts
+arbeiten.</p></li>
+</ul>
 </div>
-<p>TODO</p>
+</section>
+<section id="methoden-sind-funktionen-die-zu-einer-klasse-gehoren">
+<h2>Methoden sind Funktionen, die zu einer Klasse gehören<a class="headerlink" href="#methoden-sind-funktionen-die-zu-einer-klasse-gehoren" title="Link to this heading">#</a></h2>
+<p>Eine <strong>Methode</strong> ist im Grunde eine Funktion, die direkt zu einer Klasse gehört.
+Statt die Funktion separat zu schreiben, definieren wir sie innerhalb der
+Klasse. Dadurch kann die Funktion direkt mit den Daten des Objekts arbeiten.</p>
+<p>Schauen wir uns ein Beispiel an. Angenommen, wir möchten für einen Studierenden
+den vollständigen Namen ausgeben. Bisher würden wir das so machen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ohne Methoden, d.h. mit normaler Funktion</span>
+<span class="k">def</span> <span class="nf">vollstaendiger_name</span><span class="p">(</span><span class="n">student</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">student1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vollstaendiger_name</span><span class="p">(</span><span class="n">student1</span><span class="p">))</span>  <span class="c1"># Anna Abendrot</span>
+</pre></div>
+</div>
+<p>Mit einer Methode können wir das eleganter lösen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+    
+    <span class="c1"># Das ist eine Methode!</span>
+    <span class="k">def</span> <span class="nf">vollstaendiger_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Objekt erstellen</span>
+<span class="n">student1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+
+<span class="c1"># Methode aufrufen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">vollstaendiger_name</span><span class="p">())</span>  <span class="c1"># Anna Abendrot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anna Abendrot
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der wichtigste Unterschied zwischen Funktionen und Methoden ist, wo und wie wir
+sie aufrufen:</p>
+<p>Normale Funktion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funktion wird separat definiert</span>
+<span class="k">def</span> <span class="nf">vollstaendiger_name</span><span class="p">(</span><span class="n">student</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Aufruf: funktion(objekt)</span>
+<span class="n">ergebnis</span> <span class="o">=</span> <span class="n">vollstaendiger_name</span><span class="p">(</span><span class="n">student1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Methode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Methode wird in der Klasse definiert</span>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">vollstaendiger_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Aufruf: objekt.methode()</span>
+<span class="n">ergebnis</span> <span class="o">=</span> <span class="n">student1</span><span class="o">.</span><span class="n">vollstaendiger_name</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Nicht nur der Ort (in oder außerhalb der Klasse) unterscheidet sich, sondern
+auch die Syntax beim Aufruf:</p>
+<ul class="simple">
+<li><p>Normale Funktion: <code class="docutils literal notranslate"><span class="pre">funktion(objekt)</span></code></p></li>
+<li><p>Methode: <code class="docutils literal notranslate"><span class="pre">objekt.methode()</span></code></p></li>
+</ul>
+<p>Erweitern wir unsere Klasse Student um eine weitere nützliche Methode:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+    
+    <span class="k">def</span> <span class="nf">vollstaendiger_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">begruessung</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hallo, ich bin </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> und studiere </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Ausprobieren</span>
+<span class="n">student1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="n">student2</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Berliner&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">vollstaendiger_name</span><span class="p">())</span>  <span class="c1"># Anna Abendrot</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">begruessung</span><span class="p">())</span>          <span class="c1"># Hallo, ich bin Anna und studiere Maschinenbau.</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student2</span><span class="o">.</span><span class="n">vollstaendiger_name</span><span class="p">())</span>  <span class="c1"># Bob Berliner</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student2</span><span class="o">.</span><span class="n">begruessung</span><span class="p">())</span>          <span class="c1"># Hallo, ich bin Bob und studiere Maschinenbau.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anna Abendrot
+Hallo, ich bin Anna und studiere Maschinenbau.
+
+Bob Berliner
+Hallo, ich bin Bob und studiere Maschinenbau.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Anhand des obigen Beispiels stellen wir fest:</p>
+<ol class="arabic simple">
+<li><p>Der <code class="docutils literal notranslate"><span class="pre">self</span></code>-Parameter: Jede Methode hat als ersten Parameter <code class="docutils literal notranslate"><span class="pre">self</span></code>. Dieser
+Parameter bezieht sich auf das konkrete Objekt, für das die Methode aufgerufen
+wird. Mehr dazu lernen wir im nächsten Abschnitt.</p></li>
+<li><p>Zugriff auf Attribute: Innerhalb einer Methode greifen wir mit
+<code class="docutils literal notranslate"><span class="pre">self.attributname</span></code> auf die Attribute des Objekts zu.</p></li>
+<li><p>Jedes Objekt ruft seine eigene Methode auf: Obwohl beide Objekte die gleiche
+Methode <code class="docutils literal notranslate"><span class="pre">begruessung()</span></code> verwenden, geben sie unterschiedliche Ergebnisse
+zurück, je nach ihren eigenen Daten.</p></li>
+</ol>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Versuchen Sie selbst, eine Methode zu schreiben! Erweitern Sie die
+Klasse Student um eine Methode <code class="docutils literal notranslate"><span class="pre">studieninfo()</span></code>, die eine Zeile wie “Anna
+Abendrot studiert Maschinenbau im 3. Semester” zurückgibt.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+    
+    <span class="k">def</span> <span class="nf">vollstaendiger_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">studieninfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vollstaendiger_name</span><span class="p">()</span><span class="si">}</span><span class="s2"> studiert </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span><span class="si">}</span><span class="s2"> im </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="si">}</span><span class="s2">. Semester&quot;</span>
+
+<span class="c1"># Test der neuen Methode</span>
+<span class="n">student1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="o">.</span><span class="n">studieninfo</span><span class="p">())</span>  <span class="c1"># Max Müller studiert Maschinenbau im 3. Semester</span>
+</pre></div>
+</div>
+<p>In dieser Musterlösung rufen wir in der <code class="docutils literal notranslate"><span class="pre">studieninfo()</span></code>-Methode die andere
+Methode <code class="docutils literal notranslate"><span class="pre">vollstaendiger_name()</span></code> auf. Das geht mit <code class="docutils literal notranslate"><span class="pre">self.vollstaendiger_name()</span></code>.
+Auch Methoden können andere Methoden der gleichen Klasse verwenden!</p>
+</div>
+<p>Im nächsten Abschnitt schauen wir uns genauer an, was es mit diesem mysteriösen
+<code class="docutils literal notranslate"><span class="pre">self</span></code>-Parameter auf sich hat.</p>
+</section>
+<section id="der-self-parameter">
+<h2>Der self-Parameter<a class="headerlink" href="#der-self-parameter" title="Link to this heading">#</a></h2>
+<p>Im vorigen Abschnitt haben wir gesehen, dass jede Methode einen <code class="docutils literal notranslate"><span class="pre">self</span></code>-Parameter
+hat. In diesem Abschnitt klären wir, was self ist, warum wir es brauchen und wie
+es funktioniert.</p>
+<p><code class="docutils literal notranslate"><span class="pre">self</span></code> ist ein Verweis auf das konkrete Objekt, für das eine Methode aufgerufen
+wird. Angenommen, wir haben mehrere Studierende und jeder soll sich vorstellen.
+Woher weiß die Methode <code class="docutils literal notranslate"><span class="pre">begruessung()</span></code>, ob sie “Hallo, ich bin Anna” oder
+“Hallo, ich bin Bob” sagen soll? Genau hier kommt <code class="docutils literal notranslate"><span class="pre">self</span></code> ins Spiel.</p>
+<p>Schauen wir uns ein Beispiel an:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+    
+    <span class="k">def</span> <span class="nf">begruessung</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># self bezieht sich auf das Objekt, das diese Methode aufruft</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hallo, ich bin </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Meine Matrikelnummer ist </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Zwei verschiedene Objekte erstellen</span>
+<span class="n">student1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="n">student2</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Berliner&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">)</span>
+
+<span class="c1"># Gleiche Methode, aber verschiedene Objekte</span>
+<span class="n">student1</span><span class="o">.</span><span class="n">begruessung</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">student2</span><span class="o">.</span><span class="n">begruessung</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hallo, ich bin Anna Abendrot
+Meine Matrikelnummer ist 12345678
+
+Hallo, ich bin Bob Berliner
+Meine Matrikelnummer ist 87654321
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir <code class="docutils literal notranslate"><span class="pre">student1.begruessung()</span></code> aufrufen, dann ist <code class="docutils literal notranslate"><span class="pre">self</span></code> in der Methode eine
+Referenz auf <code class="docutils literal notranslate"><span class="pre">student1</span></code>. Bei <code class="docutils literal notranslate"><span class="pre">student2.begruessung()</span></code> bezieht sich <code class="docutils literal notranslate"><span class="pre">self</span></code> auf
+<code class="docutils literal notranslate"><span class="pre">student2</span></code>. Ohne <code class="docutils literal notranslate"><span class="pre">self</span></code> wüsste eine Methode nicht, auf welches Objekt sie sich
+bezieht.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+    
+    <span class="k">def</span> <span class="nf">zeige_semester</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> ist im </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="si">}</span><span class="s2">. Semester&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verschiedene Studierende in verschiedenen Semestern</span>
+<span class="n">studierende</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Schmidt&quot;</span><span class="p">,</span> <span class="s2">&quot;Sarah&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Weber&quot;</span><span class="p">,</span> <span class="s2">&quot;Tim&quot;</span><span class="p">,</span> <span class="s2">&quot;Informatik&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;11111111&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># Für jeden Studierenden die Methode aufrufen</span>
+<span class="k">for</span> <span class="n">studi</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+    <span class="n">studi</span><span class="o">.</span><span class="n">zeige_semester</span><span class="p">()</span>  <span class="c1"># self wird automatisch gesetzt!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max ist im 3. Semester
+Sarah ist im 1. Semester
+Tim ist im 5. Semester
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit self können wir auf alle Attribute des aktuellen Objekts zugreifen. Die
+Syntax ist einfach: <code class="docutils literal notranslate"><span class="pre">self.attributname</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+    
+    <span class="k">def</span> <span class="nf">alle_infos_anzeigen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Studierendendaten ---&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Studiengang: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Semester: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrikelnummer: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Lisa&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;98765432&quot;</span><span class="p">)</span>
+<span class="n">student</span><span class="o">.</span><span class="n">alle_infos_anzeigen</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Studierendendaten ---
+Name: Lisa Johnson
+Studiengang: Maschinenbau
+Semester: 2
+Matrikelnummer: 98765432
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier kommt der “magische Teil”: Obwohl jede Methode <code class="docutils literal notranslate"><span class="pre">self</span></code> als ersten Parameter
+hat, übergeben wir beim Aufruf keinen Wert dafür. Python macht das automatisch!
+Wir schreiben:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">student</span><span class="o">.</span><span class="n">alle_infos_anzeigen</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Python macht daraus intern:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">alle_infos_anzeigen</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Das bedeutet: Wenn wir <code class="docutils literal notranslate"><span class="pre">objekt.methode()</span></code> schreiben, übergibt Python automatisch
+das Objekt als ersten Parameter <code class="docutils literal notranslate"><span class="pre">(self)</span></code> an die Methode.</p>
+<p><code class="docutils literal notranslate"><span class="pre">self</span></code> ermöglicht es uns nicht nur, Attribute zu lesen, sondern auch zu
+verändern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+    
+    <span class="k">def</span> <span class="nf">semester_erhoehen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Erhöht das Semester um 1 (für den Semesterübergang)&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> ist jetzt im </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="si">}</span><span class="s2">. Semester&quot;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">aktuelles_semester_anzeigen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> ist im </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="si">}</span><span class="s2">. Semester&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ausprobieren</span>
+<span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="n">student</span><span class="o">.</span><span class="n">aktuelles_semester_anzeigen</span><span class="p">()</span>  <span class="c1"># Max ist im 3. Semester</span>
+
+<span class="n">student</span><span class="o">.</span><span class="n">semester_erhoehen</span><span class="p">()</span>            <span class="c1"># Max ist jetzt im 4. Semester</span>
+<span class="n">student</span><span class="o">.</span><span class="n">aktuelles_semester_anzeigen</span><span class="p">()</span>  <span class="c1"># Max ist im 4. Semester</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max ist im 3. Semester
+Max ist jetzt im 4. Semester
+Max ist im 4. Semester
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Erweitern Sie die Klasse Student um zwei neue Methoden:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">note_eintragen(note)</span></code> - fügt eine Note zur Notenliste hinzu (verwenden Sie
+eine Liste <code class="docutils literal notranslate"><span class="pre">self.noten</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notendurchschnitt()</span></code> - berechnet und gibt den Durchschnitt aller Noten
+zurück</p></li>
+</ol>
+<p>Tipp: Initialisieren Sie die Notenliste in <code class="docutils literal notranslate"><span class="pre">__init__</span></code> als leere Liste. Falls
+noch keine Noten vorhanden sind, soll die Methode den Durchschnitt 0.0
+zurückgeben.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noten</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Leere Liste für Noten</span>
+    
+    <span class="k">def</span> <span class="nf">note_eintragen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">note</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fügt eine Note zur Notenliste hinzu&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noten</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">note</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Note </span><span class="si">{</span><span class="n">note</span><span class="si">}</span><span class="s2"> für </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> eingetragen&quot;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">notendurchschnitt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Berechnet den Durchschnitt aller Noten&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">noten</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">noten</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">noten</span><span class="p">)</span>
+
+<span class="c1"># Test der neuen Methoden</span>
+<span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="n">student</span><span class="o">.</span><span class="n">note_eintragen</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>  <span class="c1"># Note 2.3 für Max eingetragen</span>
+<span class="n">student</span><span class="o">.</span><span class="n">note_eintragen</span><span class="p">(</span><span class="mf">1.7</span><span class="p">)</span>  <span class="c1"># Note 1.7 für Max eingetragen</span>
+<span class="n">student</span><span class="o">.</span><span class="n">note_eintragen</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>  <span class="c1"># Note 2.0 für Max eingetragen</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Durchschnitt: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">notendurchschnitt</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Durchschnitt: 2.0</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="zusammenfassung-und-ausblick">
+<h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
+<p>Methoden sind Funktionen, die zu einer Klasse gehören und direkt mit Objektdaten
+arbeiten können. Der <code class="docutils literal notranslate"><span class="pre">self</span></code>-Parameter ermöglicht jeder Methode den Zugriff auf das
+konkrete Objekt, das sie aufruft.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -566,6 +980,25 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-sind-funktionen-die-zu-einer-klasse-gehoren">Methoden sind Funktionen, die zu einer Klasse gehören</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-self-parameter">Der self-Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

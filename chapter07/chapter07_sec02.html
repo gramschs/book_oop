@@ -224,7 +224,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter08/chapter08_sec00.html">8. Objektorientierte Programmierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec01.html">8.1 Was sind Klassen und Objekte?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Attribute und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec02.html">8.2 Methoden und der self-Parameter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec03.html">8.3 OOP in der Praxis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter08/chapter08_sec04.html">Übungen</a></li>
 </ul>
@@ -558,7 +558,7 @@ simulieren möchten, können wir die Funktion <code class="docutils literal notr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
@@ -582,7 +582,7 @@ gleichverteilte Integers zwischen 1 und 6 zufällig gezogen.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3 2 1 4 4 6 4 3 5 1]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5 5 2 4 5 5 3 3 5 2]
 </pre></div>
 </div>
 </div>
@@ -627,7 +627,7 @@ wir scheinbar auf die Angabe eines Bereichs verzichten.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10295532599555524
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10146155279007973
 </pre></div>
 </div>
 </div>
@@ -646,7 +646,7 @@ Argument (exklusiv).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.38411066042169395
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.3372458602831574
 </pre></div>
 </div>
 </div>
@@ -661,7 +661,7 @@ erzeugen lassen.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[16.82677511 18.76722563 14.14511175 10.58290542 15.17310073]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10.0225427  17.2501078  11.277681   15.31079621 14.78422519]
 </pre></div>
 </div>
 </div>
@@ -689,7 +689,7 @@ später).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4e383a6067e42cc9b42d524528fc2236e8884dd6c10960a0f625c0bb42188cff.png" src="../_images/4e383a6067e42cc9b42d524528fc2236e8884dd6c10960a0f625c0bb42188cff.png" />
+<img alt="../_images/eed7f4a6af55ef9eed88c69cf980d7efffc2930adc3ae0862f070e9135381d6d.png" src="../_images/eed7f4a6af55ef9eed88c69cf980d7efffc2930adc3ae0862f070e9135381d6d.png" />
 </div>
 </div>
 <p>Ordnet man die gezogenen Zufallszahlen den 10 Teilintervallen zu, so sind in
@@ -716,7 +716,7 @@ Zufallszahlen erzeugen:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.64965457979656
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.676862034814272
 </pre></div>
 </div>
 </div>
@@ -732,7 +732,7 @@ bedeutet, dass die Normalverteiung eine Standardabweichung von 1 hat.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.70413525 -0.66905899  0.39578024  0.2590106   0.52908671]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.17214198 -1.5250651   0.76437855  0.90873461 -1.29821466]
 </pre></div>
 </div>
 </div>
@@ -787,7 +787,7 @@ Zufallszahlen pro Teilintervall anzeigen zu lassen.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5ea9fb8546c26589835bd224ec64e54daa778c3ae1ac198918f679bfdff7e670.png" src="../_images/5ea9fb8546c26589835bd224ec64e54daa778c3ae1ac198918f679bfdff7e670.png" />
+<img alt="../_images/b46d115454e01f6459495072bc644cd24c3482a9d4082109e711b3743e283c34.png" src="../_images/b46d115454e01f6459495072bc644cd24c3482a9d4082109e711b3743e283c34.png" />
 </div>
 </div>
 </section>

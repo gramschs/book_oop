@@ -274,6 +274,13 @@ for student in studierende:
 **4. Wiederverwendbarkeit:**
 Die Klasse kann in verschiedenen Programmen wiederverwendet werden.
 
+```{dropdown} Video zu "Klassen und Objekte" von Programmieren lernen
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XxCZrT7Z3G4" 
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+```
+
 ## Zusammenfassung und Ausblick
 
 In diesem Kapitel haben wir das Grundkonzept der objektorientierten

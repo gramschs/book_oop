@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -502,26 +502,9 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konzept">Konzept</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-verwalten">Listen von Objekten verwalten</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-in-listen-speichern">Objekte in Listen speichern</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-durchlaufen">Listen von Objekten durchlaufen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-in-listen-suchen-und-filtern">Objekte in Listen suchen und filtern</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-str-methode-fur-schone-ausgabe">Die <strong>str</strong>-Methode für schöne Ausgabe</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-problem-kryptische-objektausgabe">Das Problem: Kryptische Objektausgabe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-losung-die-str-methode-implementieren">Die Lösung: Die <strong>str</strong>-Methode implementieren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleich-mit-und-ohne-str">Vergleich: mit und ohne <strong>str</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-fur-benutzerfreundliche-ausgabe">Best Practices für benutzerfreundliche Ausgabe</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-vollstandiges-beispiel-kursverwaltung">Ein vollständiges Beispiel: Kursverwaltung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-vollstandige-student-klasse">Die vollständige Student-Klasse</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kursverwaltung-implementieren">Kursverwaltung implementieren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-operationen">Praktische Operationen</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-verwalten">Listen von Objekten verwalten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-str-methode-fur-schone-ausgabe">Die <strong>str</strong>-Methode für schöne Ausgabe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-vollstandiges-beispiel-kursverwaltung">Ein vollständiges Beispiel: Kursverwaltung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
             </nav>
@@ -536,11 +519,11 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="oop-in-der-praxis">
 <h1>8.3 OOP in der Praxis<a class="headerlink" href="#oop-in-der-praxis" title="Link to this heading">#</a></h1>
-<div class="warning admonition">
-<p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
-<p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
-</div>
-<p>Mit Klassen, Objekten und Methoden haben wir die Grundlagen der objektorientierten Programmierung kennengelernt. In diesem Kapitel schauen wir uns an, wie wir diese Konzepte in der Praxis anwenden: Wir verwalten mehrere Objekte in Listen und sorgen dafür, dass unsere Objekte sich schön ausgeben lassen.</p>
+<p>Mit Klassen, Objekten und Methoden haben wir die Grundlagen der
+objektorientierten Programmierung kennengelernt. In diesem Kapitel schauen wir
+uns an, wie wir diese Konzepte in der Praxis anwenden: Wir verwalten mehrere
+Objekte in Listen und sorgen dafür, dass unsere Objekte sich schön ausgeben
+lassen.</p>
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <div class="goals admonition">
@@ -554,25 +537,16 @@
 </ul>
 </div>
 </section>
-<section id="konzept">
-<h2>Konzept<a class="headerlink" href="#konzept" title="Link to this heading">#</a></h2>
-<p>TODO: Einleitungstext über die Bedeutung von Listen von Objekten in der Praxis. Beispiel aus dem Alltag (Kursverwaltung an der Hochschule). Überleitung zu den drei Hauptthemen des Kapitels.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video zu “Listen von Objekten” von Programmieren lernen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">TODO: Passendes Video suchen oder eigenes erstellen</p>
-</div>
-</details></section>
 <section id="listen-von-objekten-verwalten">
 <h2>Listen von Objekten verwalten<a class="headerlink" href="#listen-von-objekten-verwalten" title="Link to this heading">#</a></h2>
-<p>TODO: Erklärender Text über die Notwendigkeit, mehrere Objekte zu verwalten. Vergleich zu bisherigen Ansätzen (viele einzelne Variablen vs. Listen von Objekten).</p>
-<section id="objekte-in-listen-speichern">
-<h3>Objekte in Listen speichern<a class="headerlink" href="#objekte-in-listen-speichern" title="Link to this heading">#</a></h3>
-<p>TODO: Grundlegendes Beispiel - mehrere Student-Objekte in einer Liste erstellen.</p>
+<p>In der Praxis arbeiten wir selten mit nur einem Objekt. Angenommen, wir müssten
+die Daten aller Studierenden eines Kurses verwalten. Mit einzelnen Variablen
+wäre das ein Albtraum, aber mit Listen von Objekten wird es elegant und
+übersichtlich. Listen können nicht nur Zahlen oder Strings enthalten, sondern
+auch Objekte. Das macht sie zu einem mächtigen Werkzeug für die Datenverwaltung.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code-Beispiel für das Erstellen einer Liste mit mehreren Student-Objekten</span>
-<span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
@@ -584,7 +558,8 @@
 <span class="n">studierende</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">),</span>
     <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Berliner&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">),</span>
-    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Colorado&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;11223344&quot;</span><span class="p">)</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Colorado&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;11223344&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Dietrich&quot;</span><span class="p">,</span> <span class="s2">&quot;Diana&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;99887766&quot;</span><span class="p">)</span>
 <span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Anzahl Studierende: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">studierende</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -592,39 +567,79 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anzahl Studierende: 3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anzahl Studierende: 4
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="listen-von-objekten-durchlaufen">
-<h3>Listen von Objekten durchlaufen<a class="headerlink" href="#listen-von-objekten-durchlaufen" title="Link to this heading">#</a></h3>
-<p>TODO: Erklärung, wie man mit for-Schleifen über Listen von Objekten iteriert.</p>
+<p>Mit for-Schleifen können wir einfach über alle Objekte in der Liste iterieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code-Beispiel für das Durchlaufen einer Liste von Objekten mit for-Schleife</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alle Studierenden begrüßen</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hallo </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Nur die Namen ausgeben</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">studiengang</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hallo Anna Abendrot!
+Hallo Bob Berliner!
+Hallo Charlie Colorado!
+Hallo Diana Dietrich!
+
+Anna Abendrot (Maschinenbau)
+Bob Berliner (Maschinenbau)
+Charlie Colorado (Elektrotechnik)
+Diana Dietrich (Maschinenbau)
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="objekte-in-listen-suchen-und-filtern">
-<h3>Objekte in Listen suchen und filtern<a class="headerlink" href="#objekte-in-listen-suchen-und-filtern" title="Link to this heading">#</a></h3>
-<p>TODO: Praktische Beispiele für das Suchen nach bestimmten Objekten in Listen.</p>
+<p>Oft müssen wir bestimmte Objekte aus einer Liste herausfiltern oder suchen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code-Beispiele für:</span>
-<span class="c1"># - Suche nach Student mit bestimmtem Namen</span>
-<span class="c1"># - Filtern nach Studiengang</span>
-<span class="c1"># - Filtern nach Semester</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nach einem bestimmten Nachnamen suchen</span>
+<span class="n">gesuchter_name</span> <span class="o">=</span> <span class="s2">&quot;Berliner&quot;</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">nachname</span> <span class="o">==</span> <span class="n">gesuchter_name</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gefunden: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Alle Maschinenbau-Studierenden finden</span>
+<span class="n">maschinenbauer</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">==</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">:</span>
+        <span class="n">maschinenbauer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maschinenbau-Studierende:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">maschinenbauer</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gefunden: Bob Berliner
+
+Maschinenbau-Studierende:
+- Anna Abendrot
+- Bob Berliner
+- Diana Dietrich
 </pre></div>
 </div>
 </div>
 </div>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>TODO: Übung zum Filtern von Objektlisten - z.B. “Finden Sie alle Studierenden im 1. Semester”</p>
+<p>Schreiben Sie Code, der alle Studierenden im 3. Semester oder höher findet und
+deren Namen ausgibt. Verwenden Sie die bereits erstellte <code class="docutils literal notranslate"><span class="pre">studierende</span></code>-Liste.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -635,55 +650,133 @@
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Musterlösung für die Mini-Übung</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Studierende im 3. Semester oder höher</span>
+<span class="n">hoeheres_semester</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">semester</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">hoeheres_semester</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Studierende im 3. Semester oder höher:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">hoeheres_semester</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">semester</span><span class="si">}</span><span class="s2">. Semester)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>TODO: Erklärung der Lösung</p>
 </div>
-</section>
 </section>
 <section id="die-str-methode-fur-schone-ausgabe">
 <h2>Die <strong>str</strong>-Methode für schöne Ausgabe<a class="headerlink" href="#die-str-methode-fur-schone-ausgabe" title="Link to this heading">#</a></h2>
-<p>TODO: Problemstellung - was passiert, wenn wir <code class="docutils literal notranslate"><span class="pre">print(objekt)</span></code> ohne <code class="docutils literal notranslate"><span class="pre">__str__</span></code>
-aufrufen? Kryptische Ausgabe zeigen.</p>
-<section id="das-problem-kryptische-objektausgabe">
-<h3>Das Problem: Kryptische Objektausgabe<a class="headerlink" href="#das-problem-kryptische-objektausgabe" title="Link to this heading">#</a></h3>
+<p>Wenn wir Objekte mit <code class="docutils literal notranslate"><span class="pre">print()</span></code> ausgeben, erhalten wir oft kryptische Meldungen
+statt nützlicher Informationen. Die <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode löst dieses Problem
+elegant.</p>
+<p>Schauen wir uns an, was passiert, wenn wir ein Objekt direkt ausgeben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Beispiel zeigen, wie Objekte ohne __str__ ausgegeben werden</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+
+<span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>  <span class="c1"># Kryptische Ausgabe wie &lt;__main__.Student object at 0x...&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Student object at 0x103b7ac60&gt;
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="die-losung-die-str-methode-implementieren">
-<h3>Die Lösung: Die <strong>str</strong>-Methode implementieren<a class="headerlink" href="#die-losung-die-str-methode-implementieren" title="Link to this heading">#</a></h3>
-<p>TODO: Erklärung, was <code class="docutils literal notranslate"><span class="pre">__str__</span></code> ist und warum Python diese Methode automatisch aufruft.</p>
+<p>Das ist nicht sehr hilfreich! Python zeigt nur den Objekttyp und eine
+Speicheradresse an.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode ist eine spezielle Methode, die Python automatisch aufruft, wenn ein Objekt als String dargestellt werden soll:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Student-Klasse um __str__-Methode erweitern</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="si">}</span><span class="s2">. Semester)&quot;</span>
+
+<span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>  <span class="c1"># Jetzt: Max Müller (Maschinenbau, 3. Semester)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max Müller (Maschinenbau, 3. Semester)
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="vergleich-mit-und-ohne-str">
-<h3>Vergleich: mit und ohne <strong>str</strong><a class="headerlink" href="#vergleich-mit-und-ohne-str" title="Link to this heading">#</a></h3>
-<p>TODO: Direkter Vergleich der Ausgabe mit und ohne <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode.</p>
+<p>Der Unterschied wird besonders bei Listen von Objekten deutlich:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code-Beispiel, das den Unterschied deutlich macht</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ohne __str__-Methode</span>
+<span class="k">class</span> <span class="nc">StudentOhne</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+
+<span class="c1"># Mit __str__-Methode  </span>
+<span class="k">class</span> <span class="nc">StudentMit</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">student_ohne</span> <span class="o">=</span> <span class="n">StudentOhne</span><span class="p">(</span><span class="s2">&quot;Schmidt&quot;</span><span class="p">,</span> <span class="s2">&quot;Sarah&quot;</span><span class="p">)</span>
+<span class="n">student_mit</span> <span class="o">=</span> <span class="n">StudentMit</span><span class="p">(</span><span class="s2">&quot;Schmidt&quot;</span><span class="p">,</span> <span class="s2">&quot;Sarah&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ohne __str__:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_ohne</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Mit __str__:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_mit</span><span class="p">)</span>
+
+<span class="c1"># Bei Listen wird der Unterschied noch deutlicher</span>
+<span class="n">liste_ohne</span> <span class="o">=</span> <span class="p">[</span><span class="n">StudentOhne</span><span class="p">(</span><span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">),</span> <span class="n">StudentOhne</span><span class="p">(</span><span class="s2">&quot;Weber&quot;</span><span class="p">,</span> <span class="s2">&quot;Lisa&quot;</span><span class="p">)]</span>
+<span class="n">liste_mit</span> <span class="o">=</span> <span class="p">[</span><span class="n">StudentMit</span><span class="p">(</span><span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">),</span> <span class="n">StudentMit</span><span class="p">(</span><span class="s2">&quot;Weber&quot;</span><span class="p">,</span> <span class="s2">&quot;Lisa&quot;</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Liste ohne __str__: </span><span class="si">{</span><span class="n">liste_ohne</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liste mit __str__: </span><span class="si">{</span><span class="n">liste_mit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ohne __str__:
+&lt;__main__.StudentOhne object at 0x103b7ae40&gt;
+
+Mit __str__:
+Sarah Schmidt
+
+Liste ohne __str__: [&lt;__main__.StudentOhne object at 0x103b7b1d0&gt;, &lt;__main__.StudentOhne object at 0x103b78a10&gt;]
+Liste mit __str__: [&lt;__main__.StudentMit object at 0x103b7b260&gt;, &lt;__main__.StudentMit object at 0x103b7b500&gt;]
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="best-practices-fur-benutzerfreundliche-ausgabe">
-<h3>Best Practices für benutzerfreundliche Ausgabe<a class="headerlink" href="#best-practices-fur-benutzerfreundliche-ausgabe" title="Link to this heading">#</a></h3>
-<p>TODO: Richtlinien für gute <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Implementierungen (kurz, informativ, lesbar).</p>
+<p>Eine gute <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode sollte:</p>
+<ul class="simple">
+<li><p>kurz und informativ sein,</p></li>
+<li><p>die wichtigsten Informationen** enthalten und</p></li>
+<li><p>für Menschen lesbar sein.</p></li>
+</ul>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>TODO: Übung zur Implementierung einer <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode</p>
+<p>Erweitern Sie die Student-Klasse um eine <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode, die den Namen und
+das Semester in der Form “Anna Abendrot (3. Semester)” ausgibt. Testen Sie Ihre
+Lösung mit mindestens zwei Objekten.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -694,90 +787,252 @@ aufrufen? Kryptische Ausgabe zeigen.</p>
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Musterlösung</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="si">}</span><span class="s2">. Semester)&quot;</span>
+
+<span class="c1"># Test der Lösung</span>
+<span class="n">student1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">)</span>
+<span class="n">student2</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Berliner&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="p">)</span>  <span class="c1"># Anna Abendrot (3. Semester)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student2</span><span class="p">)</span>  <span class="c1"># Bob Berliner (1. Semester)</span>
 </pre></div>
 </div>
-<p>TODO: Erklärung</p>
 </div>
-</section>
 </section>
 <section id="ein-vollstandiges-beispiel-kursverwaltung">
 <h2>Ein vollständiges Beispiel: Kursverwaltung<a class="headerlink" href="#ein-vollstandiges-beispiel-kursverwaltung" title="Link to this heading">#</a></h2>
-<p>TODO: Zusammenführung aller gelernten Konzepte in einem praktischen Beispiel.</p>
-<section id="die-vollstandige-student-klasse">
-<h3>Die vollständige Student-Klasse<a class="headerlink" href="#die-vollstandige-student-klasse" title="Link to this heading">#</a></h3>
+<p>Jetzt bringen wir alles zusammen: Eine vollständige Student-Klasse mit allen
+gelernten Methoden und eine praktische Kursverwaltung, die zeigt, wie mächtig
+OOP in der Praxis ist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Komplette Student-Klasse mit allen bisher gelernten Methoden und __str__</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="n">matrikelnummer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nachname</span> <span class="o">=</span> <span class="n">nachname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">vorname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">=</span> <span class="n">studiengang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="n">semester</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrikelnummer</span> <span class="o">=</span> <span class="n">matrikelnummer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noten</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">studiengang</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="si">}</span><span class="s2">. Sem)&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">vollstaendiger_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vorname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nachname</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">note_hinzufuegen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">note</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noten</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">note</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">notendurchschnitt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">noten</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">noten</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">noten</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">semester_erhoehen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="kursverwaltung-implementieren">
-<h3>Kursverwaltung implementieren<a class="headerlink" href="#kursverwaltung-implementieren" title="Link to this heading">#</a></h3>
-<p>TODO: Praktische Funktionen für eine einfache Kursverwaltung.</p>
+<p>Wir erstellen nun den Kurs mit den teilnehmenden Studierenden und lassen alle
+anzeigen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code für:</span>
-<span class="c1"># - Studierende hinzufügen</span>
-<span class="c1"># - Studierende anzeigen</span>
-<span class="c1"># - Nach Studiengang filtern</span>
-<span class="c1"># - Statistiken erstellen (Anzahl pro Semester, etc.)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kurs erstellen und mit Studierenden füllen</span>
+<span class="n">python_kurs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Abendrot&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;12345678&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Berliner&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;87654321&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Colorado&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Elektrotechnik&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;11223344&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Dietrich&quot;</span><span class="p">,</span> <span class="s2">&quot;Diana&quot;</span><span class="p">,</span> <span class="s2">&quot;Informatik&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;99887766&quot;</span><span class="p">),</span>
+    <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Eberhard&quot;</span><span class="p">,</span> <span class="s2">&quot;Emil&quot;</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;55443322&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># Alle Kursteilnehmer anzeigen</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Python-Kurs Teilnehmer ===&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">python_kurs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">student</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gesamtzahl: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">python_kurs</span><span class="p">)</span><span class="si">}</span><span class="s2"> Studierende&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Python-Kurs Teilnehmer ===
+- Anna Abendrot (Maschinenbau, 3. Sem)
+- Bob Berliner (Maschinenbau, 5. Sem)
+- Charlie Colorado (Elektrotechnik, 2. Sem)
+- Diana Dietrich (Informatik, 1. Sem)
+- Emil Eberhard (Maschinenbau, 4. Sem)
+
+Gesamtzahl: 5 Studierende
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="praktische-operationen">
-<h3>Praktische Operationen<a class="headerlink" href="#praktische-operationen" title="Link to this heading">#</a></h3>
-<p>TODO: Beispiele für typische Verwaltungsaufgaben.</p>
+<p>Wir können nun nach dem Studiengang filtern, das durchschnittliche Semester
+berechnen oder Noten verwalten.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Beispiele für:</span>
-<span class="c1"># - Alle Studierenden eines Studiengangs anzeigen</span>
-<span class="c1"># - Durchschnittliches Semester berechnen</span>
-<span class="c1"># - Studierende nach Namen sortieren</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nach Studiengang filtern</span>
+<span class="k">def</span> <span class="nf">studierende_nach_studiengang</span><span class="p">(</span><span class="n">studierende</span><span class="p">,</span> <span class="n">studiengang</span><span class="p">):</span>
+    <span class="n">gefunden</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">==</span> <span class="n">studiengang</span><span class="p">:</span>
+            <span class="n">gefunden</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gefunden</span>
+
+<span class="n">maschinenbauer</span> <span class="o">=</span> <span class="n">studierende_nach_studiengang</span><span class="p">(</span><span class="n">python_kurs</span><span class="p">,</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Maschinenbau-Studierende (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">maschinenbauer</span><span class="p">)</span><span class="si">}</span><span class="s2">) ===&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">maschinenbauer</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">student</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Durchschnittliches Semester berechnen</span>
+<span class="n">semester_summe</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">python_kurs</span><span class="p">:</span>
+    <span class="n">semester_summe</span> <span class="o">=</span> <span class="n">semester_summe</span> <span class="o">+</span> <span class="n">student</span><span class="o">.</span><span class="n">semester</span>
+<span class="n">durchschnitt_semester</span> <span class="o">=</span> <span class="n">semester_summe</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">python_kurs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Durchschnittliches Semester: </span><span class="si">{</span><span class="n">durchschnitt_semester</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Noten verwalten (Beispiel)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Noten eintragen ===&quot;</span><span class="p">)</span>
+<span class="n">python_kurs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">note_hinzufuegen</span><span class="p">(</span><span class="mf">1.7</span><span class="p">)</span>  <span class="c1"># Anna</span>
+<span class="n">python_kurs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">note_hinzufuegen</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
+<span class="n">python_kurs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">note_hinzufuegen</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>  <span class="c1"># Bob</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">python_kurs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vollstaendiger_name</span><span class="p">()</span><span class="si">}</span><span class="s2">: Durchschnitt </span><span class="si">{</span><span class="n">python_kurs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">notendurchschnitt</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">python_kurs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">vollstaendiger_name</span><span class="p">()</span><span class="si">}</span><span class="s2">: Durchschnitt </span><span class="si">{</span><span class="n">python_kurs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">notendurchschnitt</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Maschinenbau-Studierende (3) ===
+- Anna Abendrot (Maschinenbau, 3. Sem)
+- Bob Berliner (Maschinenbau, 5. Sem)
+- Emil Eberhard (Maschinenbau, 4. Sem)
+
+Durchschnittliches Semester: 3.0
+
+=== Noten eintragen ===
+Anna Abendrot: Durchschnitt 2.0
+Bob Berliner: Durchschnitt 2.0
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<p>Interessant für eine Kursverwaltung sind statistische Auswertungen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hilfsfunktionen für die Kursverwaltung</span>
+<span class="k">def</span> <span class="nf">kurs_statistik</span><span class="p">(</span><span class="n">studierende</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Zeigt eine Übersicht über den Kurs&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== KURS-STATISTIK ===&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Teilnehmer gesamt: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">studierende</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Maschinenbau-Studierende zählen</span>
+    <span class="n">maschinenbau_anzahl</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">studiengang</span> <span class="o">==</span> <span class="s2">&quot;Maschinenbau&quot;</span><span class="p">:</span>
+            <span class="n">maschinenbau_anzahl</span> <span class="o">=</span> <span class="n">maschinenbau_anzahl</span> <span class="o">+</span> <span class="mi">1</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maschinenbau-Studierende: </span><span class="si">{</span><span class="n">maschinenbau_anzahl</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Niedrigstes und höchstes Semester finden</span>
+    <span class="n">semester_min</span> <span class="o">=</span> <span class="n">studierende</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semester</span>
+    <span class="n">semester_max</span> <span class="o">=</span> <span class="n">studierende</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semester</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">semester</span> <span class="o">&lt;</span> <span class="n">semester_min</span><span class="p">:</span>
+            <span class="n">semester_min</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">semester</span>
+        <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">semester</span> <span class="o">&gt;</span> <span class="n">semester_max</span><span class="p">:</span>
+            <span class="n">semester_max</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">semester</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Semester-Spanne: </span><span class="si">{</span><span class="n">semester_min</span><span class="si">}</span><span class="s2">. bis </span><span class="si">{</span><span class="n">semester_max</span><span class="si">}</span><span class="s2">. Semester&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">student_suchen</span><span class="p">(</span><span class="n">studierende</span><span class="p">,</span> <span class="n">nachname</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sucht einen Studierenden nach Nachname&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">nachname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">nachname</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">student</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># Statistik anzeigen</span>
+<span class="n">kurs_statistik</span><span class="p">(</span><span class="n">python_kurs</span><span class="p">)</span>
+
+<span class="c1"># Student suchen</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== SUCHE ===&quot;</span><span class="p">)</span>
+<span class="n">gefunden</span> <span class="o">=</span> <span class="n">student_suchen</span><span class="p">(</span><span class="n">python_kurs</span><span class="p">,</span> <span class="s2">&quot;Berliner&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">gefunden</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gefunden: </span><span class="si">{</span><span class="n">gefunden</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrikelnummer: </span><span class="si">{</span><span class="n">gefunden</span><span class="o">.</span><span class="n">matrikelnummer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Student nicht gefunden&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== KURS-STATISTIK ===
+Teilnehmer gesamt: 5
+Maschinenbau-Studierende: 3
+Semester-Spanne: 1. bis 5. Semester
+
+=== SUCHE ===
+Gefunden: Bob Berliner (Maschinenbau, 5. Sem)
+Matrikelnummer: 87654321
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit wenigen Zeilen Code haben wir ein funktionsfähiges Verwaltungssystem
+erstellt und schließen das Beispiel mit der nächsten Mini-Übung ab.</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Schreiben Sie eine Funktion <code class="docutils literal notranslate"><span class="pre">erstsemester_finden(studierende)</span></code>, die eine Liste
+aller Studierenden im 1. Semester zurückgibt. Testen Sie die Funktion mit dem
+<code class="docutils literal notranslate"><span class="pre">python_kurs</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">erstsemester_finden</span><span class="p">(</span><span class="n">studierende</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Findet alle Studierenden im 1. Semester&quot;&quot;&quot;</span>
+    <span class="n">erstsemester</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studierende</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">semester</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">erstsemester</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">erstsemester</span>
+
+<span class="c1"># Test der Funktion</span>
+<span class="n">erstsemester</span> <span class="o">=</span> <span class="n">erstsemester_finden</span><span class="p">(</span><span class="n">python_kurs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erstsemester (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">erstsemester</span><span class="p">)</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">erstsemester</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">student</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
-<p>TODO</p>
-<ul class="simple">
-<li><p>Listen von Objekten sind ein mächtiges Werkzeug zur Datenverwaltung</p></li>
-<li><p>Die <code class="docutils literal notranslate"><span class="pre">__str__</span></code>-Methode macht Objekte benutzerfreundlich</p></li>
-<li><p>OOP hilft dabei, komplexe Datenstrukturen übersichtlich zu verwalten</p></li>
-<li><p>Diese Konzepte sind die Grundlage für viele Data Science-Werkzeuge</p></li>
-</ul>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video zu “Klassen und Objekte” von Programmieren lernen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XxCZrT7Z3G4" 
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
-clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video zu “Der self Parameter” von Programmieren lernen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CLoK-_qNTnU" 
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
-clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video zu “Methoden in Klassen” von Programmieren lernen</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/58IjjwHs_4A" 
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
-clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-</details></section>
+<p>Listen kombiniert mit Objekten sind ein mächtiges Werkzeug zur Verwaltung von
+Daten. Dabei ist es hilfreich, vordefinierte Methoden wie beispielsweise
+<code class="docutils literal notranslate"><span class="pre">__str__</span></code> zu implementieren, um die Objekte benutzerfreundlich zu machen. Mit
+diesem Kapitel schließen wir die Objektorientierte Programmierung ab, um uns den
+Themen Matlab und Simulink zu widmen.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -846,26 +1101,9 @@ clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konzept">Konzept</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-verwalten">Listen von Objekten verwalten</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-in-listen-speichern">Objekte in Listen speichern</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-durchlaufen">Listen von Objekten durchlaufen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-in-listen-suchen-und-filtern">Objekte in Listen suchen und filtern</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-str-methode-fur-schone-ausgabe">Die <strong>str</strong>-Methode für schöne Ausgabe</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-problem-kryptische-objektausgabe">Das Problem: Kryptische Objektausgabe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-losung-die-str-methode-implementieren">Die Lösung: Die <strong>str</strong>-Methode implementieren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleich-mit-und-ohne-str">Vergleich: mit und ohne <strong>str</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-fur-benutzerfreundliche-ausgabe">Best Practices für benutzerfreundliche Ausgabe</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-vollstandiges-beispiel-kursverwaltung">Ein vollständiges Beispiel: Kursverwaltung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-vollstandige-student-klasse">Die vollständige Student-Klasse</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kursverwaltung-implementieren">Kursverwaltung implementieren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-operationen">Praktische Operationen</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-von-objekten-verwalten">Listen von Objekten verwalten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-str-methode-fur-schone-ausgabe">Die <strong>str</strong>-Methode für schöne Ausgabe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-vollstandiges-beispiel-kursverwaltung">Ein vollständiges Beispiel: Kursverwaltung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
   </nav></div>

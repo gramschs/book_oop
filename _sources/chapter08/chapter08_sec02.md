@@ -183,6 +183,13 @@ Auch Methoden können andere Methoden der gleichen Klasse verwenden!
 Im nächsten Abschnitt schauen wir uns genauer an, was es mit diesem mysteriösen
 `self`-Parameter auf sich hat.
 
+```{dropdown} Video zu "Methoden in Klassen" von Programmieren lernen
+<iframe width="560" height="315" src="https://www.youtube.com/embed/58IjjwHs_4A" 
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+```
+
 ## Der self-Parameter
 
 Im vorigen Abschnitt haben wir gesehen, dass jede Methode einen `self`-Parameter
@@ -367,6 +374,13 @@ student.note_eintragen(2.0)  # Note 2.0 für Max eingetragen
 print(f"Durchschnitt: {student.notendurchschnitt()}")  # Durchschnitt: 2.0
 ```
 ````
+
+```{dropdown} Video zu "Der self Parameter" von Programmieren lernen
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CLoK-_qNTnU" 
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+```
 
 ## Zusammenfassung und Ausblick
 

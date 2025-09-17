@@ -16,12 +16,8 @@ kernelspec:
 
 # 1. Grundlagen und erste Schritte
 
-```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
-:class: warning
-Dieses Vorlesungsskript wird gerade umgebaut.
-```
-
 Das Kapitel »Getting Started« gibt Ihnen zuerst eine Einführung in Hardware und
 Software. Danach werden grundlegende Begriffe zum Programmieren erläutert. Im
-dritten Abschnitt folgt eine kurze Anleitung, wie Python installiert wird, und
-wie Jupyter Notebooks aufgebaut sind.
+dritten Abschnitt folgt eine kurze Anleitung, wie Python installiert wird, wie
+Jupyter Notebooks aufgebaut sind und wie Python als Taschenrechner genutzt
+werden kann.

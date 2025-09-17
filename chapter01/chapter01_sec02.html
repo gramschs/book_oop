@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.2 Programmieren &#8212; Python für Studierende der Ingenieurwissenschaften</title>
+    <title>1.2 Algorithmus und Programmiersprachen &#8212; Python für Studierende der Ingenieurwissenschaften</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -173,7 +173,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter01_sec00.html">1. Grundlagen und erste Schritte</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="chapter01_sec01.html">1.1 Hardware und Software</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2 Programmieren</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2 Algorithmus und Programmiersprachen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter01_sec03.html">1.3 Jupyter Notebooks und Python als Taschenrechner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter01_sec04.html">Übungen</a></li>
 </ul>
@@ -491,7 +491,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1.2 Programmieren</h1>
+    <h1>1.2 Algorithmus und Programmiersprachen</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -502,7 +502,7 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmieren-ist-wie-kochen">Programmieren ist wie Kochen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmus">Algorithmus</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmiersprachen">Programmiersprachen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warum-python">Warum Python?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
@@ -517,12 +517,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="programmieren">
-<h1>1.2 Programmieren<a class="headerlink" href="#programmieren" title="Link to this heading">#</a></h1>
-<div class="warning admonition">
-<p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
-<p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="algorithmus-und-programmiersprachen">
+<h1>1.2 Algorithmus und Programmiersprachen<a class="headerlink" href="#algorithmus-und-programmiersprachen" title="Link to this heading">#</a></h1>
 <p>Es gibt viele Gründe, warum es sich lohnt, Programmieren zu lernen. Die
 Nachfrage nach Ingenieurinnen und Ingenieuren, die zusätzlich Programmieren
 können, wächst aufgrund der Digitalisierung der Industrie rasant. Programmieren
@@ -540,7 +536,7 @@ Zeit zu sparen. Dies kann Fehler minimieren und die Effizienz steigern.</p>
 <ul class="simple">
 <li><p>Sie können erklären, was ein <strong>Algorithmus</strong> ist.</p></li>
 <li><p>Sie wissen, was eine <strong>Programmiersprache</strong> ist.</p></li>
-<li><p>Sie kennen den Unterschied zwischen <strong>höheren Prorgammiersprachen</strong> und
+<li><p>Sie kennen den Unterschied zwischen <strong>höheren Programmiersprachen</strong> und
 <strong>Maschinensprache</strong>.</p></li>
 <li><p>Sie wissen, was der Unterschied zwischen einer <strong>kompilierten
 Programmiersprache</strong> und einer <strong>interpretierten Programmiersprache</strong> ist. Sie
@@ -548,8 +544,8 @@ können für beide Kategorien Beispiele benennen.</p></li>
 </ul>
 </div>
 </section>
-<section id="programmieren-ist-wie-kochen">
-<h2>Programmieren ist wie Kochen<a class="headerlink" href="#programmieren-ist-wie-kochen" title="Link to this heading">#</a></h2>
+<section id="algorithmus">
+<h2>Algorithmus<a class="headerlink" href="#algorithmus" title="Link to this heading">#</a></h2>
 <p>Programmieren bedeutet, dem Computer eine Reihe von Anweisungen zu geben. Es
 geht darum, mit Hilfe einer Abfolge von Anweisungen ein Problem zu lösen. Ein
 wichtiger Aspekt des Programmierens ist die Fähigkeit, komplexe Probleme in
@@ -560,88 +556,143 @@ Problem als Ganzes zu lösen.</p>
 <strong>Algorithmus</strong>. Ein Algorithmus ist ein klar definierter Satz von Anweisungen
 oder Regeln, die von einem Computer (oder auch von einem Menschen) ausgeführt
 werden können, um ein bestimmtes Ergebnis zu erzielen.</p>
+<p>Ein Beispiel aus dem Alltag ist die Steuerung eines Fahrstuhls:</p>
+<ul class="simple">
+<li><p>Jemand drückt im Erdgeschoss den Knopf.</p></li>
+<li><p>Der Fahrstuhl fährt nach unten, hält an, und die Tür öffnet sich.</p></li>
+<li><p>Die Person steigt ein und wählt die 3. Etage.</p></li>
+<li><p>Der Fahrstuhl schließt die Tür, fährt hoch bis zur 3. Etage, hält wieder an,
+öffnet die Tür und die Person steigt aus.</p></li>
+</ul>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Nehmen Sie sich 5 min Zeit, um einen Algorithmus aufzuschreiben, wie Ihr
-Lieblingsgericht zubereitet wird.</p>
+<p>Nehmen Sie sich 5 Minuten Zeit und schreiben Sie die Schritte auf, die ein
+Fahrstuhl befolgen muss, um eine Person vom Erdgeschoss in die 2. Etage zu
+bringen.</p>
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<p>Zuerst werden 1 Apfel, 1 Banane, 1 Orange und 2 Kiwis kleingeschnitten und in
-eine Schüssel gefüllt. Danach werden 3 EL Joghurt mit 1 TL Honig und einer Prise
-Zimt verrührt. Zuletzt wird das Joghurt-Dressing mit den Obststücken gemischt
-und angerichtet.</p>
+<ol class="arabic simple">
+<li><p>Warte auf Knopfdruck im Erdgeschoss.</p></li>
+<li><p>Fahre ins Erdgeschoss (falls nicht schon dort).</p></li>
+<li><p>Öffne Tür.</p></li>
+<li><p>Warte, bis Person eingestiegen ist.</p></li>
+<li><p>Schließe Tür.</p></li>
+<li><p>Fahre in die 2. Etage.</p></li>
+<li><p>Öffne Tür.</p></li>
+<li><p>Warte, bis Person ausgestiegen ist.</p></li>
+<li><p>Schließe Tür.</p></li>
+</ol>
 </div>
-<p>Kochanweisungen sind nicht immer verständlich. Es kommt auf das
-Hintergrundwissen der Person an, die versucht, ein Gericht nachzukochen, ob die
-Kochanweisung verständlich ist. In dem obigen Beispiel wurde beispielsweise
-vorausgesetzt, dass die Abkürzungen EL für Esslöffel und TL für Teelöffel
-bekannt sind. Es hätten aber auch Formulierungen vorkommen können wie Mehl
-anschwitzen, Sauce binden, Masse stocken lassen oder Zwiebeln glasig werden
-lassen. Falls solche Formulierungen unverständlich sind, liegt es oft daran,
-dass sich dahinter ein eigener Kochprozess verbirgt, den man kennen muss, um das
-Rezept insgesamt nachzukochen.</p>
-<p><a class="reference external" href="https://www.chefkoch.de/">Chefkoch</a> bietet eine riesige Anzahl an Rezepten wie
-z.B. das folgende Rezept eines
-<a class="reference external" href="https://www.chefkoch.de/rezepte/1717121280428611/Rosenkohlauflauf.html">Rosenkohl-Auflaufs</a>:</p>
-<blockquote>
-<div><p>Die Kartoffeln und den Rosenkohl bissfest garen. Das Hackfleisch anbraten
-und nach Belieben eine Zwiebel zugeben. Die Sahne und den Schmand verrühren und
-etwas geriebenen Käse zugeben, mit Knoblauchpulver und Muskat würzen. Eine
-Auflaufform fetten und abwechselnd Kartoffeln, Rosenkohl, Gehacktes, Toastkäse
-und Sahne-Schmandmischung schichten. Anschließend den restlichen Reibekäse über
-den Auflauf geben. Für eine halbe Stunde in den auf 200 Grad vorgeheizten
-Backofen geben.</p>
-</div></blockquote>
-<p>Könnten Sie dieses Rezept nachkochen? Was müsste aus Ihrer Sicht detaillierter
-beschrieben werden?</p>
+<p>Die obige Lösung funktioniert nur für den Transport vom Erdgeschoss in die 2.
+Etage. Ein echter Fahrstuhl-Algorithmus muss aber allgemeiner sein und für
+beliebige Start- und Zieletagen funktionieren. Das folgende Flussdiagramm zeigt
+einen solchen allgemeinen Algorithmus:</p>
+<div style="text-align: center; background-color: #f8f9fa; padding: 20px;
+border-radius: 8px; margin: 20px 0;">
+<div class="mermaid">
+flowchart TD
+    A[Start: Fahrstuhl wartet] --> B{Knopf außen gedrückt?}
+    B -->|Nein| B
+    B -->|Ja| C[Fahre zu der Etage mit dem Knopf]
+    C --> D[Öffne Tür]
+    D --> E{Person eingestiegen?}
+    E -->|Nein| E
+    E -->|Ja| F[Schließe Tür]
+    F --> G{Ziel-Knopf innen gedrückt?}
+    G -->|Nein| G
+    G -->|Ja| H[Fahre zur Ziel-Etage]
+    H --> I[Öffne Tür]
+    I --> J{Person ausgestiegen?}
+    J -->|Nein| J
+    J -->|Ja| K[Schließe Tür]
+    K --> A
+    
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style E fill:#fff3e0
+    style G fill:#fff3e0
+    style J fill:#fff3e0
+</div>
+</div>
+
+<script src="https://unpkg.com/mermaid@9/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script><p>In dem Flussdiagramm stehen die Rauten für Entscheidungen und die Rechtecke für
+Aktionen. Der Pfeil zurück zum Start zeigt: Ein Fahrstuhl arbeitet in einer
+Endlosschleife und wartet kontinuierlich auf neue Anfragen.</p>
+<p>Die Beschreibung kann unterschiedlich detailliert sein. Zum Beispiel kann man
+präzisieren, wie lange die Tür geöffnet bleiben soll oder was passiert, wenn
+gleichzeitig andere Knöpfe gedrückt werden. Hier erkennt man: Ein Algorithmus
+kann sehr einfach beginnen, aber durch zusätzliche Fälle immer komplexer werden.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Listen Sie die Details auf, die dem obigen Rezept des Rosenkohl-Auflaufs
-zugefügt werden müssten, um auch Kochanfängern eine Möglichkeit zu bieten, das
-Rezept nachzukochen.</p>
+<p>Überlegen Sie, welche zusätzlichen Regeln notwendig wären, wenn der Fahrstuhl
+gleichzeitig mehrere Anfragen erhält (z. B. jemand möchte in die 4. Etage und
+jemand anders in die 2. Etage).</p>
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
 <ul class="simple">
-<li><p>Die Garzeiten der Kartoffeln und des Rosenkohls sind normalerweise
-unterschiedlich und müssten spezifiziert werden.</p></li>
-<li><p>Wie wird Hackfleisch angebraten? Erläuterungen zum Anbraten fehlen komplett.</p></li>
-<li><p>Angaben zur Würzung der Sahne-Schmand-Mischung fehlen.</p></li>
-<li><p>Soll der Backofen 200 Grad bei Umluft oder Ober-/Unterhitze haben? Mittlere</p></li>
-<li><p>Schiene oder eine andere?</p></li>
+<li><p>Der Fahrstuhl muss entscheiden, in welcher Reihenfolge die Stockwerke
+angefahren werden.</p></li>
+<li><p>Mögliches Vorgehen: Immer in der aktuellen Fahrtrichtung alle Stockwerke
+bedienen, bevor gewendet wird.</p></li>
+<li><p>Beispiel: Wenn der Fahrstuhl im Erdgeschoss startet und Knöpfe für die 2. und
+4. Etage gedrückt sind, fährt er zuerst zur 2., dann zur 4. Etage.</p></li>
 </ul>
 </div>
-<p>Auf die Idee, einen Algorithmus mit dem Kochen zu vergleichen, werden wir in
-späteren Kapiteln noch zurückkehren. Als nächstes beschäftigen wir uns damit, wie
-den Computer Anweisungen erteilt werden.</p>
+<p>Auf die Idee, Alltagsprozesse in Form eines Algorithmus zu beschreiben, werden
+wir in späteren Kapiteln zurückkehren. Als nächstes beschäftigen wir uns damit,
+wie dem Computer solche Anweisungen in einer Programmiersprache erteilt werden.</p>
 </section>
 <section id="programmiersprachen">
 <h2>Programmiersprachen<a class="headerlink" href="#programmiersprachen" title="Link to this heading">#</a></h2>
-<p>Eine <strong>Programmiersprache</strong> ist die formale Sprache zur Formulierung von
-Datenstrukturen und Algorithmen (= Abfolge von Anweisungen), die von einem
-Computer ausgeführt werden können.</p>
-<p>Es gibt nicht die wichtigste oder beste Programmiersprache, sondern die Auswahl
-der Programmiersprache sollte sich stets nach der anvisierten Anwendung richten.
-Der sogenannte Tiobe-Index zeigt die Beliebtheit der 50 wichtigsten
-Programmiersprachen:</p>
-<p><a class="reference external" href="https://www.tiobe.com/tiobe-index/">https://www.tiobe.com/tiobe-index/</a></p>
+<p>Eine <strong>Programmiersprache</strong> ist eine formale Sprache, mit der sich
+Datenstrukturen und Algorithmen beschreiben lassen, sodass ein Computer diese
+Anweisungen ausführen kann.</p>
+<p>Es gibt nicht die <em>eine</em> wichtigste oder beste Programmiersprache. Welche
+Sprache man verwendet, hängt immer von der Anwendung ab. Für ein
+Smartphone-Spiel wird eine andere Sprache gewählt als für die numerische
+Simulation in den Ingenieurwissenschaften. Einen Überblick über die Beliebtheit
+von Programmiersprachen bietet der sogenannte <em>Tiobe-Index</em>:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.tiobe.com/tiobe-index/">https://www.tiobe.com/tiobe-index/</a></p>
+</div></blockquote>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Recherchieren Sie im Tiobe-Index nach den Programmiersprachen MATLAB und Python.
-Auf welchem Platz stehen die beiden Programmiersprachen aktuell?</p>
+<p>Recherchieren Sie im Tiobe-Index nach den Programmiersprachen MATLAB und Python.</p>
+<ol class="arabic simple">
+<li><p>Auf welchem Platz stehen die beiden Programmiersprachen aktuell?</p></li>
+<li><p>Schauen Sie sich auch die langfristige Entwicklung an. Wie haben sich beide
+Sprachen in den letzten 10 Jahren entwickelt?</p></li>
+</ol>
 </div>
-<p>In der Anfangszeit der Computer waren Programmiersprachen noch sehr nahe am
-Computern ausgerichtet. Hier sehen Sie ein Beispiel, wie in der
-Programmiersprache Assembler die Meldung “Hallo Welt” auf dem Monitor angezeigt
-wird:</p>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<ol class="arabic simple">
+<li><p>Python steht typischerweise in den Top 3, MATLAB meist zwischen Platz 15-20.</p></li>
+<li><p>Python zeigt seit Jahren einen deutlichen Aufwärtstrend, während MATLAB
+stagniert oder leicht rückläufig ist.</p></li>
+</ol>
+</div>
+<p>Besonders für Ingenieurstudierende stellt sich oft die Frage: MATLAB oder
+Python? Während MATLAB traditionell in vielen technischen Fächern gelehrt wird,
+zeigt die Entwicklung der letzten Jahre einen klaren Trend zu Python. Dies liegt
+nicht nur an der größeren Vielseitigkeit, sondern auch daran, dass
+Python-Kenntnisse weit über die Ingenieurwissenschaften hinaus wertvoll sind.</p>
+<p>In der Anfangszeit der Computer waren Programmiersprachen noch sehr nah an der
+<strong>Maschinensprache</strong>. Maschinensprache besteht aus <em>Binärcode</em> (Nullen und
+Einsen), den der Prozessor direkt ausführt. Hier ein Beispiel in <em>Assembler</em>,
+einer sehr maschinenorientierten Sprache, die bereits schwer lesbar ist:</p>
 <figure class="align-default" id="fig-chap00-sec01">
 <img alt="../_images/fig_chap00_sec01_assembler.png" src="../_images/fig_chap00_sec01_assembler.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">“Hallo Welt” in Assembler (Quelle: <a class="reference external" href="https://de.wikipedia.org/wiki/Assemblersprache">Wikipedia → Assemblersprache</a>)</span><a class="headerlink" href="#fig-chap00-sec01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">“Hallo Welt” in Assembler
+(Quelle: <a class="reference external" href="https://de.wikipedia.org/wiki/Assemblersprache">Wikipedia → Assemblersprache</a>)</span><a class="headerlink" href="#fig-chap00-sec01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In Python ist dieser Programmcode wesentlich kürzer:</p>
+<p>In einer modernen Sprache wie Python ist der gleiche Code deutlich kürzer
+und leichter verständlich:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hallo Welt&#39;</span><span class="p">)</span>
@@ -654,53 +705,40 @@ wird:</p>
 </div>
 </div>
 </div>
-<p>Heute werden nur noch die sogenannten <strong>höheren Programmiersprachen</strong> verwendet
-(wie Python, MATLAB oder C++), die für Menschen leichter verständlich sind.
-Dafür müssen dann Programme, die in höheren Programmiersprachen geschrieben
-sind, in <strong>Maschinensprache</strong> übersetzt werden. Verschiedene Programmiersprachen
-verwenden dazu unterschiedliche Prinzipien. Die beiden wichtigsten Vertreter
-sind</p>
+<p>Heute arbeiten wir fast ausschließlich mit den sogenannten <strong>höheren
+Programmiersprachen</strong> (wie Python, MATLAB oder C++), die für Menschen leichter
+verständlich sind. Damit Computer diese Anweisungen ausführen können, müssen sie
+aber trotzdem in Maschinensprache übersetzt werden. Das geschieht auf zwei
+Arten:</p>
 <ul class="simple">
-<li><p><strong>Compiler-Programmiersprachen</strong> und</p></li>
-<li><p><strong>Interpreter-Programmiersprachen</strong>.</p></li>
+<li><p><strong>Compiler-Sprachen</strong>: Der gesamte Code wird vorab in Maschinensprache
+übersetzt, z. B. in C oder C++. Der Übersetzungsvorgang heißt kompilieren.</p></li>
+<li><p><strong>Interpreter-Sprachen</strong>: Der Code wird erst beim Ausführen Zeile für Zeile in
+Maschinensprache übersetzt, z. B. in Python oder JavaScript.</p></li>
 </ul>
-<p>Bei Compiler-Programmiersprachen wird der Programmcode vorab in Maschinensprache
-übersetzt und der Anwender erhält die Anwendungssoftware in Maschinensprache
-(bei Windows beispielsweise als exe-Datei). Den Vorgang des Übersetzens nennt
-man <strong>kompilieren</strong>. Bei Interpreter-Sprachen wird der Code in dem Moment in
-Maschinensprache übersetzt, in dem das Programm läuft bzw. ausgeführt wird.
-Während also das Programm läuft, muss gleichzeitig ⎼ quasi im Hintergrund ⎼ der
-Übersetzer arbeiten und die höhere Programmiersprache in Maschinensprache
-<strong>interpretieren</strong>. Daher der Name Interpreter-Sprache. Manchmal wird Code, der
-kompiliert wurde und dann eigenständig lauffähig ist, als <strong>Programm</strong>
-bezeichnet. Dahingegen wird Code, der interpretiert wird und dringend auf einen
-gerade laufenden Interpreter angewiesen ist, oft als Skript bezeichnet. Im
-Alltag geht diese Unterscheidung meist unter und wir verwenden den Begriff
-Programm auch für Python-Skripte.</p>
+<p>Manchmal wird kompilierter Code als Programm und interpretierter Code als Skript
+bezeichnet. Im Alltag ist diese Unterscheidung aber nicht immer wichtig; oft
+sagt man zu beidem schlicht »Programm«.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
-<p>Recherchieren Sie im Internet. Sind die folgenden Programmiersprachen
-kompilierte oder interpretierte Programmiersprachen?</p>
+<p>Ordnen Sie die folgenden Programmiersprachen zu: Sind sie kompiliert oder
+interpretiert?</p>
 <ul class="simple">
 <li><p>C bzw. C++</p></li>
-<li><p>Java</p></li>
 <li><p>C# (ausgesprochen: C Sharp)</p></li>
-<li><p>Visual Basic</p></li>
 <li><p>JavaScript</p></li>
+<li><p>Python</p></li>
+<li><p>Visual Basic</p></li>
 </ul>
 </div>
 <div class="miniexercise toggle admonition">
 <p class="admonition-title">Lösung</p>
-<p>Recherchieren Sie im Internet. Sind die folgenden Programmiersprachen
-kompilierte oder interpretierte Programmiersprachen?</p>
 <ul class="simple">
-<li><p>C bzw. C++ –&gt; kompiliert</p></li>
-<li><p>Java –&gt; kompiliert (wird manchmal auch zu den interpretierten Sprachen
-gezählt, weil der kompilierte Bytecode anschließend von der Java Virtual
-Machine interpretiert wird und nicht vom Betriebsystem direkt ausgeführt wird)</p></li>
-<li><p>C# –&gt; kompliliert</p></li>
-<li><p>Visual Basic –&gt; kompiliert</p></li>
-<li><p>JavaScript –&gt; interpretiert</p></li>
+<li><p>C bzw. C++ → kompiliert</p></li>
+<li><p>C# → kompiliert</p></li>
+<li><p>JavaScript → interpretiert</p></li>
+<li><p>Python → interpretiert</p></li>
+<li><p>Visual Basic → kompiliert</p></li>
 </ul>
 </div>
 <p>Insgesamt ist der Unterschied zwischen kompilierten und interpretierten Sprachen
@@ -717,7 +755,7 @@ Flexibilität akzeptabel sind.</p>
 </section>
 <section id="warum-python">
 <h2>Warum Python?<a class="headerlink" href="#warum-python" title="Link to this heading">#</a></h2>
-<p>Was ist überhaupt Python? Wikipedia erklärt Python folgendermaßen:</p>
+<p>Was ist überhaupt Python? Wikipedia beschreibt Python so:</p>
 <blockquote>
 <div><p>“Python ([ˈpʰaɪθn̩], [ˈpʰaɪθɑn], auf Deutsch auch [ˈpʰyːtɔn]) ist eine
 universelle, üblicherweise interpretierte, höhere Programmiersprache. Sie hat
@@ -727,8 +765,7 @@ Einrückungen strukturiert.”
 (Quelle: <a class="reference external" href="https://de.wikipedia.org/wiki/Python_(Programmiersprache)">Wikipedia</a></p>
 </div></blockquote>
 <p>In dieser Vorlesung verwenden wir Python als Programmiersprache, da Python viele
-Vorteile bietet, die das Erlernen der Programmierung erleichtern und Spaß
-machen:</p>
+Vorteile für den Einstieg bietet:</p>
 <ol class="arabic simple">
 <li><p>Einfache Syntax: Python hat eine klare und leicht verständliche Syntax, die
 es leicht macht, die Grundlagen der Programmierung zu erlernen. Die Syntax
@@ -747,21 +784,21 @@ ermöglicht, Code Zeile für Zeile auszuführen und das Ergebnis sofort zu
 sehen. Dies macht das Experimentieren und die Suche nach Fehlern im Code sehr
 einfach und effektiv.</p></li>
 <li><p>Plattformunabhängigkeit: Python kann auf verschiedenen Betriebssystemen wie
-Windows, Mac und Linux ausgeführt werden. Dies macht es für Anfänger leicht,
-die Sprache auf ihrem bevorzugten Betriebssystem zu erlernen.</p></li>
+Windows, Mac und Linux ausgeführt werden.</p></li>
 </ol>
-<p>Ansonsten ist es ein wenig wie mit dem Erlernen einer Fremdsprache. Die erste
-Fremdsprache ist die schwerste! Sprich, wenn Sie eine Programmiersprache erlernt
-haben und wissen, wie ein komplexes Problem in Teilaufgaben zerlegt wird, können
-Sie das schnell auf andere Programmiersprachen übertragen.</p>
+<p>Das Erlernen einer Programmiersprache ist ein bisschen wie das Lernen einer
+Fremdsprache: Die erste ist die schwierigste. Danach fällt der Umstieg auf
+andere Sprachen wesentlich leichter.</p>
 </section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
 <p>In diesem Kapitel haben wir die Vorteile des Programmierens für Ingenieure
-diskutiert, den Begriff des Algorithmus anhand von Kochrezepten erklärt und die
-Unterschiede zwischen verschiedenen Programmiersprachen sowie die Vorteile von
-Python hervorgehoben. Im nächsten Kapitel beschäftigen wir uns mit den
-technischen Voraussetzungen, um Python-Programme zu schreiben und auszuführen.</p>
+diskutiert, den Begriff des Algorithmus anhand der Fahrstuhlsteuerung eingeführt
+und die Unterschiede zwischen verschiedenen Programmiersprachen erklärt.
+Außerdem haben wir gesehen, warum Python als erste Sprache besonders geeignet
+ist. Im nächsten Kapitel beschäftigen wir uns mit den technischen
+Voraussetzungen, um eigene Python-Programme zu schreiben, und benutzen Python
+als Taschenrechner.</p>
 </section>
 </section>
 
@@ -831,7 +868,7 @@ technischen Voraussetzungen, um Python-Programme zu schreiben und auszuführen.<
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmieren-ist-wie-kochen">Programmieren ist wie Kochen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmus">Algorithmus</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmiersprachen">Programmiersprachen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warum-python">Warum Python?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>

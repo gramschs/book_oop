@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter01/chapter01_sec01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.2 Programmieren" href="chapter01_sec02.html" />
+    <link rel="next" title="1.2 Algorithmus und Programmiersprachen" href="chapter01_sec02.html" />
     <link rel="prev" title="1. Grundlagen und erste Schritte" href="chapter01_sec00.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,7 +173,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter01_sec00.html">1. Grundlagen und erste Schritte</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.1 Hardware und Software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter01_sec02.html">1.2 Programmieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter01_sec02.html">1.2 Algorithmus und Programmiersprachen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter01_sec03.html">1.3 Jupyter Notebooks und Python als Taschenrechner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter01_sec04.html">Übungen</a></li>
 </ul>
@@ -519,15 +519,11 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hardware-und-software">
 <h1>1.1 Hardware und Software<a class="headerlink" href="#hardware-und-software" title="Link to this heading">#</a></h1>
-<div class="warning admonition">
-<p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
-<p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
-</div>
-<p>Bevor wir mit der Programmierung in Python beginnen, machen wir uns zunächst mit
-einigen grundlegenden Begriffen der Informatik vertraut. In diesem Kapitel geht
-es darum, was zu Hardware und was zu Software zählt. Darüber hinaus lernen wir
-die Einteilung der Computerprogramme in verschiedene Software-Kategorien wie
-Betriebssystem, Anwendungssoftware und Bibliothek kennen.</p>
+<p>Bevor wir mit der Programmierung in Python beginnen, lernen wir grundlegende
+Begriffe der Informatik kennen. Als Ingenieurin oder Ingenieur werden Sie
+täglich mit Computersystemen arbeiten — von der CAD-Konstruktion über die
+Prozesssteuerung bis hin zur Datenauswertung. Dieses Kapitel vermittelt Ihnen
+das nötige Grundverständnis für Hardware und Software.</p>
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <div class="goals admonition">
@@ -546,11 +542,9 @@ Kategorie benennen.</p></li>
 <h2>Hardware<a class="headerlink" href="#hardware" title="Link to this heading">#</a></h2>
 <p>Computer, mobile Geräte wie Smartphones oder technische Systeme wie
 Anlagensteuerungen bestehen aus zwei Komponenten: Hardware und Software.
-<strong>Hardware</strong> bezeichnet alle physischen Komponenten eines Systems, also die
-elektronischen und mechanischen Bauteile. <strong>Software</strong> umfasst die Programme und
-deren Dokumentation sowie Daten. Man könnte auch sagen, dass Hardware die
-materiellen Teile eines Computersystems bezeichnet, während Software die
-nicht-materiellen Teile zusammenfasst.</p>
+<strong>Hardware</strong> bezeichnet alle physischen, greifbaren Komponenten eines Systems,
+also die elektronischen und mechanischen Bauteile. <strong>Software</strong> umfasst die
+Programme, die auf dieser Hardware laufen.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
 <p>Bitte schauen Sie sich jetzt kurz um. Welche Hardware fällt Ihnen auf, wenn Sie
@@ -567,7 +561,7 @@ Grafiken spezialisierter Prozessor)</p></li>
 <li><p>interner Speicher:</p>
 <ul>
 <li><p>RAM (Random Access Memory: Arbeitsspeicher für den Prozessor)</p></li>
-<li><p>ROM (Read Only Memory: dient zum Start des Computers)</p></li>
+<li><p>ROM (Read Only Memory: permanenter Speicher mit grundlegenden Startprogrammen)</p></li>
 </ul>
 </li>
 <li><p>externer Speicher:</p>
@@ -582,6 +576,43 @@ Grafiktablett</p></li>
 <li><p>Ausgabegeräte wie Monitor, Display, Lautsprecher, Beamer, Drucker</p></li>
 </ul>
 </div>
+<p>Hardware-Komponenten lassen sich in vier Hauptkategorien einteilen:</p>
+<ol class="arabic simple">
+<li><p><strong>Eingabe (Input)</strong>: Komponenten zur Datenerfassung und Befehlseingabe,
+beispielsweise</p>
+<ul class="simple">
+<li><p>Tastatur, Maus, Touchscreen</p></li>
+<li><p>Sensoren (Temperatur, Druck, Bewegung)</p></li>
+<li><p>Messgeräte und Datenerfassungssysteme</p></li>
+<li><p>Kameras und Scanner</p></li>
+</ul>
+</li>
+<li><p><strong>Verarbeitung (Processing)</strong>: Komponenten zur Berechnung und Steuerung,
+beispielsweise</p>
+<ul class="simple">
+<li><p>CPU (Central Processing Unit): zentrale Recheneinheit für allgemeine
+Aufgaben</p></li>
+<li><p>GPU (Graphics Processing Unit): spezialisiert auf Grafiken</p></li>
+<li><p>Mikrocontroller in eingebetteten Systemen</p></li>
+</ul>
+</li>
+<li><p><strong>Ausgabe (Output)</strong>: Komponenten zur Ergebnisdarstellung und
+Systemsteuerung, beispielsweise</p>
+<ul class="simple">
+<li><p>Monitore und Displays</p></li>
+<li><p>Drucker und Plotter</p></li>
+<li><p>Lautsprecher</p></li>
+<li><p>Aktoren (Motoren, Ventile, Relais)</p></li>
+</ul>
+</li>
+<li><p><strong>Speicher (Storage)</strong>: Komponenten zur Datenspeicherung, beispielsweise</p>
+<ul class="simple">
+<li><p>RAM (Random Access Memory): Arbeitsspeicher für laufende Programme</p></li>
+<li><p>ROM (Read Only Memory): permanenter Speicher für Grundfunktionen</p></li>
+<li><p>SSD/HDD: Massenspeicher für Daten und Programme</p></li>
+</ul>
+</li>
+</ol>
 <p>Bei Wikipedia können Sie den Begriff
 <a class="reference external" href="https://de.wikipedia.org/wiki/Hardware">Hardware</a> noch einmal nachlesen.
 Wikibooks bietet auch ein passendes Buch zu
@@ -589,24 +620,14 @@ Wikibooks bietet auch ein passendes Buch zu
 </section>
 <section id="software">
 <h2>Software<a class="headerlink" href="#software" title="Link to this heading">#</a></h2>
-<p>Software umfasst die nicht-materiellen Komponenten eines Computersystems.
-Wikipedia listet hier gleich drei verschiedene ISO-Normen zur Definition von
-<a class="reference external" href="https://de.wikipedia.org/wiki/Software">Software</a> auf.</p>
-<p>Wir verwenden im Folgenden die weitreichendste Definition von Software, wonach
-Software</p>
-<ul class="simple">
-<li><p>Programme</p></li>
-<li><p>Dokumentation und</p></li>
-<li><p>Daten</p></li>
-</ul>
-<p>umfasst.</p>
-<p>Die letzteren beiden Begriffe sind am einfachsten zu erklären. Mit
-<strong>Dokumentation</strong> sind Bedienungsanleitungen und Handbücher gemeint, aber auch
-die technische Dokumentation, die für andere Informatikerinnen und Informatiker
-gedacht ist und in die Benutzer:innen eines Computersystems in der Regel keinen
-Einblick haben. <strong>Daten</strong> wiederum sind alle Beobachtungen oder Messungen. In
-der digitalisierten Form werden sie normalerweise durch Zahlenwerte
-repräsentiert.</p>
+<p><a class="reference external" href="https://de.wikipedia.org/wiki/Software">Software</a> bezeichnet alle Programme,
+die auf einem Computersystem ausgeführt werden können. Im weiteren Sinn gehören
+dazu auch die <strong>Daten</strong>, die von diesen Programmen verarbeitet werden. Daten
+können zum Beispiel Messwerte, Texte, Bilder oder Simulationsergebnisse sein.</p>
+<p>Zur Softwareentwicklung gehört außerdem eine <strong>Dokumentation</strong>, die beschreibt,
+wie Programme zu bedienen sind oder wie sie technisch funktionieren. Diese ist
+zwar streng genommen nicht Teil der Software selbst, wird aber im praktischen
+Alltag häufig gemeinsam mit der Software betrachtet.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
 <p>Nennen Sie eine Software. Gibt es eine Dokumentation dazu? Welche Daten werden
@@ -616,15 +637,15 @@ mit dieser Software verarbeitet?</p>
 <p class="admonition-title">Lösung</p>
 <p>Bekannte Softwaretools zur Erstellung von Folien für eine Präsentation sind</p>
 <ul class="simple">
-<li><p>Microsoft Powerpoint (vor allem für das Windows-Betriebssystem, auch MacOS)</p></li>
+<li><p>Microsoft PowerPoint (vor allem für das Windows-Betriebssystem, auch MacOS)</p></li>
 <li><p>LibreOffice Impress (kostenlos, alle Betriebssysteme, insbesondere auch Linux)</p></li>
 <li><p>Keynote (MacOS)</p></li>
 </ul>
 <p>Die Dokumentation der jeweiligen Programme findet sich im Internet:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://support.microsoft.com/de-de/powerpoint">Dokumentation Powerpoint</a>,</p></li>
+<li><p><a class="reference external" href="https://support.microsoft.com/de-de/powerpoint">Dokumentation PowerPoint</a>,</p></li>
 <li><p><a class="reference external" href="https://de.libreoffice.org/discover/impress/">Dokumentation LibreOffice Impress</a>,</p></li>
-<li><p><a class="reference external" href="https://support.apple.com/de-de/keynote">Dokumentation Keynote</a>).</p></li>
+<li><p><a class="reference external" href="https://support.apple.com/de-de/keynote">Dokumentation Keynote</a>.</p></li>
 </ul>
 <p>Da LibreOffice ein Open-Source-Projekt von Freiwilligen ist, können Sie den
 Programmcode und die technische Dokumentation auf den <a class="reference external" href="https://www.libreoffice.org/community/developers/">LibreOffice →
@@ -634,8 +655,8 @@ den Texten, Bildern, Videos und Animationen.</p>
 <p>Die Präsentationsprogramme gehören übrigens zur Kategorie der
 Anwendungssoftware.</p>
 </div>
-<p>Was die Programme anbelangt, gibt es mehrere Kategorien, die im nächsten
-Abschnitt erklärt werden.</p>
+<p>Programme lassen sich in mehrere Kategorien einteilen, die im nächsten Abschnitt
+erklärt werden.</p>
 </section>
 <section id="betriebssystem-anwendungssoftware-und-bibliothek">
 <h2>Betriebssystem, Anwendungssoftware und Bibliothek<a class="headerlink" href="#betriebssystem-anwendungssoftware-und-bibliothek" title="Link to this heading">#</a></h2>
@@ -658,25 +679,20 @@ Einsatz.</p>
 Anwendungssoftware</a>). Das sind
 Computerprogramme, die einen speziellen Zweck erfüllen sollen und den Benutzer
 oder die Benutzerin bei Aufgaben unterstützen. Im Englischen werden solche auch
-als <strong>Application</strong> (= Anwendung, Verwendung, Einsatz) bezeichnet. 2008 hat die
-Firma Apple den »iOS App Store« gegründet, um Anwendungssoftware für das iPhone
-zu vertreiben. Seitdem wird immer häufiger auch im deutschen Sprachraum der Name
-Application oder App für verwendet. Vielfach steht »Application« eher für
-PC-Anwendungssoftware und der Kurzname »App« für Anwendungssoftware für Tablets
-und Smartphones.</p>
+als <strong>Application</strong> (= Anwendung) bezeichnet. 2008 hat die Firma Apple den »iOS
+App Store« gegründet, um Anwendungssoftware für das iPhone zu vertreiben.
+Seitdem wird immer häufiger auch im deutschen Sprachraum der Name Application
+oder App für Anwendungssoftware verwendet.</p>
 <p>Für Softwareentwickler sind — neben der Programmiersprache und den
-Software-Entwicklungswerkzeugen — vor allem Bibliotheken wichtig. Eine
-<strong>Bibliothek</strong> (siehe <a class="reference external" href="https://de.wikipedia.org/wiki/Programmbibliothek">Wikipedia →
-Bibliothek</a>) ist eine Sammlung
-von Programmen, die zwar einen bestimmten Zweck haben, aber eigenständig nicht
-lauffähig sind. Diese Programmbibiotheken werden von Programmiererinnen und
-Programmieren genutzt, um nicht ständig neu das Rad erfinden zu müssen.
+Software-Entwicklungswerkzeugen — vor allem <strong>Bibliotheken</strong> wichtig. Eine
+<a class="reference external" href="https://de.wikipedia.org/wiki/Programmbibliothek">Bibliothek</a> ist kein
+eigenständiges Programm, sondern wird von anderen Programmen genutzt.
 Beispielsweise würde es den Software-Entwicklungsprozess verlangsamen, wenn
-jedesmal neu ein Programm geschrieben werden müsste, das die Wurzel einer Zahl
-berechnet oder ein Ergebnis einer Berechnung in eine Datei auf die Festplatte
-schreibt. Diese Spezialaufgaben wurden bereits von anderen Software-Entwicklern
-implementiert und werden dann über Bibliotheken der Gemeinschaft zur Verfügung
-gestellt.</p>
+jedesmal neu ein Programm geschrieben werden müsste, das die Inverse einer
+Matrix berechnet oder ein Ergebnis einer Berechnung in eine Datei auf die
+Festplatte schreibt. Diese Spezialaufgaben wurden bereits von anderen
+Software-Entwicklern implementiert und werden dann über Bibliotheken der
+Gemeinschaft zur Verfügung gestellt.</p>
 <div class="miniexercise admonition">
 <p class="admonition-title">Mini-Übung</p>
 <p>Recherchieren Sie nach Python-Bibliotheken im Internet. Nennen Sie drei
@@ -690,18 +706,21 @@ Bibliotheken zusammen mit ihrem Einsatzzweck.</p>
 <li><p>NumPy: numerisches Python (Matrizen, lineare Gleichungssysteme, …)</p></li>
 <li><p>Pandas: Tabellenverarbeitung für Python</p></li>
 <li><p>Matplotlib: Visualisierung von Daten</p></li>
-<li><p>SciPy: wissenschaftliches Rechnen mit Python (Regression, Interpolation, Differentialgleichungen)</p></li>
+<li><p>SciPy: wissenschaftliches Rechnen mit Python (Regression, Interpolation,
+Differentialgleichungen)</p></li>
 </ul>
 </div>
+<p>In der Ingenieurpraxis arbeiten Hardware und Software eng zusammen. Moderne
+technische Systeme sind oft <strong>cyber-physische Systeme</strong>, bei denen Software und
+Hardware untrennbar miteinander verbunden sind.</p>
 </section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
 <p>In diesem Kapitel haben wir die Unterschiede zwischen Hardware und Software
 kennengelernt. Wir haben gesehen, dass Hardware die physischen Komponenten eines
-Computersystems umfasst, während Software die Programme, Dokumentation und Daten
-beinhaltet. Software wurde in Betriebssysteme, Anwendungssoftware und
-Bibliotheken unterteilt. Im nächsten Kapitel werden wir uns mit Programmieren
-beschäftigen.</p>
+Computersystems umfasst, während Software die Programme und Daten beinhaltet.
+Software wurde in Betriebssysteme, Anwendungssoftware und Bibliotheken
+unterteilt. Im nächsten Kapitel starten wir mit dem Programmieren.</p>
 </section>
 </section>
 
@@ -749,7 +768,7 @@ beschäftigen.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1.2 Programmieren</p>
+        <p class="prev-next-title">1.2 Algorithmus und Programmiersprachen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

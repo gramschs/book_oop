@@ -16,16 +16,11 @@ kernelspec:
 
 # 1.1 Hardware und Software
 
-```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
-:class: warning
-Dieses Vorlesungsskript wird gerade umgebaut.
-```
-
-Bevor wir mit der Programmierung in Python beginnen, machen wir uns zunächst mit
-einigen grundlegenden Begriffen der Informatik vertraut. In diesem Kapitel geht
-es darum, was zu Hardware und was zu Software zählt. Darüber hinaus lernen wir
-die Einteilung der Computerprogramme in verschiedene Software-Kategorien wie
-Betriebssystem, Anwendungssoftware und Bibliothek kennen.
+Bevor wir mit der Programmierung in Python beginnen, lernen wir grundlegende
+Begriffe der Informatik kennen. Als Ingenieurin oder Ingenieur werden Sie
+täglich mit Computersystemen arbeiten — von der CAD-Konstruktion über die
+Prozesssteuerung bis hin zur Datenauswertung. Dieses Kapitel vermittelt Ihnen
+das nötige Grundverständnis für Hardware und Software.
 
 ## Lernziele
 
@@ -43,11 +38,9 @@ Betriebssystem, Anwendungssoftware und Bibliothek kennen.
 
 Computer, mobile Geräte wie Smartphones oder technische Systeme wie
 Anlagensteuerungen bestehen aus zwei Komponenten: Hardware und Software.
-**Hardware** bezeichnet alle physischen Komponenten eines Systems, also die
-elektronischen und mechanischen Bauteile. **Software** umfasst die Programme und
-deren Dokumentation sowie Daten. Man könnte auch sagen, dass Hardware die
-materiellen Teile eines Computersystems bezeichnet, während Software die
-nicht-materiellen Teile zusammenfasst.
+**Hardware** bezeichnet alle physischen, greifbaren Komponenten eines Systems,
+also die elektronischen und mechanischen Bauteile. **Software** umfasst die
+Programme, die auf dieser Hardware laufen.
 
 ```{admonition} Mini-Übung
 :class: miniexercise
@@ -64,7 +57,7 @@ Beispiele für Hardware sind:
   Grafiken spezialisierter Prozessor)
 * interner Speicher: 
     * RAM (Random Access Memory: Arbeitsspeicher für den Prozessor)
-    * ROM (Read Only Memory: dient zum Start des Computers)
+    * ROM (Read Only Memory: permanenter Speicher mit grundlegenden Startprogrammen)
 * externer Speicher: 
     * magnetische Speichermedien: Festplatte (HDD)
     * optische Speichermedien: CD, DVD, BlueRay
@@ -74,6 +67,31 @@ Beispiele für Hardware sind:
 * Ausgabegeräte wie Monitor, Display, Lautsprecher, Beamer, Drucker
 ```
 
+Hardware-Komponenten lassen sich in vier Hauptkategorien einteilen:
+
+1. **Eingabe (Input)**: Komponenten zur Datenerfassung und Befehlseingabe,
+   beispielsweise
+    - Tastatur, Maus, Touchscreen
+    - Sensoren (Temperatur, Druck, Bewegung)
+    - Messgeräte und Datenerfassungssysteme
+    - Kameras und Scanner
+2. **Verarbeitung (Processing)**: Komponenten zur Berechnung und Steuerung,
+   beispielsweise
+    - CPU (Central Processing Unit): zentrale Recheneinheit für allgemeine
+      Aufgaben
+    - GPU (Graphics Processing Unit): spezialisiert auf Grafiken
+    - Mikrocontroller in eingebetteten Systemen
+3. **Ausgabe (Output)**: Komponenten zur Ergebnisdarstellung und
+   Systemsteuerung, beispielsweise
+    - Monitore und Displays
+    - Drucker und Plotter
+    - Lautsprecher
+    - Aktoren (Motoren, Ventile, Relais)
+4. **Speicher (Storage)**: Komponenten zur Datenspeicherung, beispielsweise
+    - RAM (Random Access Memory): Arbeitsspeicher für laufende Programme
+    - ROM (Read Only Memory): permanenter Speicher für Grundfunktionen
+    - SSD/HDD: Massenspeicher für Daten und Programme
+
 Bei Wikipedia können Sie den Begriff
 [Hardware](https://de.wikipedia.org/wiki/Hardware) noch einmal nachlesen.
 Wikibooks bietet auch ein passendes Buch zu
@@ -81,26 +99,15 @@ Wikibooks bietet auch ein passendes Buch zu
 
 ## Software
 
-Software umfasst die nicht-materiellen Komponenten eines Computersystems.
-Wikipedia listet hier gleich drei verschiedene ISO-Normen zur Definition von
-[Software](https://de.wikipedia.org/wiki/Software) auf.
+[Software](https://de.wikipedia.org/wiki/Software) bezeichnet alle Programme,
+die auf einem Computersystem ausgeführt werden können. Im weiteren Sinn gehören
+dazu auch die **Daten**, die von diesen Programmen verarbeitet werden. Daten
+können zum Beispiel Messwerte, Texte, Bilder oder Simulationsergebnisse sein.
 
-Wir verwenden im Folgenden die weitreichendste Definition von Software, wonach
-Software
-
-* Programme
-* Dokumentation und
-* Daten
-
-umfasst.
-
-Die letzteren beiden Begriffe sind am einfachsten zu erklären. Mit
-**Dokumentation** sind Bedienungsanleitungen und Handbücher gemeint, aber auch
-die technische Dokumentation, die für andere Informatikerinnen und Informatiker
-gedacht ist und in die Benutzer:innen eines Computersystems in der Regel keinen
-Einblick haben. **Daten** wiederum sind alle Beobachtungen oder Messungen. In
-der digitalisierten Form werden sie normalerweise durch Zahlenwerte
-repräsentiert.
+Zur Softwareentwicklung gehört außerdem eine **Dokumentation**, die beschreibt,
+wie Programme zu bedienen sind oder wie sie technisch funktionieren. Diese ist
+zwar streng genommen nicht Teil der Software selbst, wird aber im praktischen
+Alltag häufig gemeinsam mit der Software betrachtet.
 
 ```{admonition} Mini-Übung
 :class: miniexercise
@@ -111,14 +118,14 @@ mit dieser Software verarbeitet?
 ```{admonition} Lösung
 :class: miniexercise, toggle
 Bekannte Softwaretools zur Erstellung von Folien für eine Präsentation sind
-* Microsoft Powerpoint (vor allem für das Windows-Betriebssystem, auch MacOS)
+* Microsoft PowerPoint (vor allem für das Windows-Betriebssystem, auch MacOS)
 * LibreOffice Impress (kostenlos, alle Betriebssysteme, insbesondere auch Linux)
 * Keynote (MacOS)
 
 Die Dokumentation der jeweiligen Programme findet sich im Internet:
-* [Dokumentation Powerpoint](https://support.microsoft.com/de-de/powerpoint), 
+* [Dokumentation PowerPoint](https://support.microsoft.com/de-de/powerpoint), 
 * [Dokumentation LibreOffice Impress](https://de.libreoffice.org/discover/impress/), 
-* [Dokumentation Keynote](https://support.apple.com/de-de/keynote)). 
+* [Dokumentation Keynote](https://support.apple.com/de-de/keynote). 
 
 Da LibreOffice ein Open-Source-Projekt von Freiwilligen ist, können Sie den
 Programmcode und die technische Dokumentation auf den [LibreOffice →
@@ -131,8 +138,8 @@ Die Präsentationsprogramme gehören übrigens zur Kategorie der
 Anwendungssoftware.
 ```
 
-Was die Programme anbelangt, gibt es mehrere Kategorien, die im nächsten
-Abschnitt erklärt werden.
+Programme lassen sich in mehrere Kategorien einteilen, die im nächsten Abschnitt
+erklärt werden.
 
 ## Betriebssystem, Anwendungssoftware und Bibliothek
 
@@ -156,26 +163,21 @@ Viele Menschen denken bei Software zuerst an **Anwendungssoftware** (siehe
 Anwendungssoftware](https://de.wikipedia.org/wiki/Anwendungssoftware)). Das sind
 Computerprogramme, die einen speziellen Zweck erfüllen sollen und den Benutzer
 oder die Benutzerin bei Aufgaben unterstützen. Im Englischen werden solche auch
-als **Application** (= Anwendung, Verwendung, Einsatz) bezeichnet. 2008 hat die
-Firma Apple den »iOS App Store« gegründet, um Anwendungssoftware für das iPhone
-zu vertreiben. Seitdem wird immer häufiger auch im deutschen Sprachraum der Name
-Application oder App für verwendet. Vielfach steht »Application« eher für
-PC-Anwendungssoftware und der Kurzname »App« für Anwendungssoftware für Tablets
-und Smartphones.  
+als **Application** (= Anwendung) bezeichnet. 2008 hat die Firma Apple den »iOS
+App Store« gegründet, um Anwendungssoftware für das iPhone zu vertreiben.
+Seitdem wird immer häufiger auch im deutschen Sprachraum der Name Application
+oder App für Anwendungssoftware verwendet.
 
 Für Softwareentwickler sind — neben der Programmiersprache und den
-Software-Entwicklungswerkzeugen — vor allem Bibliotheken wichtig. Eine
-**Bibliothek** (siehe [Wikipedia →
-Bibliothek](https://de.wikipedia.org/wiki/Programmbibliothek)) ist eine Sammlung
-von Programmen, die zwar einen bestimmten Zweck haben, aber eigenständig nicht
-lauffähig sind. Diese Programmbibiotheken werden von Programmiererinnen und
-Programmieren genutzt, um nicht ständig neu das Rad erfinden zu müssen.
+Software-Entwicklungswerkzeugen — vor allem **Bibliotheken** wichtig. Eine
+[Bibliothek](https://de.wikipedia.org/wiki/Programmbibliothek) ist kein
+eigenständiges Programm, sondern wird von anderen Programmen genutzt.
 Beispielsweise würde es den Software-Entwicklungsprozess verlangsamen, wenn
-jedesmal neu ein Programm geschrieben werden müsste, das die Wurzel einer Zahl
-berechnet oder ein Ergebnis einer Berechnung in eine Datei auf die Festplatte
-schreibt. Diese Spezialaufgaben wurden bereits von anderen Software-Entwicklern
-implementiert und werden dann über Bibliotheken der Gemeinschaft zur Verfügung
-gestellt.
+jedesmal neu ein Programm geschrieben werden müsste, das die Inverse einer
+Matrix berechnet oder ein Ergebnis einer Berechnung in eine Datei auf die
+Festplatte schreibt. Diese Spezialaufgaben wurden bereits von anderen
+Software-Entwicklern implementiert und werden dann über Bibliotheken der
+Gemeinschaft zur Verfügung gestellt.
 
 ```{admonition} Mini-Übung
 :class: miniexercise
@@ -190,14 +192,18 @@ Bekannte Bibliotheken sind
 * NumPy: numerisches Python (Matrizen, lineare Gleichungssysteme, ...)
 * Pandas: Tabellenverarbeitung für Python
 * Matplotlib: Visualisierung von Daten
-* SciPy: wissenschaftliches Rechnen mit Python (Regression, Interpolation, Differentialgleichungen)
+* SciPy: wissenschaftliches Rechnen mit Python (Regression, Interpolation,
+  Differentialgleichungen)
 ```
+
+In der Ingenieurpraxis arbeiten Hardware und Software eng zusammen. Moderne
+technische Systeme sind oft **cyber-physische Systeme**, bei denen Software und
+Hardware untrennbar miteinander verbunden sind.
 
 ## Zusammenfassung und Ausblick
 
 In diesem Kapitel haben wir die Unterschiede zwischen Hardware und Software
 kennengelernt. Wir haben gesehen, dass Hardware die physischen Komponenten eines
-Computersystems umfasst, während Software die Programme, Dokumentation und Daten
-beinhaltet. Software wurde in Betriebssysteme, Anwendungssoftware und
-Bibliotheken unterteilt. Im nächsten Kapitel werden wir uns mit Programmieren
-beschäftigen.
+Computersystems umfasst, während Software die Programme und Daten beinhaltet.
+Software wurde in Betriebssysteme, Anwendungssoftware und Bibliotheken
+unterteilt. Im nächsten Kapitel starten wir mit dem Programmieren.

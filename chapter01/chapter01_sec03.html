@@ -61,6 +61,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter01/chapter01_sec03';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -176,6 +178,7 @@
 <li class="toctree-l2"><a class="reference internal" href="chapter01_sec02.html">1.2 Algorithmus und Programmiersprachen</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3 Jupyter Notebooks und Python als Taschenrechner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter01_sec04.html">Übungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter01_sec05.html">Installation</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02/chapter02_sec00.html">2. Daten speichern und verarbeiten</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -501,10 +504,11 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warum-anaconda">Warum Anaconda?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-anaconda-und-start-jupyterlab-fur-jupyter-notebooks">Installation Anaconda und Start JupyterLab für Jupyter Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-sind-jupyter-notebooks">Was sind Jupyter Notebooks?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-ist-jupyterlab-und-welche-alternativen-gibt-es">Was ist JupyterLab und welche Alternativen gibt es?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-als-taschenrechner">Python als Taschenrechner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgaben-mit-print">Ausgaben mit print</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
             </nav>
         </div>
@@ -518,132 +522,284 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebooks-und-python-als-taschenrechner">
 <h1>1.3 Jupyter Notebooks und Python als Taschenrechner<a class="headerlink" href="#jupyter-notebooks-und-python-als-taschenrechner" title="Link to this heading">#</a></h1>
-<div class="warning admonition">
-<p class="admonition-title">Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26</p>
-<p>Dieses Vorlesungsskript wird gerade umgebaut.</p>
+<p>In dieser Vorlesung werden wir das Python-Programmieren mit Hilfe von Jupyter
+Notebooks lernen. Daher klären wir zunächst, was Jupyter Notebooks sind, und
+verwenden anschließend Python als Taschenrechner. Ergebnisse von einfachen
+Rechnungen lassen wir uns mit der <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion anzeigen.</p>
+<section id="lernziele">
+<h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
+<div class="goals admonition">
+<p class="admonition-title">Lernziele</p>
+<ul class="simple">
+<li><p>Sie wissen, was ein <strong>Jupyter Notebook</strong> ist.</p></li>
+<li><p>Sie können Python als Taschenrechner benutzen.</p></li>
+<li><p>Sie können Ergebnisse von Rechnungen mit <strong>print()</strong> anzeigen.</p></li>
+<li><p>Sie wissen, was ein <strong>Argument</strong> einer Anweisung ist.</p></li>
+</ul>
 </div>
-<p>Python wird in der Regel mit dem Betriebsystem ausgeliefert. Für diese Vorlesung
-benötigen wir jedoch Python-Erweiterungen, die standardmäßig nicht installiert
-werden. Daher benutzen wir in dieser Vorlesung <strong>Anaconda</strong>, eine sehr bekannte
-Python-Distribution.</p>
-<p>Eine Python-Distribution ist eine Sammlung von Python-Softwarekomponenten. Sie
-umfasst den Python-Interpreter selbst, aber auch zusätzliche Bibliotheken und
-Frameworks, Entwicklungs- und Debugging-Tools sowie Anwendungen, die für die
-Entwicklung mit Python nützlich sein können.</p>
-<section id="warum-anaconda">
-<h2>Warum Anaconda?<a class="headerlink" href="#warum-anaconda" title="Link to this heading">#</a></h2>
-<p>Anaconda ist eine Python-Distribution, die von der Firma Anaconda, Inc.
-entwickelt wird. Sie ist eine kostenlose Open-Source-Plattform, die es
-Python-Entwickler:innen ermöglicht, Python, R und andere Programmiersprachen
-sowie zahlreiche Bibliotheken und Tools auf einfache Weise zu installieren, zu
-verwalten und zu verwenden.</p>
-<p>Die Distribution enthält eine Reihe von nützlichen Paketen und Bibliotheken für
-wissenschaftliche Berechnungen, Datenanalyse, maschinelles Lernen und andere
-Anwendungen. Sie ist sowohl für Einsteiger als auch für fortgeschrittene
-Entwickler geeignet und bietet eine benutzerfreundliche Benutzeroberfläche, um
-Python und seine Bibliotheken zu verwalten und zu verwenden.</p>
-</section>
-<section id="installation-anaconda-und-start-jupyterlab-fur-jupyter-notebooks">
-<h2>Installation Anaconda und Start JupyterLab für Jupyter Notebooks<a class="headerlink" href="#installation-anaconda-und-start-jupyterlab-fur-jupyter-notebooks" title="Link to this heading">#</a></h2>
-<p>Hier ist eine Schritt-für-Schritt-Anleitung zum Installieren von Python mit der
-Distribution Anaconda für Windows und MacOS:</p>
-<ol class="arabic simple">
-<li><p>Öffnen Sie die offizielle Anaconda-Website unter
-<a class="reference external" href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a> und laden Sie die neueste
-Version von Anaconda für Ihr Betriebssystem herunter.</p></li>
-<li><p>Führen Sie die Installationsdatei aus und folgen Sie den Anweisungen auf dem
-Bildschirm. Wählen Sie ggf. ein freies Installationsverzeichnis und stellen
-Sie sicher, dass die Option “Add Anaconda to my PATH environment variable”
-aktiviert ist.</p></li>
-<li><p>Öffnen Sie nach der Installation das Anaconda-Navigator-Programm, das im
-Startmenü oder Launchpad verfügbar sein sollte.</p></li>
-<li><p>Um ein neues Jupyter Notebook für die Python-Programmierung zu erstellen,
-klicken Sie auf “Home” im Anaconda-Navigator und wählen “JupyterLab”
-aus. Alternativ können Sie JupyterLab auch mit dem Befehl “jupyter-lab” aus einem Terminal oder einer Konsole starten (Linux oder MacOS).</p></li>
-<li><p>Wählen Sie “Python 3 (ipykernel)” aus, um ein neues Notebook zu erstellen.</p></li>
-<li><p>Sie können jetzt Python-Code in dem Notebook schreiben und ausführen. Wenn
-Sie zusätzliche Pakete benötigen, können Sie diese über den
-“Environments”-Tab im Anaconda-Navigator installieren.</p></li>
-</ol>
-<figure class="align-default" id="fig-chap00-sec03-jupyterlab">
-<img alt="../_images/fig_chap00_sec03_jupyterlab.png" src="../_images/fig_chap00_sec03_jupyterlab.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Startansicht der Software JupyterLab: ein neues Jupyter Notebook wird mit Klick auf den Button Python 3 (ipykernel) erstellt.</span><a class="headerlink" href="#fig-chap00-sec03-jupyterlab" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
 </section>
 <section id="was-sind-jupyter-notebooks">
 <h2>Was sind Jupyter Notebooks?<a class="headerlink" href="#was-sind-jupyter-notebooks" title="Link to this heading">#</a></h2>
 <p>Jupyter Notebooks führen Text, Python-Code, Bilder und Videos in einem einzigen
-interaktiven digitalen Notizbuch zusammenzuführen. Sie sind eine der
-bekanntesten Anwendungen in der Data Science-Community und werden oft zur
-Datenanalyse, maschinellem Lernen und Visualisierung eingesetzt.</p>
-<p>Ein Jupyter Notebook besteht aus einer Abfolge von Zellen, in denen Text, Code
-und Visualisierungen eingebettet werden. Die Zellen können entweder in der
-Programmiersprache Python oder in einer Reihe anderer Programmiersprachen wie R,
-Julia oder JavaScript geschrieben werden. Erkennbar sind Jupyter Notebooks an
-der Dateiendung <code class="docutils literal notranslate"><span class="pre">ipynb</span></code>.</p>
+interaktiven digitalen Notizbuch zusammen. Sie gehören zu den bekanntesten
+Anwendungen in der Programmierung und werden häufig für Datenanalyse,
+maschinelles Lernen, Simulationen und Visualisierungen eingesetzt.</p>
+<p>Ein Jupyter Notebook besteht aus einer Abfolge von Zellen, in denen Text,
+Code oder Grafiken eingebettet werden. Die Zellen können entweder in Python oder
+in anderen Programmiersprachen wie R, Julia oder JavaScript geschrieben sein.
+Erkennbar sind Jupyter Notebooks an der Dateiendung <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>.</p>
 <p>Die Kombination von Text, Code und Visualisierungen macht Jupyter Notebooks zu
-einem leistungsstarken Werkzeug für die Datenanalyse. Daten können direkt in den
-Notebooks eingegeben werden, und Ergebnisse können sofort dargestellt werden,
-ohne dass externe Anwendungen gestartet werden müssen.</p>
-<p>Jupyter Notebooks können auch einfach geteilt werden, indem sie als Datei oder
-über das Internet veröffentlicht werden. Das ermöglicht es Entwicklern und Data
-Scientists, ihre Arbeit schnell und einfach zu teilen und zu präsentieren, was
-für Zusammenarbeit und Teamarbeit in der Datenanalyse und im maschinellen Lernen
-unerlässlich ist.</p>
-<p>Insgesamt sind Jupyter Notebooks ein wichtiges Werkzeug für die Datenanalyse und
--visualisierung und haben dazu beigetragen, den Prozess der Analyse und
-Zusammenarbeit für Data Scientists und Entwickler zu vereinfachen.</p>
-<p>In dieser Vorlesung liegt der Fokus zwar nicht auf der Datenanalyse, aber die
-Mischung aus Text, Code und Visualisierungen machen Jupyter Notebooks auch zu
-einem sehr geeigneten Werkzeug, um das Programmieren selbst zu erlernen. In
-kurzen Texten können Programmierkonstrukte erläutert werden, um dann in einer
-Code-Zelle ausgeführt zu werden.</p>
+einem besonders geeigneten Werkzeug für das Programmierenlernen: Konzepte
+werden im Text erläutert und können direkt in Code-Zellen ausprobiert werden.</p>
 <figure class="align-default" id="fig-chap00-sec03-zellen">
 <img alt="../_images/fig_chap00_sec03_zellen.png" src="../_images/fig_chap00_sec03_zellen.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Screenshot eines Jupyter Notebooks mit Text, Python-Code und Ergebnisse des ausgeführten Python-Codes, das mit der klassischen Software “Jupyter Notebook” geladen wurde</span><a class="headerlink" href="#fig-chap00-sec03-zellen" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Screenshot eines Jupyter Notebooks mit Text, Python-Code und Ergebnisse des
+ausgeführten Python-Codes, das mit der klassischen Software “Jupyter Notebook”
+geladen wurde</span><a class="headerlink" href="#fig-chap00-sec03-zellen" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Eine Zelle kann entweder eine Text-Zelle (siehe Fig. 3, Schritt 1) oder eine
-Code-Zelle (siehe Fig. 3, Schritt 2) sein. In Text-Zellen wird die sogenannte
+<p>Eine Zelle kann entweder eine Text-Zelle (siehe Screenshot, Schritt 1) oder eine
+Code-Zelle (siehe Screenshot, Schritt 2) sein. In Text-Zellen wird die
 <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html">Markdown-Formatierung</a>
-benutzt. Um beispielsweise ein Wort fettgedruckt anzuzeigen, werden zwei
-Sternchen ** vor und hinter das Wort gesetzt, also ich bin <code class="docutils literal notranslate"><span class="pre">**fett**</span></code> gedruckt.</p>
-<p>In Code-Zellen (siehe Fig. 3, Schritt 2 oder 3) können Sie direkt Python-Code
-eingeben. Sie erkennen eine Code-Zelle daran, dass “In” für Input daneben steht.
-Eine Code-Zelle wird ausgeführt, indem Sie auf “Run” klicken (siehe Fig. 3,
-Schritt 4). Danach erscheint die Ausgabe, die der Python-Interpreter ggf.
-produziert (siehe Fig. 3, Schritt 5). Wird ein Ergebnis berechnet oder ein Wert
-zurückgegeben, so ist das an der Bezeichnung “Out” wie Output erkennbar.</p>
+verwendet. Um ein Wort fettgedruckt anzuzeigen, schreibt man zum Beispiel
+<code class="docutils literal notranslate"><span class="pre">**fett**</span></code>, was als fett dargestellt wird. In Code-Zellen (siehe Screenshot,
+Schritt 2 oder 3) können Sie direkt Python-Code eingeben. Eine Code-Zelle wird
+ausgeführt, indem Sie auf “Run” klicken (siehe Screenshot, Schritt 4). Danach
+erscheint die Ausgabe, die der Python-Interpreter ggf. erzeugt (siehe
+Screenshot, Schritt 5). Ergebnisse werden mit “Out” gekennzeichnet.</p>
 </section>
-<section id="was-ist-jupyterlab-und-welche-alternativen-gibt-es">
-<h2>Was ist JupyterLab und welche Alternativen gibt es?<a class="headerlink" href="#was-ist-jupyterlab-und-welche-alternativen-gibt-es" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">JupyterLab</a>
-ist eine webbasierte Entwicklungsumgebung, um Jupyter Notebooks zu öffnen, zu
-editieren, den Python-Code auszuführen und alles wieder zu speichern. Neben
-JupyterLab gibt es weitere Möglichkeiten, um Jupyter Notebooks zu bearbeiten.</p>
-<p>Die beiden Entwicklungsumgebungen</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.jetbrains.com/help/pycharm/jupyter-notebook-support.html">PyCharm</a></p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">Microsoft Visual Studio
-Code</a></p></li>
-</ul>
-<p>ermöglichen ebenfalls die direkte Bearbeitung von Jupyter Notebooks. Auch
-zahlreiche Cloudanbieter bieten direkt das Bearbeiten und Ausführen von Jupyter
-Notebooks an, z.B.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://colab.research.google.com/notebook">Google Colab</a></p></li>
-<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks">Microsoft
-Azure</a></p></li>
-<li><p><a class="reference external" href="https://deepnote.com">Deepnote</a></p></li>
-<li><p><a class="reference external" href="https://replit.com/template/jupyter-notebook">replit</a></p></li>
-</ul>
-<p>Wie bei allen Clouddiensten sollte man sich jedoch eingehend mit den
-Datenschutzbestimmungen des Anbieters vertraut machen, bevor man den Dienst in
-Anspruch nimmt. Aufgrund des Datenschutzes empfehle ich stets, Python/Anaconda
-lokal zu installieren.</p>
+<section id="python-als-taschenrechner">
+<h2>Python als Taschenrechner<a class="headerlink" href="#python-als-taschenrechner" title="Link to this heading">#</a></h2>
+<p>Bevor wir in die Programmierung einsteigen, benutzen wir Python erst einmal als
+Taschenrechner. Im Folgenden sehen Sie, wie die Grundrechenarten in Python
+verwendet werden:</p>
+<p>Addition:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Subtraktion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Multiplikation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">*</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Division:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Potenzierung:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sie können die obigen Code-Zellen verändern, zum Beispiel <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></code> in <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">5</span></code>
+ändern. So lernen Sie den Umgang mit Python-Anweisungen kennen.</p>
+<p>Wenn Sie dieses Skript als interaktives Jupyter Notebook öffnen, können Sie
+direkt in die Zellen klicken und den Code ändern. Falls Sie das Skript online
+lesen, klicken Sie bitte auf das Raketensymbol oben rechts und wählen „Live
+Code“, um interaktive Zellen zu aktivieren. Beim ersten Start kann dies etwas
+dauern.</p>
+<p>Um Übungen zu ermöglichen, enthalten manche Zellen nur einen Kommentar als
+Platzhalter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alles was nach dem Hashtag # steht, ist ein <strong>Kommentar</strong>. Kommentare werden von
+Python ignoriert und sind nur für uns Menschen gedacht.</p>
+<p>Selbstverständlich beherrscht Python auch Klammerregeln. Probieren Sie es aus!</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Lassen Sie Python den Term <span class="math notranslate nohighlight">\(3\cdot (7-10)+5\)</span> berechnen.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">7</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="ausgaben-mit-print">
+<h2>Ausgaben mit print<a class="headerlink" href="#ausgaben-mit-print" title="Link to this heading">#</a></h2>
+<p>Bei den obigen Rechenaufgaben wurde automatisch das Ergebnis der Rechnung
+angezeigt, sobald die Code-Zelle ausgeführt wurde. Dies ist eine Besonderheit
+der Jupyter Notebooks. In einem normalen Python-Programm würde das nicht
+funktionieren. Die interaktive Ausgabe der Jupyter Notebooks zeigt außerdem
+immer nur das Ergebnis der letzten Zeile an.</p>
+<p>Um beliebige Ergebnisse oder Texte gezielt auszugeben, gibt es die
+<strong>print()-Funktion</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das <strong>Argument</strong> wird in runde Klammern hinter den Funktionsnamen <code class="docutils literal notranslate"><span class="pre">print</span></code>
+geschrieben. Ein Argument ist sozusagen der Input, der an die Funktion übergeben
+wird, damit Python weiß, welcher Wert auf dem Bildschirm angezeigt werden soll.</p>
+<p>Das zweite Beispiel in der zweiten Zeile funktioniert genauso. Nur wird diesmal
+eine komplette Rechnung als Argument an die <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion übergeben. In dem
+Fall rechnet der Python-Interpreter erst den Wert der Rechnung, also <code class="docutils literal notranslate"><span class="pre">3+3=6</span></code> aus
+und übergibt dann die <code class="docutils literal notranslate"><span class="pre">6</span></code> an die <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion. Die <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion
+wiederum zeigt dann die <code class="docutils literal notranslate"><span class="pre">6</span></code> am Bildschirm an.</p>
+<p>Insgesamt zeigt daher der Python-Interpreter erst eine 2 und dann in der
+nächsten Zeile eine 6 an.</p>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Lassen Sie Python den Term <span class="math notranslate nohighlight">\(3:4\)</span> berechnen und geben Sie das Ergebnis mit der
+print()-Funktion aus.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Achtung: In Python wird für die Division <code class="docutils literal notranslate"><span class="pre">/</span></code> verwendet, nicht <code class="docutils literal notranslate"><span class="pre">:</span></code>. Das ist ein
+häufiger Fehler.</p>
+</div>
+<p>Python kann mit der <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion jedoch nicht nur Zahlen ausgeben, sondern
+auch Texte. Ein erster Versuch, einfach den Text als Argument der
+<code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion zu übergeben, scheitert leider, wie das nächste Beispiel zeigt.
+Entfernen Sie dazu das Kommentarzeichen <code class="docutils literal notranslate"><span class="pre">#</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(Hallo)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es erscheint eine Fehlermeldung mit dem Fehler: <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'Hallo'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code>. Der Grund hierfür ist, dass der Python-Interpreter versucht, eine
+sogenannte Variable oder eine Python-Anweisung mit dem Namen <code class="docutils literal notranslate"><span class="pre">Hallo</span></code> zu finden.
+Da es aber keines von beiden gibt, kommt die Fehlermeldung, dass <code class="docutils literal notranslate"><span class="pre">Hallo</span></code> nicht
+definiert wurde. Um den Text ausgeben zu lassen, werden um den Text einfache
+oder doppelte Anführungszeichen gesetzt, wie in dem folgenden Beispiel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hallo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hallo
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise admonition">
+<p class="admonition-title">Mini-Übung</p>
+<p>Probieren Sie aus was passiert, wenn Sie die einfachen Anführungszeichen <code class="docutils literal notranslate"><span class="pre">'</span></code>
+durch doppelte Anführungszeichen <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> ersetzen. Lassen Sie den Text Hallo Welt
+ausgeben.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="miniexercise toggle admonition">
+<p class="admonition-title">Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hallo Welt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>In Python sind sowohl einfache als auch doppelte Anführungszeichen erlaubt.
+Wenn ein Apostroph im Text vorkommt, sollten Sie doppelte Anführungszeichen
+verwenden.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion kann noch viel mehr, als wir in dieser Einführung
+gesehen haben. Wir werden in einem späteren Kapitel im Zusammenhang mit den
+sogenannten f-Strings nochmal darauf zurückkommen.</p>
+<p>Hinweis: Das folgende Video nutzt eine andere Entwicklungsumgebung (PyCharm) als
+wir in dieser Vorlesung (Jupyter Notebooks). Die grundlegenden Python-Befehle
+sind jedoch identisch. Fokussieren Sie sich ab Minute 9 auf die Python-Syntax,
+nicht auf die Bedienung der Software.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Video “Dein erstes Python-Programm” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oxXAb8IikHM"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen></iframe>
+</div>
+</details></section>
+<section id="zusammenfassung-und-ausblick">
+<h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
+<p>In diesem Kapitel haben wir Jupyter Notebooks kennengelernt, Python als
+Taschenrechner genutzt und die erste Python-Anweisung <code class="docutils literal notranslate"><span class="pre">print()</span></code> eingesetzt. Im
+nächsten Kapitel geht es um das Speichern von Daten und deren Verwaltung.</p>
 </section>
 </section>
 
@@ -712,10 +868,11 @@ lokal zu installieren.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warum-anaconda">Warum Anaconda?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-anaconda-und-start-jupyterlab-fur-jupyter-notebooks">Installation Anaconda und Start JupyterLab für Jupyter Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-sind-jupyter-notebooks">Was sind Jupyter Notebooks?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-ist-jupyterlab-und-welche-alternativen-gibt-es">Was ist JupyterLab und welche Alternativen gibt es?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-als-taschenrechner">Python als Taschenrechner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgaben-mit-print">Ausgaben mit print</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
   </nav></div>
 

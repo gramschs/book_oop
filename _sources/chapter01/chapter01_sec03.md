@@ -16,142 +16,236 @@ kernelspec:
 
 # 1.3 Jupyter Notebooks und Python als Taschenrechner
 
-```{admonition} Hinweise zur Vorlesung Objektorientierte Programmierung im WiSe 2025/26
-:class: warning
-Dieses Vorlesungsskript wird gerade umgebaut.
-```
+In dieser Vorlesung werden wir das Python-Programmieren mit Hilfe von Jupyter
+Notebooks lernen. Daher klären wir zunächst, was Jupyter Notebooks sind, und
+verwenden anschließend Python als Taschenrechner. Ergebnisse von einfachen
+Rechnungen lassen wir uns mit der `print()`-Funktion anzeigen.
 
-Python wird in der Regel mit dem Betriebsystem ausgeliefert. Für diese Vorlesung
-benötigen wir jedoch Python-Erweiterungen, die standardmäßig nicht installiert
-werden. Daher benutzen wir in dieser Vorlesung **Anaconda**, eine sehr bekannte
-Python-Distribution.
+## Lernziele
 
-Eine Python-Distribution ist eine Sammlung von Python-Softwarekomponenten. Sie
-umfasst den Python-Interpreter selbst, aber auch zusätzliche Bibliotheken und
-Frameworks, Entwicklungs- und Debugging-Tools sowie Anwendungen, die für die
-Entwicklung mit Python nützlich sein können.
-
-+++
-
-## Warum Anaconda?
-
-Anaconda ist eine Python-Distribution, die von der Firma Anaconda, Inc.
-entwickelt wird. Sie ist eine kostenlose Open-Source-Plattform, die es
-Python-Entwickler:innen ermöglicht, Python, R und andere Programmiersprachen
-sowie zahlreiche Bibliotheken und Tools auf einfache Weise zu installieren, zu
-verwalten und zu verwenden.
-
-Die Distribution enthält eine Reihe von nützlichen Paketen und Bibliotheken für
-wissenschaftliche Berechnungen, Datenanalyse, maschinelles Lernen und andere
-Anwendungen. Sie ist sowohl für Einsteiger als auch für fortgeschrittene
-Entwickler geeignet und bietet eine benutzerfreundliche Benutzeroberfläche, um
-Python und seine Bibliotheken zu verwalten und zu verwenden.
-
-## Installation Anaconda und Start JupyterLab für Jupyter Notebooks
-
-Hier ist eine Schritt-für-Schritt-Anleitung zum Installieren von Python mit der
-Distribution Anaconda für Windows und MacOS:
-
-1. Öffnen Sie die offizielle Anaconda-Website unter
-   <https://www.anaconda.com/products/individual> und laden Sie die neueste
-   Version von Anaconda für Ihr Betriebssystem herunter.
-2. Führen Sie die Installationsdatei aus und folgen Sie den Anweisungen auf dem
-   Bildschirm. Wählen Sie ggf. ein freies Installationsverzeichnis und stellen
-   Sie sicher, dass die Option "Add Anaconda to my PATH environment variable"
-   aktiviert ist.
-3. Öffnen Sie nach der Installation das Anaconda-Navigator-Programm, das im
-   Startmenü oder Launchpad verfügbar sein sollte.
-4. Um ein neues Jupyter Notebook für die Python-Programmierung zu erstellen,
-   klicken Sie auf "Home" im Anaconda-Navigator und wählen "JupyterLab"
-   aus. Alternativ können Sie JupyterLab auch mit dem Befehl "jupyter-lab" aus einem Terminal oder einer Konsole starten (Linux oder MacOS).
-5. Wählen Sie "Python 3 (ipykernel)" aus, um ein neues Notebook zu erstellen.
-6. Sie können jetzt Python-Code in dem Notebook schreiben und ausführen. Wenn
-   Sie zusätzliche Pakete benötigen, können Sie diese über den
-   "Environments"-Tab im Anaconda-Navigator installieren.
-
-```{figure} pics/fig_chap00_sec03_jupyterlab.png
-:name: fig_chap00_sec03_jupyterlab
-
-Startansicht der Software JupyterLab: ein neues Jupyter Notebook wird mit Klick auf den Button Python 3 (ipykernel) erstellt.
+```{admonition} Lernziele
+:class: goals
+* Sie wissen, was ein **Jupyter Notebook** ist.
+* Sie können Python als Taschenrechner benutzen.
+* Sie können Ergebnisse von Rechnungen mit **print()** anzeigen.
+* Sie wissen, was ein **Argument** einer Anweisung ist.
 ```
 
 ## Was sind Jupyter Notebooks?
 
 Jupyter Notebooks führen Text, Python-Code, Bilder und Videos in einem einzigen
-interaktiven digitalen Notizbuch zusammenzuführen. Sie sind eine der
-bekanntesten Anwendungen in der Data Science-Community und werden oft zur
-Datenanalyse, maschinellem Lernen und Visualisierung eingesetzt.
+interaktiven digitalen Notizbuch zusammen. Sie gehören zu den bekanntesten
+Anwendungen in der Programmierung und werden häufig für Datenanalyse,
+maschinelles Lernen, Simulationen und Visualisierungen eingesetzt.
 
-Ein Jupyter Notebook besteht aus einer Abfolge von Zellen, in denen Text, Code
-und Visualisierungen eingebettet werden. Die Zellen können entweder in der
-Programmiersprache Python oder in einer Reihe anderer Programmiersprachen wie R,
-Julia oder JavaScript geschrieben werden. Erkennbar sind Jupyter Notebooks an
-der Dateiendung `ipynb`.
+Ein Jupyter Notebook besteht aus einer Abfolge von Zellen, in denen Text,
+Code oder Grafiken eingebettet werden. Die Zellen können entweder in Python oder
+in anderen Programmiersprachen wie R, Julia oder JavaScript geschrieben sein.
+Erkennbar sind Jupyter Notebooks an der Dateiendung `.ipynb`.
 
 Die Kombination von Text, Code und Visualisierungen macht Jupyter Notebooks zu
-einem leistungsstarken Werkzeug für die Datenanalyse. Daten können direkt in den
-Notebooks eingegeben werden, und Ergebnisse können sofort dargestellt werden,
-ohne dass externe Anwendungen gestartet werden müssen.
-
-Jupyter Notebooks können auch einfach geteilt werden, indem sie als Datei oder
-über das Internet veröffentlicht werden. Das ermöglicht es Entwicklern und Data
-Scientists, ihre Arbeit schnell und einfach zu teilen und zu präsentieren, was
-für Zusammenarbeit und Teamarbeit in der Datenanalyse und im maschinellen Lernen
-unerlässlich ist.
-
-Insgesamt sind Jupyter Notebooks ein wichtiges Werkzeug für die Datenanalyse und
--visualisierung und haben dazu beigetragen, den Prozess der Analyse und
-Zusammenarbeit für Data Scientists und Entwickler zu vereinfachen.
-
-In dieser Vorlesung liegt der Fokus zwar nicht auf der Datenanalyse, aber die
-Mischung aus Text, Code und Visualisierungen machen Jupyter Notebooks auch zu
-einem sehr geeigneten Werkzeug, um das Programmieren selbst zu erlernen. In
-kurzen Texten können Programmierkonstrukte erläutert werden, um dann in einer
-Code-Zelle ausgeführt zu werden.
+einem besonders geeigneten Werkzeug für das Programmierenlernen: Konzepte
+werden im Text erläutert und können direkt in Code-Zellen ausprobiert werden.
 
 ```{figure} pics/fig_chap00_sec03_zellen.png
 :name: fig_chap00_sec03_zellen
 
-Screenshot eines Jupyter Notebooks mit Text, Python-Code und Ergebnisse des ausgeführten Python-Codes, das mit der klassischen Software "Jupyter Notebook" geladen wurde
+Screenshot eines Jupyter Notebooks mit Text, Python-Code und Ergebnisse des
+ausgeführten Python-Codes, das mit der klassischen Software "Jupyter Notebook"
+geladen wurde
 ```
 
-Eine Zelle kann entweder eine Text-Zelle (siehe Fig. 3, Schritt 1) oder eine
-Code-Zelle (siehe Fig. 3, Schritt 2) sein. In Text-Zellen wird die sogenannte
+Eine Zelle kann entweder eine Text-Zelle (siehe Screenshot, Schritt 1) oder eine
+Code-Zelle (siehe Screenshot, Schritt 2) sein. In Text-Zellen wird die
 [Markdown-Formatierung](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html)
-benutzt. Um beispielsweise ein Wort fettgedruckt anzuzeigen, werden zwei
-Sternchen ** vor und hinter das Wort gesetzt, also ich bin `**fett**` gedruckt.
+verwendet. Um ein Wort fettgedruckt anzuzeigen, schreibt man zum Beispiel
+`**fett**`, was als fett dargestellt wird. In Code-Zellen (siehe Screenshot,
+Schritt 2 oder 3) können Sie direkt Python-Code eingeben. Eine Code-Zelle wird
+ausgeführt, indem Sie auf "Run" klicken (siehe Screenshot, Schritt 4). Danach
+erscheint die Ausgabe, die der Python-Interpreter ggf. erzeugt (siehe
+Screenshot, Schritt 5). Ergebnisse werden mit "Out" gekennzeichnet.
 
-In Code-Zellen (siehe Fig. 3, Schritt 2 oder 3) können Sie direkt Python-Code
-eingeben. Sie erkennen eine Code-Zelle daran, dass "In" für Input daneben steht.
-Eine Code-Zelle wird ausgeführt, indem Sie auf "Run" klicken (siehe Fig. 3,
-Schritt 4). Danach erscheint die Ausgabe, die der Python-Interpreter ggf.
-produziert (siehe Fig. 3, Schritt 5). Wird ein Ergebnis berechnet oder ein Wert
-zurückgegeben, so ist das an der Bezeichnung "Out" wie Output erkennbar.
+## Python als Taschenrechner
 
-## Was ist JupyterLab und welche Alternativen gibt es?
+Bevor wir in die Programmierung einsteigen, benutzen wir Python erst einmal als
+Taschenrechner. Im Folgenden sehen Sie, wie die Grundrechenarten in Python
+verwendet werden:
 
-[JupyterLab](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html)
-ist eine webbasierte Entwicklungsumgebung, um Jupyter Notebooks zu öffnen, zu
-editieren, den Python-Code auszuführen und alles wieder zu speichern. Neben
-JupyterLab gibt es weitere Möglichkeiten, um Jupyter Notebooks zu bearbeiten.
+Addition:
 
-Die beiden Entwicklungsumgebungen
+```{code-cell} ipython3
+2+3
+```
 
-* [PyCharm](https://www.jetbrains.com/help/pycharm/jupyter-notebook-support.html)
-* [Microsoft Visual Studio
-  Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
+Subtraktion:
 
-ermöglichen ebenfalls die direkte Bearbeitung von Jupyter Notebooks. Auch
-zahlreiche Cloudanbieter bieten direkt das Bearbeiten und Ausführen von Jupyter
-Notebooks an, z.B.
+```{code-cell} ipython3
+2-3
+```
 
-* [Google Colab](https://colab.research.google.com/notebook)
-* [Microsoft
-  Azure](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks)
-* [Deepnote](https://deepnote.com)
-* [replit](https://replit.com/template/jupyter-notebook)
+Multiplikation:
 
-Wie bei allen Clouddiensten sollte man sich jedoch eingehend mit den
-Datenschutzbestimmungen des Anbieters vertraut machen, bevor man den Dienst in
-Anspruch nimmt. Aufgrund des Datenschutzes empfehle ich stets, Python/Anaconda
-lokal zu installieren.
+```{code-cell} ipython3
+2*4
+```
+
+Division:
+
+```{code-cell} ipython3
+8/2
+```
+
+Potenzierung:
+
+```{code-cell} ipython3
+3**2
+```
+
+Sie können die obigen Code-Zellen verändern, zum Beispiel `2 + 3` in `2 + 5`
+ändern. So lernen Sie den Umgang mit Python-Anweisungen kennen.
+
+Wenn Sie dieses Skript als interaktives Jupyter Notebook öffnen, können Sie
+direkt in die Zellen klicken und den Code ändern. Falls Sie das Skript online
+lesen, klicken Sie bitte auf das Raketensymbol oben rechts und wählen „Live
+Code“, um interaktive Zellen zu aktivieren. Beim ersten Start kann dies etwas
+dauern.
+
+Um Übungen zu ermöglichen, enthalten manche Zellen nur einen Kommentar als
+Platzhalter:
+
+```{code-cell} ipython3
+# Geben Sie nach diesem Kommentar Ihren Code ein:
+```
+
+Alles was nach dem Hashtag # steht, ist ein **Kommentar**. Kommentare werden von
+Python ignoriert und sind nur für uns Menschen gedacht.
+
+Selbstverständlich beherrscht Python auch Klammerregeln. Probieren Sie es aus!
+
+```{admonition} Mini-Übung
+:class: miniexercise
+Lassen Sie Python den Term $3\cdot (7-10)+5$ berechnen. 
+```
+
+```{code-cell} ipython3
+# Geben Sie nach diesem Kommentar Ihren Code ein:
+```
+
+````{admonition} Lösung
+:class: miniexercise, toggle
+```python
+3 * (7-10) + 5
+```
+````
+
+## Ausgaben mit print
+
+Bei den obigen Rechenaufgaben wurde automatisch das Ergebnis der Rechnung
+angezeigt, sobald die Code-Zelle ausgeführt wurde. Dies ist eine Besonderheit
+der Jupyter Notebooks. In einem normalen Python-Programm würde das nicht
+funktionieren. Die interaktive Ausgabe der Jupyter Notebooks zeigt außerdem
+immer nur das Ergebnis der letzten Zeile an.
+
+Um beliebige Ergebnisse oder Texte gezielt auszugeben, gibt es die
+**print()-Funktion**.
+
+```{code-cell} ipython3
+print(2)
+print(3+3)
+```
+
+Das **Argument** wird in runde Klammern hinter den Funktionsnamen `print`
+geschrieben. Ein Argument ist sozusagen der Input, der an die Funktion übergeben
+wird, damit Python weiß, welcher Wert auf dem Bildschirm angezeigt werden soll.
+
+Das zweite Beispiel in der zweiten Zeile funktioniert genauso. Nur wird diesmal
+eine komplette Rechnung als Argument an die `print()`-Funktion übergeben. In dem
+Fall rechnet der Python-Interpreter erst den Wert der Rechnung, also `3+3=6` aus
+und übergibt dann die `6` an die `print()`-Funktion. Die `print()`-Funktion
+wiederum zeigt dann die `6` am Bildschirm an.
+
+Insgesamt zeigt daher der Python-Interpreter erst eine 2 und dann in der
+nächsten Zeile eine 6 an.
+
+```{admonition} Mini-Übung
+:class: miniexercise
+Lassen Sie Python den Term $3:4$ berechnen und geben Sie das Ergebnis mit der
+print()-Funktion aus.
+```
+
+```{code-cell} ipython3
+# Geben Sie nach diesem Kommentar Ihren Code ein:
+```
+
+````{admonition} Lösung
+:class: miniexercise, toggle
+```python
+print(3/4)
+```
+Achtung: In Python wird für die Division `/` verwendet, nicht `:`. Das ist ein
+häufiger Fehler.
+````
+
+Python kann mit der `print()`-Funktion jedoch nicht nur Zahlen ausgeben, sondern
+auch Texte. Ein erster Versuch, einfach den Text als Argument der
+`print()`-Funktion zu übergeben, scheitert leider, wie das nächste Beispiel zeigt.
+Entfernen Sie dazu das Kommentarzeichen `#`:
+
+```{code-cell} ipython3
+# print(Hallo)
+```
+
+Es erscheint eine Fehlermeldung mit dem Fehler: `NameError: name 'Hallo' is not
+defined`. Der Grund hierfür ist, dass der Python-Interpreter versucht, eine
+sogenannte Variable oder eine Python-Anweisung mit dem Namen `Hallo` zu finden.
+Da es aber keines von beiden gibt, kommt die Fehlermeldung, dass `Hallo` nicht
+definiert wurde. Um den Text ausgeben zu lassen, werden um den Text einfache
+oder doppelte Anführungszeichen gesetzt, wie in dem folgenden Beispiel.
+
+```{code-cell} ipython3
+print('Hallo')
+```
+
+```{admonition} Mini-Übung
+:class: miniexercise
+Probieren Sie aus was passiert, wenn Sie die einfachen Anführungszeichen `'`
+durch doppelte Anführungszeichen `"` ersetzen. Lassen Sie den Text Hallo Welt
+ausgeben.
+```
+
+```{code-cell} ipython3
+# Geben Sie nach diesem Kommentar Ihren Code ein:
+```
+
+````{admonition} Lösung
+:class: miniexercise, toggle
+```python
+print("Hallo Welt")
+```
+````
+
+In Python sind sowohl einfache als auch doppelte Anführungszeichen erlaubt.
+Wenn ein Apostroph im Text vorkommt, sollten Sie doppelte Anführungszeichen
+verwenden.
+
+Die `print()`-Funktion kann noch viel mehr, als wir in dieser Einführung
+gesehen haben. Wir werden in einem späteren Kapitel im Zusammenhang mit den
+sogenannten f-Strings nochmal darauf zurückkommen.
+
+Hinweis: Das folgende Video nutzt eine andere Entwicklungsumgebung (PyCharm) als
+wir in dieser Vorlesung (Jupyter Notebooks). Die grundlegenden Python-Befehle
+sind jedoch identisch. Fokussieren Sie sich ab Minute 9 auf die Python-Syntax,
+nicht auf die Bedienung der Software.
+
+```{dropdown} Video "Dein erstes Python-Programm" von Programmieren Starten
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oxXAb8IikHM"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen></iframe>
+```
+
+## Zusammenfassung und Ausblick
+
+In diesem Kapitel haben wir Jupyter Notebooks kennengelernt, Python als
+Taschenrechner genutzt und die erste Python-Anweisung `print()` eingesetzt. Im
+nächsten Kapitel geht es um das Speichern von Daten und deren Verwaltung.

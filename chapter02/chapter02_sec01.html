@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -61,8 +61,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter02/chapter02_sec01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -178,6 +176,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec02.html">1.2 Algorithmus und Programmiersprachen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec03.html">1.3 Jupyter Notebooks und Python als Taschenrechner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec04.html">Übungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter01/chapter01_sec05.html">Installation</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter02_sec00.html">2. Daten speichern und verarbeiten</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -504,9 +503,6 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-als-taschenrechner">Python als Taschenrechner</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgaben-mit-print">Ausgaben mit print</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weiteres-lernmaterial">Weiteres Lernmaterial</a></li>
 </ul>
             </nav>
         </div>
@@ -544,261 +540,6 @@ zu Beginn des Textes und zum Ende begrenzt werden.</p></li>
 </ul>
 </div>
 </section>
-<section id="python-als-taschenrechner">
-<h2>Python als Taschenrechner<a class="headerlink" href="#python-als-taschenrechner" title="Link to this heading">#</a></h2>
-<p>Bevor wir in die Programmierung einsteigen, benutzen wir Python erst einmal als
-Taschenrechner. Im Folgenden sehen Sie, wie die Grundrechenarten in Python
-verwendet werden:</p>
-<p>Addition:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-</pre></div>
-</div>
-</div>
-</div>
-<p>Subtraktion:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
-</pre></div>
-</div>
-</div>
-</div>
-<p>Multiplikation:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">*</span><span class="mi">4</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
-</pre></div>
-</div>
-</div>
-</div>
-<p>Division:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
-</pre></div>
-</div>
-</div>
-</div>
-<p>Potenzierung:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">**</span><span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
-</pre></div>
-</div>
-</div>
-</div>
-<p>In diesem interaktiven Vorlesungsskript können Sie Python direkt ausprobieren.
-Es ist ein großer Vorteil der Jupyter Notebooks, dass in einem Dokument
-Text-Zellen und Code-Zellen gemischt werden können. Diesen Vorteil nutze ich
-aus, um Ihnen den Einstieg in die Programmierung zu erleichtern. Die
-Vorlesungsskripte sind so aufgebaut, dass ich Ihnen erst ein
-Programmierkonstrukt erläutere und Sie dann die Möglichkeit haben, das neu
-erlernte Wissen gleich in Python auszuprobieren.</p>
-<p>Die obigen Zellen sind Code-Zellen. Sie können daher direkt in einer der oberen
-Code-Zellen beispielsweise die Additionsaufgabe <code class="docutils literal notranslate"><span class="pre">2+3</span></code> in <code class="docutils literal notranslate"><span class="pre">2+5</span></code> abändern, um sich
-mit den Python-Kommandos vertraut zu machen. Wenn Sie dieses Skript als Jupyter
-Notebook durcharbeiten, können Sie direkt mit dem Cursor in eine der obigen
-Code-Zellen klicken und den dort stehenden Code abändern. Wenn Sie dieses Skript
-Online lesen, klicken Sie bitte zuerst auf das Raketensymbol oben rechts und auf
-Live Code, um eine interaktive Code-Zelle erzeugen zu lassen. Beim ersten Start
-des Live Codes kann es etwas länger dauern. Sie erkennen, dass die Code-Zelle
-interaktiv geworden ist, wenn die Knöpfe <code class="docutils literal notranslate"><span class="pre">run</span></code>, <code class="docutils literal notranslate"><span class="pre">restart</span></code> und <code class="docutils literal notranslate"><span class="pre">restart</span> <span class="pre">&amp;</span> <span class="pre">run</span> <span class="pre">all</span></code> erschienen sind. Dann geben Sie Ihren Code ein und drücken auf run.</p>
-<p>Technisch gesehen ist es einfacher, wenn Code-Zellen schon existieren. Im
-Jupyter Notebook selbst lässt sich eine Code-Zelle einfach einfügen. In der
-Online-Variante dieses Vorlesungsskriptes besteht diese Möglichkeit
-bedauerlicherweise nicht. Daher werde ich für kleine Mini-Übungen zwischendurch
-Code-Zellen einfügen, die aber noch keinen Code enthalten, sondern nur als
-Platzhalter dienen sollen. Damit Sie solche Platzhalter-Code-Zellen erkennen,
-beschrifte ich diese Zellen mit einem Kommentar. Das sieht dann folgendermaßen
-aus:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Alles was nach dem Hashtag # kommt, wird von Python ignoriert. Die sogenannten
-<strong>Kommentare</strong>, die durch das Hashtag-Zeichen eingeleitet werden, sind für uns
-Menschen bestimmt.</p>
-<p>Selbstverständlich beherrscht Python auch Klammerregeln. Probieren Sie es aus!
-Geben Sie in die Code-Zelle Ihren Code ein und lassen Sie die Code-Zelle
-ausführen. Die Lösungen zu den Mini-Übungen finden Sie im
-<a class="reference external" href="https://gramschs.github.io/book_python/intro.html">Online-Skript</a> an der
-Stelle, an der sich die jeweilige Mini-Übung befindet.</p>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Lassen Sie Python den Term <span class="math notranslate nohighlight">\(3\cdot (7-10)+5\)</span> berechnen.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">7</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="ausgaben-mit-print">
-<h2>Ausgaben mit print<a class="headerlink" href="#ausgaben-mit-print" title="Link to this heading">#</a></h2>
-<p>Jetzt lernen Sie das erste Python-Kommando kennen, um dem Computer eine
-Anweisung zu geben. Bei den obigen Rechenaufgaben wurde automatisch das Ergebnis
-der Rechnung angezeigt, sobald die Code-Zelle ausgeführt wurde. Dies ist eine
-Besonderheit der Jupyter Notebooks, würde aber in einem normalen Python-Programm
-nicht funktionieren. Auch möchte man vielleicht ein Zwischenergebnis anzeigen
-lassen. Die interaktive Ausgabe der Jupyter Notebooks zeigt jedoch immer nur den
-Inhalt der letzten Zeile an.</p>
-<p>Für die Anzeige von Rechenergebnissen oder Texten gibt es in Python die
-<strong>print()</strong>-Funktion. Die print()-Funktion in Python gibt den Wert oder die
-Werte aus, die ihr als Argumente übergeben werden. Das kann zum Beispiel eine
-Zahl sein oder eine Rechenaufgabe, wie in dem folgenden Beispiel.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-6
-</pre></div>
-</div>
-</div>
-</div>
-<p>In der ersten Zeile ist das Argument für die print()-Funktion die Zahl 2. Das
-Argument wird in runde Klammern hinter den Funktionsnamen <code class="docutils literal notranslate"><span class="pre">print</span></code> geschrieben.
-Ein Argument ist sozusagen der Input, der an die print()-Funktion übergeben
-wird, damit der Python-Interpreter weiß, welcher Wert auf dem Bildschirm
-angezeigt werden soll.</p>
-<p>Das zweite Beispiel in der zweiten Zeile funktioniert genauso. Nur wird diesmal
-eine komplette Rechnung als Argument an die print()-Funktion übergeben. In dem
-Fall rechnet der Python-Interpreter erst den Wert der Rechnung, also <code class="docutils literal notranslate"><span class="pre">3+3=6</span></code> aus
-und übergibt dann die <code class="docutils literal notranslate"><span class="pre">6</span></code> an die print()-Funktion. Die print()-Funktion wiederum
-zeigt dann die <code class="docutils literal notranslate"><span class="pre">6</span></code> am Bildschirm an.</p>
-<p>Insgesamt zeigt daher der Python-Interpreter erst eine 2 und dann in der
-nächsten Zeile eine 6 an.</p>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Lassen Sie Python den Term <span class="math notranslate nohighlight">\(3:4\)</span> berechnen und geben Sie das Ergebnis mit der print()-Funktion aus.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>Python kann mit der print()-Funktion jedoch nicht nur Zahlen ausgeben, sondern
-auch Texte. Ein erster Versuch, einfach den Text als Argument der
-print()-Funktion zu übergeben, scheitert leider, wie das nächste Beispiel zeigt.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Hallo</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">Hallo</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;Hallo&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<p>Es erscheint eine Fehlermeldung mit dem Fehler: <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'Hallo'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code>. Der Grund hierfür ist, dass der Python-Interpreter versucht, eine
-sogenannte Variable oder ein Python-Kommando mit dem Namen <code class="docutils literal notranslate"><span class="pre">Hallo</span></code> zu finden. Da
-es aber keines von beiden gibt, kommt die Fehlermeldung, dass <code class="docutils literal notranslate"><span class="pre">Hallo</span></code> nicht
-definiert wurde. Um den Text ausgeben zu lassen, werden um den Text einfache
-oder doppelte Anführungszeichen gesetzt, wie in dem folgenden Beispiel.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hallo&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise admonition">
-<p class="admonition-title">Mini-Übung</p>
-<p>Probieren Sie aus was passiert, wenn Sie die einfachen Anführungszeichen <code class="docutils literal notranslate"><span class="pre">'</span></code>
-durch doppelte Anführungszeichen <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> ersetzen. Lassen Sie den Text Hallo Welt
-ausgeben :-)</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geben Sie nach diesem Kommentar Ihren Code ein:</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="miniexercise toggle admonition">
-<p class="admonition-title">Lösung</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hallo Welt&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>In Python sind beide Arten von Anführungszeichen erlaubt und werden manchmal
-auch gebraucht. Wenn beispielsweise ein Apostroph in einem Text gebraucht wird,
-müssen die äußeren Anführungszeichen die doppelten Anführungszeichen sein. Der
-Python-Interpreter erwartet nämlich immer ein Paar von Anführungszeichen, damit
-eindeutig ist, wo der Text beginnt und wo er endet.</p>
-<p>Die print()-Funktion kann noch einiges mehr, als wir in dieser Einführung
-gesehen haben. Wir werden in einem späteren Kapitel im Zusammenhang mit den
-sogenannten f-Strings nochmal darauf zurückkommen.</p>
-</section>
-<section id="weiteres-lernmaterial">
-<h2>Weiteres Lernmaterial<a class="headerlink" href="#weiteres-lernmaterial" title="Link to this heading">#</a></h2>
-<p>In dem folgenden Video wird zunächst die Installation von Python (Anaconda)
-gezeigt. Im Gegensatz zu unserer Vorlesung wird aber die Entwickungsumgebung
-PyCharm anstatt Jupyter Notebooks genutzt. Daher können Sie gerne den ersten
-Teil des Videos überspringen und ab ca. Minute 9 einsteigen.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video “Dein erstes Python-Programm” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oxXAb8IikHM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-</details></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -867,9 +608,6 @@ Teil des Videos überspringen und ab ca. Minute 9 einsteigen.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-als-taschenrechner">Python als Taschenrechner</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgaben-mit-print">Ausgaben mit print</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weiteres-lernmaterial">Weiteres Lernmaterial</a></li>
 </ul>
   </nav></div>
 

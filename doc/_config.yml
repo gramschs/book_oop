@@ -47,6 +47,7 @@ sphinx:
     html_extra_path: ['assets']
     html_show_copyright: false
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    suppress_warnings: ["mystnb.unknown_mime_type"]
   extra_extensions:
     - sphinx_togglebutton    
 

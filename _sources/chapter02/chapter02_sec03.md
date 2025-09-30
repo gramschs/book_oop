@@ -156,50 +156,6 @@ Details in diesem Video.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/u_ECGvn1Z2c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ```
 
-## Zuweisungsoperator
-
-Wichtig ist, dass das `=` in der Informatik eine andere Bedeutung hat als in der
-Mathematik. = meint nicht das Gleichheitszeichen, sondern den sogenannten
-**Zuweisungsoperator**. Das ist in der Programmierung ein Kommando, das eine
-Schublade befüllt oder technischer ausgedrückt, ein Objekt einer Variable
-zuweist.
-
-Sehr häufig findet man Code wie
-
-```python
-x = x + 1
-```
-
-Würden wir dies als Gleichung lesen, wie wir es aus der Mathematik gewohnt sind,
-also $x = x+1$, könnten wir $x$ auf beiden Seiten subtrahieren und erhalten
-$0=1$. Wir wissen, dass dies nicht wahr ist, also stimmt hier etwas nicht.
-
-In Python sind "Gleichungen" keine mathematischen Gleichungen, sondern
-Zuweisungen. "=" ist kein Gleichheitszeichen im mathematischen Sinne, sondern
-eine Zuweisung. Die Zuweisung muss immer in der folgenden Weise zweistufig
-gelesen werden:
-
-1. Berechne den Wert auf der rechten Seite (also $x+1$).
-2. Weise den Wert auf der rechten Seite dem auf der linken Seite stehenden
-   Variablennamen zu.
-
-Wir probieren eine solche Zuweisung in der folgenden Code-Zelle aus und benutzen
-auch gleich die `print()`-Funktion, um den Wert der Variablen `x` ausgeben zu
-lassen:
-
-```{code-cell} ipython3
-x = 4     
-x = x + 1
-print(x)
-```
-
-Der Zuweisungsoperator ist äußerst wichtig in der Python-Programmierung. Daher
-empfehle ich Ihnen folgende Video.
-
-```{dropdown} Video "Der Zuweisungsoperator" von Programmieren Starten
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XKFQ2_et5k8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-```
-
 ## Zusammenfassung und Ausblick
 
 Das EVA-Prinzip ist das grundlegende Prinzip der Datenverarbeitung. Mit den

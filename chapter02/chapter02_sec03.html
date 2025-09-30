@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/myadmonitions.css?v=0a82a4d9" />
@@ -61,8 +61,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter02/chapter02_sec03';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -508,7 +506,6 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-und-ausgabe-sowie-das-eva-prinzip">Ein- und Ausgabe sowie das EVA-Prinzip</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-input-funktion">Die input()-Funktion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umwandlung-von-datentypen">Umwandlung von Datentypen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zuweisungsoperator">Zuweisungsoperator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
             </nav>
@@ -656,54 +653,6 @@ Details in diesem Video.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/u_ECGvn1Z2c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 </details></section>
-<section id="zuweisungsoperator">
-<h2>Zuweisungsoperator<a class="headerlink" href="#zuweisungsoperator" title="Link to this heading">#</a></h2>
-<p>Wichtig ist, dass das <code class="docutils literal notranslate"><span class="pre">=</span></code> in der Informatik eine andere Bedeutung hat als in der
-Mathematik. = meint nicht das Gleichheitszeichen, sondern den sogenannten
-<strong>Zuweisungsoperator</strong>. Das ist in der Programmierung ein Kommando, das eine
-Schublade befüllt oder technischer ausgedrückt, ein Objekt einer Variable
-zuweist.</p>
-<p>Sehr häufig findet man Code wie</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<p>Würden wir dies als Gleichung lesen, wie wir es aus der Mathematik gewohnt sind,
-also <span class="math notranslate nohighlight">\(x = x+1\)</span>, könnten wir <span class="math notranslate nohighlight">\(x\)</span> auf beiden Seiten subtrahieren und erhalten
-<span class="math notranslate nohighlight">\(0=1\)</span>. Wir wissen, dass dies nicht wahr ist, also stimmt hier etwas nicht.</p>
-<p>In Python sind “Gleichungen” keine mathematischen Gleichungen, sondern
-Zuweisungen. “=” ist kein Gleichheitszeichen im mathematischen Sinne, sondern
-eine Zuweisung. Die Zuweisung muss immer in der folgenden Weise zweistufig
-gelesen werden:</p>
-<ol class="arabic simple">
-<li><p>Berechne den Wert auf der rechten Seite (also <span class="math notranslate nohighlight">\(x+1\)</span>).</p></li>
-<li><p>Weise den Wert auf der rechten Seite dem auf der linken Seite stehenden
-Variablennamen zu.</p></li>
-</ol>
-<p>Wir probieren eine solche Zuweisung in der folgenden Code-Zelle aus und benutzen
-auch gleich die <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion, um den Wert der Variablen <code class="docutils literal notranslate"><span class="pre">x</span></code> ausgeben zu
-lassen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>     
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-</pre></div>
-</div>
-</div>
-</div>
-<p>Der Zuweisungsoperator ist äußerst wichtig in der Python-Programmierung. Daher
-empfehle ich Ihnen folgende Video.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Video “Der Zuweisungsoperator” von Programmieren Starten</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XKFQ2_et5k8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-</details></section>
 <section id="zusammenfassung-und-ausblick">
 <h2>Zusammenfassung und Ausblick<a class="headerlink" href="#zusammenfassung-und-ausblick" title="Link to this heading">#</a></h2>
 <p>Das EVA-Prinzip ist das grundlegende Prinzip der Datenverarbeitung. Mit den
@@ -782,7 +731,6 @@ Python-Programme zu schreiben.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-und-ausgabe-sowie-das-eva-prinzip">Ein- und Ausgabe sowie das EVA-Prinzip</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-input-funktion">Die input()-Funktion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umwandlung-von-datentypen">Umwandlung von Datentypen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zuweisungsoperator">Zuweisungsoperator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-und-ausblick">Zusammenfassung und Ausblick</a></li>
 </ul>
   </nav></div>
